@@ -54,7 +54,12 @@
 
   function highlightActive(hash) {
     document.querySelectorAll(".nav-list a").forEach(function (a) {
-      a.classList.toggle("active", a.dataset.route === hash);
+      const r = a.dataset.route;
+      let on = r === hash;
+      if (!on && r.startsWith("#/cat/")) {
+        on = hash === r || hash.startsWith(r + "/"); // 詳情頁也点亮所屬分類
+      }
+      a.classList.toggle("active", on);
     });
   }
 
@@ -105,14 +110,17 @@
     const checkins = loadCheckins();
 
     let html = '<div class="page"><div class="page-head"><h2>' + esc(cat.icon) + " " + esc(cat.title) + '</h2>';
-    html += '<p class="page-sub">做到一項、打卡一項。贵在持續，不在速度。</p></div><ul class="checklist">';
+    html += '<p class="page-sub">做到一項、打卡一項。點條目標題可看「如何做到」學習指南。</p></div><ul class="checklist">';
 
     cat.items.forEach(function (item, i) {
       const key = cat.id + ":" + i;
       const checked = !!checkins[key];
       html += '<li class="check-item' + (checked ? " done" : "") + '">';
-      html += '<label><input type="checkbox" data-key="' + esc(key) + '"' + (checked ? " checked" : "") + " />";
-      html += '<span class="check-text">' + esc(item.text) + '</span></label>';
+      html += '<div class="check-row">';
+      html += '<label class="check-label"><input type="checkbox" data-key="' + esc(key) + '"' + (checked ? " checked" : "") + " />";
+      html += '<span class="check-text"><a class="learn-link" href="#/cat/' + cat.id + "/" + i + '">' + esc(item.text) + '</a></span></label>';
+      html += '<a class="learn-btn" href="#/cat/' + cat.id + "/" + i + '" title="學習如何做到">如何做到 →</a>';
+      html += '</div>';
       if (item.note) html += '<p class="check-note">📌 ' + esc(item.note) + '</p>';
       html += '</li>';
     });
@@ -128,6 +136,87 @@
         cb.closest(".check-item").classList.toggle("done", cb.checked);
       });
     });
+  }
+
+  // ---- 學習指南詳情頁：#/cat/<catId>/<itemIndex> ----
+  const learnCache = {};
+
+  function renderLearn(catId, idx) {
+    const cat = (CFG.categories || []).find(function (c) { return c.id === catId; });
+    if (!cat || !cat.items[idx]) return renderNotFound();
+    const item = cat.items[idx];
+    const key = cat.id + ":" + idx;
+    const checkins = loadCheckins();
+    const checked = !!checkins[key];
+
+    function paint(guides) {
+      const g = guides && guides[idx];
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/cat/' + cat.id + '">← 返回「' + esc(cat.title) + '」</a>';
+      html += '<h2>' + esc(cat.icon) + " " + esc(item.text) + '</h2></div>';
+
+      // 打卡列
+      html += '<div class="learn-checkrow"><label><input type="checkbox" data-key="' + esc(key) + '"' + (checked ? " checked" : "") + " />";
+      html += '<span>我已經做到了</span></label></div>';
+
+      if (!g) {
+        html += '<p class="hint">📖 這份學習指南還在撰寫中，請稍後再試。</p></div>';
+        content.innerHTML = html;
+        bindLearnCheck();
+        return;
+      }
+
+      html += '<section class="learn-block"><h3>為什麼必會</h3><p>' + esc(g.intro) + '</p></section>';
+      html += '<section class="learn-block"><h3>如何做到</h3><ol class="step-list">';
+      (g.steps || []).forEach(function (s) { html += '<li>' + esc(s) + '</li>'; });
+      html += '</ol>';
+      if (g.time) html += '<p class="learn-time">⏱ ' + esc(g.time) + '</p>';
+      html += '</section>';
+
+      if ((g.pitfalls || []).length) {
+        html += '<section class="learn-block"><h3>常見地雷</h3><ul class="pitfall-list">';
+        g.pitfalls.forEach(function (p) { html += '<li>⚠️ ' + esc(p) + '</li>'; });
+        html += '</ul></section>';
+      }
+
+      if ((g.resources || []).length) {
+        html += '<section class="learn-block"><h3>進階資源</h3><ul class="resource-list">';
+        g.resources.forEach(function (r) {
+          html += '<li>📚 ';
+          if (r.url) html += '<a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.title) + ' ↗</a>';
+          else html += esc(r.title);
+          html += '</li>';
+        });
+        html += '</ul></section>';
+      }
+
+      // 上一項 / 下一項
+      html += '<nav class="learn-nav">';
+      if (idx > 0) html += '<a href="#/cat/' + cat.id + "/" + (idx - 1) + '">← 上一項</a>';
+      if (idx < cat.items.length - 1) html += '<a href="#/cat/' + cat.id + "/" + (idx + 1) + '">下一項 →</a>';
+      html += '</nav></div>';
+
+      content.innerHTML = html;
+      bindLearnCheck();
+    }
+
+    function bindLearnCheck() {
+      const cb = content.querySelector('.learn-checkrow input[type="checkbox"]');
+      if (!cb) return;
+      cb.addEventListener("change", function () {
+        const d = loadCheckins();
+        if (cb.checked) d[cb.dataset.key] = true; else delete d[cb.dataset.key];
+        saveCheckins(d);
+      });
+    }
+
+    if (learnCache[catId]) return paint(learnCache[catId]);
+
+    content.innerHTML = '<div class="page"><p class="hint">📖 載入學習指南中…</p></div>';
+    fetch("learn/" + encodeURIComponent(catId) + ".json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (data) { learnCache[catId] = data; paint(data); })
+      .catch(function () { paint(null); });
   }
 
   function renderFinance(fid) {
@@ -175,7 +264,14 @@
     highlightActive(hash);
     sidebar.classList.remove("open");
     if (hash === "#/home" || hash === "") return renderHome();
-    if (hash.startsWith("#/cat/")) return renderCategory(decodeURIComponent(hash.slice(6)));
+    if (hash.startsWith("#/cat/")) {
+      const rest = decodeURIComponent(hash.slice("#/cat/".length));
+      const slash = rest.indexOf("/");
+      if (slash === -1) return renderCategory(rest);
+      const idx = parseInt(rest.slice(slash + 1), 10);
+      if (Number.isNaN(idx)) return renderNotFound();
+      return renderLearn(rest.slice(0, slash), idx);
+    }
     if (hash.startsWith("#/finance/")) return renderFinance(decodeURIComponent(hash.slice("#/finance/".length)));
     renderNotFound();
   }
