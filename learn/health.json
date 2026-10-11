@@ -17,9 +17,18 @@
       "只做一年就中斷——健檢真正的價值在跨年趨勢，單年正常不代表可以停。"
     ],
     "resources": [
-      { "title": "衛生福利部國民健康署（成人健康檢查建議）", "url": "https://www.hpa.gov.tw" },
-      { "title": "衛生福利部中央健康保險署（成人健康檢查／癌症篩檢給付）", "url": "https://www.nhi.gov.tw" },
-      { "title": "衛生福利部", "url": "https://www.mohw.gov.tw" }
+      {
+        "title": "衛生福利部國民健康署（成人健康檢查建議）",
+        "url": "https://www.hpa.gov.tw/"
+      },
+      {
+        "title": "衛生福利部中央健康保險署（成人健康檢查／癌症篩檢給付）",
+        "url": "https://www.nhi.gov.tw"
+      },
+      {
+        "title": "衛生福利部",
+        "url": "https://www.mohw.gov.tw"
+      }
     ]
   },
   {
@@ -39,8 +48,14 @@
       "等「有空的一整段時間」才運動——10 分鐘×3 段累積同樣计入每週 150 分鐘，碎片化不是藉口。"
     ],
     "resources": [
-      { "title": "教育部體育署（運動 312、運動 Night 等推廣計畫）", "url": "https://www.sports.gov.tw" },
-      { "title": "世界衛生組織《身體活動與久坐行為指引》", "url": "" }
+      {
+        "title": "教育部體育署（運動 312、運動 Night 等推廣計畫）",
+        "url": "https://www.sports.gov.tw"
+      },
+      {
+        "title": "世界衛生組織《身體活動與久坐行為指引》",
+        "url": ""
+      }
     ]
   },
   {
@@ -61,8 +76,14 @@
       "躺在床上滑手機等睡意——藍光與資訊刺激直接抑制睡意激素，越滑越清醒。"
     ],
     "resources": [
-      { "title": "衛生福利部（健康促進 與睡眠相關宣導資訊）", "url": "https://www.mohw.gov.tw" },
-      { "title": "美國國家睡眠基金會睡眠建議（Sleep Foundation）", "url": "" }
+      {
+        "title": "衛生福利部（健康促進 與睡眠相關宣導資訊）",
+        "url": "https://www.mohw.gov.tw"
+      },
+      {
+        "title": "美國國家睡眠基金會睡眠建議（Sleep Foundation）",
+        "url": ""
+      }
     ]
   },
   {
@@ -83,8 +104,14 @@
       "牙線用兩次就放棄——改用牙線棒或齒間刷，工具的堅持度比正確性優先。"
     ],
     "resources": [
-      { "title": "衛生福利部中央健康保險署（牙醫給付／洗牙補助）", "url": "https://www.nhi.gov.tw" },
-      { "title": "衛生福利部國民健康署（口腔保健）", "url": "https://www.hpa.gov.tw" }
+      {
+        "title": "衛生福利部中央健康保險署（牙醫給付／洗牙補助）",
+        "url": "https://www.nhi.gov.tw"
+      },
+      {
+        "title": "衛生福利部國民健康署（口腔保健）",
+        "url": "https://www.hpa.gov.tw/"
+      }
     ]
   },
   {
@@ -105,8 +132,14 @@
       "只控體重不管體態——頭前傾、圓肩的人穿什麼都像借來的。"
     ],
     "resources": [
-      { "title": "衛生福利部國民健康署（BMI 與腰圍標準、體重管理）", "url": "https://www.hpa.gov.tw" },
-      { "title": "教育部體育署（體適能自測資訊）", "url": "https://www.sports.gov.tw" }
+      {
+        "title": "衛生福利部國民健康署（BMI 與腰圍標準、體重管理）",
+        "url": "https://www.hpa.gov.tw/"
+      },
+      {
+        "title": "教育部體育署（體適能自測資訊）",
+        "url": "https://www.sports.gov.tw"
+      }
     ]
   }
 ]

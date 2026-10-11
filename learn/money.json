@@ -17,16 +17,16 @@
     ],
     "resources": [
       {
-        "title": "金融監督管理委員會（存款保險、金融機構查詢）",
-        "url": "https://www.sec.gov.tw"
+        "title": "金融監督管理委員會（存款保險、高利活存機構查詢）",
+        "url": "https://www.fsc.gov.tw/"
       },
       {
         "title": "投信投顧公會（貨幣市場基金等基金資訊）",
-        "url": "https://www.sfaa.gov.tw"
+        "url": "https://www.itisi.org.tw/"
       },
       {
-        "title": "goodjob 好創作者媒（高利活存／比較文）",
-        "url": "https://www.goodjob.tv"
+        "title": "GoodJob 職場透明化運動（求職情報，非理財站，移除",
+        "url": ""
       }
     ]
   },
@@ -47,16 +47,16 @@
     ],
     "resources": [
       {
-        "title": "財團法人金融市場發展基金會／金管會金融教育（理財教育資源）",
-        "url": "https://www.sec.gov.tw"
+        "title": "金融監督管理委員會（理財教育／金融消費者保護）",
+        "url": "https://www.fsc.gov.tw/"
       },
       {
         "title": "財金文化／商業周刊（理財专栏）",
         "url": "https://www.cw.com.tw"
       },
       {
-        "title": "goodjob 好創作者媒（儲蓄工具比較）",
-        "url": "https://www.goodjob.tv"
+        "title": "GoodJob 生活資訊（儲蓄工具比較報導，若有更新請以官網為準）",
+        "url": ""
       }
     ]
   },
@@ -79,11 +79,11 @@
     "resources": [
       {
         "title": "臺灣證券交易所（ETF 資訊、上市公司資料）",
-        "url": "https://www.tse.com.tw"
+        "url": "https://www.twse.com.tw/"
       },
       {
-        "title": "中華民國投信投顧公會（基金/ETF 資訊公開）",
-        "url": "https://www.sfaa.gov.tw"
+        "title": "投信投顧公會（基金/ETF 資訊公開）",
+        "url": "https://www.itisi.org.tw/"
       },
       {
         "title": "商業周刊（理財與 ETF 專題）",
@@ -109,8 +109,8 @@
     ],
     "resources": [
       {
-        "title": "金融監督管理委員會（保險局、保單相關制度）",
-        "url": "https://www.sec.gov.tw"
+        "title": "金融監督管理委員會（保險局、保單制度）",
+        "url": "https://www.fsc.gov.tw/"
       },
       {
         "title": "衛生福利部中央健康保險署（醫療給付與就醫紀錄）",
@@ -145,11 +145,11 @@
     "resources": [
       {
         "title": "臺灣證券交易所（投資人天地、公開資訊觀測站入口）",
-        "url": "https://www.tse.com.tw"
+        "url": "https://www.twse.com.tw/"
       },
       {
-        "title": "經濟部商業司（公司登記資料查詢）",
-        "url": "https://www.bsmi.gov.tw"
+        "title": "經濟部商工登記公示資料查詢（公司登記查詢）",
+        "url": "https://gcis.nat.gov.tw/"
       },
       {
         "title": "《財報 analyzer》／《財報 reader》—— 張國師（溫宏斌）",
@@ -180,7 +180,7 @@
     "resources": [
       {
         "title": "金融監督管理委員會（信用卡循環利率、債務協商機制）",
-        "url": "https://www.sec.gov.tw"
+        "url": "https://www.fsc.gov.tw/"
       },
       {
         "title": "金融消費評議中心（1988 消費服務專線，消費爭議申訴）",
@@ -214,16 +214,16 @@
     ],
     "resources": [
       {
-        "title": "goodjob 好創作者媒（記帳 App 比較評測）",
-        "url": "https://www.goodjob.tv"
+        "title": "GoodJob 生活資訊（記帳 App 比較報導）",
+        "url": ""
       },
       {
         "title": "商業周刊（記帳與理財實作報導）",
         "url": "https://www.cw.com.tw"
       },
       {
-        "title": "金融監督管理委員會（銀行公開帳戶／open banking 制度資訊）",
-        "url": "https://www.sec.gov.tw"
+        "title": "金融監督管理委員會（Open Banking 公開帳戶制度）",
+        "url": "https://www.fsc.gov.tw/"
       }
     ]
   }

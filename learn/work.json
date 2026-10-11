@@ -16,8 +16,14 @@
       "沒有交代要對方做什麼：報告完大家都點頭，然後沒人行動。對策：結尾一定有要求句，必要時寫進 email 留下紙面。"
     ],
     "resources": [
-      { "title": "金字塔原理（Barbara Minto）", "url": "" },
-      { "title": "經理人 HBR 台灣授權內容（工作溝通系列）", "url": "https://www.hbr.tw" }
+      {
+        "title": "金字塔原理（Barbara Minto）",
+        "url": ""
+      },
+      {
+        "title": "經理人（HBR 台灣授權內容，工作溝通系列）",
+        "url": "https://www.managertoday.com.tw/"
+      }
     ]
   },
   {
@@ -37,8 +43,14 @@
       "一封信塞五件事：回覆率暴跌、漏回必發生。對策：一信一事，不同主題分開發。"
     ],
     "resources": [
-      { "title": "經理人 HBR 台灣授權內容（職場溝通系列）", "url": "https://www.hbr.tw" },
-      { "title": "商業EMAIL 就靠這本搞定（松風公威）", "url": "" }
+      {
+        "title": "經理人（職場溝通系列）",
+        "url": "https://www.managertoday.com.tw/"
+      },
+      {
+        "title": "商業EMAIL 就靠這本搞定（松風公威）",
+        "url": ""
+      }
     ]
   },
   {
@@ -58,8 +70,14 @@
       "目的寫不出明確結論的會還是開了：對策是議程目的寫不出一句話，就改發 email 收集意見，不開會。"
     ],
     "resources": [
-      { "title": "經理人 HBR 台灣授權內容（會議管理系列）", "url": "https://www.hbr.tw" },
-      { "title": "Death by Meeting（為什麼開會總是浪費時間｜Patrick Lencioni）", "url": "" }
+      {
+        "title": "經理人（會議管理系列）",
+        "url": "https://www.managertoday.com.tw/"
+      },
+      {
+        "title": "Death by Meeting（為什麼開會總是浪費時間｜Patrick Lencioni）",
+        "url": ""
+      }
     ]
   },
   {
@@ -79,9 +97,18 @@
       "選了部門不需要的冷門技，越學越孤僻：對策是選題一定要經過主管確認，綁住真實痛點。"
     ],
     "resources": [
-      { "title": "深度工作（Deep Work｜Cal Newport）", "url": "" },
-      { "title": "刻意練習（Peak｜Anders Ericsson）", "url": "" },
-      { "title": "經理人 HBR 台灣授權內容（職涯發展系列）", "url": "https://www.hbr.tw" }
+      {
+        "title": "深度工作（Deep Work｜Cal Newport）",
+        "url": ""
+      },
+      {
+        "title": "刻意練習（Peak｜Anders Ericsson）",
+        "url": ""
+      },
+      {
+        "title": "經理人（職涯發展系列）",
+        "url": "https://www.managertoday.com.tw/"
+      }
     ]
   },
   {
@@ -101,9 +128,18 @@
       "數字模糊，「我很努力」無法定價：對策是講不出數字的成果，就不要放上貢獻單。"
     ],
     "resources": [
-      { "title": "104 人力銀行（職類報告／薪資行情）", "url": "https://www.104.com.tw" },
-      { "title": "Cheers 快樂工作人（職場薪酬報導）", "url": "https://www.cw.com.tw" },
-      { "title": "Getting More（談判取得更多｜Stuart Diamond）", "url": "" }
+      {
+        "title": "104 人力銀行（職類報告／薪資行情）",
+        "url": "https://www.104.com.tw/"
+      },
+      {
+        "title": "Cheers 快樂工作人（職場薪酬報導）",
+        "url": "https://www.cw.com.tw"
+      },
+      {
+        "title": "Getting More（談判取得更多｜Stuart Diamond）",
+        "url": ""
+      }
     ]
   },
   {
@@ -123,9 +159,18 @@
       "最後一個月擺爛、說前公司壞話：幾年的好印象被最後三十天抵銷（人記住的是峰值與最後）。對策：站到最後一天，像還在爭取升遷那樣工作。"
     ],
     "resources": [
-      { "title": "104 人力銀行（職涯與求職資訊）", "url": "https://www.104.com.tw" },
-      { "title": "經理人 HBR 台灣授權內容（職涯轉換系列）", "url": "https://www.hbr.tw" },
-      { "title": "LinkedIn 求職與職涯資源", "url": "https://www.linkedin.com" }
+      {
+        "title": "104 人力銀行（職涯與求職資訊）",
+        "url": "https://www.104.com.tw/"
+      },
+      {
+        "title": "經理人（職涯轉換系列）",
+        "url": "https://www.managertoday.com.tw/"
+      },
+      {
+        "title": "LinkedIn 求職與職涯資源",
+        "url": "https://www.linkedin.com"
+      }
     ]
   }
 ]

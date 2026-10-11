@@ -17,8 +17,14 @@
       "忽略鞋子——同桌坐下時，別人最先看到的往往是你的鞋。"
     ],
     "resources": [
-      { "title": "《Der Gentleman：紳士時尚完全指南》Bernhard Roetzel 著", "url": "" },
-      { "title": "住家附近可信賴的修改店／西服修改師傅", "url": "" }
+      {
+        "title": "《Der Gentleman：紳士時尚完全指南》Bernhard Roetzel 著",
+        "url": ""
+      },
+      {
+        "title": "住家附近可信賴的修改店／西服修改師傅",
+        "url": ""
+      }
     ]
   },
   {
@@ -39,8 +45,14 @@
       "替客人夾菜時用自己的筷子、筷子對人指點——中餐場合的忌諱，用公筷、用筷架。"
     ],
     "resources": [
-      { "title": "《Etiquette 禮儀聖經》Emily Post 著", "url": "" },
-      { "title": "《中国人的礼仪规矩》李文德 著", "url": "" }
+      {
+        "title": "《Etiquette 禮儀聖經》Emily Post 著",
+        "url": ""
+      },
+      {
+        "title": "《中国人的礼仪规矩》李文德 著",
+        "url": ""
+      }
     ]
   },
   {
@@ -61,8 +73,14 @@
       "沖不好只怪器具、不管水溫與比例——變因沒控制住，換再貴的器具都救不回來。"
     ],
     "resources": [
-      { "title": "Coffee Commons 咖啡百科（台灣咖啡知識入口）", "url": "" },
-      { "title": "中華民國茶葉改進會／茶葉分級檢查相關資訊", "url": "" }
+      {
+        "title": "Coffee Commons 咖啡百科（台灣咖啡知識入口）",
+        "url": ""
+      },
+      {
+        "title": "中華民國茶葉改進會／茶葉分級檢查相關資訊",
+        "url": ""
+      }
     ]
   },
   {
@@ -83,8 +101,14 @@
       "用濃烈芳香劑蓋菸味或黴味——門一開的味道就是你對客人的開場白。"
     ],
     "resources": [
-      { "title": "交通部（用路安全與交通規則宣導入口）", "url": "https://www.motc.gov.tw" },
-      { "title": "交通部高速公路局（用路安全宣導）", "url": "" }
+      {
+        "title": "交通部（用路安全與交通規則宣導入口）",
+        "url": "https://www.motc.gov.tw"
+      },
+      {
+        "title": "交通部高速公路局（用路安全宣導）",
+        "url": ""
+      }
     ]
   },
   {
@@ -105,8 +129,14 @@
       "讀完就放下、不寫任何筆記——一個月後遺忘八成，等於白讀；三行筆記是最低標。"
     ],
     "resources": [
-      { "title": "國家圖書館（全國書目查詢）", "url": "https://www.nlpi.gov.tw" },
-      { "title": "《人類大歷史：從野獸到主宰》（Sapiens）Yuval Noah Harari 著", "url": "" }
+      {
+        "title": "國家圖書館（全國書目查詢）",
+        "url": "https://www.ncl.edu.tw/"
+      },
+      {
+        "title": "《人類大歷史：從野獸到主宰》（Sapiens）Yuval Noah Harari 著",
+        "url": ""
+      }
     ]
   }
 ]
