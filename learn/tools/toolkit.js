@@ -8,18 +8,59 @@
 (function () {
   const T = {};
 
-  // ---- 存儲（每個工具獨立空間，換算 key 前綴）----
+  // ---- 存儲（Cookie 為主，localStorage 自動備援）----
+  // Cookie 設 400 天有效期：關瀏覽器重開，記錄還在。
+  // 單一 Cookie 上限約 4KB，裝不下時該筆自動退回 localStorage（同樣持久）。
+  const COOKIE_DAYS = 400;
+  function cookieSet(name, value) {
+    try {
+      document.cookie = name + "=" + encodeURIComponent(value) +
+        ";max-age=" + COOKIE_DAYS * 86400 + ";path=/;SameSite=Lax";
+      return document.cookie.indexOf(name + "=") !== -1; // 驗證寫入成功
+    } catch (e) { return false; }
+  }
+  function cookieGet(name) {
+    const target = name + "=";
+    const parts = document.cookie ? document.cookie.split("; ") : [];
+    for (let i = 0; i < parts.length; i++) {
+      if (parts[i].indexOf(target) === 0) {
+        try { return decodeURIComponent(parts[i].slice(target.length)); }
+        catch (e) { return null; }
+      }
+    }
+    return null;
+  }
+  function cookieDel(name) {
+    document.cookie = name + "=;max-age=0;path=/;SameSite=Lax";
+  }
+
   T.makeStorage = function (key) {
     const prefix = "tool:" + key + ":";
     return {
       get: function (name, fallback) {
         try {
+          const v = cookieGet(prefix + name);
+          if (v !== null) return JSON.parse(v);
+        } catch (e) { /* 壞值往下備援 */ }
+        try {
           const v = localStorage.getItem(prefix + name);
           return v === null ? (fallback !== undefined ? fallback : null) : JSON.parse(v);
         } catch (e) { return fallback !== undefined ? fallback : null; }
       },
-      set: function (name, value) { localStorage.setItem(prefix + name, JSON.stringify(value)); },
-      del: function (name) { localStorage.removeItem(prefix + name); },
+      set: function (name, value) {
+        const json = JSON.stringify(value);
+        if (json.length < 3500 && cookieSet(prefix + name, json)) {
+          try { localStorage.removeItem(prefix + name); } catch (e) {}
+        } else {
+          // 太大或 Cookie 寫入失敗 → 退回 localStorage（同樣關瀏覽器不會消失）
+          cookieDel(prefix + name);
+          try { localStorage.setItem(prefix + name, json); } catch (e) {}
+        }
+      },
+      del: function (name) {
+        cookieDel(prefix + name);
+        try { localStorage.removeItem(prefix + name); } catch (e) {}
+      },
     };
   };
 

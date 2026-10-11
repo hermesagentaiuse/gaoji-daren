@@ -16,13 +16,43 @@
   document.getElementById("owner-name").textContent = CFG.owner || "";
   document.title = CFG.siteName || document.title;
 
-  // ---- 打卡進度（localStorage）----
+  // ---- 打卡進度（Cookie 持久化 400 天，關瀏覽器重開還在；過大自動退回 localStorage）----
   const STORE_KEY = "gaoji-daren-checkins";
+  const DAYS = 400;
+  function cookieWrite(name, value) {
+    try {
+      document.cookie = name + "=" + encodeURIComponent(value) +
+        ";max-age=" + DAYS * 86400 + ";path=/;SameSite=Lax";
+      return document.cookie.indexOf(name + "=") !== -1;
+    } catch (e) { return false; }
+  }
+  function cookieRead(name) {
+    const t = name + "=";
+    const parts = document.cookie ? document.cookie.split("; ") : [];
+    for (let i = 0; i < parts.length; i++) {
+      if (parts[i].indexOf(t) === 0) {
+        try { return decodeURIComponent(parts[i].slice(t.length)); } catch (e) { return null; }
+      }
+    }
+    return null;
+  }
   function loadCheckins() {
+    try {
+      const c = cookieRead(STORE_KEY);
+      if (c) return JSON.parse(c) || {};
+    } catch (e) {}
     try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; }
     catch (e) { return {}; }
   }
-  function saveCheckins(d) { localStorage.setItem(STORE_KEY, JSON.stringify(d)); }
+  function saveCheckins(d) {
+    const json = JSON.stringify(d);
+    if (json.length < 3500 && cookieWrite(STORE_KEY, json)) {
+      try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+    } else {
+      document.cookie = STORE_KEY + "=;max-age=0;path=/;SameSite=Lax";
+      try { localStorage.setItem(STORE_KEY, json); } catch (e) {}
+    }
+  }
 
   // ---- 渲染 sidebar ----
   function buildNav() {
