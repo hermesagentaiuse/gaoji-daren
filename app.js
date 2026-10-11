@@ -140,6 +140,32 @@
 
   // ---- 學習指南詳情頁：#/cat/<catId>/<itemIndex> ----
   const learnCache = {};
+  const toolsLoaded = {}; // catId -> true
+
+  function loadToolScript(catId, cb) {
+    if (toolsLoaded[catId]) return cb(true);
+    const s = document.createElement("script");
+    s.src = "learn/tools/" + encodeURIComponent(catId) + ".js";
+    s.onload = function () { toolsLoaded[catId] = true; cb(true); };
+    s.onerror = function () { toolsLoaded[catId] = false; cb(false); };
+    document.head.appendChild(s);
+  }
+
+  function mountTool(catId, idx) {
+    const slot = document.getElementById("tool-slot");
+    const note = document.getElementById("tool-note");
+    if (!slot) return;
+    loadToolScript(catId, function (ok) {
+      const fn = ok && window.LEARN_TOOLS && window.LEARN_TOOLS[catId] && window.LEARN_TOOLS[catId][String(idx)];
+      if (!fn) { if (note) note.hidden = false; return; }
+      try {
+        const st = window.TOOLKIT.makeStorage(catId + ":" + idx);
+        fn(slot, { key: catId + ":" + idx, get: st.get, set: st.set, del: st.del, storage: st });
+      } catch (e) {
+        if (note) { note.textContent = "工具載入失敗：" + e.message; note.hidden = false; }
+      }
+    });
+  }
 
   function renderLearn(catId, idx) {
     const cat = (CFG.categories || []).find(function (c) { return c.id === catId; });
@@ -190,6 +216,9 @@
         html += '</ul></section>';
       }
 
+      html += '<section class="learn-block"><h3>🛠 輔助工具</h3><div id="tool-slot"></div>' +
+        '<p class="tool-note" id="tool-note" hidden>這個項目的輔助工具開發中 — 一項一項來，不著急。</p></section>';
+
       // 上一項 / 下一項
       html += '<nav class="learn-nav">';
       if (idx > 0) html += '<a href="#/cat/' + cat.id + "/" + (idx - 1) + '">← 上一項</a>';
@@ -198,6 +227,7 @@
 
       content.innerHTML = html;
       bindLearnCheck();
+      mountTool(catId, idx);
     }
 
     function bindLearnCheck() {
