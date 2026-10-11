@@ -138,6 +138,15 @@ window.SITE_CONFIG = {
     },
   ],
 
+  // ---- 股市教學（sidebar 單一入口；內容存放在 learn/stocks.json）----
+  stockLearning: {
+    id: "stocks",
+    icon: "📈",
+    title: "朱家泓·股市教學",
+    source: "理周教育學苑 朱家泓 教學 playlist（100 支影片）",
+    playlistUrl: "https://youtube.com/playlist?list=PLa0dxLD5Sk23lON5CTiAov8sN3naeuHFH",
+  },
+
   // ---- 財務分析站（sidebar 下半部）----
   // 點進來右側內容區會以 iframe 載入；網站擋內嵌時自動提示「在新分頁開啟」
   // 新增站點：往這個陣列加一筆 { id, title, icon, url } 即可

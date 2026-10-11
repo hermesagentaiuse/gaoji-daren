@@ -62,6 +62,10 @@
       catNav.appendChild(navItem("#/cat/" + cat.id, cat.icon + " " + cat.title, cat.id));
     });
     finNav.innerHTML = "";
+    const SL = CFG.stockLearning;
+    if (SL) {
+      finNav.appendChild(navItem("#/stocks", SL.icon + " " + SL.title, SL.id));
+    }
     (CFG.financeLinks || []).forEach(function (f) {
       finNav.appendChild(navItem("#/finance/" + f.id, f.icon + " " + f.title, f.id));
     });
@@ -88,6 +92,9 @@
       let on = r === hash;
       if (!on && r.startsWith("#/cat/")) {
         on = hash === r || hash.startsWith(r + "/"); // 詳情頁也点亮所屬分類
+      }
+      if (!on && r === "#/stocks") {
+        on = hash === r || hash.startsWith(r + "/");
       }
       a.classList.toggle("active", on);
     });
@@ -129,6 +136,15 @@
       html += '<span class="card-meta">財務分析站 ↗</span>';
       html += '</a>';
     });
+
+    if (CFG.stockLearning) {
+      const SL = CFG.stockLearning;
+      html += '<a class="card card-finance" href="#/stocks">';
+      html += '<span class="card-icon">' + esc(SL.icon) + '</span>';
+      html += '<span class="card-title">' + esc(SL.title) + '</span>';
+      html += '<span class="card-meta">股市教學</span>';
+      html += '</a>';
+    }
 
     html += '</div><p class="hint">💡 想新增分類或財經站：編輯 <code>config.js</code> 即可，不用改其他檔案。</p></div>';
     content.innerHTML = html;
@@ -279,6 +295,95 @@
       .catch(function () { paint(null); });
   }
 
+  // ---- 股市教學：#/stocks（主題總覽）→ #/stocks/<topic>（清單）→ #/stocks/<topic>/<vid>（單篇筆記）----
+  const stocksCache = {};
+
+  function stockData(cb) {
+    if (stocksCache.data) return cb(stocksCache.data);
+    content.innerHTML = '<div class="page"><p class="hint">📈 載入股市教學中…</p></div>';
+    fetch("learn/stocks.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { stocksCache.data = d; cb(d); })
+      .catch(function () {
+        content.innerHTML = '<div class="page"><p class="hint">教學資料載入失敗，請重新整理重試。</p></div>';
+      });
+  }
+
+  function videoCard(v) {
+    let h = '<a class="card card-stock" href="#/stocks/' + encodeURIComponent(v.topic) + "/" + encodeURIComponent(v.vid) + '">';
+    h += '<span class="card-title">' + esc(v.title) + '</span>';
+    h += '<span class="card-meta">' + (v.key_points || []).length + " 個重點</span>";
+    h += '</a>';
+    return h;
+  }
+
+  function renderStocks() {
+    const SL = CFG.stockLearning;
+    stockData(function (data) {
+      let html = '<div class="page"><div class="hero">';
+      html += '<h2>' + esc(SL.icon) + " " + esc(SL.title) + '</h2>';
+      html += '<p class="hero-sub">' + esc(SL.source || "") + '　<a href="' + esc(SL.playlistUrl || "#") + '" target="_blank" rel="noopener">原始 playlist ↗</a></p>';
+      html += '</div><div class="card-grid">';
+      const topics = data.topics || [];
+      topics.forEach(function (t) {
+        html += '<a class="card" href="#/stocks/' + encodeURIComponent(t.name) + '">';
+        html += '<span class="card-icon">' + esc(t.icon || "📈") + '</span>';
+        html += '<span class="card-title">' + esc(t.name) + '</span>';
+        html += '<span class="card-meta">' + t.count + " 篇教學</span>";
+        html += '</a>';
+      });
+      html += '</div>';
+      if ((data.no_subs || []).length) {
+        html += '<p class="hint">⚠️ ' + data.no_subs.length + ' 支影片無公開字幕，僅收錄於目錄。</p>';
+      }
+      html += '</div>';
+      content.innerHTML = html;
+    });
+  }
+
+  function renderStockTopic(topicName) {
+    const SL = CFG.stockLearning;
+    stockData(function (data) {
+      const videos = (data.videos || []).filter(function (v) { return v.topic === topicName; });
+      if (!videos.length) return renderNotFound();
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/stocks">← 返回「' + esc(SL.title) + '」</a>';
+      html += '<h2>📌 ' + esc(topicName) + '</h2>';
+      html += '<p class="page-sub">共 ' + videos.length + ' 篇，點標題看重點整理。</p></div>';
+      html += '<div class="card-grid">' + videos.map(videoCard).join("") + '</div></div>';
+      content.innerHTML = html;
+    });
+  }
+
+  function renderStockVideo(topicName, vid) {
+    const SL = CFG.stockLearning;
+    stockData(function (data) {
+      const list = (data.videos || []).filter(function (v) { return v.topic === topicName; });
+      const i = list.findIndex(function (v) { return v.vid === vid; });
+      if (i === -1) return renderNotFound();
+      const v = list[i];
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/stocks/' + encodeURIComponent(topicName) + '">← 返回「' + esc(topicName) + '」</a>';
+      html += '<h2>' + esc(v.title) + '</h2>';
+      html += '<p class="page-sub">理周教育學苑 · 朱家泓　<a href="https://youtu.be/' + esc(v.vid) + '" target="_blank" rel="noopener">看原片 ↗</a></p></div>';
+
+      html += '<section class="learn-block"><h3>🎯 主題</h3><p>' + esc(v.topic) + '</p></section>';
+      html += '<section class="learn-block"><h3>📖 重點整理</h3><ol class="step-list">';
+      (v.key_points || []).forEach(function (p) { html += '<li>' + esc(p) + '</li>'; });
+      html += '</ol></section>';
+      if ((v.actionable_rules || []).length) {
+        html += '<section class="learn-block"><h3>✅ 操作鐵則（背下來）</h3><ul class="pitfall-list">';
+        v.actionable_rules.forEach(function (p) { html += '<li>⚔️ ' + esc(p) + '</li>'; });
+        html += '</ul></section>';
+      }
+      html += '<nav class="learn-nav">';
+      if (i > 0) html += '<a href="#/stocks/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i - 1].vid) + '">← 上一篇</a>';
+      if (i < list.length - 1) html += '<a href="#/stocks/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i + 1].vid) + '">下一篇 →</a>';
+      html += '</nav></div>';
+      content.innerHTML = html;
+    });
+  }
+
   function renderFinance(fid) {
     const f = (CFG.financeLinks || []).find(function (x) { return x.id === fid; });
     if (!f) return renderNotFound();
@@ -331,6 +436,13 @@
       const idx = parseInt(rest.slice(slash + 1), 10);
       if (Number.isNaN(idx)) return renderNotFound();
       return renderLearn(rest.slice(0, slash), idx);
+    }
+    if (hash === "#/stocks" || hash.startsWith("#/stocks/")) {
+      const rest = decodeURIComponent(hash.slice("#/stocks".length)).replace(/^\//, "");
+      if (!rest) return renderStocks();
+      const slash = rest.indexOf("/");
+      if (slash === -1) return renderStockTopic(rest);
+      return renderStockVideo(rest.slice(0, slash), rest.slice(slash + 1));
     }
     if (hash.startsWith("#/finance/")) return renderFinance(decodeURIComponent(hash.slice("#/finance/".length)));
     renderNotFound();
