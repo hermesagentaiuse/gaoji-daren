@@ -147,6 +147,15 @@ window.SITE_CONFIG = {
     playlistUrl: "https://youtube.com/playlist?list=PLa0dxLD5Sk23lON5CTiAov8sN3naeuHFH",
   },
 
+  // ---- 古籍夜讀（sidebar 單一入口；內容存放在 learn/books.json）----
+  bookLearning: {
+    id: "books",
+    icon: "📜",
+    title: "枕書夜話·古籍夜讀",
+    source: "YouTube 頻道「枕書夜話」30 分鐘讀完一部古籍",
+    playlistUrl: "https://www.youtube.com/channel/UC4DNU7jSBRMFMefFUZsdPAA",
+  },
+
   // ---- 財務分析站（sidebar 下半部）----
   // 點進來右側內容區會以 iframe 載入；網站擋內嵌時自動提示「在新分頁開啟」
   // 新增站點：往這個陣列加一筆 { id, title, icon, url } 即可

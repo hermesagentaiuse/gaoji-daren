@@ -66,6 +66,10 @@
     if (SL) {
       finNav.appendChild(navItem("#/stocks", SL.icon + " " + SL.title, SL.id));
     }
+    const BL = CFG.bookLearning;
+    if (BL) {
+      finNav.appendChild(navItem("#/books", BL.icon + " " + BL.title, BL.id));
+    }
     (CFG.financeLinks || []).forEach(function (f) {
       finNav.appendChild(navItem("#/finance/" + f.id, f.icon + " " + f.title, f.id));
     });
@@ -94,6 +98,9 @@
         on = hash === r || hash.startsWith(r + "/"); // 詳情頁也点亮所屬分類
       }
       if (!on && r === "#/stocks") {
+        on = hash === r || hash.startsWith(r + "/");
+      }
+      if (!on && r === "#/books") {
         on = hash === r || hash.startsWith(r + "/");
       }
       a.classList.toggle("active", on);
@@ -384,6 +391,95 @@
     });
   }
 
+  // ---- 古籍夜讀：#/books（主題總覽）→ #/books/<topic>（清單）→ #/books/<topic>/<vid>（單篇筆記）----
+  const booksCache = {};
+
+  function bookData(cb) {
+    if (booksCache.data) return cb(booksCache.data);
+    content.innerHTML = '<div class="page"><p class="hint">📜 載入古籍夜讀中…</p></div>';
+    fetch("learn/books.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { booksCache.data = d; cb(d); })
+      .catch(function () {
+        content.innerHTML = '<div class="page"><p class="hint">古籍資料載入失敗，請重新整理重試。</p></div>';
+      });
+  }
+
+  function bookCard(v) {
+    let h = '<a class="card card-stock" href="#/books/' + encodeURIComponent(v.topic) + "/" + encodeURIComponent(v.vid) + '">';
+    h += '<span class="card-title">《' + esc(v.book) + '》' + esc(v.title) + '</span>';
+    h += '<span class="card-meta">' + esc(v.author_era || "") + "　" + (v.key_points || []).length + " 個重點</span>";
+    h += "</a>";
+    return h;
+  }
+
+  function renderBooks() {
+    const BL = CFG.bookLearning;
+    bookData(function (data) {
+      let html = '<div class="page"><div class="hero">';
+      html += "<h2>" + esc(BL.icon) + " " + esc(BL.title) + "</h2>";
+      html += '<p class="hero-sub">' + esc(BL.source || "") + "　已整理 " + (data.analyzed || 0) + " / " + (data.total || 0) +
+              ' 篇　<a href="' + esc(BL.playlistUrl || "#") + '" target="_blank" rel="noopener">原始頻道 ↗</a></p>';
+      html += '</div><div class="card-grid">';
+      (data.topics || []).forEach(function (t) {
+        html += '<a class="card" href="#/books/' + encodeURIComponent(t.name) + '">';
+        html += '<span class="card-icon">' + esc(t.icon || "📚") + "</span>";
+        html += '<span class="card-title">' + esc(t.name) + "</span>";
+        html += '<span class="card-meta">' + t.count + " 篇</span>";
+        html += "</a>";
+      });
+      html += "</div></div>";
+      content.innerHTML = html;
+    });
+  }
+
+  function renderBookTopic(topicName) {
+    const BL = CFG.bookLearning;
+    bookData(function (data) {
+      const videos = (data.videos || []).filter(function (v) { return v.topic === topicName; });
+      if (!videos.length) return renderNotFound();
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/books">← 返回「' + esc(BL.title) + '」</a>';
+      html += "<h2>📌 " + esc(topicName) + "</h2>";
+      html += '<p class="page-sub">共 ' + videos.length + " 篇，點標題看重點整理。</p></div>";
+      html += '<div class="card-grid">' + videos.map(bookCard).join("") + "</div></div>";
+      content.innerHTML = html;
+    });
+  }
+
+  function renderBookVideo(topicName, vid) {
+    bookData(function (data) {
+      const list = (data.videos || []).filter(function (v) { return v.topic === topicName; });
+      const i = list.findIndex(function (v) { return v.vid === vid; });
+      if (i === -1) return renderNotFound();
+      const v = list[i];
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/books/' + encodeURIComponent(topicName) + '">← 返回「' + esc(topicName) + '」</a>';
+      html += "<h2>《" + esc(v.book) + "》" + esc(v.title) + "</h2>";
+      html += '<p class="page-sub">' + esc(v.author_era || "") + "　枕書夜話　<a href=\"https://youtu.be/" + esc(v.vid) + '" target="_blank" rel="noopener">看原片 ↗</a></p></div>';
+      if (v.intro) html += '<section class="learn-block"><h3>📖 篇引言</h3><p>' + esc(v.intro) + "</p></section>";
+      html += '<section class="learn-block"><h3>🎯 重點整理</h3><ol class="step-list">';
+      (v.key_points || []).forEach(function (p) { html += "<li>" + esc(p) + "</li>"; });
+      html += "</ol></section>";
+      if (v.analysis) html += '<section class="learn-block"><h3>🔍 深度解析</h3><p>' + esc(v.analysis) + "</p></section>";
+      if ((v.actionable || []).length) {
+        html += '<section class="learn-block"><h3>✅ 實踐要點（做起來）</h3><ul class="pitfall-list">';
+        v.actionable.forEach(function (p) { html += "<li>⚔️ " + esc(p) + "</li>"; });
+        html += "</ul></section>";
+      }
+      if ((v.quotes || []).length) {
+        html += '<section class="learn-block"><h3>💬 片中金句</h3>';
+        v.quotes.forEach(function (q) { html += "<blockquote>「" + esc(q) + "」</blockquote>"; });
+        html += "</section>";
+      }
+      html += '<nav class="learn-nav">';
+      if (i > 0) html += '<a href="#/books/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i - 1].vid) + '">← 上一篇</a>';
+      if (i < list.length - 1) html += '<a href="#/books/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i + 1].vid) + '">下一篇 →</a>';
+      html += "</nav></div>";
+      content.innerHTML = html;
+    });
+  }
+
   function renderFinance(fid) {
     const f = (CFG.financeLinks || []).find(function (x) { return x.id === fid; });
     if (!f) return renderNotFound();
@@ -443,6 +539,13 @@
       const slash = rest.indexOf("/");
       if (slash === -1) return renderStockTopic(rest);
       return renderStockVideo(rest.slice(0, slash), rest.slice(slash + 1));
+    }
+    if (hash === "#/books" || hash.startsWith("#/books/")) {
+      const rest = decodeURIComponent(hash.slice("#/books".length)).replace(/^\//, "");
+      if (!rest) return renderBooks();
+      const slash = rest.indexOf("/");
+      if (slash === -1) return renderBookTopic(rest);
+      return renderBookVideo(rest.slice(0, slash), rest.slice(slash + 1));
     }
     if (hash.startsWith("#/finance/")) return renderFinance(decodeURIComponent(hash.slice("#/finance/".length)));
     renderNotFound();
