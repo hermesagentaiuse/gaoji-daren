@@ -3,7 +3,7 @@
 // 想要新增分類或外部站點，只需要改這個檔案，不用碰 HTML/CSS/JS
 // ============================================================
 window.SITE_CONFIG = {
-  siteName: "高級大人成長手冊",
+  siteName: "自我修養",
   tagline: "在台灣，一步一步成為更厲害、更認真的大人。",
   owner: "Jason",
 
@@ -159,6 +159,16 @@ window.SITE_CONFIG = {
   // ---- 財務分析站（sidebar 下半部）----
   // 點進來右側內容區會以 iframe 載入；網站擋內嵌時自動提示「在新分頁開啟」
   // 新增站點：往這個陣列加一筆 { id, title, icon, url } 即可
+  // ---- 遊戲（sidebar 單一入口；iframe 內嵌）----
+  gameLinks: [
+    {
+      id: "three-kingdoms",
+      icon: "🎮",
+      title: "三國蝴蝶·文字遊戲",
+      url: "https://hermesagentaiuse.github.io/three-kingdoms/",
+    },
+  ],
+
   financeLinks: [
     {
       id: "analyst-dashboard",

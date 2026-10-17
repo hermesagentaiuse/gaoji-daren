@@ -6,12 +6,11 @@
   const CFG = window.SITE_CONFIG || { categories: [], financeLinks: [] };
   const content = document.getElementById("content");
   const catNav = document.getElementById("category-nav");
-  const finNav = document.getElementById("finance-nav");
   const sidebar = document.getElementById("sidebar");
   const menuToggle = document.getElementById("menu-toggle");
 
   // ---- header 設定 ----
-  document.getElementById("site-name").textContent = CFG.siteName || "高級大人成長手冊";
+  document.getElementById("site-name").textContent = CFG.siteName || "自我修養";
   document.getElementById("site-tagline").textContent = CFG.tagline || "";
   document.getElementById("owner-name").textContent = CFG.owner || "";
   document.title = CFG.siteName || document.title;
@@ -56,22 +55,21 @@
 
   // ---- 渲染 sidebar ----
   function buildNav() {
+    // 扁平化：修行清單、股市教學、古籍夜讀、遊戲、財務分析站——全部平鋪為 sidebar 項目
     catNav.innerHTML = "";
     homeLink(catNav);
     (CFG.categories || []).forEach(function (cat) {
       catNav.appendChild(navItem("#/cat/" + cat.id, cat.icon + " " + cat.title, cat.id));
     });
-    finNav.innerHTML = "";
     const SL = CFG.stockLearning;
-    if (SL) {
-      finNav.appendChild(navItem("#/stocks", SL.icon + " " + SL.title, SL.id));
-    }
+    if (SL) catNav.appendChild(navItem("#/stocks", SL.icon + " " + SL.title, SL.id));
     const BL = CFG.bookLearning;
-    if (BL) {
-      finNav.appendChild(navItem("#/books", BL.icon + " " + BL.title, BL.id));
-    }
+    if (BL) catNav.appendChild(navItem("#/books", BL.icon + " " + BL.title, BL.id));
+    (CFG.gameLinks || []).forEach(function (g) {
+      catNav.appendChild(navItem("#/game/" + g.id, g.icon + " " + g.title, g.id));
+    });
     (CFG.financeLinks || []).forEach(function (f) {
-      finNav.appendChild(navItem("#/finance/" + f.id, f.icon + " " + f.title, f.id));
+      catNav.appendChild(navItem("#/finance/" + f.id, f.icon + " " + f.title, f.id));
     });
   }
 
@@ -103,6 +101,9 @@
       if (!on && r === "#/books") {
         on = hash === r || hash.startsWith(r + "/");
       }
+      if (!on && r.startsWith("#/game/")) {
+        on = hash === r || hash.startsWith(r + "/");
+      }
       a.classList.toggle("active", on);
     });
   }
@@ -121,7 +122,7 @@
     const pct = total ? Math.round((done / total) * 100) : 0;
 
     let html = '<div class="page"><div class="hero">';
-    html += '<h2>' + esc(CFG.siteName || "高級大人成長手冊") + '</h2>';
+    html += '<h2>' + esc(CFG.siteName || "自我修養") + '</h2>';
     html += '<p class="hero-sub">' + esc(CFG.tagline || "") + '</p>';
     html += '<div class="progress-card"><div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>';
     html += '<p class="progress-text">已打卡 <b>' + done + '</b> / ' + total + ' 項（' + pct + '%）</p></div>';
@@ -133,6 +134,23 @@
       html += '<span class="card-icon">' + esc(cat.icon) + '</span>';
       html += '<span class="card-title">' + esc(cat.title) + '</span>';
       html += '<span class="card-meta">' + cdone + " / " + cat.items.length + " 項</span>";
+      html += '</a>';
+    });
+
+    if (CFG.bookLearning) {
+      const BL = CFG.bookLearning;
+      html += '<a class="card card-finance" href="#/books">';
+      html += '<span class="card-icon">' + esc(BL.icon) + '</span>';
+      html += '<span class="card-title">' + esc(BL.title) + '</span>';
+      html += '<span class="card-meta">古籍夜讀</span>';
+      html += '</a>';
+    }
+
+    (CFG.gameLinks || []).forEach(function (g) {
+      html += '<a class="card card-finance" href="#/game/' + g.id + '">';
+      html += '<span class="card-icon">' + esc(g.icon) + '</span>';
+      html += '<span class="card-title">' + esc(g.title) + '</span>';
+      html += '<span class="card-meta">文字遊戲 ↗</span>';
       html += '</a>';
     });
 
@@ -480,8 +498,10 @@
     });
   }
 
-  function renderFinance(fid) {
-    const f = (CFG.financeLinks || []).find(function (x) { return x.id === fid; });
+  function renderFinance(fid) { return renderEmbed(CFG.financeLinks, fid, "財務分析站"); }
+  function renderGame(gid) { return renderEmbed(CFG.gameLinks, gid, "遊戲"); }
+  function renderEmbed(list, id, kindLabel) {
+    const f = (list || []).find(function (x) { return x.id === id; });
     if (!f) return renderNotFound();
 
     let html = '<div class="page page-embed"><div class="page-head embed-head">';
@@ -547,6 +567,7 @@
       if (slash === -1) return renderBookTopic(rest);
       return renderBookVideo(rest.slice(0, slash), rest.slice(slash + 1));
     }
+    if (hash.startsWith("#/game/")) return renderGame(decodeURIComponent(hash.slice("#/game/".length)));
     if (hash.startsWith("#/finance/")) return renderFinance(decodeURIComponent(hash.slice("#/finance/".length)));
     renderNotFound();
   }
