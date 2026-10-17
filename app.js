@@ -55,9 +55,17 @@
 
   // ---- 渲染 sidebar ----
   function buildNav() {
-    // 扁平化：修行清單、股市教學、古籍夜讀、遊戲、財務分析站——全部平鋪為 sidebar 項目
     catNav.innerHTML = "";
     homeLink(catNav);
+    if (CFG.sections && CFG.sections.length) {
+      // 三層式：sidebar 只列大項目（sections）
+      CFG.sections.forEach(function (s) {
+        const href = s.type === "group" ? "#/section/" + s.id : s.route;
+        catNav.appendChild(navItem(href, s.icon + " " + s.title, s.id));
+      });
+      return;
+    }
+    // 後相容：無 sections 時退回扁平清單
     (CFG.categories || []).forEach(function (cat) {
       catNav.appendChild(navItem("#/cat/" + cat.id, cat.icon + " " + cat.title, cat.id));
     });
@@ -71,6 +79,29 @@
     (CFG.financeLinks || []).forEach(function (f) {
       catNav.appendChild(navItem("#/finance/" + f.id, f.icon + " " + f.title, f.id));
     });
+  }
+
+  // ---- 大項目入口頁：#/section/<id>（點進去是子分類清單）----
+  function renderSection(secId) {
+    const sec = (CFG.sections || []).find(function (s) { return s.id === secId; });
+    if (!sec || sec.type !== "group") return renderNotFound();
+    const checkins = loadCheckins();
+    let html = '<div class="page"><div class="hero">';
+    html += '<h2>' + esc(sec.icon) + " " + esc(sec.title) + '</h2>';
+    if (sec.desc) html += '<p class="hero-sub">' + esc(sec.desc) + '</p>';
+    html += '</div><div class="card-grid">';
+    (sec.children || []).forEach(function (cid) {
+      const cat = (CFG.categories || []).find(function (c) { return c.id === cid; });
+      if (!cat) return;
+      const cdone = cat.items.filter(function (_, i) { return checkins[cat.id + ":" + i]; }).length;
+      html += '<a class="card" href="#/cat/' + cat.id + '">';
+      html += '<span class="card-icon">' + esc(cat.icon) + '</span>';
+      html += '<span class="card-title">' + esc(cat.title) + '</span>';
+      html += '<span class="card-meta">' + cdone + " / " + cat.items.length + " 項</span>";
+      html += '</a>';
+    });
+    html += '</div></div>';
+    content.innerHTML = html;
   }
 
   function homeLink(ul) {
@@ -94,6 +125,11 @@
       let on = r === hash;
       if (!on && r.startsWith("#/cat/")) {
         on = hash === r || hash.startsWith(r + "/"); // 詳情頁也点亮所屬分類
+        if (!on && hash.startsWith("#/section/")) {
+          // 大項目頁高亮其 sidebar 入口
+          const sec = (CFG.sections || []).find(function (s) { return s.type === "group" && (s.children || []).indexOf(r.slice("#/cat/".length)) !== -1; });
+          on = !!sec && hash === "#/section/" + sec.id;
+        }
       }
       if (!on && r === "#/stocks") {
         on = hash === r || hash.startsWith(r + "/");
@@ -180,7 +216,10 @@
     if (!cat) return renderNotFound();
     const checkins = loadCheckins();
 
-    let html = '<div class="page"><div class="page-head"><h2>' + esc(cat.icon) + " " + esc(cat.title) + '</h2>';
+    const parentSec = (CFG.sections || []).find(function (s) { return s.type === "group" && (s.children || []).indexOf(catId) !== -1; });
+    let html = '<div class="page"><div class="page-head">';
+    if (parentSec) html += '<p class="page-sub"><a href="#/section/' + parentSec.id + '" style="color:inherit;text-decoration:none">← ' + esc(parentSec.icon + " " + parentSec.title) + '</a></p>';
+    html += '<h2>' + esc(cat.icon) + " " + esc(cat.title) + '</h2>';
     html += '<p class="page-sub">做到一項、打卡一項。點條目標題可看「如何做到」學習指南。</p></div><ul class="checklist">';
 
     cat.items.forEach(function (item, i) {
@@ -545,6 +584,7 @@
     highlightActive(hash);
     sidebar.classList.remove("open");
     if (hash === "#/home" || hash === "") return renderHome();
+    if (hash.startsWith("#/section/")) return renderSection(decodeURIComponent(hash.slice("#/section/".length)));
     if (hash.startsWith("#/cat/")) {
       const rest = decodeURIComponent(hash.slice("#/cat/".length));
       const slash = rest.indexOf("/");

@@ -138,6 +138,25 @@ window.SITE_CONFIG = {
     },
   ],
 
+  // ---- Sidebar 大項目（三層式：大項目 → 分類 → 細項）----
+  // type: 'group' = 點進去出現子分類清單（children 引用 categories 的 id）
+  //       'route' = 點進去直接進指定 route（股市/古籍/遊戲/財務站等）
+  sections: [
+    {
+      id: "cultivation",
+      icon: "🥃",
+      title: "自我修養",
+      type: "group",
+      desc: "心態、金錢、職場、社交、健康、品味、法律、家庭、心理、資訊素養——十堂成年人的必修課。",
+      children: ["mindset", "money", "work", "social", "health", "lifestyle", "law", "family", "emo", "digital"],
+    },
+    { id: "stocks", icon: "📈", title: "朱家泓·股市教學", type: "route", route: "#/stocks" },
+    { id: "books", icon: "📜", title: "枕書夜話·古籍夜讀", type: "route", route: "#/books" },
+    { id: "game-three-kingdoms", icon: "🎮", title: "三國蝴蝶·文字遊戲", type: "route", route: "#/game/three-kingdoms" },
+    { id: "analyst-dashboard", icon: "📊", title: "分析師儀表板", type: "route", route: "#/finance/analyst-dashboard" },
+    { id: "serenity-watch", icon: "🐦", title: "Serenity 追蹤", type: "route", route: "#/finance/serenity-watch" },
+  ],
+
   // ---- 股市教學（sidebar 單一入口；內容存放在 learn/stocks.json）----
   stockLearning: {
     id: "stocks",
