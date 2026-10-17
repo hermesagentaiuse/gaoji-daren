@@ -1,4 +1,4 @@
-# 高級大人成長手冊 🥃
+# 自我修養 🥃
 
 在台灣，一步一步成為更厲害、更認真的大人。
 
@@ -37,3 +37,8 @@
 ## 部署
 
 GitHub Pages（Branch: main / root）。推上去即上線。
+
+
+## 🎮 遊戲入口
+- 三國蝴蝶·文字遊戲（`gameLinks`，iframe 內嵌 https://hermesagentaiuse.github.io/three-kingdoms/ ）
+  - 遊戲本體來源：/opt/projects/three-kingdoms-game，重新部署：`node scripts/static-export.js` 後把 out/ push 到 three-kingdoms repo
