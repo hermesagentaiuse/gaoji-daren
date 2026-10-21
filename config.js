@@ -175,6 +175,15 @@ window.SITE_CONFIG = {
     playlistUrl: "https://www.youtube.com/channel/UC4DNU7jSBRMFMefFUZsdPAA",
   },
 
+  // ---- 博音精讀（sidebar 單一入口；內容存放在 learn/boyin.json）----
+  boyinLearning: {
+    id: "boyin",
+    icon: "🎙️",
+    title: "博音精讀",
+    source: "YouTube「博音」Podcast 訪談 EP 精讀",
+    playlistUrl: "https://www.youtube.com/playlist?list=PLlcjDGAdaA5cGLXm-19erGq3hHn2gkCrw",
+  },
+
   // ---- 財務分析站（sidebar 下半部）----
   // 點進來右側內容區會以 iframe 載入；網站擋內嵌時自動提示「在新分頁開啟」
   // 新增站點：往這個陣列加一筆 { id, title, icon, url } 即可

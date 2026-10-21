@@ -73,6 +73,8 @@
     if (SL) catNav.appendChild(navItem("#/stocks", SL.icon + " " + SL.title, SL.id));
     const BL = CFG.bookLearning;
     if (BL) catNav.appendChild(navItem("#/books", BL.icon + " " + BL.title, BL.id));
+    const BO = CFG.boyinLearning;
+    if (BO) catNav.appendChild(navItem("#/boyin", BO.icon + " " + BO.title, BO.id));
     (CFG.gameLinks || []).forEach(function (g) {
       catNav.appendChild(navItem("#/game/" + g.id, g.icon + " " + g.title, g.id));
     });
@@ -137,6 +139,9 @@
       if (!on && r === "#/books") {
         on = hash === r || hash.startsWith(r + "/");
       }
+      if (!on && r === "#/boyin") {
+        on = hash === r || hash.startsWith(r + "/");
+      }
       if (!on && r.startsWith("#/game/")) {
         on = hash === r || hash.startsWith(r + "/");
       }
@@ -179,6 +184,15 @@
       html += '<span class="card-icon">' + esc(BL.icon) + '</span>';
       html += '<span class="card-title">' + esc(BL.title) + '</span>';
       html += '<span class="card-meta">古籍夜讀</span>';
+      html += '</a>';
+    }
+
+    if (CFG.boyinLearning) {
+      const BO = CFG.boyinLearning;
+      html += '<a class="card card-finance" href="#/boyin">';
+      html += '<span class="card-icon">' + esc(BO.icon) + '</span>';
+      html += '<span class="card-title">' + esc(BO.title) + '</span>';
+      html += '<span class="card-meta">Podcast 訪談精讀</span>';
       html += '</a>';
     }
 
@@ -537,6 +551,95 @@
     });
   }
 
+  // ---- 博音精讀：#/boyin（主題總覽）→ #/boyin/<topic>（清單）→ #/boyin/<topic>/<vid>（單篇筆記）----
+  const boyinCache = {};
+
+  function boyinData(cb) {
+    if (boyinCache.data) return cb(boyinCache.data);
+    content.innerHTML = '<div class="page"><p class="hint">🎙️ 載入博音精讀中…</p></div>';
+    fetch("learn/boyin.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { boyinCache.data = d; cb(d); })
+      .catch(function () {
+        content.innerHTML = '<div class="page"><p class="hint">博音資料載入失敗，請重新整理重試。</p></div>';
+      });
+  }
+
+  function boyinCard(v) {
+    let h = '<a class="card card-stock" href="#/boyin/' + encodeURIComponent(v.topic) + "/" + encodeURIComponent(v.vid) + '">';
+    h += '<span class="card-title">' + esc(v.title) + '</span>';
+    h += '<span class="card-meta">' + esc(v.guest || "") + "　" + (v.key_points || []).length + " 個重點</span>";
+    h += "</a>";
+    return h;
+  }
+
+  function renderBoyin() {
+    const BO = CFG.boyinLearning;
+    boyinData(function (data) {
+      let html = '<div class="page"><div class="hero">';
+      html += "<h2>" + esc(BO.icon) + " " + esc(BO.title) + "</h2>";
+      html += '<p class="hero-sub">' + esc(BO.source || "") + "　已整理 " + (data.analyzed || 0) + " / " + (data.total || 0) +
+              ' 集　<a href="' + esc(BO.playlistUrl || "#") + '" target="_blank" rel="noopener">原始清單 ↗</a></p>';
+      html += '</div><div class="card-grid">';
+      (data.topics || []).forEach(function (t) {
+        html += '<a class="card" href="#/boyin/' + encodeURIComponent(t.name) + '">';
+        html += '<span class="card-icon">' + esc(t.icon || "🎧") + "</span>";
+        html += '<span class="card-title">' + esc(t.name) + "</span>";
+        html += '<span class="card-meta">' + t.count + " 集</span>";
+        html += "</a>";
+      });
+      html += "</div></div>";
+      content.innerHTML = html;
+    });
+  }
+
+  function renderBoyinTopic(topicName) {
+    const BO = CFG.boyinLearning;
+    boyinData(function (data) {
+      const videos = (data.videos || []).filter(function (v) { return v.topic === topicName; });
+      if (!videos.length) return renderNotFound();
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/boyin">← 返回「' + esc(BO.title) + '」</a>';
+      html += "<h2>📌 " + esc(topicName) + "</h2>";
+      html += '<p class="page-sub">共 ' + videos.length + " 集，點標題看重點整理。</p></div>";
+      html += '<div class="card-grid">' + videos.map(boyinCard).join("") + "</div></div>";
+      content.innerHTML = html;
+    });
+  }
+
+  function renderBoyinVideo(topicName, vid) {
+    boyinData(function (data) {
+      const list = (data.videos || []).filter(function (v) { return v.topic === topicName; });
+      const i = list.findIndex(function (v) { return v.vid === vid; });
+      if (i === -1) return renderNotFound();
+      const v = list[i];
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/boyin/' + encodeURIComponent(topicName) + '">← 返回「' + esc(topicName) + '」</a>';
+      html += "<h2>" + esc(v.title) + "</h2>";
+      html += '<p class="page-sub">' + (v.guest ? "來賓：" + esc(v.guest) + "　" : "") + '博音 Podcast　<a href="https://youtu.be/' + esc(v.vid) + '" target="_blank" rel="noopener">聽原集 ↗</a></p></div>';
+      if (v.intro) html += '<section class="learn-block"><h3>📖 集引言</h3><p>' + esc(v.intro) + "</p></section>";
+      html += '<section class="learn-block"><h3>🎯 重點整理</h3><ol class="step-list">';
+      (v.key_points || []).forEach(function (p) { html += "<li>" + esc(p) + "</li>"; });
+      html += "</ol></section>";
+      if (v.analysis) html += '<section class="learn-block"><h3>🔍 深度解析</h3><p>' + esc(v.analysis) + "</p></section>";
+      if ((v.actionable || []).length) {
+        html += '<section class="learn-block"><h3>✅ 實踐要點（做起來）</h3><ul class="pitfall-list">';
+        v.actionable.forEach(function (p) { html += "<li>⚔️ " + esc(p) + "</li>"; });
+        html += "</ul></section>";
+      }
+      if ((v.quotes || []).length) {
+        html += '<section class="learn-block"><h3>💬 來賓金句</h3>';
+        v.quotes.forEach(function (q) { html += "<blockquote>「" + esc(q) + "」</blockquote>"; });
+        html += "</section>";
+      }
+      html += '<nav class="learn-nav">';
+      if (i > 0) html += '<a href="#/boyin/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i - 1].vid) + '">← 上一集</a>';
+      if (i < list.length - 1) html += '<a href="#/boyin/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i + 1].vid) + '">下一集 →</a>';
+      html += "</nav></div>";
+      content.innerHTML = html;
+    });
+  }
+
   function renderFinance(fid) { return renderEmbed(CFG.financeLinks, fid, "財務分析站"); }
   function renderGame(gid) { return renderEmbed(CFG.gameLinks, gid, "遊戲"); }
   function renderEmbed(list, id, kindLabel) {
@@ -606,6 +709,13 @@
       const slash = rest.indexOf("/");
       if (slash === -1) return renderBookTopic(rest);
       return renderBookVideo(rest.slice(0, slash), rest.slice(slash + 1));
+    }
+    if (hash === "#/boyin" || hash.startsWith("#/boyin/")) {
+      const rest = decodeURIComponent(hash.slice("#/boyin".length)).replace(/^\//, "");
+      if (!rest) return renderBoyin();
+      const slash = rest.indexOf("/");
+      if (slash === -1) return renderBoyinTopic(rest);
+      return renderBoyinVideo(rest.slice(0, slash), rest.slice(slash + 1));
     }
     if (hash.startsWith("#/game/")) return renderGame(decodeURIComponent(hash.slice("#/game/".length)));
     if (hash.startsWith("#/finance/")) return renderFinance(decodeURIComponent(hash.slice("#/finance/".length)));
