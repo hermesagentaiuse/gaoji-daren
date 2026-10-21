@@ -152,6 +152,7 @@ window.SITE_CONFIG = {
     },
     { id: "stocks", icon: "📈", title: "朱家泓·股市教學", type: "route", route: "#/stocks" },
     { id: "books", icon: "📜", title: "枕書夜話·古籍夜讀", type: "route", route: "#/books" },
+    { id: "boyin", icon: "🎙️", title: "博音精讀", type: "route", route: "#/boyin" },
     { id: "game-three-kingdoms", icon: "🎮", title: "三國蝴蝶·文字遊戲", type: "route", route: "#/game/three-kingdoms" },
     { id: "analyst-dashboard", icon: "📊", title: "分析師儀表板", type: "route", route: "#/finance/analyst-dashboard" },
     { id: "serenity-watch", icon: "🐦", title: "Serenity 追蹤", type: "route", route: "#/finance/serenity-watch" },
