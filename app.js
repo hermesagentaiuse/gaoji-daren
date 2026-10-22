@@ -169,56 +169,43 @@
     html += '<p class="progress-text">已打卡 <b>' + done + '</b> / ' + total + ' 項（' + pct + '%）</p></div>';
     html += '</div><div class="card-grid">';
 
-    (CFG.categories || []).forEach(function (cat) {
-      const cdone = cat.items.filter(function (_, i) { return checkins[cat.id + ":" + i]; }).length;
-      html += '<a class="card" href="#/cat/' + cat.id + '">';
-      html += '<span class="card-icon">' + esc(cat.icon) + '</span>';
-      html += '<span class="card-title">' + esc(cat.title) + '</span>';
-      html += '<span class="card-meta">' + cdone + " / " + cat.items.length + " 項</span>";
-      html += '</a>';
-    });
-
-    if (CFG.bookLearning) {
-      const BL = CFG.bookLearning;
-      html += '<a class="card card-finance" href="#/books">';
-      html += '<span class="card-icon">' + esc(BL.icon) + '</span>';
-      html += '<span class="card-title">' + esc(BL.title) + '</span>';
-      html += '<span class="card-meta">古籍夜讀</span>';
-      html += '</a>';
-    }
-
-    if (CFG.boyinLearning) {
-      const BO = CFG.boyinLearning;
-      html += '<a class="card card-finance" href="#/boyin">';
-      html += '<span class="card-icon">' + esc(BO.icon) + '</span>';
-      html += '<span class="card-title">' + esc(BO.title) + '</span>';
-      html += '<span class="card-meta">Podcast 訪談精讀</span>';
-      html += '</a>';
-    }
-
-    (CFG.gameLinks || []).forEach(function (g) {
-      html += '<a class="card card-finance" href="#/game/' + g.id + '">';
-      html += '<span class="card-icon">' + esc(g.icon) + '</span>';
-      html += '<span class="card-title">' + esc(g.title) + '</span>';
-      html += '<span class="card-meta">文字遊戲 ↗</span>';
-      html += '</a>';
-    });
-
-    (CFG.financeLinks || []).forEach(function (f) {
-      html += '<a class="card card-finance" href="#/finance/' + f.id + '">';
-      html += '<span class="card-icon">' + esc(f.icon) + '</span>';
-      html += '<span class="card-title">' + esc(f.title) + '</span>';
-      html += '<span class="card-meta">財務分析站 ↗</span>';
-      html += '</a>';
-    });
-
-    if (CFG.stockLearning) {
-      const SL = CFG.stockLearning;
-      html += '<a class="card card-finance" href="#/stocks">';
-      html += '<span class="card-icon">' + esc(SL.icon) + '</span>';
-      html += '<span class="card-title">' + esc(SL.title) + '</span>';
-      html += '<span class="card-meta">股市教學</span>';
-      html += '</a>';
+    if (CFG.sections && CFG.sections.length) {
+      // 與 sidebar 一致：總覽只列大項目；自我修養（group）點進去才是子分類清單
+      CFG.sections.forEach(function (s) {
+        const href = s.type === "group" ? "#/section/" + s.id : s.route;
+        let meta = "";
+        if (s.type === "group") {
+          let gTotal = 0, gDone = 0;
+          (s.children || []).forEach(function (cid) {
+            const cat = (CFG.categories || []).find(function (c) { return c.id === cid; });
+            if (!cat) return;
+            gTotal += cat.items.length;
+            gDone += cat.items.filter(function (_, i) { return checkins[cat.id + ":" + i]; }).length;
+          });
+          meta = gDone + " / " + gTotal + " 項";
+        } else {
+          if (s.route === "#/stocks") meta = "股市教學";
+          else if (s.route === "#/books") meta = "古籍夜讀";
+          else if (s.route === "#/boyin") meta = "Podcast 訪談精讀";
+          else if (s.route && s.route.startsWith("#/game/")) meta = "文字遊戲 ↗";
+          else if (s.route && s.route.startsWith("#/finance/")) meta = "財務分析站 ↗";
+        }
+        html += '<a class="card' + (s.type === "group" ? "" : " card-finance") + '" href="' + href + '">';
+        html += '<span class="card-icon">' + esc(s.icon) + '</span>';
+        html += '<span class="card-title">' + esc(s.title) + '</span>';
+        html += '<span class="card-meta">' + esc(meta) + '</span>';
+        html += '</a>';
+      });
+    } else {
+      // 後相容：無 sections 時退回舊扁平清單
+      (CFG.categories || []).forEach(function (cat) {
+        const cdone = cat.items.filter(function (_, i) { return checkins[cat.id + ":" + i]; }).length;
+        html += '<a class="card" href="#/cat/' + cat.id + '">';
+        html += '<span class="card-icon">' + esc(cat.icon) + '</span>';
+        html += '<span class="card-title">' + esc(cat.title) + '</span>';
+        html += '<span class="card-meta">' + cdone + " / " + cat.items.length + " 項</span>";
+        html += '</a>';
+      });
     }
 
     html += '</div><p class="hint">💡 想新增分類或財經站：編輯 <code>config.js</code> 即可，不用改其他檔案。</p></div>';
