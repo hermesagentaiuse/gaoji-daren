@@ -88,9 +88,19 @@
     const sec = (CFG.sections || []).find(function (s) { return s.id === secId; });
     if (!sec || sec.type !== "group") return renderNotFound();
     const checkins = loadCheckins();
+    let gTotal = 0, gDone = 0;
+    (sec.children || []).forEach(function (cid) {
+      const cat = (CFG.categories || []).find(function (c) { return c.id === cid; });
+      if (!cat) return;
+      gTotal += cat.items.length;
+      gDone += cat.items.filter(function (_, i) { return checkins[cat.id + ":" + i]; }).length;
+    });
+    const pct = gTotal ? Math.round((gDone / gTotal) * 100) : 0;
     let html = '<div class="page"><div class="hero">';
     html += '<h2>' + esc(sec.icon) + " " + esc(sec.title) + '</h2>';
     if (sec.desc) html += '<p class="hero-sub">' + esc(sec.desc) + '</p>';
+    html += '<div class="progress-card"><div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>';
+    html += '<p class="progress-text">已打卡 <b>' + gDone + '</b> / ' + gTotal + ' 項（' + pct + '%）</p></div>';
     html += '</div><div class="card-grid">';
     (sec.children || []).forEach(function (cid) {
       const cat = (CFG.categories || []).find(function (c) { return c.id === cid; });
@@ -157,16 +167,9 @@
   }
 
   function renderHome() {
-    const checkins = loadCheckins();
-    const total = (CFG.categories || []).reduce(function (n, c) { return n + c.items.length; }, 0);
-    const done = Object.keys(checkins).filter(function (k) { return checkins[k]; }).length;
-    const pct = total ? Math.round((done / total) * 100) : 0;
-
     let html = '<div class="page"><div class="hero">';
-    html += '<h2>' + esc(CFG.siteName || "自我修養") + '</h2>';
+    html += '<h2>\uD83C\uDFE0 總覽</h2>';
     html += '<p class="hero-sub">' + esc(CFG.tagline || "") + '</p>';
-    html += '<div class="progress-card"><div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>';
-    html += '<p class="progress-text">已打卡 <b>' + done + '</b> / ' + total + ' 項（' + pct + '%）</p></div>';
     html += '</div><div class="card-grid">';
 
     if (CFG.sections && CFG.sections.length) {
@@ -175,14 +178,7 @@
         const href = s.type === "group" ? "#/section/" + s.id : s.route;
         let meta = "";
         if (s.type === "group") {
-          let gTotal = 0, gDone = 0;
-          (s.children || []).forEach(function (cid) {
-            const cat = (CFG.categories || []).find(function (c) { return c.id === cid; });
-            if (!cat) return;
-            gTotal += cat.items.length;
-            gDone += cat.items.filter(function (_, i) { return checkins[cat.id + ":" + i]; }).length;
-          });
-          meta = gDone + " / " + gTotal + " 項";
+          meta = s.desc || "點進去查看分類";
         } else {
           if (s.route === "#/stocks") meta = "股市教學";
           else if (s.route === "#/books") meta = "古籍夜讀";
