@@ -847,6 +847,13 @@
       return renderBoyinVideo(rest.slice(0, slash), rest.slice(slash + 1));
     }
     if (hash.startsWith("#/game/")) return renderGame(decodeURIComponent(hash.slice("#/game/".length)));
+    if (hash === "#/research" || hash.startsWith("#/research/")) {
+      const rest = decodeURIComponent(hash.slice("#/research".length).replace(/^\//, ""));
+      if (!rest) return renderResearch();
+      const slash = rest.indexOf("/");
+      if (slash === -1) return renderResearchTrack(rest);
+      return renderResearchPaper(rest.slice(0, slash), rest.slice(slash + 1));
+    }
     if (hash.startsWith("#/finance/")) return renderFinance(decodeURIComponent(hash.slice("#/finance/".length)));
     renderNotFound();
   }
