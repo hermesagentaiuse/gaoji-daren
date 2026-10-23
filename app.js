@@ -712,6 +712,19 @@
     });
   }
 
+  function easyReadHtml(p) {
+    const er = p.easy_read || [];
+    if (!er.length) return "";
+    let h = '<section class="learn-block"><h3>📖 從零開始的白話精讀（不用翻原文，先讀這段）</h3>';
+    er.forEach(function (sec) {
+      h += '<div class="learn-block" style="border-left:3px solid #7c9cbf;padding-left:12px;margin:12px 0">' +
+           '<h4 style="margin:6px 0">' + esc(sec.h) + '</h4>' +
+           '<p style="line-height:1.9;white-space:pre-wrap">' + esc(sec.body) + '</p></div>';
+    });
+    h += "</section>";
+    return h;
+  }
+
   function studyKitHtml(p) {
     const k = p.study_kit;
     let h = "";
@@ -830,6 +843,7 @@
         p.reading_notes.forEach(function (k) { html += "<li>" + esc(k) + "</li>"; });
         html += "</ol></section>";
       }
+      html += easyReadHtml(p);
       if (p.study_kit) html += studyKitHtml(p);
       html += '<nav class="learn-nav">';
       if (i > 0) html += '<a href="#/research/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i - 1].pid) + '">← 上一篇</a>';
