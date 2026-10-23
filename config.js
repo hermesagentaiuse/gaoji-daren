@@ -153,6 +153,7 @@ window.SITE_CONFIG = {
     { id: "stocks", icon: "📈", title: "朱家泓·股市教學", type: "route", route: "#/stocks" },
     { id: "books", icon: "📜", title: "枕書夜話·古籍夜讀", type: "route", route: "#/books" },
     { id: "boyin", icon: "🎙️", title: "博音精讀", type: "route", route: "#/boyin" },
+    { id: "amt", icon: "📉", title: "下班經濟學·財經精讀", type: "route", route: "#/amt" },
     { id: "research", icon: "🎓", title: "研究生專區", type: "route", route: "#/research" },
     { id: "game-three-kingdoms", icon: "🎮", title: "三國蝴蝶·文字遊戲", type: "route", route: "#/game/three-kingdoms" },
     { id: "analyst-dashboard", icon: "📊", title: "分析師儀表板", type: "route", route: "#/finance/analyst-dashboard" },
@@ -184,6 +185,15 @@ window.SITE_CONFIG = {
     title: "博音精讀",
     source: "YouTube「博音」Podcast 訪談 EP 精讀",
     playlistUrl: "https://www.youtube.com/playlist?list=PLlcjDGAdaA5cGLXm-19erGq3hHn2gkCrw",
+  },
+
+  // ---- 下班經濟學·財經精讀（sidebar 單一入口；內容存放在 learn/amt.json）----
+  amtLearning: {
+    id: "amt",
+    icon: "📉",
+    title: "下班經濟學·財經精讀",
+    source: "風傳媒「下班經濟學」(AMT Show) 精讀",
+    playlistUrl: "https://www.youtube.com/playlist?list=PLKFtWHNRC24QO4lx-I3Ajsscg5eiibJ8-",
   },
 
   // ---- 研究生專區（sidebar 單一入口；內容存放在 learn/research.json）----

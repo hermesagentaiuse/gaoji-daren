@@ -75,6 +75,8 @@
     if (BL) catNav.appendChild(navItem("#/books", BL.icon + " " + BL.title, BL.id));
     const BO = CFG.boyinLearning;
     if (BO) catNav.appendChild(navItem("#/boyin", BO.icon + " " + BO.title, BO.id));
+    const AM = CFG.amtLearning;
+    if (AM) catNav.appendChild(navItem("#/amt", AM.icon + " " + AM.title, AM.id));
     (CFG.gameLinks || []).forEach(function (g) {
       catNav.appendChild(navItem("#/game/" + g.id, g.icon + " " + g.title, g.id));
     });
@@ -152,6 +154,9 @@
       if (!on && r === "#/boyin") {
         on = hash === r || hash.startsWith(r + "/");
       }
+      if (!on && r === "#/amt") {
+        on = hash === r || hash.startsWith(r + "/");
+      }
       if (!on && r === "#/research") {
         on = hash === r || hash.startsWith(r + "/");
       }
@@ -186,6 +191,7 @@
           if (s.route === "#/stocks") meta = "股市教學";
           else if (s.route === "#/books") meta = "古籍夜讀";
           else if (s.route === "#/boyin") meta = "Podcast 訪談精讀";
+          else if (s.route === "#/amt") meta = "風傳媒財經節目精讀";
           else if (s.route === "#/research") meta = "論文學習地圖 · 每天一篇";
           else if (s.route && s.route.startsWith("#/game/")) meta = "文字遊戲 ↗";
           else if (s.route && s.route.startsWith("#/finance/")) meta = "財務分析站 ↗";
@@ -627,6 +633,95 @@
     });
   }
 
+  // ---- 下班經濟學·財經精讀：#/amt（主題總覽）→ #/amt/<topic>（清單）→ #/amt/<topic>/<vid>（單篇筆記）----
+  const amtCache = {};
+
+  function amtData(cb) {
+    if (amtCache.data) return cb(amtCache.data);
+    content.innerHTML = '<div class="page"><p class="hint">📉 載入下班經濟學精讀中…</p></div>';
+    fetch("learn/amt.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { amtCache.data = d; cb(d); })
+      .catch(function () {
+        content.innerHTML = '<div class="page"><p class="hint">下班經濟學資料載入失敗，請重新整理重試。</p></div>';
+      });
+  }
+
+  function amtCard(v) {
+    let h = '<a class="card card-stock" href="#/amt/' + encodeURIComponent(v.topic) + "/" + encodeURIComponent(v.vid) + '">';
+    h += '<span class="card-title">' + esc(v.title) + '</span>';
+    h += '<span class="card-meta">' + esc(v.guest || "") + "　" + (v.key_points || []).length + " 個重點</span>";
+    h += "</a>";
+    return h;
+  }
+
+  function renderAmt() {
+    const AM = CFG.amtLearning;
+    amtData(function (data) {
+      let html = '<div class="page"><div class="hero">';
+      html += "<h2>" + esc(AM.icon) + " " + esc(AM.title) + "</h2>";
+      html += '<p class="hero-sub">' + esc(AM.source || "") + "　已整理 " + (data.analyzed || 0) + " / " + (data.total || 0) +
+              ' 集　<a href="' + esc(AM.playlistUrl || "#") + '" target="_blank" rel="noopener">原始清單 ↗</a></p>';
+      html += '</div><div class="card-grid">';
+      (data.topics || []).forEach(function (t) {
+        html += '<a class="card" href="#/amt/' + encodeURIComponent(t.name) + '">';
+        html += '<span class="card-icon">' + esc(t.icon || "💹") + "</span>";
+        html += '<span class="card-title">' + esc(t.name) + "</span>";
+        html += '<span class="card-meta">' + t.count + " 集</span>";
+        html += "</a>";
+      });
+      html += "</div></div>";
+      content.innerHTML = html;
+    });
+  }
+
+  function renderAmtTopic(topicName) {
+    const AM = CFG.amtLearning;
+    amtData(function (data) {
+      const videos = (data.videos || []).filter(function (v) { return v.topic === topicName; });
+      if (!videos.length) return renderNotFound();
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/amt">← 返回「' + esc(AM.title) + '」</a>';
+      html += "<h2>📌 " + esc(topicName) + "</h2>";
+      html += '<p class="page-sub">共 ' + videos.length + " 集，點標題看重點整理。</p></div>";
+      html += '<div class="card-grid">' + videos.map(amtCard).join("") + "</div></div>";
+      content.innerHTML = html;
+    });
+  }
+
+  function renderAmtVideo(topicName, vid) {
+    amtData(function (data) {
+      const list = (data.videos || []).filter(function (v) { return v.topic === topicName; });
+      const i = list.findIndex(function (v) { return v.vid === vid; });
+      if (i === -1) return renderNotFound();
+      const v = list[i];
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/amt/' + encodeURIComponent(topicName) + '">← 返回「' + esc(topicName) + '」</a>';
+      html += "<h2>" + esc(v.title) + "</h2>";
+      html += '<p class="page-sub">' + (v.guest ? "來賓：" + esc(v.guest) + "　" : "") + '下班經濟學 AMT Show　<a href="https://youtu.be/' + esc(v.vid) + '" target="_blank" rel="noopener">看原集 ↗</a></p></div>';
+      if (v.intro) html += '<section class="learn-block"><h3>📖 集引言</h3><p>' + esc(v.intro) + "</p></section>";
+      html += '<section class="learn-block"><h3>🎯 重點整理</h3><ol class="step-list">';
+      (v.key_points || []).forEach(function (p) { html += "<li>" + esc(p) + "</li>"; });
+      html += "</ol></section>";
+      if (v.analysis) html += '<section class="learn-block"><h3>🔍 深度解析</h3><p>' + esc(v.analysis) + "</p></section>";
+      if ((v.actionable || []).length) {
+        html += '<section class="learn-block"><h3>✅ 實踐要點（做起來）</h3><ul class="pitfall-list">';
+        v.actionable.forEach(function (p) { html += "<li>⚔️ " + esc(p) + "</li>"; });
+        html += "</ul></section>";
+      }
+      if ((v.quotes || []).length) {
+        html += '<section class="learn-block"><h3>💬 來賓金句</h3>';
+        v.quotes.forEach(function (q) { html += "<blockquote>「" + esc(q) + "」</blockquote>"; });
+        html += "</section>";
+      }
+      html += '<nav class="learn-nav">';
+      if (i > 0) html += '<a href="#/amt/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i - 1].vid) + '">← 上一集</a>';
+      if (i < list.length - 1) html += '<a href="#/amt/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i + 1].vid) + '">下一集 →</a>';
+      html += "</nav></div>";
+      content.innerHTML = html;
+    });
+  }
+
   // ---- 研究生專區：#/research（學習地圖）→ #/research/<track>（論文清單）→ #/research/<track>/<pid>（論文卡片）----
   const researchCache = {};
 
@@ -935,6 +1030,13 @@
       const slash = rest.indexOf("/");
       if (slash === -1) return renderBoyinTopic(rest);
       return renderBoyinVideo(rest.slice(0, slash), rest.slice(slash + 1));
+    }
+    if (hash === "#/amt" || hash.startsWith("#/amt/")) {
+      const rest = decodeURIComponent(hash.slice("#/amt".length)).replace(/^\//, "");
+      if (!rest) return renderAmt();
+      const slash = rest.indexOf("/");
+      if (slash === -1) return renderAmtTopic(rest);
+      return renderAmtVideo(rest.slice(0, slash), rest.slice(slash + 1));
     }
     if (hash.startsWith("#/game/")) return renderGame(decodeURIComponent(hash.slice("#/game/".length)));
     if (hash === "#/research" || hash.startsWith("#/research/")) {
