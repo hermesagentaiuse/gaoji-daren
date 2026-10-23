@@ -1,0 +1,1315 @@
+{
+ "tracks": [
+  {
+   "name": "MARL 基礎與通訊感知",
+   "icon": "🧠",
+   "desc": "從 CTDE 奠基文到 2026 通訊受限/延遲感知前沿 —— 論文主線的理論根基"
+  },
+  {
+   "name": "多無人機協同搜索與聚集",
+   "icon": "🛩️",
+   "desc": "協同搜索、聚集、連通性維持、CBF 安全濾波 —— 論文任務場景的直接文獻"
+  },
+  {
+   "name": "無人機sim-to-real與風場控制",
+   "icon": "🌪️",
+   "desc": "PPO 飛控、亂流/風場建模、GPU 模擬與跨域轉移 —— Isaac Sim 階段的技術棧"
+  },
+  {
+   "name": "邊緣AI與模型壓縮",
+   "icon": "📱",
+   "desc": "蒸餾、剪枝、量化、輕量骨幹 —— 實驗室側題與機載部署必修"
+  },
+  {
+   "name": "具身智慧",
+   "icon": "🤖",
+   "desc": "SayCan → RT 系列 → OpenVLA → π0 的機器人基礎模型譜系 —— 實驗室前沿方向"
+  }
+ ],
+ "papers": [
+  {
+   "pid": "ppo",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "Proximal Policy Optimization Algorithms",
+   "arxiv_id": "1707.06347",
+   "year": 2017,
+   "venue": "arXiv preprint",
+   "level": "foundation",
+   "core_contribution": "提出 PPO，以 clipped surrogate objective 限制每次更新的政策變化幅度，讓 on-policy 策略梯度訓練既穩定又易於調參。它成為機器人控制與大規模並行 RL 的事實標準演算法。",
+   "builds_on": [
+    "TRPO (Schulman et al. 2015)",
+    "Actor-Critic 方法"
+   ],
+   "influenced": [
+    "幾乎所有後續 DRL 無人機控制工作",
+    "isaac-gym",
+    "mappo"
+   ],
+   "why_for_reader": "你論文的第一階段政策演算法就是 PPO；理解 clipping、GAE 與 mini-batch 節奏，才能解釋為何換到高保真 Dryden 風場後政策會崩壞或需微調。",
+   "verified": true
+  },
+  {
+   "pid": "commnet",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "Learning Multiagent Communication with Backpropagation (CommNet)",
+   "arxiv_id": "1605.07736",
+   "year": 2016,
+   "venue": "NIPS 2016",
+   "level": "foundation",
+   "core_contribution": "提出 CommNet 架構，讓多個全協作代理在每一步以連續向量訊息進行平均池化通訊，並與策略一起端到端透過梯度學習通訊內容。證明代理能自行發展出可詮釋的簡單通訊策略，且明顯優於不通訊的基線。",
+   "builds_on": [
+    "policy gradient / actor-critic 基礎",
+    "DeepSets 前的平均池化思想"
+   ],
+   "influenced": [
+    "tarmac",
+    "ic3net",
+    "uav-deploy-marl"
+   ],
+   "why_for_reader": "連續通訊向量的開山之作，是理解「代理到底在訊息裡傳了什麼」的起點，也是多 UAV 近鄰通訊圖設計的原始參照。",
+   "verified": true
+  },
+  {
+   "pid": "dial",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "Learning to Communicate with Deep Multi-Agent Reinforcement Learning (RIAL/DIAL)",
+   "arxiv_id": "1605.06676",
+   "year": 2016,
+   "venue": "NeurIPS 2016",
+   "level": "foundation",
+   "core_contribution": "提出 RIAL（離散通訊動作、用 DRQN 選擇訊息）與 DIAL（於集中訓練時讓實值訊息跨代理反向傳播，執行時以離散化近似）兩種學習通訊協定的方法。首次在部分可觀察的溝通謎題與多代理視覺任務中示範端到端習得通訊協定。",
+   "builds_on": [
+    "DQN (Mnih et al. 2015)",
+    "DRQN",
+    "commnet (同期)"
+   ],
+   "influenced": [
+    "tarmac",
+    "ic3net",
+    "dacom"
+   ],
+   "why_for_reader": "離散 vs. 可微通訊的核心分野源自本文；你的論文若考慮封包化（離散）訊息以符合真實鏈路限制，DIAL 的訓練-執行差距問題是直接相關的前提。",
+   "verified": true
+  },
+  {
+   "pid": "vdn",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "Value-Decomposition Networks For Cooperative Multi-Agent Learning (VDN)",
+   "arxiv_id": "1706.05296",
+   "year": 2017,
+   "venue": "AAMAS 2018 (arXiv 2017)",
+   "level": "foundation",
+   "core_contribution": "針對單一團隊獎勵的合作式 MARL，提出將團隊價值函數分解為各代理價值函數之和的 VDN 架構，解決集中式的虛假獎勵與部分可觀察下的「偷懶代理」問題。在多種部分可觀察環境中證明價值分解配合參數共享與資訊通道能顯著提升學習效果。",
+   "builds_on": [
+    "DQN (Mnih et al. 2015)",
+    "IQL (獨立 Q-learning)"
+   ],
+   "influenced": [
+    "qmix",
+    "WQMIX (2020)",
+    "QTRAN (2018)"
+   ],
+   "why_for_reader": "CTDE 價值分解家族的源頭，讀懂它才能理解 QMIX 的單調性約束以及為何集中訓練、分散執行是多 UAV 系統的標準範式。",
+   "verified": true
+  },
+  {
+   "pid": "qmix",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning",
+   "arxiv_id": "1803.11485",
+   "year": 2018,
+   "venue": "ICML 2018",
+   "level": "foundation",
+   "core_contribution": "提出 QMIX：以混合網路將 joint action-value 結構化地表示為各代理區域價值函數的單調非線性組合，保證集中與分散策略的一致性並使 argmax 可處理。在 StarCraft II 微觀管理任務上大幅超越既有價值式 MARL 方法。",
+   "builds_on": [
+    "vdn",
+    "IQL",
+    "DMQN (2016)"
+   ],
+   "influenced": [
+    "QPLEX (2021)",
+    "WQMIX",
+    "uav-deploy-marl"
+   ],
+   "why_for_reader": "價值式 CTDE 的事實標準基線，你的多 UAV 搜尋任務若要與 MAPPO 之外做比較，QMIX 系是最常見的對照組。",
+   "verified": true
+  },
+  {
+   "pid": "coma",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "Counterfactual Multi-Agent Policy Gradients (COMA)",
+   "arxiv_id": "1705.08926",
+   "year": 2017,
+   "venue": "AAAI 2018 (arXiv 2017)",
+   "level": "foundation",
+   "core_contribution": "提出 COMA：集中式 critic 估計 Q 函數、分散式 actor 優化策略，並以「反事實基線」（固定其他代理動作、邊際化自身動作）解決多代理信用分配問題。其 critic 表示讓反事實基線可在單次前向傳播中高效計算，在 StarCraft 單位微觀管理中顯著超越既有 actor-critic 方法。",
+   "builds_on": [
+    "IAC (Independent Actor-Critic)",
+    "maddpg (同期)",
+    "arithmetic utility 概念"
+   ],
+   "influenced": [
+    "MAD (2019)",
+    "QPLEX (2021)",
+    "mappo"
+   ],
+   "why_for_reader": "集中式 critic + 反事實信用分配是理解 MAPPO centralized value function 設計的必修課，對「哪架 UAV 的貢獻導致任務成功」的歸因問題尤為關鍵。",
+   "verified": true
+  },
+  {
+   "pid": "maddpg",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments (MADDPG)",
+   "arxiv_id": "1706.02275",
+   "year": 2017,
+   "venue": "NeurIPS 2017",
+   "level": "foundation",
+   "core_contribution": "提出 MADDPG：集中式訓練（critic 條件化所有代理的動作與策略）、分散式執行的 actor-critic 方法，直接處理多代理環境的非平穩性與策略梯度隨代理數增加的變異問題。並引入每個代理的策略集成訓練法則，提升學得策略的穩健性，在合作與競爭情境皆驗證有效。",
+   "builds_on": [
+    "DDPG (Lillicrap et al. 2015)",
+    "policy gradient (Sutton et al. 1999)"
+   ],
+   "influenced": [
+    "M3DDPG",
+    "FACMA (2019)",
+    "uav-deploy-marl"
+   ],
+   "why_for_reader": "CTDE 範式的奠基文之一；其「非平穩性」論證正是你論文動機章節解釋為何多 UAV 必須協同訓練而非獨立訓練的理論依據。",
+   "verified": true
+  },
+  {
+   "pid": "mappo",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "The Surprising Effectiveness of PPO in Cooperative, Multi-Agent Games (MAPPO)",
+   "arxiv_id": "2103.01955",
+   "year": 2021,
+   "venue": "NeurIPS 2021 (Datasets and Benchmarks)",
+   "level": "foundation",
+   "core_contribution": "系統性證明簡單的 MAPPO（獨立 actor + 集中式 value function 的 PPO）在四個主流 MARL 測試床（粒子世界、SMAC、GRF、Hanabi）上以極少調參即可匹敵甚至超越離策略方法，且樣本效率不差。並透過消融實驗給出集中值函數、觀察歸一化、價值函數共享等關鍵實踐建議。",
+   "builds_on": [
+    "ppo",
+    "maddpg (CTDE 概念)",
+    "coma (centralized critic)"
+   ],
+   "influenced": [
+    "當前多數 MARL 研究的預設基線",
+    "uav-deploy-marl (以 MAPPO 為 baseline)"
+   ],
+   "why_for_reader": "你的論文以 MAPPO 為基線，這篇是必讀：它的消融結論（觀察歸一化、價值共享、gamma 等）直接決定你 Isaac Sim 訓練對不對得起來。",
+   "verified": true
+  },
+  {
+   "pid": "emergent-lang",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "Emergence of Grounded Compositional Language in Multi-Agent Populations",
+   "arxiv_id": "1703.04908",
+   "year": 2017,
+   "venue": "AAAI 2018 (arXiv 2017)",
+   "level": "core",
+   "core_contribution": "在多代理逆時序回饋（ITR）學習環境中，證明代理間可透過 RL 自然湧現出具有詞彙與語法結構的 grounded 組合式語言（離散符號序列）。同時觀察到語言通道不可用時代理會轉而湧現指點、引導等非語言溝通行為。",
+   "builds_on": [
+    "maddpg (ITR 以 MADDPG 訓練)",
+    "emergent communication 早期文獻"
+   ],
+   "influenced": [
+    "emergent communication 子領域",
+    "tarmac",
+    "five-ws-survey"
+   ],
+   "why_for_reader": "把「通訊」當作可學習的湧現行為而非預設協定的代表作；讀它可理解離散符號訊息為何天然接近封包化通訊，對設計 UAV 低頻寬訊息格式有啟發。",
+   "verified": true
+  },
+  {
+   "pid": "tarmac",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "TarMAC: Targeted Multi-Agent Communication",
+   "arxiv_id": "1810.11187",
+   "year": 2018,
+   "venue": "ICML 2019 (arXiv 2018)",
+   "level": "core",
+   "core_contribution": "提出目標式通訊架構：代理同時學習「傳什麼訊息」與「傳給誰」，僅靠下游任務獎勵即可學得定向通訊，無需通訊監督，並支援多輪通訊協調。在 2D 網格、交通路口到 3D 室內等多種合作與混合任務上驗證定向與多輪通訊的好處，且學得的通訊策略具可詮釋性。",
+   "builds_on": [
+    "commnet",
+    "dial",
+    "soft/hard attention 機制"
+   ],
+   "influenced": [
+    "attention-based MARL 通訊家族",
+    "uav-deploy-marl (neighbor self-attention)"
+   ],
+   "why_for_reader": "「選對象再傳」的 target attention 機制正是近鄰 UAV 通訊圖的對應物，你設計 SNR 限制的 neighbor attention 時應直接比較 TarMAC 的多輪通訊成本。",
+   "verified": true
+  },
+  {
+   "pid": "ic3net",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "Learning when to Communicate at Scale in Multiagent Cooperative and Competitive Tasks (IC3Net)",
+   "arxiv_id": "1812.09755",
+   "year": 2018,
+   "venue": "ICLR 2019 workshop (arXiv 2018)",
+   "level": "core",
+   "core_contribution": "提出 IC3Net：以 gating 機制控制每個代理連續通訊通道的開關（何時不傳），並用個體化獎勵把模型從全合作擴展到半合作與競爭場景，同時改善信用分配。在 StarCraft BroodWar 探索與戰鬥等大規模任務上展示比純連續通訊更好的收斂速度與擴展性，代理學會依情境與獲利決定是否通訊。",
+   "builds_on": [
+    "commnet",
+    "Highway networks / LSTM gating"
+   ],
+   "influenced": [
+    "sparse/gated communication 系列",
+    "bvme"
+   ],
+   "why_for_reader": "「何時發訊息」的 gating 直接對應 UAV 頻寬與電池預算：在風場擾動、無需協作時保持靜默，是可節省通訊開銷的關鍵機制。",
+   "verified": true
+  },
+  {
+   "pid": "marl-survey-gt",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "An Overview of Multi-Agent Reinforcement Learning from Game Theoretical Perspective",
+   "arxiv_id": "2011.00583",
+   "year": 2020,
+   "venue": "arXiv monograph (v5 2025)",
+   "level": "core",
+   "core_contribution": "提供自含式的 MARL 專論，前半從隨機博弈與擴充式博弈建立問題形式化與基礎解法，後半系統綜述 Q 函數分解、多代理軟學習、網路化多代理 MDP、平均場學習等現代主題與演算法分類學。同時梳理既有綜述文獻，為入門者與領域專家提供現況評估與新方向的踏腳石。",
+   "builds_on": [
+    "博弈理論（Nash 均衡等）",
+    "單代理 RL 基礎（Sutton & Barto）"
+   ],
+   "influenced": [
+    "後續多數 MARL 教科書式綜述",
+    "five-ws-survey (引用其通訊章節)"
+   ],
+   "why_for_reader": "兩年制硕士生建立 MARL 全域地圖最有效率的單一入口，其 Q 分解與 CTDE 章節可直接支撐你論文第二章的文獻架構。",
+   "verified": true
+  },
+  {
+   "pid": "dacom",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "DACOM: Learning Delay-Aware Communication for Multi-Agent Reinforcement Learning",
+   "arxiv_id": "2212.01619",
+   "year": 2023,
+   "venue": "AAAI 2023 (arXiv 2022)",
+   "level": "前沿",
+   "core_contribution": "證明忽略通訊延遲會實質損害合作式 MARL 的協作，尤其在自駕等延遲敏感任務。提出 DACOM：以 TimeNet 依網路狀態與局部觀察動態決定代理等待訊息的時間，在通訊收益與動作延遲成本之間自適應取捨。",
+   "builds_on": [
+    "dial",
+    "tarmac",
+    "bandwidth-constrained 通訊排程文獻"
+   ],
+   "influenced": [
+    "delay-aware MARL 系列",
+    "calf"
+   ],
+   "why_for_reader": "這是與你「通訊延遲/封包遺失」章節最貼近的必讀文：TimeNet 的「等待 vs. 立即行動」取捨框架可幾乎直接遷移到 UAV 圖傳延遲的決策建模。",
+   "verified": true
+  },
+  {
+   "pid": "damarl",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "Delay-Aware Multi-Agent Reinforcement Learning for Cooperative Adaptive Cruise Control with Model-based Stability Enhancement (DAMARL)",
+   "arxiv_id": "2404.15696",
+   "year": 2024,
+   "venue": "arXiv 2024",
+   "level": "前沿",
+   "core_contribution": "提出 DAMARL：以 Multi-Agent Delay-Aware MDP（MADA-MDP）形式化含通訊、感測與執行延遲的協同自駕車隊控制，採 CTDE 架構並在策略網路整合注意力機制處理車輛間通訊。再以速度最佳化模型為基礎的動作濾波器保證車隊字符串穩定，在多種延遲條件與車隊規模下穩定勝過基線。",
+   "builds_on": [
+    "mappo",
+    "dacom (延遲感知動機)",
+    "CACC 控制文獻"
+   ],
+   "influenced": [
+    "延遲感知安全關鍵 MARL 應用",
+    "異步 MARL 理論分析"
+   ],
+   "why_for_reader": "把延遲寫進 MDP 定義（而非只在損失裡懲罰）並加模型穩定性濾波的做法，可直接啟發你在抗風安全包絡裡「通訊延遲 + 動力學約束」的聯合建模。",
+   "verified": true
+  },
+  {
+   "pid": "bvme",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "Bandwidth-constrained Variational Message Encoding for Cooperative Multi-agent Reinforcement Learning (BVME)",
+   "arxiv_id": "2512.11179",
+   "year": 2025,
+   "venue": "AAMAS 2026 (oral) (arXiv 2025-12)",
+   "level": "前沿",
+   "core_contribution": "指出圖式 MARL 多聚焦「誰與誰通訊」卻忽略硬頻寬限制下「傳什麼」的問題，並證明單純降維會破壞協作。提出 BVME：把訊息視為服從學習到高斯後驗的樣本、以對無資訊先驗的 KL 正則化做變分編碼，用可解釋超參數原則化地控制壓縮強度。",
+   "builds_on": [
+    "圖式 MARL / 稀疏協調圖方法",
+    "ic3net (何時通訊)",
+    "VAE / 資訊瓶頸思想"
+   ],
+   "influenced": [
+    "頻寬受限訊息壓縮系列"
+   ],
+   "why_for_reader": "UAV 資料鏈的硬頻寬是離散位元預算問題，BVME 給出可調壓縮強度的變分訊息編碼方案，是你設計「封包大小預算下的訊息內容」最直接的 2026 前沿參考。",
+   "verified": true
+  },
+  {
+   "pid": "uav-deploy-marl",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "Communication-Aware Multi-Agent Reinforcement Learning for Decentralized Cooperative UAV Deployment",
+   "arxiv_id": "2603.16141",
+   "year": 2026,
+   "venue": "arXiv 2026 (IEEE 格式)",
+   "level": "前沿",
+   "core_contribution": "針對部分可觀察與間歇性 peer-to-peer 連線下的多 UAV 中繼部署，提出 CTDE 圖式 MARL 框架：集中 critic 僅訓練時可用，各 UAV 以局部觀察與近鄰訊息執行共享策略，通訊圖由 SNR 閾值的通道模型決定。以 agent-entity attention 與 neighbor self-attention 聚合訊息，在受限通訊下覆蓋率較 MAPPO 提升約 12%，並逼近具全域觀察的 MILP 離線上界。",
+   "builds_on": [
+    "mappo (直接基線)",
+    "commnet / tarmac (attention 通訊)",
+    "DGN (鄰近通訊圖)",
+    "entity graph 環境表示"
+   ],
+   "influenced": [
+    "通訊受限 UAV 部署後續研究"
+   ],
+   "why_for_reader": "與你的題目（多 UAV、受限通訊、MAPPO 基線）幾乎同構的最新工作，可直接作為你實驗設計與 baseline 對比的標竿與差異化定位點。",
+   "verified": true
+  },
+  {
+   "pid": "calf",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "CALF: Communication-Aware Learning Framework for Distributed Reinforcement Learning",
+   "arxiv_id": "2603.12543",
+   "year": 2026,
+   "venue": "arXiv 2026",
+   "level": "前沿",
+   "core_contribution": "提出 CALF：以 NetworkShim 中介層在訓練時透明注入延遲、抖動、封包遺失與頻寬限制，讓同一策略代碼從純模擬跑到邊緣-雲端分散式硬體，並證明網路狀態是對稱於物理與視覺域移的第三條 sim-to-real 鴻溝。系統性實驗顯示無網路感知訓練的策略在真實 Wi-Fi 下衰減 40–80%，網路感知訓練可把差距縮小約 3–4 倍，且抖動與封包遺失比固定延遲更具破壞性。",
+   "builds_on": [
+    "sim-to-real / domain randomization",
+    "dacom (延遲感知脈絡)",
+    "分散式 RL 系統文獻"
+   ],
+   "influenced": [
+    "網路條件納入訓練的 sim-to-real 路線"
+   ],
+   "why_for_reader": "你的 Isaac Sim 兩階段訓練若要跨越到真實 UAV 通訊環境，CALF 的「訓練時注入延遲/抖動/遺失」方法論與「抖動比固定延遲更傷」的實證結論可直接指導你的通訊退化模型設計。",
+   "verified": true
+  },
+  {
+   "pid": "five-ws-survey",
+   "topic": "MARL 基礎與通訊感知",
+   "title": "The Five Ws of Multi-Agent Communication: Who Talks to Whom, When, What, and Why — A Survey from MARL to Emergent Language and LLMs",
+   "arxiv_id": "2602.11583",
+   "year": 2026,
+   "venue": "arXiv 2026",
+   "level": "前沿",
+   "core_contribution": "以 Five Ws（誰傳、傳給誰、傳什麼、何時傳、為何有效）為統一框架，綜述 MARL、湧現語言（EL）與 LLM 多代理三大典下的 multi-agent communication，並揭露跨典的共同設計原則與取捨。梳理從手製/隱式協定到端到端可學習通訊、再到以自然語言先驗做開放環境協調的演化邏輯與未解挑戰。",
+   "builds_on": [
+    "commnet",
+    "dial",
+    "emergent-lang",
+    "marl-survey-gt"
+   ],
+   "influenced": [
+    "後續通訊感知 MARL 的定位與分類依據"
+   ],
+   "why_for_reader": "最新（2026）且直接以通訊為主題的綜述，用 Five Ws 幫你把「延遲/封包遺失/NLOS 屬於哪個設計軸」講清楚，是論文相關工作章節的最佳骨架來源。",
+   "verified": true
+  },
+  {
+   "pid": "lwc-what-to-comm",
+   "topic": "多無人機協同搜索與聚集",
+   "title": "Decentralization of Multiagent Policies by Learning What to Communicate",
+   "arxiv_id": "1901.08490",
+   "year": 2019,
+   "venue": "ICRA 2019",
+   "level": "core",
+   "core_contribution": "以神經網路從「通訊無感」的專家策略蒸餾出任務導向的通訊語義，代理自主決定何時、對誰發送何種訊息。在週界防禦任務中展示通訊頻寬被壓縮時性能的平順退化（graceful degradation）與代理數量動態變化的適應力。",
+   "builds_on": [
+    "dial",
+    "模仿學習蒸餾"
+   ],
+   "influenced": [
+    "whom-to-comm",
+    "connectivity-marl"
+   ],
+   "why_for_reader": "其「通訊約束收緊時性能平順退化」的評估方法，正是論文通訊退化實驗設計可直接借鑑的評測協議。",
+   "verified": true
+  },
+  {
+   "pid": "whom-to-comm",
+   "topic": "多無人機協同搜索與聚集",
+   "title": "With Whom to Communicate: Learning Efficient Communication for Multi-Robot Collision Avoidance",
+   "arxiv_id": "2009.12106",
+   "year": 2020,
+   "venue": "場所/年份待確認",
+   "level": "core",
+   "core_contribution": "用 MARL 學習四軸無人機「何時、與誰通訊」的精簡通訊策略，只在未來碰撞風險高的配對間請求軌跡計畫。將通訊決策與非線性模型預測控制（NMPC）軌跡規劃耦合，在維持避撞安全的同時大幅降低通訊量。",
+   "builds_on": [
+    "tarmac",
+    "NMPC 軌跡規劃"
+   ],
+   "influenced": [
+    "falcon-masac"
+   ],
+   "why_for_reader": "把通訊預算當作可學習資源而非硬約束，直接對應論文在頻寬受限下維持聚集階段避撞安全的核心訴求。",
+   "verified": true
+  },
+  {
+   "pid": "connectivity-marl",
+   "topic": "多無人機協同搜索與聚集",
+   "title": "Decentralized Global Connectivity Maintenance for Multi-Robot Navigation: A Reinforcement Learning Approach",
+   "arxiv_id": "2109.08536",
+   "year": 2021,
+   "venue": "場所/年份待確認",
+   "level": "core",
+   "core_contribution": "以強化學習訓練共享的分散式策略，讓機器人在未知環境導航的同時維持團隊全域網路連通性，將連通性作為約束嵌入 RL 框架。並引入行為克隆降低探索複雜度，在模擬與實機上驗證對沒遇過場景的泛化能力。",
+   "builds_on": [
+    "連通性維護圖論方法",
+    "行為克隆"
+   ],
+   "influenced": [
+    "safe-hetero-comm"
+   ],
+   "why_for_reader": "搜索階段機群分散時維持通訊骨幹正是聚集階段能否成功的前提，此文給出連通性約束與 RL 目標整合的範例。",
+   "verified": true
+  },
+  {
+   "pid": "filtered-rl-drone",
+   "topic": "多無人機協同搜索與聚集",
+   "title": "Safe multi-agent motion planning under uncertainty for drones using filtered reinforcement learning",
+   "arxiv_id": "2311.00063",
+   "year": 2023,
+   "venue": "場所/年份待確認",
+   "level": "core",
+   "core_contribution": "提出「過濾式強化學習」：先用單代理 RL 學出能抵達目標但不保證安全的策略，再以凸優化、chance 約束與集合方法（控制基礎的約束控制）在執行層強制安全。可同時處理狀態/控制約束、機間與靜態障礙的碰撞迴避，且比純學習方法更易訓練。",
+   "builds_on": [
+    "maddpg",
+    "CBF/MPC 約束控制"
+   ],
+   "influenced": [
+    "falcon-masac"
+   ],
+   "why_for_reader": "「先學策略、後加安全濾波器」的雙層架構是論文安全包絡（safety envelope）模組最務實可實作的範本。",
+   "verified": true
+  },
+  {
+   "pid": "cbf-theory",
+   "topic": "多無人機協同搜索與聚集",
+   "title": "Control Barrier Functions: Theory and Applications",
+   "arxiv_id": "1903.11199",
+   "year": 2019,
+   "venue": "ECC 2019",
+   "level": "foundation",
+   "core_contribution": "系統性綜述控制障礙函數（CBF）理論：以前向不變集條件將安全約束轉化為二次規劃（CBF-QP），在最小修改下把不安全控制動作投影回安全集合。涵蓋高階 CBF、隨機不確定性與魯棒擴充，是安全濾波技術的標準入門與引用基準。",
+   "builds_on": [
+    "前向不變集理論",
+    "QP 最優控制"
+   ],
+   "influenced": [
+    "game-abort-srl",
+    "filtered-rl-drone",
+    "falcon-masac"
+   ],
+   "why_for_reader": "論文的 safety envelope 數學定義（不變安全集 + QP 修正）直接建立在 CBF 框架上，此文是符號記法的權威出處。",
+   "verified": true
+  },
+  {
+   "pid": "game-abort-srl",
+   "topic": "多無人機協同搜索與聚集",
+   "title": "Multi-agent game abort system with safe online learning",
+   "arxiv_id": "1901.00765",
+   "year": 2019,
+   "venue": "AAAI 2019 (ID 待確認)",
+   "level": "core",
+   "core_contribution": "在多代理飛行遊戲中以線上學習的 CBF 安全濾波器構成「中止系統」：偵測到代理偏離安全區域時切換到可證明的安全控制器，同時不中斷主策略學習。首次將 CBF 安全保證與多代理線上 RL 結合並在實體無人機遊戲中驗證。",
+   "builds_on": [
+    "cbf-theory",
+    "多代理強化學習"
+   ],
+   "influenced": [
+    "filtered-rl-drone",
+    "falcon-masac"
+   ],
+   "why_for_reader": "其「學習策略 + 安全中止層」的雙模切換設計，可類比到聚集階段通訊中斷時各機獨立回退的安全模式。",
+   "verified": false
+  },
+  {
+   "pid": "kctss-search",
+   "topic": "多無人機協同搜索與聚集",
+   "title": "KC-TSS: An Algorithm for Heterogeneous Robot Teams Performing Resilient Target Search",
+   "arxiv_id": "2203.00947",
+   "year": 2022,
+   "venue": "場所/年份待確認",
+   "level": "core",
+   "core_contribution": "將異質機器人目標搜索分解為異質聚類加多個旅行商問題，依各機覆蓋能力分派工作點集群，再由資訊論效用函數選路。在隊友失效時線上重算全域任務計畫，對單一或多代理失效提供韌性，並以 Gazebo 模擬與實機部署驗證。",
+   "builds_on": [
+    "資訊論搜索（Bayesian target search）",
+    "多機任務分配"
+   ],
+   "influenced": [],
+   "why_for_reader": "提供搜索階段任務分派與失效韌性的規劃式對照組，可作為論文 DRL 方法的非學習基線與消融參照。",
+   "verified": true
+  },
+  {
+   "pid": "safe-hetero-comm",
+   "topic": "多無人機協同搜索與聚集",
+   "title": "Safe Heterogeneous Multi-Agent RL with Communication Regularization for Coordinated Target Acquisition",
+   "arxiv_id": "2601.08327",
+   "year": 2026,
+   "venue": "場所/年份待確認",
+   "level": "前沿",
+   "core_contribution": "以 MAPPO 加圖注意力編碼器整合局部感測與鄰居通訊嵌入，讓結構異質機群（如 UAV–UGV）在 partial observability 與通訊約束下協同發現並獲取隨機目標。提出軌跡感知安全濾波器（預測動作誘發的未來狀態並縮放不安全動作）與通訊正則化項（促進訊息嵌入正交、抑制通道冗餘）的統一框架。",
+   "builds_on": [
+    "mappo",
+    "tarmac",
+    "filtered-rl-drone",
+    "connectivity-marl"
+   ],
+   "influenced": [],
+   "why_for_reader": "此文幾乎是論文題目（MAPPO + 通訊約束 + 安全濾波 + 目標獲取）的最近期交集，其消融實驗設計可直接對標論文章節規劃。",
+   "verified": true
+  },
+  {
+   "pid": "falcon-masac",
+   "topic": "多無人機協同搜索與聚集",
+   "title": "FALCON-MASAC: Formation-Aware Attention-Enhanced Leader-Guided Control-Barrier Optimization for Safe Multi-UAV Formation Navigation in Dynamic 3-D Environments",
+   "arxiv_id": "arXiv待確認",
+   "year": "待確認",
+   "venue": "Unmanned Systems（期刊）",
+   "level": "前沿",
+   "core_contribution": "在 CTDE 範式下把安全多 UAV 編隊導航分解為虛擬領航的 leader-follower 層、雙尺度實體-風險注意力編碼器、基於符號距離函數與高階 CBF 的安全盾（QP 不可行時切換有界最佳努力回退）、以及抑制交叉衝突的繞行承諾協調層。實驗報告較純 MARL 基線高出 21.7 個百分點的成功率與對障礙密度、動態障礙速度的分布外泛化。",
+   "builds_on": [
+    "cbf-theory",
+    "game-abort-srl",
+    "mappo",
+    "leader-follower 編隊控制"
+   ],
+   "influenced": [],
+   "why_for_reader": "高階 CBF 安全盾加不可行回退的設計，正對應論文在強風與通訊退化下安全包絡可能失效、需有界回退策略的關鍵論證點。",
+   "verified": true
+  },
+  {
+   "pid": "domain-randomization",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World",
+   "arxiv_id": "1703.06907",
+   "year": 2017,
+   "venue": "IROS 2017",
+   "level": "foundation",
+   "core_contribution": "證明在訓練時對視覺與物理參數做大量隨機化，可讓模擬訓練的政策與感知模型零樣本轉移到真實機器人。提出「隨機化範圍要覆蓋真實測試分布」的充分條件框架。",
+   "builds_on": [
+    "Sim-to-real 早期工作（Levine et al. 2016）"
+   ],
+   "influenced": [
+    "所有無人機 sim-to-real 工作的預設基線",
+    "wind-fidelity-ablation-2026",
+    "gustpilot-drl-indi-2026"
+   ],
+   "why_for_reader": "Gymnasium→Isaac Sim 兩階段管線中最直接的穩健性手段就是對質量、慣量、感測器雜訊與風場參數做 domain randomization；此篇是理解 DR 為何有效與何時失效的原點。",
+   "verified": true
+  },
+  {
+   "pid": "learning-to-simulate",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Learning to Simulate Complex Physics with Graph Networks",
+   "arxiv_id": "2002.09405",
+   "year": 2020,
+   "venue": "ICML 2020",
+   "level": "foundation",
+   "core_contribution": "用圖神經網路學習粒子系統的物理動力學，能以數據驅動方式預測沙、水、布料等複雜物質的演化。證明學習型模擬器可在特定領域逼近甚至超越手工物理引擎的精度。",
+   "builds_on": [
+    "消息傳遞神經網路 (Gilmer et al. 2017)"
+   ],
+   "influenced": [
+    "學習式流體/風場模擬與可微擬真路線"
+   ],
+   "why_for_reader": "Dryden 風場是解析統計模型；此篇代表另一條路線——用 GNN 從 CFD/LES 資料學出風場仿真器，是進階「學習式風場取代解析 Dryden」方向的理論基礎。",
+   "verified": true
+  },
+  {
+   "pid": "isaac-gym",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Isaac Gym: High Performance GPU-Based Physics Simulation For Robot Learning",
+   "arxiv_id": "2108.10470",
+   "year": 2021,
+   "venue": "NeurIPS 2021 (Datasets and Benchmarks)",
+   "level": "foundation",
+   "core_contribution": "把物理模擬、感測器渲染與 RL 訓練全部放到 GPU 上，實現數千至數萬環境實例的同步行進，訓練速度比 CPU 管線快 1-2 個數量級。讓四足、四旋翼等大型並行 RL 成為常態。",
+   "builds_on": [
+    "PhysX GPU 物理引擎",
+    "ppo"
+   ],
+   "influenced": [
+    "isaac-lab-2025",
+    "大量四足/四旋翼 sim-to-real 工作"
+   ],
+   "why_for_reader": "從 Gymnasium 轉到 NVIDIA Isaac Sim 的血緣源頭就是 Isaac Gym；理解其 GPU 端到端張量管線與 privileged critic 設計，能直接遷移到 Isaac Lab 的 multi-UAV 環境寫法。",
+   "verified": true
+  },
+  {
+   "pid": "sim-to-real-survey",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Sim-to-Real Transfer in Deep Reinforcement Learning for Robotics: a Survey",
+   "arxiv_id": "2009.13303",
+   "year": 2020,
+   "venue": "IEEE SSCI 2020",
+   "level": "foundation",
+   "core_contribution": "系統性整理機器人 DRL 的 sim-to-real 方法族譜：domain randomization、domain adaptation、模仿學習、元學習與知識蒸餾。歸納各方法的適用場景與開放挑戰，成為該領域的標準入口文獻。",
+   "builds_on": [
+    "domain-randomization",
+    "OpenAI 機械臂解謎 (1710.03748)"
+   ],
+   "influenced": [
+    "後續 sim-to-real 綜述與四旋翼轉移工作的方法分類"
+   ],
+   "why_for_reader": "為兩階段管線提供方法選單：Dryden 風場隨機化屬於 DR、若加真實飛行數據校正屬 domain adaptation/sysID；寫論文相關章節時可直接引用此分類框架。",
+   "verified": true
+  },
+  {
+   "pid": "swift-drone-racing",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Champion-level drone racing using deep reinforcement learning (Swift)",
+   "arxiv_id": "none",
+   "year": 2023,
+   "venue": "Nature 620, 982-987",
+   "level": "core",
+   "core_contribution": "提出 Swift 系統：視覺+慣性感知模組把高維輸入壓成低維表徵，再用模擬中 model-free on-policy RL（PPO）訓練的前饋控制政策，在真實賽道上擊敗人類世界冠軍。關鍵是用了從實機數據估計的非參數經驗雜訊模型來跨越 sim-to-real 落差。",
+   "builds_on": [
+    "ppo",
+    "無人機賽車先前工作",
+    "視覺慣態里程計"
+   ],
+   "influenced": [
+    "hybrid sim+real 訓練範式",
+    "learning-on-the-fly-2025"
+   ],
+   "why_for_reader": "示範了最想達成的完整故事：模擬 PPO 訓練＋實機數據估雜訊模型完成轉移；其「用實機經驗雜訊模型補模擬不足」的做法，可直接對標在 Isaac Sim 端校正 Gymnasium 政策的兩階段設計。",
+   "verified": true,
+   "doi": "10.1038/s41586-023-06418-3"
+  },
+  {
+   "pid": "neural-fly",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Neural-Fly Enables Rapid Learning for Agile Flight in Strong Winds",
+   "arxiv_id": "2205.06908",
+   "year": 2022,
+   "venue": "Science Robotics 7(66), eabm6597",
+   "level": "core",
+   "core_contribution": "提出 Neural-Fly：用 DAIML（域對抗不變元學習）從約 12 分鐘飛行數據學出跨風場條件共享的低維空氣動力學表徵，再以複合自適應律線上更新線性組合係數。在風速達 12.1 m/s 的風洞與戶外飛行中追蹤誤差顯著低於最先進的非線性/自適應控制器，並有指數穩定性保證。",
+   "builds_on": [
+    "元學習 (MAML 等)",
+    "自適應控制理論",
+    "複合估計 (composite adaptation)"
+   ],
+   "influenced": [
+    "wind-aware 飛行列隊",
+    "跨機型轉移的無人機控制工作"
+   ],
+   "why_for_reader": "給出「風擾動補償」另一條不靠純 DR 的路：把風場效應壓進低維 latent 再線上自適應。可對比其 DAIML 表徵學習與自己在 Gym→Isaac 的風場隨機化，討論哪種在論文裡更站得住腳。",
+   "verified": true
+  },
+  {
+   "pid": "kaushal-turbulent-vio",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Learning vision-driven visual-inertial quadrotor flight in simulated turbulent flow (Kaushal et al.)",
+   "arxiv_id": "2008.10437（待確認）",
+   "year": 2020,
+   "venue": "待確認（可能為 IROS 2020）",
+   "level": "core",
+   "core_contribution": "在模擬亂流場中訓練以視覺與慣態輸入為主的四旋翼控制政策，讓政策在沒有外部狀態估計下學會抵禦亂流擾動。屬於較早把「亂流場＋學習控制」結合的代表作。",
+   "builds_on": [
+    "DRL 無人機控制 (Kaufmann et al. 2018)",
+    "模擬亂流模型 (von Kármán/亂流譜)"
+   ],
+   "influenced": [
+    "後續視覺風場估計與 wind-aware RL 工作"
+   ],
+   "why_for_reader": "是「在模擬亂流中訓練視覺政策」定位最接近的前作；引用它可說明自己在 Dryden 風場＋程序化 USD 地形上的差異化（更現代的 GPU 模擬與 multi-UAV 擴展）。",
+   "verified": false
+  },
+  {
+   "pid": "kairos-newt",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Robust quadrotor control: bridging the sim-to-real gap for aggressive flights and transfer across platforms",
+   "arxiv_id": "2111.04109（待確認）",
+   "year": 2022,
+   "venue": "Science Robotics（待確認）",
+   "level": "core",
+   "core_contribution": "使用 Dr. Semantics 的 Kairos 系統大量模擬四旋翼飛行，訓練能在真實世界執行激進機動並在多機型（含自制 Newt 平台）間轉移的控制器。核心賣點是跨平台 sim-to-real 的穩健政策。",
+   "builds_on": [
+    "大規模 domain randomization",
+    "GPU 模擬"
+   ],
+   "influenced": [
+    "跨平台無人機 sim-to-real 路線",
+    "scale-aware-drl-2025"
+   ],
+   "why_for_reader": "multi-UAV 設計若能讓一個政策跨機型部署，可引用此工作作為對比與動機；其 sysID＋模擬組合是第二階段 Isaac Sim 校正流程的參考架構。",
+   "verified": false
+  },
+  {
+   "pid": "isaac-lab-2025",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Isaac Lab: A GPU Parallelized Simulation Framework for Robot Learning",
+   "arxiv_id": "2511.04831",
+   "year": "2025-11",
+   "venue": "arXiv preprint",
+   "level": "core",
+   "core_contribution": "整合 PhysX 5、USD 場景描述與可組合的任務/環境 API，成為 Isaac Gym 之後的官方後繼框架，支援多機（multi-UAV）、感測器模擬與 RL 訓練全流程。提供統一的事件驅動環境與策略蒸餾、motion 資料管線等擴充。",
+   "builds_on": [
+    "isaac-gym",
+    "Omniverse / USD 生態"
+   ],
+   "influenced": [
+    "後續在 Isaac Lab 上做的無人機 RL 工作",
+    "harl-maritime-2026"
+   ],
+   "why_for_reader": "第二階段的落地平台：程序化 USD 地形、multi-UAV 場景與 Dryden 風場注入都將寫在 Isaac Lab 的 event/terrain 模組上，建議優先讀其環境 API 與 terrain generator 章節。",
+   "verified": true
+  },
+  {
+   "pid": "wind-fidelity-ablation-2026",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Statistical Turbulence and High-Fidelity Disturbance Fields for Quadrotor Flight Control",
+   "arxiv_id": "2610.06874",
+   "year": 2026,
+   "venue": "arXiv preprint",
+   "level": "前沿",
+   "core_contribution": "對 PPO 四旋翼政策做五級風場保真度（無風、1-cosine 離散陣風、統計亂流、合成相干結構、大渦模擬 LES 邊界層風場）的 cross-fidelity train×test 矩陣評估。結果發現訓練風場「結構保真度」幾乎不影響穩健性，最便宜的離散陣風 DR 在所有測試欄位排名第一，穩健性上限由控制權限而非風場真實度決定。",
+   "builds_on": [
+    "ppo",
+    "domain-randomization",
+    "大渦模擬 (LES) 風場"
+   ],
+   "influenced": [
+    "挑戰高保真風場訓練必要性的後續討論"
+   ],
+   "why_for_reader": "直接檢驗論文的核心假設——精心實作 Dryden 風場到底買多少穩健性。此文結論是離散陣風 DR 已足夠，必須在論文中回答自己為何仍需 Dryden/程序化風場（例如低推力重量比平台或 OOD 泛化需求）。",
+   "verified": true
+  },
+  {
+   "pid": "wind-aware-ppo-2026",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Wind-Aware Reinforcement Learning Control of a Small Quadrotor Using Learned Onboard Wind Estimation in Simulated Atmospheric Turbulence",
+   "arxiv_id": "2607.01528",
+   "year": 2026,
+   "venue": "arXiv preprint",
+   "level": "前沿",
+   "core_contribution": "在含 von Kármán 亂流＋幂律垂直剪切與風向偏轉的 6-DoF 模擬中，先訓練 attention-augmented GRU 從飛行歷史估計風向量（未見風速 RMSE 0.40 m/s），再讓凍結估計器條件化的 PPO 政策做追蹤。相對風盲 PD 基線水平追蹤 RMSE 降低 48%，並用三路消融把增益拆成運動學學習與風感知兩部分。",
+   "builds_on": [
+    "ppo",
+    "von Kármán 亂流模型",
+    "循環網路風速估計"
+   ],
+   "influenced": [
+    "sensor-free 風感知增強 RL 控制範式"
+   ],
+   "why_for_reader": "與論文最同質的 2026 前沿對照組：同樣「統計亂流場＋PPO＋追蹤任務」。Dryden 風場可與其實現的 von Kármán 剪切對照，其「風感知價值隨風速 regime 變化」的消融設計也值得複製。",
+   "verified": true
+  },
+  {
+   "pid": "gustpilot-drl-indi-2026",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "GustPilot: A Hierarchical DRL-INDI Framework for Wind-Resilient Quadrotor Navigation",
+   "arxiv_id": "2603.19966",
+   "year": 2026,
+   "venue": "arXiv preprint",
+   "level": "前沿",
+   "core_contribution": "提出兩層架構：上層 DRL 政策輸出慣性系速度參考做風感知規劃（訓練時用風扇噴流 domain randomization），下層幾何 INDI 控制器以線加速度/角加速度增量回饋快速拒斥風擾。僅在單門單風扇的簡單環境訓練，即可零重訓泛化到六門四風扇，整體成功率 94.7% 對 DRL-PID 基線 55.0%。",
+   "builds_on": [
+    "DRL 導航政策",
+    "INDI 非線性動態反轉控制",
+    "domain-randomization"
+   ],
+   "influenced": [
+    "DRL＋結構化控制器分層的風穩健導航路線"
+   ],
+   "why_for_reader": "提供一個關鍵設計選擇：把風擾拒斥交給低層 INDI、讓 RL 只做規劃。若在 Isaac Sim 端到端訓練 PPO 遭遇風場 OOD 崩潰，此 hierarchical 分層是可引用的備援方案與比較基線。",
+   "verified": true
+  },
+  {
+   "pid": "harl-maritime-2026",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Curriculum-Based Adversarial Heterogeneous Agent Reinforcement Learning for Autonomous Quad-Copter Landing in Maritime Settings",
+   "arxiv_id": "2609.12758",
+   "year": 2026,
+   "venue": "arXiv preprint",
+   "level": "前沿",
+   "core_contribution": "在 NVIDIA Isaac Lab 中以 HAPPO 訓練四旋翼與船載機械臂的異質代理合作抓吊政策，風場採對抗式平均風經低通濾波疊加離散-time Dryden 亂流的雙層模型。以課程式對抗風代理（HARL-AC）取代隨機 DR，在海況 10 的 OOD 測試上海中成功率與墜毀率都明顯優於課程式 domain randomization。",
+   "builds_on": [
+    "isaac-lab-2025",
+    "HAPPO 多代理 PPO",
+    "Dryden 亂流模型",
+    "課程學習"
+   ],
+   "influenced": [
+    "對抗式風場課程作為 DR 替代"
+   ],
+   "why_for_reader": "幾乎是論文技術棧的鏡像：Isaac Lab＋Dryden 亂流＋PPO 家族。對抗風代理＋課程學習是可立即採用的升級——把固定 Dryden 參數隨機化改成會自動加難度的對抗風源，對 multi-UAV 的 OOD 泛化特別有說服力。",
+   "verified": true
+  },
+  {
+   "pid": "learning-on-the-fly-2025",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Learning on the Fly: Rapid Policy Adaptation via Differentiable Simulation",
+   "arxiv_id": "2508.21065",
+   "year": 2025,
+   "venue": "arXiv（RAL/ICRA 待確認）",
+   "level": "前沿",
+   "core_contribution": "提出在真實世界線上運行的自適應框架：從簡單動力學模型出發，用實機數據持續做殘差動力學學習（涵蓋載重與風等未建模擾動），再將精緻化模型嵌入可微擬真做梯度回傳，5 秒內完成政策更新。在敏捷四旋翼控制上懸停誤差較 L1-MPC 降 81%、較 DATT 降 55%。",
+   "builds_on": [
+    "可微擬真 (DART 等)",
+    "殘差動力學學習",
+    "Real2Sim2Real"
+   ],
+   "influenced": [
+    "部署後線上快速適應路線"
+   ],
+   "why_for_reader": "為兩階段管線補上「第三階段」：部署後用實機數據在可微擬真內數秒級微調政策，處理 Dryden 隨機化覆蓋不到的真實風。即使論文不实作，也應在 related work 以此對照 DR 的 OOD 局限。",
+   "verified": true
+  },
+  {
+   "pid": "scale-aware-drl-2025",
+   "topic": "無人機sim-to-real與風場控制",
+   "title": "Dynamics-Invariant Quadrotor Control using Scale-Aware Deep Reinforcement Learning",
+   "arxiv_id": "2503.09622",
+   "year": 2025,
+   "venue": "arXiv（會議待確認）",
+   "level": "前沿",
+   "core_contribution": "直接最佳化 force/torque 輸入免除中間控制層，以時序軌跡編碼器加潛藏在動力學編碼器捕捉機型特性，並用臂長參數化的 scale-aware 動力學隨機化（m~L³、I~L⁵ 縮放律）訓練出跨 30g 到 2.1kg 機型的 invariant 政策。實測在 10 m/s 風擾下追蹤（訓練風速上限僅 2 m/s），展現對未見動力學與風場的泛化。",
+   "builds_on": [
+    "ppo",
+    "物理縮放律",
+    "latent dynamics encoder / sysID"
+   ],
+   "influenced": [
+    "scale-aware 跨機型通用控制器方向"
+   ],
+   "why_for_reader": "multi-UAV 正面對同樣問題：一個政策飛多種機。用臂長縮放律做隨機化的做法可直接搬到 Gymnasium 第一階段，讓政策先在尺度空間裡變穩健，再進 Isaac Sim 驗風場。",
+   "verified": true
+  },
+  {
+   "pid": "hinton-kd",
+   "topic": "邊緣AI與模型壓縮",
+   "title": "Distilling the Knowledge in a Neural Network",
+   "arxiv_id": "1503.02531",
+   "year": 2015,
+   "venue": "NeurIPS 2014 DL Workshop (arXiv 2015)",
+   "level": "foundation",
+   "core_contribution": "提出知識蒸餾：用大老師網路的軟標籤（softmax 溫度平滑後的機率分布）訓練小學生網路，把「暗知識」轉移給小模型。證明單一小模型可近似大型集成模型的效果，是模型壓縮的奠基工作。",
+   "builds_on": [
+    "softmax 溫度縮放",
+    "集成模型知識轉移"
+   ],
+   "influenced": [
+    "mobilenetv3 蒸餾流程",
+    "實驗室 feature distillation 加速器研究"
+   ],
+   "why_for_reader": "蒸餾是把大偵測模型壓到 UAV 機載晶片（Jetson/NPU）仍能跑的標準手段，實驗室側題的 feature distillation 加速器直接繼承其軟標籤思想。",
+   "verified": true
+  },
+  {
+   "pid": "deep-compression",
+   "topic": "邊緣AI與模型壓縮",
+   "title": "Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding",
+   "arxiv_id": "1611.06440",
+   "year": 2016,
+   "venue": "ICLR 2016 (Best Paper)",
+   "level": "foundation",
+   "core_contribution": "提出剪枝→權重共享量化→Huffman 編碼的三階段管線，把 AlexNet/VGG 壓縮數十到數百倍而不損精度。確立「先訓練後壓縮」的模型壓縮標準流程。",
+   "builds_on": [
+    "L2 正則化剪枝",
+    "權重共享編碼"
+   ],
+   "influenced": [
+    "量化感知訓練後續工作",
+    "edge 晶片部署流程"
+   ],
+   "why_for_reader": "機上部署前的標準壓縮三件套，UAV 端要把大模型塞進有限記憶體時第一課就是這篇。",
+   "verified": true
+  },
+  {
+   "pid": "mobilenetv1",
+   "topic": "邊緣AI與模型壓縮",
+   "title": "MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications",
+   "arxiv_id": "1704.04861",
+   "year": 2017,
+   "venue": "arXiv 2017",
+   "level": "foundation",
+   "core_contribution": "以 depthwise separable convolution 大幅減少參數與計算量，並提出 width multiplier 與 resolution multiplier 兩個縮放係數供算力預算調度。建立移動端 CNN 的效率設計範式。",
+   "builds_on": [
+    "Network in Network (1608.06993) 分組卷積概念"
+   ],
+   "influenced": [
+    "mobilenetv2",
+    "mobilenetv3",
+    "嵌入式 YOLO 變體"
+   ],
+   "why_for_reader": "UAV 機載端偵測模型幾乎都以 depthwise separable block 為基底單元，是機上算力受限時的預設骨幹。",
+   "verified": true
+  },
+  {
+   "pid": "filter-pruning",
+   "topic": "邊緣AI與模型壓縮",
+   "title": "Filter Pruning via Geometric Median for Deep CNN Acceleration",
+   "arxiv_id": "1608.08710",
+   "year": 2016,
+   "venue": "arXiv 2016（期刊版 IEEE TPAMI）",
+   "level": "core",
+   "core_contribution": "以幾何中數選出每個濾波器組中最冗餘的濾波器直接刪除，不需重新訓練即可結構化剪枝 VGG 等網路。是最早以「真實硬體速度/FLOPs」為評估準則的結構化濾波器剪枝工作。",
+   "builds_on": [
+    "He 等 2015 L2 正則化剪枝（待確認）",
+    "deep-compression"
+   ],
+   "influenced": [
+    "結構化 channel pruning 後續工作",
+    "輕量加速器協同設計"
+   ],
+   "why_for_reader": "結構化剪枝才能被 GPU/NPU 矩陣運算真正加速，對 UAV 端捲積加速器規劃最實用。",
+   "verified": false
+  },
+  {
+   "pid": "mobilenetv2",
+   "topic": "邊緣AI與模型壓縮",
+   "title": "MobileNetV2: Inverted Residuals and Linear Bottlenecks",
+   "arxiv_id": "1801.04381",
+   "year": 2018,
+   "venue": "CVPR 2018",
+   "level": "core",
+   "core_contribution": "提出 inverted residual：先在低維空間保留資訊、擴展到高維做 depthwise 卷積、再壓回低維線性 bottleneck。搭配 shortcut 僅在相同維度使用，兼顧精度與效率。",
+   "builds_on": [
+    "mobilenetv1",
+    "ResNet (1512.03381) 殘差連接"
+   ],
+   "influenced": [
+    "mobilenetv3",
+    "MnasNet",
+    "多數輕量 CNN 與加速器設計"
+   ],
+   "why_for_reader": "inverted residual 是輕量偵測器與特徵蒸餾加速器常用骨幹，理解 bottleneck 維度才能估算機上記憶體頻寬瓶頸。",
+   "verified": true
+  },
+  {
+   "pid": "yolov3",
+   "topic": "邊緣AI與模型壓縮",
+   "title": "YOLOv3: An Incremental Improvement",
+   "arxiv_id": "1804.02767",
+   "year": 2018,
+   "venue": "arXiv 2018（技術報告）",
+   "level": "core",
+   "core_contribution": "在 YOLOv2 基礎上引入多尺度預測（FPN 式三尺度檢測頭）、Darknet-53 骨幹與殘差連接，大幅提升小物件偵測 mAP 且維持實時速度。成為嵌入式視覺與 UAV 機載偵測最常見的基線偵測器。",
+   "builds_on": [
+    "YOLOv2",
+    "Darknet 殘差設計",
+    "FPN 多尺度檢測"
+   ],
+   "influenced": [
+    "各嵌入式 YOLO 變體與剪枝/量化研究",
+    "UAV 機載即時偵測系統"
+   ],
+   "why_for_reader": "實驗室側題「YOLO embedded」的直接起點：機上算力下如何在精度與 FPS 間取捨，多數壓縮/蒸餾論文都以 YOLOv3 為基準模型。",
+   "verified": true
+  },
+  {
+   "pid": "mobilenetv3",
+   "topic": "邊緣AI與模型壓縮",
+   "title": "Searching for MobileNetV3",
+   "arxiv_id": "1905.02244",
+   "year": 2019,
+   "venue": "ICCV 2019",
+   "level": "core",
+   "core_contribution": "以 NAS 直接以硬體 latency 作為搜尋目標找出 MobileNetV3，引入 SE block、hard-swish 與 NAS 搜出的效率模組。同時針對 ImageNet 分類、分割與目標偵測給出高效率模型。",
+   "builds_on": [
+    "mobilenetv2",
+    "MnasNet",
+    "SENet"
+   ],
+   "influenced": [
+    "latency-aware NAS 後續工作",
+    "嵌入式偵測骨幹設計"
+   ],
+   "why_for_reader": "示範「以真實晶片延遲為優化目標」的設計流程，正對應 UAV 平台上 FPS/功耗驅動的模型選型。",
+   "verified": true
+  },
+  {
+   "pid": "qat-whitepaper",
+   "topic": "邊緣AI與模型壓縮",
+   "title": "Quantizing deep convolutional networks for efficient inference: A whitepaper",
+   "arxiv_id": "1709.05917（ID 待確認）",
+   "year": 2017,
+   "venue": "arXiv 2017",
+   "level": "core",
+   "core_contribution": "系統性整理整數量化（affine 對稱/非對稱）與量化感知訓練（QAT），說明在訓練迴路插入 fake-quant 節點讓網路學會容忍 INT8 誤差。成為框架實作 INT8 推論的事實參考文件。",
+   "builds_on": [
+    "deep-compression",
+    "整數算術推論研究"
+   ],
+   "influenced": [
+    "quant-survey",
+    "各框架 QAT 實作"
+   ],
+   "why_for_reader": "要在 Jetson/NPU 上跑 INT8 推論加速，QAT 是繞不開的訓練技巧；此 ID 需自行回 arXiv 核對後再引用。",
+   "verified": false
+  },
+  {
+   "pid": "quant-survey",
+   "topic": "邊緣AI與模型壓縮",
+   "title": "A Survey of Quantization Methods for Efficient Neural Network Inference",
+   "arxiv_id": "2103.13630",
+   "year": 2021,
+   "venue": "arXiv 2021 (Low-Power CV Workshop)",
+   "level": "core",
+   "core_contribution": "由 Gholami 等人系統性綜述 NN 量化方法：PTQ 與 QAT、對稱/非對稱、權重量化與全量化，並分析各方法在精度/算力/能耗上的取捨。附帶實際部署時量化難易度的實務分析。",
+   "builds_on": [
+    "deep-compression",
+    "qat-whitepaper"
+   ],
+   "influenced": [
+    "後續量化綜述與軟硬協同設計研究"
+   ],
+   "why_for_reader": "邊緣部署選量化方案前的最佳入門綜述，可直接對照 UAV 晶片的 INT8/INT4 支援度做決策。",
+   "verified": true
+  },
+  {
+   "pid": "saycan",
+   "topic": "具身智慧",
+   "title": "Do As I Can, Not As I Say: Grounding Language in Robotic Affordances (SayCan)",
+   "arxiv_id": "2204.01691",
+   "year": 2022,
+   "venue": "CoRL 2022",
+   "level": "foundation",
+   "core_contribution": "結合 LLM 對語言任務的語意評分與價值函數對技能可執行性的評分，讓 LLM 在固定技能庫上完成零樣本任務規劃。證明 LLM 可作為機器人的高層規劃器，前提是必須用 affordance 可行性接地。",
+   "builds_on": [
+    "LLM in-context learning",
+    "RL 價值函數技能庫"
+   ],
+   "influenced": [
+    "code-as-policies",
+    "分層 VLM 高層規劃架構"
+   ],
+   "why_for_reader": "機器人基礎模型的分層架構（高層 LLM 規劃＋低層策略）雛形，與多 UAV MARL 任務分派的高層規劃思路相通。",
+   "verified": true
+  },
+  {
+   "pid": "code-as-policies",
+   "topic": "具身智慧",
+   "title": "Code as Policies: Language Model Programs for Embodied Control",
+   "arxiv_id": "2209.07753",
+   "year": 2022,
+   "venue": "ICRA 2023",
+   "level": "core",
+   "core_contribution": "讓 LLM 直接產生調用感知/控制 API 的 Python 程式碼作為機器人策略，用程式結構表達迴圈、條件與幾何約束。比直接輸出動作 token 更易組合與除錯，並支援自我修復迴圈。",
+   "builds_on": [
+    "saycan",
+    "程式合成與 API 設計"
+   ],
+   "influenced": [
+    "後續 LLM-to-policy 系統"
+   ],
+   "why_for_reader": "展示 LLM 生成控制邏輯的範式，對 UAV 任務層（航點/巡邏邏輯）的高層策略生成有直接借鏡。",
+   "verified": true
+  },
+  {
+   "pid": "rt-1",
+   "topic": "具身智慧",
+   "title": "RT-1: Robotics Transformer for Real-World Control at Scale",
+   "arxiv_id": "2212.06817",
+   "year": 2022,
+   "venue": "RSS 2023",
+   "level": "foundation",
+   "core_contribution": "以超過 13 萬個真實廚房任務示範訓練 Transformer 機器人策略（RT-TF，離散化動作 token），證明大規模真實示範＋跨任務訓練能帶來語言條件化的泛化能力。開啟機器人基礎模型「以資料規模取勝」的路線。",
+   "builds_on": [
+    "Transformer 架構",
+    "多任務模仿學習",
+    "大規模預訓練範式"
+   ],
+   "influenced": [
+    "rt-2",
+    "openvla",
+    "pi0"
+   ],
+   "why_for_reader": "機器人基礎模型的資料規模論起點，理解 VLA 的訓練資料需求才能評估 UAV 端模仿學習的可行性。",
+   "verified": true
+  },
+  {
+   "pid": "rt-2",
+   "topic": "具身智慧",
+   "title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control",
+   "arxiv_id": "2307.15818",
+   "year": 2023,
+   "venue": "CoRL 2023",
+   "level": "core",
+   "core_contribution": "將網路級圖片-文字預訓練 VLM（PaLI-X/PaLM-E）以機器人資料 co-fine-tune，把動作當作文字 token 輸出，成為端到端 VLA。展現網路語意知識轉移到機器人控制的湧現泛化（新物體、新場景）。",
+   "builds_on": [
+    "rt-1",
+    "PaLM-E / PaLI-X"
+   ],
+   "influenced": [
+    "openvla",
+    "pi0",
+    "後續 VLA 路線"
+   ],
+   "why_for_reader": "確立 VLA 範式：語言-視覺-動作統一 token 化，是讀懂後續機器人基礎模型文獻的共同前提。",
+   "verified": true
+  },
+  {
+   "pid": "act-aloha",
+   "topic": "具身智慧",
+   "title": "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware (ACT/ALOHA)",
+   "arxiv_id": "2304.13705",
+   "year": 2023,
+   "venue": "RSS 2023",
+   "level": "core",
+   "core_contribution": "提出 ACT 架構：Transformer 動作分塊（action chunking）結合 CVAE 處理示教資料的多模態性，讓 10 段示範即學會精細雙臂任務。配合低成本 ALOHA 硬體平台，大幅降低精細操作學習門檻。",
+   "builds_on": [
+    "動作分塊概念",
+    "CVAE",
+    "模仿學習"
+   ],
+   "influenced": [
+    "pi0",
+    "多數低成本模仿學習系統"
+   ],
+   "why_for_reader": "action chunking 是現代 VLA 的標準元件，其「少量示範＋低算力推理」設計對資源有限的 UAV 端學習實驗最可參考。",
+   "verified": true
+  },
+  {
+   "pid": "openvla",
+   "topic": "具身智慧",
+   "title": "OpenVLA: An Open-Source Vision-Language-Action Model",
+   "arxiv_id": "2406.09246",
+   "year": 2024,
+   "venue": "RSS 2024",
+   "level": "core",
+   "core_contribution": "7B 參數的開源 VLA：以 SigLIP＋DINOv2 融合的視覺編碼器接 Llama 2，在約 97 萬段真實機械臂示範（Open X-Embodiment）上訓練，以遠小於 RT-2-X（55B）的規模超越其表現。提供可微調的開源基線與完整訓練配方。",
+   "builds_on": [
+    "rt-2",
+    "Llama 2",
+    "Open X-Embodiment"
+   ],
+   "influenced": [
+    "開源 VLA 生態",
+    "輕量化/蒸餾 VLA 研究"
+   ],
+   "why_for_reader": "開源可重現的 VLA 基線，最適合實驗室資源下 fine-tune，也是把 VLA 量化壓縮上機載（連接邊緣 AI 側題）的起點。",
+   "verified": true
+  },
+  {
+   "pid": "pi0",
+   "topic": "具身智慧",
+   "title": "π0: A Vision-Language-Action Flow Model for General Robot Control",
+   "arxiv_id": "2410.24164",
+   "year": 2024,
+   "venue": "RSS 2025 (arXiv 2024-10)",
+   "level": "前沿",
+   "core_contribution": "在預訓練 VLM 上疊加 flow matching 動作專家以產生高頻連續動作，於摺衣、擦桌、組裝紙箱等精細雙臂任務展現零樣本與微調能力。支援由高層 VLM 策略下達語言子目標的兩層架構，是通用機器人基礎模型的代表作。",
+   "builds_on": [
+    "rt-2",
+    "flow matching 生成模型",
+    "PaliGemma",
+    "act-aloha 資料"
+   ],
+   "influenced": [
+    "π0.5",
+    "後續 flow/diffusion 式 VLA（GR00T 系）"
+   ],
+   "why_for_reader": "當前機器人基礎模型最前沿代表，其 flow matching 連續動作頭與高低層分離架構，對未來 UAV 端側智能是直接參考。",
+   "verified": true
+  }
+ ],
+ "roadmap": [
+  {
+   "name": "打地基：單代理 RL 與 CTDE 範式",
+   "time": "第 1–2 週",
+   "goal": "建立 PPO 與集中訓練分散執行（CTDE）的直覺，這是論文全部實驗的語文。",
+   "pids": [
+    "ppo",
+    "maddpg",
+    "coma",
+    "vdn",
+    "qmix",
+    "mappo"
+   ]
+  },
+  {
+   "name": "通訊感知 MARL：代理之間到底傳什麼",
+   "time": "第 3–4 週",
+   "goal": "理解學習式通訊協定家族（連續/離散/定向/門控），對應論文的通訊退化解釋。",
+   "pids": [
+    "commnet",
+    "dial",
+    "emergent-lang",
+    "tarmac",
+    "ic3net",
+    "marl-survey-gt"
+   ]
+  },
+  {
+   "name": "通訊受限與延遲感知前沿",
+   "time": "第 5–6 週",
+   "goal": "把「延遲、封包遺失、頻寬」寫進 MDP 與訓練迴路 —— 論文創新的直接定位點。",
+   "pids": [
+    "dacom",
+    "damarl",
+    "bvme",
+    "calf",
+    "uav-deploy-marl",
+    "five-ws-survey"
+   ]
+  },
+  {
+   "name": "任務場景：協同搜索、聚集與安全",
+   "time": "第 7–8 週",
+   "goal": "掌握搜索-聚集任務的規劃式與學習式方法，以及 CBF 安全包絡的數學工具。",
+   "pids": [
+    "lwc-what-to-comm",
+    "whom-to-comm",
+    "connectivity-marl",
+    "cbf-theory",
+    "filtered-rl-drone",
+    "kctss-search",
+    "safe-hetero-comm",
+    "falcon-masac"
+   ]
+  },
+  {
+   "name": "sim-to-real：把政策從 Gymnasium 帶進 Isaac Sim 與真實風場",
+   "time": "第 9–11 週",
+   "goal": "理解 domain randomization 的邊界、風場保真度爭議、高階 CBF 安全盾與 GPU 模擬工具鏈。",
+   "pids": [
+    "domain-randomization",
+    "sim-to-real-survey",
+    "isaac-gym",
+    "isaac-lab-2025",
+    "neural-fly",
+    "swift-drone-racing",
+    "wind-fidelity-ablation-2026",
+    "wind-aware-ppo-2026",
+    "gustpilot-drl-indi-2026",
+    "harl-maritime-2026",
+    "learning-on-the-fly-2025",
+    "scale-aware-drl-2025"
+   ]
+  },
+  {
+   "name": "實驗室側題 I：邊緣 AI 與模型壓縮",
+   "time": "第 12 週起穿插",
+   "goal": "把大模型壓上機載晶片：蒸餾、剪枝、量化三件套 + 輕量骨幹選型。",
+   "pids": [
+    "hinton-kd",
+    "deep-compression",
+    "filter-pruning",
+    "mobilenetv1",
+    "mobilenetv2",
+    "mobilenetv3",
+    "yolov3",
+    "qat-whitepaper",
+    "quant-survey"
+   ]
+  },
+  {
+   "name": "實驗室側題 II：具身智慧與機器人基礎模型",
+   "time": "第 12 週起穿插",
+   "goal": "讀懂 VLA 譜系（SayCan→RT-1/RT-2→OpenVLA→π0），為 UAV 端側智能做知識儲備。",
+   "pids": [
+    "saycan",
+    "code-as-policies",
+    "rt-1",
+    "rt-2",
+    "act-aloha",
+    "openvla",
+    "pi0"
+   ]
+  }
+ ],
+ "updated": "2026-10-23"
+}
