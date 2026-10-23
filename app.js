@@ -712,6 +712,81 @@
     });
   }
 
+  function studyKitHtml(p) {
+    const k = p.study_kit;
+    let h = "";
+    if (k.source_verified) {
+      const sv = k.source_verified;
+      h += '<section class="learn-block"><h3>✅ 全文驗證</h3><p>' + esc(sv.method || "") +
+        "　·　" + esc(String(sv.pages || "")) + " 頁 / " + esc(String(sv.chars || "")) +
+        " 字元　·　" + esc(sv.read_at || "") + "</p><p><em>" + esc(sv.note || "") + "</em></p></section>";
+    }
+    if ((k.pre_read_questions || []).length) {
+      h += '<section class="learn-block"><h3>❓ 讀前先想（SQ3R 提問）</h3><ol class="step-list">';
+      k.pre_read_questions.forEach(function (q) { h += "<li>" + esc(q) + "</li>"; });
+      h += "</ol></section>";
+    }
+    if (k.pass1_five_c) {
+      const f = k.pass1_five_c;
+      h += '<section class="learn-block"><h3>🗂️ 第一遍 · 5C 速覽（10 分鐘）</h3>';
+      [["category", "類型"], ["context", "脈絡"], ["correctness", "正確性"], ["contributions", "貢獻"], ["clarity", "清晰度"]].forEach(function (pr) {
+        if (f[pr[0]]) h += "<p><strong>" + pr[1] + "：</strong>" + esc(f[pr[0]]) + "</p>";
+      });
+      h += "</section>";
+    }
+    if ((k.pass2_sections || []).length) {
+      h += '<section class="learn-block"><h3>📖 第二遍 · 逐節精讀（60 分鐘）</h3>';
+      k.pass2_sections.forEach(function (s) {
+        h += '<div style="margin:10px 0;padding:10px 12px;border-left:3px solid #7c9cbf;background:rgba(124,156,191,.07);border-radius:6px">';
+        h += "<p><strong>" + esc(s.sec) + "</strong>　<span style='opacity:.75'>讀：" + esc(s.read) + "</span></p>";
+        h += "<p>" + esc(s.key) + "</p></div>";
+      });
+      h += "</section>";
+    }
+    if ((k.glossary || []).length) {
+      h += '<section class="learn-block"><h3>📖 專有名詞完全解釋（' + k.glossary.length + ' 個）</h3><dl style="margin:0">';
+      k.glossary.forEach(function (g) {
+        h += '<dt style="font-weight:700;margin-top:10px">' + esc(g.term) + (g.zh ? ' <span style="font-weight:400;opacity:.7">（' + esc(g.zh) + "）</span>" : "") + "</dt>";
+        h += '<dd style="margin:2px 0 0 0">' + esc(g.why) + "</dd>";
+      });
+      h += "</dl></section>";
+    }
+    if ((k.feynman_test || []).length) {
+      h += '<section class="learn-block"><h3>🧪 費曼檢驗（講得出來才算讀懂）</h3><ol class="step-list">';
+      k.feynman_test.forEach(function (q) { h += "<li>" + esc(q) + "</li>"; });
+      h += "</ol></section>";
+    }
+    if ((k.integration || []).length) {
+      h += '<section class="learn-block"><h3>🔗 融會貫通（連回你的論文）</h3>';
+      k.integration.forEach(function (it) {
+        h += "<p><strong>" + esc(it.link) + "：</strong>";
+        if (it.pid) h += '<a class="learn-link" href="#/research/' + encodeURIComponent(p.topic) + "/" + encodeURIComponent(it.pid) + '">' + esc(it.text) + "</a>";
+        else h += esc(it.text);
+        h += "</p>";
+      });
+      h += "</section>";
+    }
+    if ((k.checklist || []).length) {
+      h += '<section class="learn-block"><h3>☑️ 讀完自核清單</h3><ul class="step-list" style="list-style:none;padding-left:2px">';
+      k.checklist.forEach(function (c) { h += "<li>" + esc(c) + "</li>"; });
+      h += "</ul></section>";
+    }
+    const nkey = "mynote:" + p.pid;
+    h += '<section class="learn-block"><h3>🖊️ 我的備註</h3>';
+    h += '<textarea id="mynote-box" rows="6" style="width:100%;box-sizing:border-box;font:inherit;padding:8px;border-radius:8px;border:1px solid #8884;background:transparent" placeholder="' + esc(k.my_notes || "寫下你自己的三行心得…") + '"></textarea>';
+    h += '<p><button id="mynote-save" class="learn-link" style="cursor:pointer;border:1px solid #7c9cbf;border-radius:8px;padding:6px 14px;background:transparent">儲存備註</button> <span id="mynote-saved" style="opacity:.7"></span></p></section>';
+    setTimeout(function () {
+      const ta = document.getElementById("mynote-box");
+      const btn = document.getElementById("mynote-save");
+      const tag = document.getElementById("mynote-saved");
+      if (ta) { try { ta.value = localStorage.getItem(nkey) || ""; } catch (e) {} }
+      if (btn) btn.addEventListener("click", function () {
+        try { localStorage.setItem(nkey, ta.value); if (tag) { tag.textContent = "已儲存 " + new Date().toLocaleTimeString(); } } catch (e) {}
+      });
+    }, 0);
+    return h;
+  }
+
   function renderResearchPaper(topicName, pid) {
     researchData(function (data) {
       const list = (data.papers || []).filter(function (p) { return p.topic === topicName; });
@@ -755,6 +830,7 @@
         p.reading_notes.forEach(function (k) { html += "<li>" + esc(k) + "</li>"; });
         html += "</ol></section>";
       }
+      if (p.study_kit) html += studyKitHtml(p);
       html += '<nav class="learn-nav">';
       if (i > 0) html += '<a href="#/research/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i - 1].pid) + '">← 上一篇</a>';
       if (i < list.length - 1) html += '<a href="#/research/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i + 1].pid) + '">下一篇 →</a>';

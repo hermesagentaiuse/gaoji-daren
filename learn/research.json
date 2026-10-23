@@ -48,15 +48,164 @@
    "why_for_reader": "你論文的第一階段政策演算法就是 PPO；理解 clipping、GAE 與 mini-batch 節奏，才能解釋為何換到高保真 Dryden 風場後政策會崩壞或需微調。",
    "verified": true,
    "reading_notes": [
-    "問題背景：策略梯度（policy gradient）每次只能對採樣數據做一次梯度更新，樣本效率極差；TRPO 允許重複更新但實現複雜（需共軛梯度與 KL 約束的二階近似）。PPO 要用一階方法達到類似 TRPO 的穩定性。",
-    "方法關鍵：clipped surrogate objective — 定義機率比 r(θ)=π_new(a|s)/π_old(a|s)，在目標中把 r 裁剪到 [1−ε, 1+ε]（ε≈0.2）。直觀：好動作（優勢>0）的機率不能無限拉高、壞動作的機率不能無限压低，等於用「硬裁剪」取代 TRPO 的信任域約束。",
-    "實作三件套：(1) GAE（廣義優勢估計）算優勢值，兼顧偏差與變異；(2) minibatch + 多個 epoch 重複使用同一批採樣數據（這是樣本效率的來源）；(3) loss 加上價值函數誤差與 entropy bonus 兩個輔助項。",
-    "實驗結果：在 MuJoCo 連續控制（HalfCheetah、Ant 等）與 Atari 上，樣本效率與最終表現普遍勝過 A2C、TRPO、ACKTR；重點是調參極不敏感——預設值幾乎就能跑，這是它成為預設演算法的真正原因。",
-    "與你論文的關聯：你 Gymnasium 第一階段與 MAPPO 基線都建立在 PPO 上。clip 機制在多機環境更關鍵——隊友策略同時更新造成環境非平穩，若沒有 clip，單次更新過猛會讓整個機群策略一起崩。",
-    "可複用的實驗設計：論文用「同一演算法預設超參數跑所有任務」作為說服力論證。你寫論文時也應報告：哪些超參數全任務共用、哪些逐任務調，這決定了評審對你結果可信度的判斷。",
-    "接著讀：MAPPO（2103.01955，站內已收）— 把 PPO 加集中式 value function 推到多代理，是距離你論文最近的一步。",
-    "一句話記憶：PPO = 「把舊數據重複用到爆，但用 clip 防止學过头」。"
-   ]
+    "【已完整讀過全文】12 頁 PDF 逐頁擷取驗證：26,933 字元，含附錄 A 超參數表與附錄 B Atari 49 遊戲全表。",
+    "一句話：PPO ＝ 允許同一批資料重複訓練 K 輪的策略梯度，靠『clip 機率比』保證每輪更新都还在信赖域内。",
+    "核心只有式(7)：L = E[min(r·Â, clip(r,1−ε,1+ε)·Â)]，min 取悲觀下界：只在偏移會變好時放過你，會變壞時一定罰。",
+    "實證骨架：Table 1 無 clip −0.39（比隨機還差）vs clip ε=0.2 → 0.82；Atari Table 2 全程勝場 30/49 贏 ACER 18。",
+    "對你的意義：MAPPO ＝ PPO ＋ 全域 critic，讀懂今天的 clip，MAPPO 只剩一處改動要學。",
+    "詳細精讀內容請展開下方「📚 精讀學習包」。"
+   ],
+   "study_kit": {
+    "source_verified": {
+     "method": "arXiv PDF 全文下載 + 逐頁文字擷取（pypdf）",
+     "pages": 12,
+     "chars": 26933,
+     "read_at": "2026-10-23",
+     "note": "已完整讀過全文 12 頁（含附錄超參數表與 Atari 49 遊戲成績表），非僅讀摘要。"
+    },
+    "pre_read_questions": [
+     "為什麼一般策略梯度（vanilla PG）用同一批資料做多輪更新會『毀滅性跑飛』？",
+     "clip 到底在防什麼？它跟 TRPO 的 KL 約束是同一件事嗎？",
+     "如果你把你的多無人機環境交給 PPO，哪個超參數最先出問題？"
+    ],
+    "pass1_five_c": {
+     "category": "方法論文（提出新演算法 + 基準對比實驗）",
+     "context": "站在 TRPO（Schulman 2015）與 A2C（Mnih 2016）的肩膀上；解决『一階優化能否達到信賴域方法的穩定性』",
+     "correctness": "假設合理：小步更新保穩定。隱含假設：單次採樣資料值得重複用 K 輪（on-policy 資料過期問題被 clip 壓住）",
+     "contributions": "(1) clipped surrogate 目標 L^CLIP (2) 實證：clip 版勝過 KL 懲罰版 (3) 只需改動 vanilla PG 幾行程式碼",
+     "clarity": "極清晰，是 RL 教科書級寫作；Figure 1（兩張 clip 示意圖）是全文灵魂"
+    },
+    "pass2_sections": [
+     {
+      "sec": "§2.1 策略梯度",
+      "read": "式(1)(2)",
+      "key": "梯度估量 ĝ = ∇log π · Â。重點直覺：好動作（Â>0）就推高其機率，壞動作壓低。同一批軌跡對 LPG 做多步優化『沒有理論保證，實驗上常常炸』——這是動機。"
+     },
+     {
+      "sec": "§2.2 TRPO 背景",
+      "read": "式(3)(4)",
+      "key": "TRPO：最大化 surrogate E[r_t(θ)Â_t] 但約束平均 KL ≤ δ，要用共軛梯度＋二階近似解——複雜、不能配 dropout、不能 policy/value 共享參數。PPO 的目標：保留穩定性，丟掉這些包袱。"
+     },
+     {
+      "sec": "§3 Clipped 目標（核心）",
+      "read": "式(7) + Figure 1 + Figure 2",
+      "key": "r_t(θ)=πθ/πθold，r=1 起點。L^CLIP = E[min(r·Â, clip(r,1−ε,1+ε)·Â)]。Â>0：r 超過 1+ε 後獎勵不再增加（沒誘因繼續推）；Â<0：r 低於 1−ε 後同理。取 min = 悲觀下界：只在『會變好』時忽略偏移，『會變壞』時一定懲罰。Figure 2 實驗證明 L^CLIP 真的是 L^CPI 的下界，且在 KL≈0.02 處達最大。"
+     },
+     {
+      "sec": "§4 自適應 KL 懲罰",
+      "read": "β 調整規則",
+      "key": "另一條路：目標減 β·KL，每輪量實際 KL d：d<d_targ/1.5 → β÷2；d>d_targ×1.5 → β×2。實驗上比 clip 差（Table 1：0.68–0.74 vs 0.82），但它是重要 baseline，且後來很多 real-robot 論文（含你要讀的無人機 sim-to-real）用的正是這個變體。"
+     },
+     {
+      "sec": "§5 演算法 + GAE",
+      "read": "Algorithm 1 + 式(9)(11)(12)",
+      "key": "流程：N 個平行 actor 各跑 T 步 → 算 advantage → 對 surrogate 做 K 個 epoch 的 minibatch SGD → 換 θold。advantage 用截斷 GAE：Â_t = Σ(γλ)^k δ_{t+k}，δ_t = r_t+γV(s_{t+1})−V(s_t)。共享網路時總損失 = L^CLIP − c1·(V−V_targ)² + c2·熵獎勵。"
+     },
+     {
+      "sec": "§6.1 消融實驗",
+      "read": "Table 1",
+      "key": "7 個 MuJoCo × 3 seeds × 1M 步，正規化平均分：無 clip 無懲罰 −0.39（half cheetah 直接炸到比隨機還差！）；clip ε=0.2 → 0.82 最佳。這張表就是『clip 為什麼必要』的直接證據，寫論文做 ablation 請照抄這個格式。"
+     },
+     {
+      "sec": "§6.2–6.4 對比實驗",
+      "read": "Figure 3 + Table 2",
+      "key": "連續控制：PPO 幾乎全贏 A2C/TRPO/CEM。Atari 49 遊戲 Table 2：全程平均勝場 PPO 30 vs ACER 18 vs A2C 1；最後100局平均 PPO 19 vs ACER 28（ACER 靠 experience replay 在長期勝出，但複雜得多）。"
+     },
+     {
+      "sec": "附錄 A 超參數",
+      "read": "Table 3",
+      "key": "MuJoCo 預設：T=2048、Adam lr=3e-4、K=10 epochs、minibatch=64、γ=0.99、λ=0.95、ε 搜過 0.1/0.2/0.3。你的 UAV 環境起步值直接從這裡抄，再調 T（你的 episode 短很多）。"
+     }
+    ],
+    "glossary": [
+     {
+      "term": "策略 Policy πθ(a|s)",
+      "zh": "π、theta",
+      "why": "神經網路輸出的機率分布：看到狀態 s，各動作以何機率被選。你的無人機案例：看到自身位置+風速+隊友訊號 → 輸出下一步速度向量的分布。θ 是網路權重。"
+     },
+     {
+      "term": "優勢函數 Advantage Â_t",
+      "why": "『這個動作比平均好多少』：A = Q(s,a) − V(s)。實作用 GAE 估計（見下方 GAE 條目）。Â>0 代表該動作值得鼓勵。"
+     },
+     {
+      "term": "機率機率比 Probability ratio r_t(θ)",
+      "why": "r = 新策略選這個動作的機率 ÷ 舊策略選它的機率。r=1 沒變，r=1.3 代表新策略把這動作機率提高了 30%。clip 就是限制 r 別跑出 [0.8, 1.2]（ε=0.2）。"
+     },
+     {
+      "term": "信賴域 Trust Region / TRPO",
+      "why": "TRPO 的思想：每次更新只在『離舊策略足夠近』的範圍內做（用 KL 散度度量『近』），保證性能单調不崩。理論漂亮但要二階優化，實現難——PPO 的動機就是繞開它。"
+     },
+     {
+      "term": "KL 散度 KL[π_old ‖ π]",
+      "why": "衡量兩個機率分布差多遠的非負數，相同=0。PPO 裡它是『更新幅度』的尺。你的 sim-to-real 之後會遇到 domain randomization，概念上就是拿 KL 不炸為前提的隨機化。"
+     },
+     {
+      "term": "Surrogate 目標函數",
+      "why": "不是真正要最大化的東西（真實目標是期望回報，但無法直接用有限樣本算），而是它的可微替身。『surrogate 最大≠真實最好』，所以必須限制更新範圍才有意義。"
+     },
+     {
+      "term": "GAE 廣義優勢估計",
+      "why": "用 λ 在『低偏差高變數的 Monte-Carlo 回報』和『低變數高偏差的 TD 估計』之間滑動插值的 advantage 估計器（Schulman 2015，本文引用）。λ=0.95 是預設；λ=1 退化成只走一步的 TD。"
+     },
+     {
+      "term": "minibatch SGD / epochs",
+      "why": "一批採樣資料切成小塊（minibatch=64）反覆訓練 K=10 輪。這是 PPO 樣本效率的來源，也是它需要 clip 的原因——資料用到第 10 輪時策略已經moved，r 已經偏離 1。"
+     },
+     {
+      "term": "樣本複雜度 Sample complexity",
+      "why": "達到某表現所需與環境互動的步數。對你特別重要：實體無人機每摔一架都是錢與時間，所以真實世界 RL 論文都拿樣本複雜度當頭號指標。"
+     },
+     {
+      "term": "Actor-Critic",
+      "why": "兩個網路：actor 選動作（策略 π）、critic 給分（價值 V）。PPO 是 actor-critic 式。critic 的品質直接決定 Â 的品質。"
+     },
+     {
+      "term": "熵獎勵 Entropy bonus",
+      "why": "給『輸出分布越混亂』的 actor 加分，逼它別過早鎖死某個動作（探索機制）。Atari 設定 c2=0.01；連續控制實驗反而沒用熵獎勵——記住這個差異，你的搜尋任務可能需要。"
+     },
+     {
+      "term": "MuJoCo / OpenAI Gym / ALE",
+      "why": "MuJoCo：物理引擎（模擬機器人走路）。Gym：標準化測試環境介面（HalfCheetah-v1 等）。ALE：Atari 2600 遊戲叢集。本文全部證據都來自這三個基準——讀實驗章節時先認出它們。"
+     },
+     {
+      "term": "A2C / ACER / CEM",
+      "why": "對比對象：A2C=同步版 A3C，每批資料只更新一次的標準 actor-critic（clip 前就是它）。ACER=帶 experience replay 的離策略 actor-critic，Atari 上後段反超 PPO。CEM=黑箱隨機搜尋法，無需梯度。"
+     }
+    ],
+    "feynman_test": [
+     "用兩句話向學長解釋：為什麼同一批資料重複訓練需要 clip？（提示：第 10 個 epoch 時 r 已經不是 1）",
+     "不看資料畫出 Figure 1 的兩張圖（Â>0 和 Â<0），指出紅圈起點和拐点位置。",
+     "問自己：如果所有動作的 Â 都被 critic 高估了，PPO 會學壞嗎？（提示：看 r 的 clip 後目標梯度——Â 全正時所有 r 都被推向 1+ε 就停，策略分布形狀不變）"
+    ],
+    "integration": [
+     {
+      "link": "與你論文的關聯",
+      "text": "你的 baseline MAPPO（2103.01955）就是 PPO 加上全域 critic + 每個 agent 獨立 actor。讀懂今天的 clip，明天讀 MAPPO 只需要理解『critic 看得見全域狀態、actor 只看得見局部觀測』這一處改動。"
+     },
+     {
+      "link": "與你的環境的關聯",
+      "text": "通訊延遲/封包遺失會讓你某些 timestep 的觀測失真，但 PPO 的 GAE 假設 reward/obs 記錄無誤——這是你要在實驗章節處理的痛點：讀 DACOM 之前先記住這個缺口。"
+     },
+     {
+      "link": "承先",
+      "text": "TRPO（1502.05477）：讀懂它為何要 KL 約束（本文 §2.2 已替你先讀）。",
+      "pid": null
+     },
+     {
+      "link": "啟後",
+      "text": "MAPPO（2103.01955）：把今天的單機 PPO 推到多機協作，你論文的直接 baseline。",
+      "pid": "mappo"
+     }
+    ],
+    "checklist": [
+     "□ 能寫出式(7)並指出 min 和 clip 各自的角色",
+     "□ 能背出 Table 1 兩個關鍵數字：無 clip −0.39、clip ε=0.2 → 0.82",
+     "□ 能說出 MuJoCo 預設超參數：T=2048、K=10、minibatch 64、lr 3e-4、γ 0.99、λ 0.95",
+     "□ 能回答預讀三題",
+     "□ 在下方備註欄寫下你自己的三行心得"
+    ],
+    "my_notes": "（這裡留給你：讀完用你自己的話寫 3 行。寫不出來的地方就是沒懂的地方——回來問我。）"
+   }
   },
   {
    "pid": "commnet",
