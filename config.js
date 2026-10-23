@@ -153,6 +153,7 @@ window.SITE_CONFIG = {
     { id: "stocks", icon: "📈", title: "朱家泓·股市教學", type: "route", route: "#/stocks" },
     { id: "books", icon: "📜", title: "枕書夜話·古籍夜讀", type: "route", route: "#/books" },
     { id: "boyin", icon: "🎙️", title: "博音精讀", type: "route", route: "#/boyin" },
+    { id: "research", icon: "🎓", title: "研究生專區", type: "route", route: "#/research" },
     { id: "game-three-kingdoms", icon: "🎮", title: "三國蝴蝶·文字遊戲", type: "route", route: "#/game/three-kingdoms" },
     { id: "analyst-dashboard", icon: "📊", title: "分析師儀表板", type: "route", route: "#/finance/analyst-dashboard" },
     { id: "serenity-watch", icon: "🐦", title: "Serenity 追蹤", type: "route", route: "#/finance/serenity-watch" },
@@ -183,6 +184,14 @@ window.SITE_CONFIG = {
     title: "博音精讀",
     source: "YouTube「博音」Podcast 訪談 EP 精讀",
     playlistUrl: "https://www.youtube.com/playlist?list=PLlcjDGAdaA5cGLXm-19erGq3hHn2gkCrw",
+  },
+
+  // ---- 研究生專區（sidebar 單一入口；內容存放在 learn/research.json）----
+  researchLearning: {
+    id: "research",
+    icon: "🎓",
+    title: "研究生專區",
+    source: "MIAT 實驗室 · 碩班論文研究主線：通訊感知 MARL × 多無人機協同 × 抗風 sim-to-real × 邊緣AI/具身智慧",
   },
 
   // ---- 財務分析站（sidebar 下半部）----

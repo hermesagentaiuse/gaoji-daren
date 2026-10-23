@@ -152,6 +152,9 @@
       if (!on && r === "#/boyin") {
         on = hash === r || hash.startsWith(r + "/");
       }
+      if (!on && r === "#/research") {
+        on = hash === r || hash.startsWith(r + "/");
+      }
       if (!on && r.startsWith("#/game/")) {
         on = hash === r || hash.startsWith(r + "/");
       }
@@ -183,6 +186,7 @@
           if (s.route === "#/stocks") meta = "股市教學";
           else if (s.route === "#/books") meta = "古籍夜讀";
           else if (s.route === "#/boyin") meta = "Podcast 訪談精讀";
+          else if (s.route === "#/research") meta = "論文學習地圖 · 每天一篇";
           else if (s.route && s.route.startsWith("#/game/")) meta = "文字遊戲 ↗";
           else if (s.route && s.route.startsWith("#/finance/")) meta = "財務分析站 ↗";
         }
@@ -620,6 +624,148 @@
       if (i < list.length - 1) html += '<a href="#/boyin/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i + 1].vid) + '">下一集 →</a>';
       html += "</nav></div>";
       content.innerHTML = html;
+    });
+  }
+
+  // ---- 研究生專區：#/research（學習地圖）→ #/research/<track>（論文清單）→ #/research/<track>/<pid>（論文卡片）----
+  const researchCache = {};
+
+  function researchData(cb) {
+    if (researchCache.data) return cb(researchCache.data);
+    content.innerHTML = '<div class="page"><p class="hint">🎓 載入研究生專區中…</p></div>';
+    fetch("learn/research.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { researchCache.data = d; cb(d); })
+      .catch(function () {
+        content.innerHTML = '<div class="page"><p class="hint">研究資料載入失敗，請重新整理重試。</p></div>';
+      });
+  }
+
+  function paperCard(p) {
+    const checkins = loadCheckins();
+    const done = checkins["research:" + p.pid] ? " ✅" : "";
+    let h = '<a class="card card-stock" href="#/research/' + encodeURIComponent(p.topic) + "/" + encodeURIComponent(p.pid) + '">';
+    h += '<span class="card-title">' + (p.level === "前沿" ? "🔥 " : "") + esc(p.title) + done + '</span>';
+    h += '<span class="card-meta">' + esc(p.year || "") + "　" + esc(p.venue || "") + "　" + esc(p.level || "") + "</span>";
+    h += "</a>";
+    return h;
+  }
+
+  function renderResearch() {
+    const RL = CFG.researchLearning || { icon: "🎓", title: "研究生專區", source: "" };
+    researchData(function (data) {
+      const checkins = loadCheckins();
+      const total = (data.papers || []).length;
+      const doneN = (data.papers || []).filter(function (p) { return !!checkins["research:" + p.pid]; }).length;
+      const pct = total ? Math.round(doneN * 100 / total) : 0;
+      let html = '<div class="page"><div class="hero">';
+      html += "<h2>" + esc(RL.icon) + " " + esc(RL.title) + "</h2>";
+      html += '<p class="hero-sub">' + esc(RL.source || "") + "</p>";
+      html += '<div class="progress-card"><div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>';
+      html += '<p class="progress-text">已讀 <b>' + doneN + "</b> / " + total + " 篇（" + pct + "%）</p></div>";
+      html += "</div>";
+      // 學習地圖（分階段路線）
+      if ((data.roadmap || []).length) {
+        html += '<section class="learn-block"><h3>🗺️ 學習地圖（分階段路線）</h3>';
+        data.roadmap.forEach(function (st, si) {
+          html += "<h4>階段 " + (si + 1) + "：" + esc(st.name) + "</h4>";
+          if (st.goal) html += "<p>" + esc(st.goal) + "</p>";
+          if (st.time) html += '<p class="learn-time">⏱ ' + esc(st.time) + "</p>";
+          const sp = (data.papers || []).filter(function (p) { return (st.pids || []).indexOf(p.pid) !== -1; });
+          if (sp.length) {
+            html += '<ol class="step-list">';
+            sp.forEach(function (p) {
+              html += '<li><a class="learn-link" href="#/research/' + encodeURIComponent(p.topic) + "/" + encodeURIComponent(p.pid) + '">' + esc(p.title) + "</a></li>";
+            });
+            html += "</ol>";
+          }
+        });
+        html += "</section>";
+      }
+      html += '<div class="card-grid">';
+      (data.tracks || []).forEach(function (t) {
+        const cnt = (data.papers || []).filter(function (p) { return p.topic === t.name; }).length;
+        html += '<a class="card" href="#/research/' + encodeURIComponent(t.name) + '">';
+        html += '<span class="card-icon">' + esc(t.icon || "📄") + "</span>";
+        html += '<span class="card-title">' + esc(t.name) + "</span>";
+        html += '<span class="card-meta">' + cnt + " 篇</span>";
+        html += "</a>";
+      });
+      html += "</div></div>";
+      content.innerHTML = html;
+    });
+  }
+
+  function renderResearchTrack(topicName) {
+    const RL = CFG.researchLearning || { icon: "🎓", title: "研究生專區" };
+    researchData(function (data) {
+      const papers = (data.papers || []).filter(function (p) { return p.topic === topicName; });
+      if (!papers.length) return renderNotFound();
+      const t = (data.tracks || []).find(function (x) { return x.name === topicName; });
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/research">← 返回「' + esc(RL.title) + '」</a>';
+      html += "<h2>" + esc((t && t.icon) || "📄") + " " + esc(topicName) + "</h2>";
+      if (t && t.desc) html += '<p class="page-sub">' + esc(t.desc) + "</p>";
+      html += '<p class="page-sub">共 ' + papers.length + " 篇，點標題看論文卡片。</p></div>";
+      html += '<div class="card-grid">' + papers.map(paperCard).join("") + "</div></div>";
+      content.innerHTML = html;
+    });
+  }
+
+  function renderResearchPaper(topicName, pid) {
+    researchData(function (data) {
+      const list = (data.papers || []).filter(function (p) { return p.topic === topicName; });
+      const i = list.findIndex(function (p) { return p.pid === pid; });
+      if (i === -1) return renderNotFound();
+      const p = list[i];
+      const checkins = loadCheckins();
+      const key = "research:" + p.pid;
+      const checked = !!checkins[key];
+      const byPid = {};
+      (data.papers || []).forEach(function (q) { byPid[q.pid] = q; });
+      function linkList(arr, label, empty) {
+        if (!(arr || []).length) {
+          return '<section class="learn-block"><h3>' + label + "</h3><p>" + (empty || "—") + "</p></section>";
+        }
+        let h = '<section class="learn-block"><h3>' + label + "</h3><ol class=\"step-list\">";
+        arr.forEach(function (x) {
+          const q = byPid[x];
+          if (q) h += '<li><a class="learn-link" href="#/research/' + encodeURIComponent(q.topic) + "/" + encodeURIComponent(q.pid) + '">' + esc(q.title) + "</a>（" + esc(q.year || "") + "）</li>";
+          else h += "<li>" + esc(x) + "</li>";
+        });
+        return h + "</ol></section>";
+      }
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/research/' + encodeURIComponent(topicName) + '">← 返回「' + esc(topicName) + '」</a>';
+      html += "<h2>" + esc(p.title) + "</h2>";
+      html += '<p class="page-sub">' + esc(p.year || "") + "　" + esc(p.venue || "") + "　" + esc(p.level || "");
+      if (p.arxiv_id && p.arxiv_id !== "none") html += '　<a href="https://arxiv.org/abs/' + esc(p.arxiv_id) + '" target="_blank" rel="noopener">arXiv:' + esc(p.arxiv_id) + " ↗</a>";
+      html += "</p></div>";
+      html += '<div class="learn-checkrow"><label><input type="checkbox" data-key="' + esc(key) + '"' + (checked ? " checked" : "") + " />";
+      html += "<span>我已經讀完這篇了</span></label></div>";
+      if (p.intro) html += '<section class="learn-block"><h3>📖 引言</h3><p>' + esc(p.intro) + "</p></section>";
+      html += '<section class="learn-block"><h3>🎯 核心貢獻</h3><ol class="step-list">';
+      (Array.isArray(p.core_contribution) ? p.core_contribution : [p.core_contribution]).forEach(function (k) { html += "<li>" + esc(k) + "</li>"; });
+      html += "</ol></section>";
+      html += linkList(p.builds_on, "⬅️ 承接誰（前置論文）", "暫無（源頭論文）");
+      html += linkList(p.influenced, "➡️ 影響誰（延伸閱讀）", "待補");
+      if (p.why_for_reader) html += '<section class="learn-block"><h3>🧭 為什麼你要讀</h3><p>' + esc(p.why_for_reader) + "</p></section>";
+      if ((p.reading_notes || []).length) {
+        html += '<section class="learn-block"><h3>📝 解讀筆記</h3><ol class="step-list">';
+        p.reading_notes.forEach(function (k) { html += "<li>" + esc(k) + "</li>"; });
+        html += "</ol></section>";
+      }
+      html += '<nav class="learn-nav">';
+      if (i > 0) html += '<a href="#/research/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i - 1].pid) + '">← 上一篇</a>';
+      if (i < list.length - 1) html += '<a href="#/research/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i + 1].pid) + '">下一篇 →</a>';
+      html += "</nav></div>";
+      content.innerHTML = html;
+      const cb = content.querySelector('.learn-checkrow input[type="checkbox"]');
+      if (cb) cb.addEventListener("change", function () {
+        const d = loadCheckins();
+        if (cb.checked) d[cb.dataset.key] = true; else delete d[cb.dataset.key];
+        saveCheckins(d);
+      });
     });
   }
 
