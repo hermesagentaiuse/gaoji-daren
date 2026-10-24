@@ -656,6 +656,13 @@
       html += '<p class="page-sub">' + esc(s.continent) + "・" + esc(s.country) + "　" + esc(s.year_label || "") +
               "　<strong>" + (AUTH_BADGE[s.authenticity] || "") + "</strong></p></div>";
       html += '<section class="learn-block"><h3>📖 故事</h3><p>' + esc(s.story).replace(/\n/g, "<br>") + "</p></section>";
+      if ((s.vernacular || []).length) {
+        html += '<section class="learn-block"><h3>🗣️ 白話翻譯</h3><ul class="step-list">';
+        s.vernacular.forEach(function (v) {
+          html += '<li>〈' + esc(v.orig) + "〉<br><b>白話：</b>" + esc(v.modern) + "</li>";
+        });
+        html += "</ul></section>";
+      }
       html += '<section class="learn-block"><h3>🔎 史料依據</h3><p>' + esc(s.sources) +
               (s.auth_note ? "<br>" + esc(s.auth_note) : "") + "</p></section>";
       if (s.lesson) html += '<section class="learn-block"><h3>💡 歷史的啟示</h3><p>' + esc(s.lesson) + "</p></section>";

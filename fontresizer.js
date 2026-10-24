@@ -2,8 +2,9 @@
 // 原理：抓 style.css 原文，把所有 font-size: Npx 依倍率重算後注入 <style>，
 // 不依賴 zoom（Firefox 舊版不支援），所有瀏覽器一致生效。
 (function () {
-  var LEVELS = [0.85, 1.0, 1.15, 1.3, 1.5];
-  var LABELS = ["A−−", "A", "A+", "A++", "A+++"];
+  var LEVELS = [0.85, 1.0, 1.15, 1.3, 1.5, 1.7, 1.9, 2.1];
+  var LABELS = ["A−−", "A", "A+", "A++", "A+++", "A4", "A5", "A6"];
+  var NAMES = ["小", "標準", "大", "特大", "超大", "超大＋", "超大＋＋", "超大＋＋＋"];
   var KEY = "gaoji_…vely";
   var level = parseInt(localStorage.getItem(KEY), 10);
   if (isNaN(level) || level < 0 || level >= LEVELS.length) level = 1;
@@ -32,7 +33,7 @@
     var btn = document.getElementById("fs-current");
     if (btn) btn.textContent = LABELS[level];
     var tip = document.getElementById("fs-tip");
-    if (tip) tip.textContent = ["小", "標準", "大", "特大", "超大"][level] + "字級";
+    if (tip) tip.textContent = NAMES[level] + "字級";
     localStorage.setItem(KEY, String(level));
   }
 
