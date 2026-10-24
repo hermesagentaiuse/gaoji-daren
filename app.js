@@ -151,6 +151,9 @@
       if (!on && r === "#/books") {
         on = hash === r || hash.startsWith(r + "/");
       }
+      if (!on && r === "#/world") {
+        on = hash === r || hash.startsWith(r + "/");
+      }
       if (!on && r === "#/boyin") {
         on = hash === r || hash.startsWith(r + "/");
       }
@@ -190,6 +193,7 @@
         } else {
           if (s.route === "#/stocks") meta = "股市教學";
           else if (s.route === "#/books") meta = "古籍夜讀";
+          else if (s.route === "#/world") meta = "世界歷史小故事";
           else if (s.route === "#/boyin") meta = "Podcast 訪談精讀";
           else if (s.route === "#/amt") meta = "風傳媒財經節目精讀";
           else if (s.route === "#/research") meta = "論文學習地圖 · 每天一篇";
@@ -539,6 +543,125 @@
       html += '<nav class="learn-nav">';
       if (i > 0) html += '<a href="#/books/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i - 1].vid) + '">← 上一篇</a>';
       if (i < list.length - 1) html += '<a href="#/books/' + encodeURIComponent(topicName) + "/" + encodeURIComponent(list[i + 1].vid) + '">下一篇 →</a>';
+      html += "</nav></div>";
+      content.innerHTML = html;
+    });
+  }
+
+  // ---- 世界歷史·故事館：#/world（洲）→ #/world/<洲>（時代）→ #/world/<洲>/<時代>（國家）→ #/world/<洲>/<時代>/<id>（故事）----
+  const worldCache = {};
+  const AUTH_BADGE = { "正史": "✅ 正史", "野史": "⚠️ 野史", "爭議": "❓ 爭議" };
+
+  function worldData(cb) {
+    if (worldCache.data) return cb(worldCache.data);
+    content.innerHTML = '<div class="page"><p class="hint">🌍 載入世界歷史中…</p></div>';
+    fetch("learn/world.json")
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { worldCache.data = d; cb(d); })
+      .catch(function () {
+        content.innerHTML = '<div class="page"><p class="hint">世界歷史資料載入失敗，請重新整理重試。</p></div>';
+      });
+  }
+
+  function renderWorld() {
+    const WL = CFG.worldLearning;
+    worldData(function (data) {
+      let html = '<div class="page"><div class="hero">';
+      html += "<h2>" + esc(WL.icon) + " " + esc(WL.title) + "</h2>";
+      html += '<p class="hero-sub">' + esc(WL.desc || "") + "　已上線 " + (data.analyzed || 0) + " / " + (data.total || 0) + " 篇</p>";
+      html += '</div><div class="card-grid">';
+      (data.continents || []).forEach(function (c) {
+        html += '<a class="card" href="#/world/' + encodeURIComponent(c.name) + '">';
+        html += '<span class="card-icon">' + esc(c.icon || "🌍") + "</span>";
+        html += '<span class="card-title">' + esc(c.name) + "</span>";
+        html += '<span class="card-meta">' + c.count + " 篇</span>";
+        html += "</a>";
+      });
+      html += "</div></div>";
+      content.innerHTML = html;
+    });
+  }
+
+  function renderWorldContinent(cont) {
+    const WL = CFG.worldLearning;
+    worldData(function (data) {
+      const list = (data.stories || []).filter(function (s) { return s.continent === cont; });
+      if (!list.length) return renderNotFound();
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/world">← 返回「' + esc(WL.title) + '」</a>';
+      html += "<h2>🌍 " + esc(cont) + "</h2>";
+      html += '<p class="page-sub">共 ' + list.length + " 篇，先選時代大區。</p></div><div class=\"card-grid\">";
+      (data.eraOrder || []).forEach(function (era) {
+        const n = list.filter(function (s) { return s.era === era; }).length;
+        if (!n) return;
+        html += '<a class="card" href="#/world/' + encodeURIComponent(cont) + "/" + encodeURIComponent(era) + '">';
+        html += '<span class="card-icon">🕰️</span>';
+        html += '<span class="card-title">' + esc(era) + "（" + esc((data.eraRange || {})[era] || "") + "）</span>";
+        html += '<span class="card-meta">' + n + " 篇</span></a>";
+      });
+      html += "</div></div>";
+      content.innerHTML = html;
+    });
+  }
+
+  function renderWorldEra(cont, era) {
+    worldData(function (data) {
+      const list = (data.stories || []).filter(function (s) { return s.continent === cont && s.era === era; });
+      if (!list.length) return renderNotFound();
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/world/' + encodeURIComponent(cont) + '">← 返回「' + esc(cont) + '」</a>';
+      html += "<h2>🕰️ " + esc(cont) + "・" + esc(era) + "</h2>";
+      html += '<p class="page-sub">共 ' + list.length + " 篇，選國家進入。</p></div><div class=\"card-grid\">";
+      const seen = {};
+      list.forEach(function (s) {
+        if (seen[s.country]) return; seen[s.country] = 1;
+        const n = list.filter(function (x) { return x.country === s.country; }).length;
+        html += '<a class="card" href="#/world/' + encodeURIComponent(cont) + "/" + encodeURIComponent(era) + "/" + encodeURIComponent(s.country) + '">';
+        html += '<span class="card-icon">🏳️</span>';
+        html += '<span class="card-title">' + esc(s.country) + "</span>";
+        html += '<span class="card-meta">' + n + " 篇</span></a>";
+      });
+      html += "</div></div>";
+      content.innerHTML = html;
+    });
+  }
+
+  function renderWorldCountry(cont, era, country) {
+    worldData(function (data) {
+      const list = (data.stories || []).filter(function (s) { return s.continent === cont && s.era === era && s.country === country; });
+      if (!list.length) return renderNotFound();
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/world/' + encodeURIComponent(cont) + "/" + encodeURIComponent(era) + '">← 返回「' + esc(era) + '」</a>';
+      html += "<h2>🏳️ " + esc(country) + "・" + esc(era) + "</h2>";
+      html += '<p class="page-sub">共 ' + list.length + " 篇小故事。</p></div><div class=\"card-grid\">";
+      list.forEach(function (s) {
+        html += '<a class="card card-stock" href="#/world/' + encodeURIComponent(cont) + "/" + encodeURIComponent(era) + "/" + encodeURIComponent(country) + "/" + encodeURIComponent(s.id) + '">';
+        html += '<span class="card-title">' + esc(s.title) + "</span>";
+        html += '<span class="card-meta">' + esc(s.year_label || "") + "　" + (AUTH_BADGE[s.authenticity] || "") + "</span></a>";
+      });
+      html += "</div></div>";
+      content.innerHTML = html;
+    });
+  }
+
+  function renderWorldStory(cont, era, country, sid) {
+    worldData(function (data) {
+      const list = (data.stories || []).filter(function (s) { return s.continent === cont && s.era === era && s.country === country; });
+      const i = list.findIndex(function (s) { return s.id === sid; });
+      if (i === -1) return renderNotFound();
+      const s = list[i];
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/world/' + encodeURIComponent(cont) + "/" + encodeURIComponent(era) + "/" + encodeURIComponent(country) + '">← 返回「' + esc(country) + '」</a>';
+      html += "<h2>" + esc(s.title) + "</h2>";
+      html += '<p class="page-sub">' + esc(s.continent) + "・" + esc(s.country) + "　" + esc(s.year_label || "") +
+              "　<strong>" + (AUTH_BADGE[s.authenticity] || "") + "</strong></p></div>";
+      html += '<section class="learn-block"><h3>📖 故事</h3><p>' + esc(s.story).replace(/\n/g, "<br>") + "</p></section>";
+      html += '<section class="learn-block"><h3>🔎 史料依據</h3><p>' + esc(s.sources) +
+              (s.auth_note ? "<br>" + esc(s.auth_note) : "") + "</p></section>";
+      if (s.lesson) html += '<section class="learn-block"><h3>💡 歷史的啟示</h3><p>' + esc(s.lesson) + "</p></section>";
+      html += '<nav class="learn-nav">';
+      if (i > 0) html += '<a href="#/world/' + encodeURIComponent(cont) + "/" + encodeURIComponent(era) + "/" + encodeURIComponent(country) + "/" + encodeURIComponent(list[i - 1].id) + '">← 上一篇</a>';
+      if (i < list.length - 1) html += '<a href="#/world/' + encodeURIComponent(cont) + "/" + encodeURIComponent(era) + "/" + encodeURIComponent(country) + "/" + encodeURIComponent(list[i + 1].id) + '">下一篇 →</a>';
       html += "</nav></div>";
       content.innerHTML = html;
     });
@@ -1023,6 +1146,15 @@
       const slash = rest.indexOf("/");
       if (slash === -1) return renderBookTopic(rest);
       return renderBookVideo(rest.slice(0, slash), rest.slice(slash + 1));
+    }
+    if (hash === "#/world" || hash.startsWith("#/world/")) {
+      const rest = decodeURIComponent(hash.slice("#/world".length)).replace(/^\//, "");
+      if (!rest) return renderWorld();
+      const p = rest.split("/");
+      if (p.length === 1) return renderWorldContinent(p[0]);
+      if (p.length === 2) return renderWorldEra(p[0], p[1]);
+      if (p.length === 3) return renderWorldCountry(p[0], p[1], p[2]);
+      return renderWorldStory(p[0], p[1], p[2], p[3]);
     }
     if (hash === "#/boyin" || hash.startsWith("#/boyin/")) {
       const rest = decodeURIComponent(hash.slice("#/boyin".length)).replace(/^\//, "");

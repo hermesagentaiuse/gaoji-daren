@@ -152,6 +152,7 @@ window.SITE_CONFIG = {
     },
     { id: "stocks", icon: "📈", title: "朱家泓·股市教學", type: "route", route: "#/stocks" },
     { id: "books", icon: "📜", title: "枕書夜話·古籍夜讀", type: "route", route: "#/books" },
+    { id: "world", icon: "🌍", title: "世界歷史·故事館", type: "route", route: "#/world" },
     { id: "boyin", icon: "🎙️", title: "博音精讀", type: "route", route: "#/boyin" },
     { id: "amt", icon: "📉", title: "下班經濟學·財經精讀", type: "route", route: "#/amt" },
     { id: "research", icon: "🎓", title: "研究生專區", type: "route", route: "#/research" },
@@ -176,6 +177,14 @@ window.SITE_CONFIG = {
     title: "枕書夜話·古籍夜讀",
     source: "YouTube 頻道「枕書夜話」30 分鐘讀完一部古籍",
     playlistUrl: "https://www.youtube.com/channel/UC4DNU7jSBRMFMefFUZsdPAA",
+  },
+
+  // ---- 世界歷史·故事館（sidebar 單一入口；內容存放在 learn/world.json）----
+  worldLearning: {
+    id: "world",
+    icon: "🌍",
+    title: "世界歷史·故事館",
+    desc: "洲 → 時代 → 國家 → 小故事。每篇標註正史／野史／爭議並附史料依據。",
   },
 
   // ---- 博音精讀（sidebar 單一入口；內容存放在 learn/boyin.json）----
