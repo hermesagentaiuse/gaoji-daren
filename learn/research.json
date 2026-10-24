@@ -339,7 +339,169 @@
     "mappo"
    ],
    "why_for_reader": "集中式 critic + 反事實信用分配是理解 MAPPO centralized value function 設計的必修課，對「哪架 UAV 的貢獻導致任務成功」的歸因問題尤為關鍵。",
-   "verified": true
+   "verified": true,
+   "easy_read": [
+    {
+     "h": "🎯 目標：誰該領功？",
+     "body": "想像一支十人足球隊贏了比賽，但獎金只能照『全隊進球總數』發——進球那一腳到底是谁踢的？教練如果只說『大家乾得好』，前鋒會學不會該什麼時候衝，後衛也學不會該什麼時候守。AI 界把這叫『多代理信用分配』（credit assignment）：整個隊伍只有一個共同獎勵，每個成員看不出自己對結果的貢獻。昨天讀的 MADDPG 請了一位看全景的教練（centralized critic），但教練的評分仍然只說『這一步全隊好不好』，沒有回答『這一步裡你個人到底加分還是減分』。更要命的是：隊友都在同時學習、同時亂動，你從『全隊得分』裡想推測自己的功勞，訊號抖得像地震。COMA 的目標就是：給每個代理一張個人功過單，而且這張單不用另外跑模擬器、不用人設計『標準答案動作』，純靠訓練過程就能算出來。"
+    },
+    {
+     "h": "🔑 方法核心：『把你換成默認動作再比一次』的反事實考卷",
+     "body": "COMA 的核心比喻是老闆考核員工：不問『你今天表現如何』，而問『如果今天這件活不是你做、換成一個什麼都不幹的替身在場，結果會差多少？』差多少，就是你的貢獻。專業詞叫『反事實基線』（counterfactual baseline）：把代理 a 自己的動作『邊際化』（marginalise）掉——也就是用 a 自己策略裡每個可能動作的機率加權平均，換掉 a 實際選的那個動作——但其他隊友的動作原封不動鎖死。這樣算出來的個人優勢 A^a = Q(實際聯合動作) − Σ π(u'|τ) Q(a 換成 u'、其他人不動)。為什麼這招不欺人？數學上（附錄 A）這個基線對梯度的期望貢獻恰好是零，跟單機 RL 裡的減基線技巧一樣：它只降噪音、不偏差向，所以收斂性（Lemma 1：梯度範數依概率收斂到 0，即局部最優）跟標準 actor-critic 一模一樣。另外借鑑了『差分獎勵』（difference rewards，Wolpert & Tumer 2002）的思想，但差分獎勵要額外跑模擬器、還要人挑一個『默認動作』——COMA 讓 centralized critic 直接『腦補』反事實，一個模擬器都不用多跑。第三個關鍵是省算：critic 的輸出層一次吐出代理 a 所有 |U| 個動作的 Q 值（而不是整個聯合動作空間的 |U|^n 個），所以反事實平均只要actor+critic 各一次前向傳播就完成——這是它實用得起來的工程關鍵。"
+    },
+    {
+     "h": "🛠️ 實際跑起來的三件配備",
+     "body": "第一件：『每人一張考卷』的 critic 結構。其他隊友的聯合動作 u^-a 當輸入，輸出層是代理 a 每個動作的 Q 值——所有 agent 共用同一個前饋 critic，一次 batch 就把所有人的反事實分數全算完。第二件：演員（actor）是 128 元 GRU 循環網路，因為每個代理只看得到自己小小的視野，必須靠記憶把『剛剛那個敵人是不是已經死了』記在隱藏狀態裡；動作機率用有界 softmax，任何動作至少有 ε/|U| 的機率被探索，ε 從 0.5 線性退火到 0.02（750 集退完）。第三件：critic 用 TD(λ)（λ=0.8）加目標網路餵訓練，RMSProp、學習率 0.0005、折扣因子 γ=0.99、batch 30。整套訓練在 TorchCraft 上做，每個學習循環是『收 30n 條軌跡 → 從尾到頭更新 critic → 再從尾到頭累積 actor 梯度』三段式。"
+    },
+    {
+     "h": "📊 實驗：在戰爭迷霧裡打赢開全圖的外掛隊",
+     "body": "戰場是星海爭霸小隊微操（StarCraft micromanagement），但作者故意把遊戲改成地獄模式：每個單位只能看到『等於射程』的一小圈（限制視野），敵人死亡和敵人在視野外分不出來（會下無效攻擊指令），而且封掉遊戲內建的『攻擊移動』巨集動作。四張對稱地圖：3 陸戰隊、5 陸戰隊、5 幽浮、2 龍騎兵+3 聖殿騎士。結果（最終 1000 次評測平均勝率，括號是 95% 信賴區間）：COMA 87(3) / 81(5) / 82(3) / 47(5)，全部第一。消融實驗證明三件事缺一不可：把 critic 拆回每人只用自己視野的獨立版（IAC-V / IAC-Q）掉到 47/63/18/27 與 56/58/57/19——5 幽浮圖上獨立學習的 IAC-V 只有 18% 勝率，幾乎崩潰；critic 用全圖但只學 V 的 central-V 是 83/67/65/36；最狠的對照是 central-QV（同樣學 Q，但把反事實基線換成普通 V）：83/71/76/39，四個場景全部被 COMA 嚴格碾壓，證明『反事實基線』本身才是功臣。最炸裂的是：COMA 的分散式代理（只有小視野）最佳勝率對打別人用全圖+巨集動作的集中式控制器——5 陸戰隊圖 COMA 81% vs 已發表 DQN 98%、GMEZO 99%（人家是集中控制+開全圖），2d3z 圖 COMA 47% 甚至贏過對方的 DQN 68%/GMEZO 61% 在同等受限設定下的對手——總之分散式打出了集中式的成績單。訓練還比 central-V 更快更穩（因為 COMA 梯度在策略趨近貪婪時自動趨零）。"
+    },
+    {
+     "h": "🔗 跟你論文的關聯：MAPPO 的『集中式價值函數』就是從這裡長出來的",
+     "body": "你的論文以 MAPPO 為 baseline，而 MAPPO 的 centralized value function 直接繼承 COMA 的 critic 設計（MAPPO 論文自己引它）。讀懂 COMA，你就知道 baseline 背後那張『功過單』長什麼樣。三個直接對應你的場景：第一，『哪架 UAV 的動作導致搜尋任務成功』——你的任務只有全隊獎勵（找到目標+分數），八架無人機裡到底是偵察那架的功勞還是包抄那架的功勞？COMA 的反事實基線是目前最乾淨的答案：其他 UAV 動作凍結，換掉這一架重算。第二，也是你的創新切口：COMA 的 critic 假設訓練時『全域狀態 s 免費可得』，但你的蜂群有通訊延遲與封包遺失——critic 輸入的 u^-a（其他 UAV 的動作）在真實部署中會遲到、會丟包。COMA 在模擬器裡成立的那個『上帝視角』正是你論文要打破的假設，之後讀 TarMAC/DACOM 就是在補這個洞。第三，限制視野這個實驗設計跟你的 UAV 相機視場一模一樣：agent 分不清『敵人已死』還是『敵人在視野外』，對應你的 UAV 分不清『目標已偵測』還是『目標在鏡頭外』——你們的 partial observability 是同一種痛。"
+    },
+    {
+     "h": "🧭 之後的路線：今天不用翻原文",
+     "body": "今天只讀兩段就夠：§4『Counterfactual Multi-Agent Policy Gradients』那一節的式(4)（反事實基線定義，看懂『Σ π(u')Q(...) 就是把你的動作換來換去取平均』即可），以及 §6 Results 的 Table 1（掃一眼 COMA 對 IAC-QV 各基線的勝率差，30 秒）。費曼第一題先想這個：『為什麼反事實基線必須依賴其他代理的動作、但不能依賴自己的動作？』（提示：少了任何一樣，式(9)–(13) 那個期望為零的推導就斷鏈）。明天讀 VDN：問題從『怎麼算個人功過單』變成『團隊價值能不能直接拆成每人價值相加』——那是價值式家族的開端，讀起來你會覺得輕鬆，因為 CTDE 和『共同獎勵難歸因』兩個概念你今天都學完了。後天 QMIX 再給 VDN 加一道單調性約束，三篇串起來就是一部『信用分配簡史』。"
+    }
+   ],
+   "study_kit": {
+    "source_verified": {
+     "method": "arXiv PDF 全文下載 + 逐頁文字擷取（pypdf，UA header）",
+     "pages": 11,
+     "chars": 51834,
+     "read_at": "2026-10-24",
+     "note": "已完整讀過全文 11 頁：正文 §1–§7、Figure 1–3、Table 1（四場景全部勝率與信賴區間）、附錄 A（Lemma 1 完整證明，含基線期望為零的式(9)–(13)）、附錄 B（訓練細節與超參數）、附錄 C（Algorithm 1 偽代碼）、Errata（v3 修正 Lemma 1 證明中 critic 未條件化 joint history τ 的錯誤）。非僅讀摘要。"
+    },
+    "pre_read_questions": [
+     "如果只用全局獎勵的 TD error 更新每個 actor，為什麼隊友越多、每個人的梯度越噪音大？（提示：你無法分辨『這步賺』是你英明還是隊友英明）",
+     "反事實基線 b(s, τ, u^-a) 為什麼不能依賴代理 a 自己的動作 u_a？依賴了會怎樣？（提示：附錄 A 式(12) 那步 Σ ∇π = ∇1 = 0 需要什麼條件）",
+     "COMA 的 centralized critic 假設訓練時全域狀態 s 與所有人動作 u^-a 可得——你的 UAV 蜂群有通訊延遲與封包遺失時，這個假設在哪個環节斷掉？"
+    ],
+    "pass1_five_c": {
+     "category": "方法論文（多代理 actor-critic 演算法：centralized critic + 反事實基線 + 高效 critic 表示），附局部收斂性引理與 StarCraft 基準實驗",
+     "context": "站在單機 actor-critic（Sutton 1999、Konda & Tsitsiklis 2000）、差分獎勵/aristocrat utility（Wolpert & Tumer 2002）、CTDE 範式（Oliehoek 2008、Kraemer & Banerjee 2016、Foerster 2016）之上；與同期 MADDPG（Lowe et al. 2017）同樣用 centralized critic，但 COMA 所有代理共用一個 critic 且主打信用分配，MADDPG 每人一套 critic 主打對抗場景的非平穩性",
+     "correctness": "Lemma 1 的收斂性是條件性的：需要 compatible TD(1) critic、critic 在每次策略更新前已收斂等標準假設；Errata 承認 v1 證明有誤（critic 未條件化 τ），v3 才修正，並引 Lyu et al. 2024（Appendix E.2）在 perfect critic 假設下的相關結果。全文最強隱含假設：訓練時全域狀態與其他代理動作免費可得——正是通訊受限場景的攻擊點",
+     "contributions": "(1) 反事實基線：固定 u^-a、邊際化 u_a 的 agent-specific advantage，無需模擬器/預設動作 (2) critic 表示：u^-a 入輸入、|U| 個輸出，單次前向傳播算完基線（規避 |U|^n 輸出爆炸）(3) Lemma 1 局部收斂 (4) 限制視野+去巨集動作的分散式 StarCraft 基準與 SOTA 集中式控制器的對照表",
+     "clarity": "Figure 1（資訊流+actor/critic 架構圖）是骨架；Table 1 給最終 1000 評測集的均值與 95% CI（如 87(3)=87±3）；附錄 B 超參數完整可複現；Errata 透明記錄證明修訂史"
+    },
+    "pass2_sections": [
+     {
+      "sec": "§1 Introduction",
+      "read": "必讀",
+      "key": "三大挑戰：聯合動作空間隨代理數指數成長 → 必須分散式策略；部分可觀察+通訊限制使分散執行成為硬性要求；全局獎勵下的信用分配難題。三大設計：centralized critic（只在訓練時上場）、counterfactual baseline、單次前向傳播的高效表示。"
+     },
+     {
+      "sec": "§2 Related Work",
+      "read": "略讀",
+      "key": "與 MADDPG（Lowe et al. 2017）的關鍵差異：COMA 所有代理共用一個 critic、主打合作信用分配；MADDPG 每 agent 一個 critic、適用競爭環境與連續動作。Gupta et al. 2017 的 actor 與 critic 都只看局部觀測，信用分配靠手刻區域獎勵——COMA 與之拉開距離的位置。"
+     },
+     {
+      "sec": "§3 Background",
+      "read": "必讀",
+      "key": " stochastic game 元組 G = ⟨S,U,P,r,Z,O,n,γ⟩；共享獎勵 r(s,u)；actor 條件於 action-observation history τ^a（GRU/LSTM 記憶）。critic 用 TD(λ) 的混合 n-step return 訓練，目標網路週期性複製參數。"
+     },
+     {
+      "sec": "§4 IAC 基線",
+      "read": "略讀",
+      "key": "獨立 actor-critic：參數共享（一套 actor+critic 給所有代理，靠 agent ID 區分行為），但 critic 只條件於自己的 τ^a、u^a。學習獨立 → 無法估計個人對團隊獎勵的貢獻，這是後文崩壞的伏筆。"
+     },
+     {
+      "sec": "§4 COMA 本體",
+      "read": "必讀（核心）",
+      "key": "式(4)：A^a(s,τ,u) = Q(s,τ,u) − Σ_{u'a} π_a(u'|τ^a) Q(s,τ,(u^-a,u'a))。關鍵洞見一：centralized critic 用『腦補』取代差分獎勵需要的額外模擬與人工預設動作。關鍵洞見二：基線對梯度的期望貢獻為零 → 無自洽性問題（不同於 aristocrat utility 的遞歸依賴）。關鍵洞見三：u^-a 進輸入、|U| 個輸出，單次前向傳播完成，輸出數從 |U|^n 降到 |U|。"
+     },
+     {
+      "sec": "§4 Lemma 1 + 附錄 A",
+      "read": "選讀（明天讀 MAPPO 前弄懂直覺即可）",
+      "key": "證明兩步：(i) 式(9)–(13) 展示基線項 Σ_ua ∇θ π_a = ∇θ 1 = 0，故基線不改變期望梯度——依賴的正是『基線對 u_a 獨立』；(ii) 把聯合策略 π(u|τ)=Ππ_a(u_a|τ^a) 視為單機 MDP 的策略，直接套用 Sutton et al. 1999 收斂定理。Errata：v1 誤把 critic 寫成只條件 s 不條件 τ，v3 修正。"
+     },
+     {
+      "sec": "§5 Experimental Setup",
+      "read": "必讀",
+      "key": "地獄模式設計：視野半徑=遠程單位射程；攻擊需入射程才有效（廢掉 attack-move 巨集）；死敵與視野外敵不可分辨 → 無效指令膨脹動作空間。獎勵 = 造成的傷害 − 0.5×承受傷害；擊殺 +10；勝利 = 剩餘血量 + 200。手刻 heuristics（往前衝+逐個集火）在 5m 開全圖 98%、限視野只剩 66%。訓練：actor 128-unit GRU，有界 softmax ε 0.5→0.02（750 集退火）；λ=0.8；RMSProp lr 0.0005、α 0.99；γ=0.99；batch 30；目標網路 central critic 每 150 步、IAC recurrent critic 每 50 步更新；skip-frame 7。"
+     },
+     {
+      "sec": "§6 Results / Table 1",
+      "read": "必讀",
+      "key": "限視野最終勝率（3m/5m/5w/2d3z）：COMA 87(3)/81(5)/82(3)/47(5) 全場第一；central-QV 83/71/76/39（同樣 central Q 但基線換 V，全場景被 COMA 嚴格支配 → 反事實基線是功臣）；central-V 83/67/65/36；IAC-Q 56/58/57/19；IAC-V 47/63/18/27（5w 圖崩到 18）。35 次獨立實驗、每 100 訓練集凍結學習評 200 集。開全圖集中式對照：heur 98/95/98/65、DQN 74/98/82/68、GMEZO 最高 99(5m)/90(2d3z best)。COMA 訓練比 central-V 更快且更穩（策略趨貪婪時梯度趨零）。"
+     },
+     {
+      "sec": "§7 Conclusion + 附錄 B/C",
+      "read": "選讀",
+      "key": "作者自認未來工作：大量代理時 centralized critic 訓練困難、探索協調更難——可扩展性瓶頸是探索而非 critic 集中化（試過 factored critic，發現瓶頸不在那）。Algorithm 1 偽代碼：三段式（收 30n 軌跡 → 從 t=T 倒序更新 critic → 倒序累積 actor 梯度 A^a）。"
+     }
+    ],
+    "glossary": [
+     {
+      "term": "信用分配（credit assignment）",
+      "why": "全隊只有一個獎勵時，判定『是哪個成員的哪個動作帶來好結果』。你的 UAV 場景：八架無人機協同搜尋只給一個團隊分數，偵側翼那架到底有沒有貢獻？没有信用分配，它學不會繞側翼。"
+     },
+     {
+      "term": "反事實基線（counterfactual baseline）",
+      "why": "固定其他隊友的動作，把『自己』換成按自己策略隨機換動作取平均，兩者之差就是你的功過。你的場景：凍結另外七架 UAV 的動作，把第八架的動作換來換去重算團隊分數——差值就是第八架的個人優勢。"
+     },
+     {
+      "term": "邊際化（marginalise out）",
+      "why": "把某個變數所有可能取值按機率加權總和，等於『不決定它，讓它按策略隨機化』。你的場景：不指定 UAV-3 往左還是往右，而是按 π(u'|τ) 的機率把所有動作都試一遍取平均。"
+     },
+     {
+      "term": "CTDE（集中訓練分散執行）",
+      "why": "訓練時用上帝視角的 critic，部署時每個 agent 只看自己。你的場景：訓練在 Isaac Sim 裡可以拿全域狀態，但真機飛行時每架 UAV 只有自己的相機+延遲的鄰機訊息——訓練與部署的資訊落差正是你論文要處理的。"
+     },
+     {
+      "term": "部分可觀察（partial observability）",
+      "why": "agent 看到的不是全域狀態 s 而是局部觀測 z=O(s,a)。COMA 用限制視野+GRU 記憶製造它；你的 UAV 相機視場+封包遺失是同一件事的真實版。"
+     },
+     {
+      "term": "actor-critic",
+      "why": "actor 是政策（看到什麼做什麼），critic 是評分員（估計這個局面值多少分），actor 照 critic 給的梯度調整。你的 MAPPO baseline 就是這個結構的 PPO 版。"
+     },
+     {
+      "term": "差分獎勵（difference rewards）",
+      "why": "把 agent 換成『預設動作』後重跑一次環境，兩者獎勵差即個人貢獻——但要能重跑環境。COMA 的改進：不用重跑，直接問 critic『假如換動作會怎樣』。你的場景：真機不可能『重跑那次飛行』，所以只能走 critic 腦補路線。"
+     },
+     {
+      "term": "TD(λ)",
+      "why": "把 1-step、2-step……n-step 回傳按 λ 幾何權重混合的價值估計目標，λ 越大越偏重『實際走完的長軌跡』。COMA 設 λ=0.8；你在 Isaac Sim 訓練 MAPPO 時 GAE 的 λ 是同一族開關。"
+     },
+     {
+      "term": "有界 softmax（bounded softmax）",
+      "why": "強制每個動作至少 ε/|U| 機率，保證探索不被策略完全鎖死。COMA 從 ε=0.5 退火到 0.02；你的 UAV 訓練初期若動作空間大（連續航向+速度），同樣需要保證每個機動都被試過。"
+     },
+     {
+      "term": "目標網路（target network）",
+      "why": "critic 追一個『不動的自己』——每隔固定步數才把參數複製過去，防止追趕目標造成發散。COMA 中央 critic 每 150 步複製；你訓練 MAPPO 若 critic 發散，先查這個。"
+     }
+    ],
+    "feynman_test": [
+     "用你自己的話向組員解釋：為什麼反事實基線必須『依賴其他代理的動作、但對自己的動作獨立』？少了哪一半，附錄 A 式(12) 的 Σ_ua ∇π_a·b = 0 就不成立？",
+     "central-QV 和 COMA 用的是同一個 critic、同一個 actor、同一套訓練——唯一差別是優勢函數裡的基線。如果學生只讀 Table 1，你要怎麼用兩個數字（例如 5w 圖的 82 vs 76）向他證明『反事實基線』本身就是貢獻？",
+     "你的 UAV 蜂群部署時有 200ms 通訊延遲與 5% 封包遺失：COMA 的哪個假設最先斷裂？斷裂後 critic 算出的 A^a 會往哪個方向失真（提示：u^-a 是過期值還是遺失值，兩種情況分別想）？"
+    ],
+    "integration": {
+     "for_reader_paper": "直接服務三章：(1) 方法章——你的 centralized value function（MAPPO baseline）設計語彙全部來自本篇；若加入反事實式信用分配作為改進點，式(4) 是你的起點公式。(2) 動機章——COMA 假設訓練時 u^-a 與全域 s 免費可得，你的通訊延遲/封包遺失使該假設失真，這是創新的直接定位點。(3) 實驗章——限制視野的 StarCraft 設計（視野=射程、敵人死亡不可辨）是你 UAV 相機視場+目標丟失的鏡像基準，可引用其 partial observability 實驗設計正當化你的 sim 設定。",
+     "lineage": "承先：ppo（讀過，單機 actor-critic/策略梯度語法）、maddpg（讀過，同期 CTDE、每人一 critic）、IAC/REINFORCE/TD(λ) 基礎；差分獎勵（Wolpert & Tumer 2002）是其思想來源。啟後：mappo（centralized value function 直接繼承本篇 critic）、QPLEX（反事實式改善）、COMA 家族與 Lyu et al. 2024 對 centralized critic 的再審；你的論文以 MAPPO 為 baseline，本篇是 baseline 的考古層。"
+    },
+    "checklist": [
+     "能默寫式(4) 並指出 Σ 對誰邊際化、什麼被凍結",
+     "能解釋基線期望為零的證明結構（附錄 A 式(9)–(13)）與它為何排除自洽性問題",
+     "能背出 Table 1 的 COMA 四勝率（87/81/82/47）並說出一個消融對照（central-QV 全場景落敗）證明基線才是功臣",
+     "能畫出 critic 的輸入/輸出切面：輸入 =（全域狀態、τ、u^-a），輸出 = |U| 個 Q 值，單次前向傳播",
+     "能說出 COMA 在你 UAV 場景中的兩個失真源：critic 輸入的 u^-a 延遲/遺失、全域 s 需靠通訊匯聚"
+    ],
+    "my_notes": ""
+   },
+   "reading_notes": [
+    "COMA 與 MADDPG（昨天讀的）是同期獨立工作，最容易被混淆——一句話分野：MADDPG 每代理一套 critic、解『環境非平穩』；COMA 全員共用一套 critic、解『信用分配』。讀 MAPPO 時兩者都會被同時引用。",
+    "反事實基線的『期望貢獻為零』是全篇的數學支點：它讓『基線依賴策略』卻不破壞收斂（對比 aristocrat utility 的策略-效用遞歸自洽問題）。附錄 A 只要看懂 Σ_ua ∇π_a(u_a|τ_a) = ∇Σπ = 0 一行就夠。",
+    "工程亮點常被忽略：|U|^n → |U| 的輸出壓縮。若你要把反事實基線搬進自己的專案，critic 的輸出層設計（其他代理動作放輸入、本代理動作放輸出維度）是直接可抄的藍圖。",
+    "作者的 scalability 自白：試過 factored critic，發現真正瓶頸是探索而非 critic 集中化。這預言了後續 MAPPO 靠『簡單的集中價值+PPO』勝出的歷史走向（後天讀）。",
+    "Errata 值得研究生細看：v1 的 Lemma 1 證明因 critic 未條件化 joint history τ 而錯誤，拖到 v3（2024-12）才修——top venue 論文的證明也會錯，審稿抓不到的地方要靠 Oliehoek/Amato 這種同行事後糾錯。",
+    "對照你的 sim：COMA 的『視野=射程、死敵不可辨』比一般 SMAC 預設更貼近你的 UAV 場景（相機視場+目標狀態不確定），做實驗設計章節時可直接引用其 §5 作為限制視野基準的合法性來源。"
+   ],
+   "full_text_status": "verified"
   },
   {
    "pid": "maddpg",
