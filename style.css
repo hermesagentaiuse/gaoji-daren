@@ -535,3 +535,50 @@ body {
   .hero h2 { font-size: 26px; }
   .embed-wrap { height: 70vh; }
 }
+
+/* ---------- 全站字級調整控件 ---------- */
+#fs-widget {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--paper, #fff);
+  border: 1px solid var(--line, #ddd);
+  border-radius: 999px;
+  padding: 4px 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+#fs-widget button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 700;
+  color: var(--ink, #222);
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+#fs-widget button:hover { background: rgba(0,0,0,0.06); }
+#fs-widget #fs-current { color: var(--accent-deep, #8a5a2b); min-width: 34px; }
+#fs-widget #fs-tip {
+  position: absolute;
+  right: 0;
+  bottom: 110%;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+#fs-widget:hover #fs-tip { opacity: 1; }
+@media (max-width: 860px) {
+  #fs-widget { bottom: 10px; right: 10px; }
+}
