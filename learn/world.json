@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 130,
- "analyzed": 60,
+ "analyzed": 61,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 21
+   "count": 22
   }
  ],
  "eraOrder": [
@@ -1747,6 +1747,31 @@
     }
    ],
    "lesson": "固執於舊地圖的人，往往親手打開了新世界的門，卻至死不願承認自己走進了它。"
+  },
+  {
+   "id": "w0061",
+   "continent": "歐洲",
+   "era": "現代",
+   "country": "義大利",
+   "title": "庞贝古城的重生：1748年發掘",
+   "year_label": "1748—1863",
+   "authenticity": "正史",
+   "sources": [
+    "Britannica「Pompeii: History of excavations」",
+    "History Today「Pompeii is Found」（Mathew Lyons）",
+    "World Archaeology「Great discoveries: Pompeii」",
+    "Pompeii Sites 官方「Stabiae: History of the excavation」",
+    "Pompeii Online「The Casts of Pompeii」"
+   ],
+   "auth_note": "發掘年代、人物與1763年銘文出土，經 Britannica、History Today、World Archaeology 等多家獨立來源交叉一致；費奧雷利石膏鑄型首次製作於1863年2月初（各來源記2日至5日間），本文取通說2月3日。Charles 於1738年已是那不勒斯國王（1734年即位），非王子。",
+   "story": "維蘇威火山的陰影下，當地農夫把一座荒丘叫做「拉齊維塔」——意思只是「古城」。丘下埋著哪座城，無人說得清。\n\n1738年，波旁王朝的那不勒斯國王查理在赫庫蘭尼姆建夏宮，打井時意外挖出大理石柱與雕像，舉世為之騷動。十年後的1748年，西班牙軍事工程師阿庫比埃爾奉王命來到這座荒丘。他的任務不是學術，而是尋寶：國王想用古代藝術品填滿新建的波爾蒂契皇宮。\n\n阿庫比埃爾的手法與其說考古，不如說開礦：向下掘出隧道，撈到青銅與大理石便搬走，沒撈到就把隧道重新埋起，換個地方再挖。壁畫被當場鋸下送進皇家收藏。十五年間，沒有人知道這座城的名字。\n\n直到1763年8月20日，一塊石灰華石碑出土，刻著「Rei publicae Pompeianorum」。學者拂去塵土認出字樣的那一刻，全歐為之沸騰：這裡正是龐貝——老普林尼在信中悼念、失落近一千七百年的那座城市。\n\n1863年2月3日，考古總監費奧雷利把石膏注入火山灰中的空腔，第一次翻出罹難者扭曲的身形。龐貝的重生前後歷時一百一十五年：先由君王的貪欲鑿開一道門，再由學術與悲憫歸還它的魂魄。",
+   "vernacular": [
+    {
+     "orig": "Rei publicae Pompeianorum",
+     "modern": "拉丁語「龐貝人之公共體」，即龐貝市政當局；這段銘文出土後，遺址身分才獲確認。"
+    }
+   ],
+   "lesson": "君王的貪欲也能鑿開歷史之門，但唯有學術與悲憫，能把失落的文明真正還給全人類。"
   }
  ]
 }
