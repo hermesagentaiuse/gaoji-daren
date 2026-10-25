@@ -364,7 +364,7 @@
     if (learnCache[catId]) return paint(learnCache[catId]);
 
     content.innerHTML = '<div class="page"><p class="hint">📖 載入學習指南中…</p></div>';
-    fetch("learn/" + encodeURIComponent(catId) + ".json")
+    fetch("learn/" + encodeURIComponent(catId) + ".json?ts=" + Date.now())
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (data) { learnCache[catId] = data; paint(data); })
       .catch(function () { paint(null); });
@@ -376,7 +376,7 @@
   function stockData(cb) {
     if (stocksCache.data) return cb(stocksCache.data);
     content.innerHTML = '<div class="page"><p class="hint">📈 載入股市教學中…</p></div>';
-    fetch("learn/stocks.json")
+    fetch("learn/stocks.json?ts=" + Date.now())
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (d) { stocksCache.data = d; cb(d); })
       .catch(function () {
@@ -465,7 +465,7 @@
   function bookData(cb) {
     if (booksCache.data) return cb(booksCache.data);
     content.innerHTML = '<div class="page"><p class="hint">📜 載入古籍夜讀中…</p></div>';
-    fetch("learn/books.json")
+    fetch("learn/books.json?ts=" + Date.now())
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (d) { booksCache.data = d; cb(d); })
       .catch(function () {
@@ -555,7 +555,7 @@
   function worldData(cb) {
     if (worldCache.data) return cb(worldCache.data);
     content.innerHTML = '<div class="page"><p class="hint">🌍 載入世界歷史中…</p></div>';
-    fetch("learn/world.json")
+    fetch("learn/world.json?ts=" + Date.now())
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (d) { worldCache.data = d; cb(d); })
       .catch(function () {
@@ -680,7 +680,7 @@
   function boyinData(cb) {
     if (boyinCache.data) return cb(boyinCache.data);
     content.innerHTML = '<div class="page"><p class="hint">🎙️ 載入博音精讀中…</p></div>';
-    fetch("learn/boyin.json")
+    fetch("learn/boyin.json?ts=" + Date.now())
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (d) { boyinCache.data = d; cb(d); })
       .catch(function () {
@@ -769,7 +769,7 @@
   function amtData(cb) {
     if (amtCache.data) return cb(amtCache.data);
     content.innerHTML = '<div class="page"><p class="hint">📉 載入下班經濟學精讀中…</p></div>';
-    fetch("learn/amt.json")
+    fetch("learn/amt.json?ts=" + Date.now())
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (d) { amtCache.data = d; cb(d); })
       .catch(function () {
@@ -858,7 +858,7 @@
   function researchData(cb) {
     if (researchCache.data) return cb(researchCache.data);
     content.innerHTML = '<div class="page"><p class="hint">🎓 載入研究生專區中…</p></div>';
-    fetch("learn/research.json")
+    fetch("learn/research.json?ts=" + Date.now())
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (d) { researchCache.data = d; cb(d); })
       .catch(function () {
