@@ -1,1 +1,9 @@
-{"read": ["ppo", "maddpg", "coma"], "last_run": "2026-10-24"}
+{
+ "read": [
+  "ppo",
+  "maddpg",
+  "coma",
+  "vdn"
+ ],
+ "last_run": "2026-10-25"
+}
