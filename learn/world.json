@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 130,
- "analyzed": 55,
+ "analyzed": 56,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 16
+   "count": 17
   }
  ],
  "eraOrder": [
@@ -1617,6 +1617,43 @@
     }
    ],
    "lesson": "勝利之後，歷史由勝利者與他的史官執筆；讀史者須在神話與銘文的裂縫中，自行辨認真相。"
+  },
+  {
+   "id": "w0056",
+   "continent": "歐洲",
+   "era": "中古",
+   "country": "義大利",
+   "title": "但丁與《神曲》：流放者的地獄漫遊",
+   "year_label": "1302—1321",
+   "authenticity": "正史",
+   "sources": [
+    "《神曲·地獄篇》第一歌、第三歌意大利原文（Columbia University Digital Dante；it.wikisource.org Divina Commedia）",
+    "但丁《新生》（Vita Nuova）自述貝雅特麗切之死（1290年6月8日，Columbia Digital Dante 年表）",
+    "Britannica「Dante Alighieri」傳記條目（白派/黑派、1302年1月流放判決）",
+    "美國國會圖書館法律史部落格《The Rehabilitation of Dante Alighieri, Seven Centuries Later》（1301年11月黑派政變、1302年1月27日裁判）",
+    "維基百科「Dante Alighieri」條目（1321年9月14日逝於拉溫納，瘧疾）"
+   ],
+   "auth_note": "流放判決日期、黨派背景與逝世有檔案與權威傳記支持，判為正史。九歲一見傾心出於《新生》的自我敘事，帶文學美化；把政敵玻尼法八世寫進地獄第八圈（第19歌預言simony教宗頭朝下受刑）屬詩文報復，是文本自證而非史實情節。貪瀆罪名係黑派操控法庭的虛構指控，為學界通說。",
+   "story": "1265年，但丁生在佛羅倫薩。九歲那年他在宴會上初見貝雅特麗切，一見傾心；1290年她早逝，他把悲傷寫成詩。1300年他當上市政官，一生事業如日中天——可他屬於白派，反對教宗干預佛羅倫薩。他奉命出使羅馬與教宗玻尼法八世談判，人還沒回來，1301年11月黑派便借法蘭西親王瓦盧瓦的查理之兵奪城；1302年1月27日，法庭以貪瀆罪名判他流放，後更改判：若敢回城，即刻火刑。但丁拒不認罪繳罰，從此輾轉意大利諸城，再沒回過家鄉。\n恥辱釀成了《神曲》。他把自己寫進全詩開頭：「Nel mezzo del cammin di nostra vita, mi ritrovai per una selva oscura」——人生半途，我迷失在黑暗的森林。林中他遇見古羅馬詩人維吉略的亡魂，高喊「Miserere di me」——可憐憫我吧；亡魂答：「Non omo, omo già fui」——我非活人，我曾是人。地獄之門上刻著：「Lasciate ogne speranza, voi ch'intrate」——入此門者，放棄一切希望。他把貪賣聖職的教宗頭朝下插進地洞、腳底火焰舔動，而逼他流放的仇敵玻尼法，也被預言要塞進同一個洞裡。\n1321年9月14日，但丁自威尼斯出使歸來，感染瘧疾病逝於拉溫納，年約五十六，《神曲》寫定。多年後，佛羅倫薩悔悟，想迎回遺骨，拉溫納拒絕——流放他的城市，終究只餘下一座空墳。",
+   "vernacular": [
+    {
+     "orig": "Nel mezzo del cammin di nostra vita, mi ritrovai per una selva oscura",
+     "modern": "在人生旅途的中途，我發現自己置身一片黑暗森林（《地獄篇》開卷，喻中年迷途）"
+    },
+    {
+     "orig": "Miserere di me",
+     "modern": "可憐憫我吧（但丁初遇維吉略亡魂時的呼求）"
+    },
+    {
+     "orig": "Non omo, omo già fui",
+     "modern": "我已是非活人；我從前也是人（維吉略自述身世）"
+    },
+    {
+     "orig": "Lasciate ogne speranza, voi ch'intrate",
+     "modern": "你們進入此門的人啊，放棄一切希望吧（地獄門上的銘文）"
+    }
+   ],
+   "lesson": "權力可以流放一個人的肉身，卻流不掉他的作品；最能反擊不公的，是把屈辱鑄成永恆的創造。"
   }
  ]
 }
