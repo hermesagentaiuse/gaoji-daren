@@ -3,7 +3,8 @@
   "ppo",
   "maddpg",
   "coma",
-  "vdn"
+  "vdn",
+  "qmix"
  ],
- "last_run": "2026-10-25"
+ "last_run": "2026-10-26"
 }
