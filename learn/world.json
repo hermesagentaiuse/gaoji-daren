@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 130,
- "analyzed": 84,
+ "analyzed": 85,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 45
+   "count": 46
   }
  ],
  "eraOrder": [
@@ -2370,6 +2370,40 @@
     }
    ],
    "lesson": "偉大的作品未必留下作者的筆跡，卻總有人在身後替你守住火種——把散落的稿紙裝訂成書，就等於為文明續了命。"
+  },
+  {
+   "id": "w0085",
+   "continent": "歐洲",
+   "era": "現代",
+   "country": "英國",
+   "title": "鐵達尼號的四分鐘沉沒",
+   "year_label": "1912-04-15",
+   "authenticity": "正史",
+   "sources": [
+    "Archibald Gracie《The Truth About the Titanic》(1913) 生還者目擊紀錄",
+    "Jack Thayer《Titanic》(1994出版，1912年親筆證言)",
+    "Charles Lightoller 英國調查庭證言（Mercantile Marine Service Association, 1912）",
+    "美國參議院鐵達尼號調查聽證記錄 (U.S. Senate Titanic Inquiry, 1912)",
+    "英國貿易委員會調查記錄 (British Wreck Commissioner's Inquiry, 1912)",
+    "Encyclopedia Titanica 生還者證言檔案庫"
+   ],
+   "auth_note": "撞冰時間（船時23:40）、沉沒時間（2:20）、斷裂位置（三四號煙囪之間）經英美調查證言與1985年後殘骸實勘交叉证實，屬正史。莱托勒「我徑直走入水中」、赛耶「不到四分鐘」、葛雷西「直立如柱」均為本人著作或調查證言原话。船尾懸立時長各證人估計二至五分鐘不等，取赛耶與法蘭克·愛文斯等人的「約四分鐘」為敘事主軸，屬目擊誤差範圍。",
+   "story": "1912年4月15日凌晨兩時十五分，北大西洋海面如鏡。泰坦尼克號的船頭已完全沒入水中，船尾像一隻緩緩舉起的手，一寸一寸豎向星海。\n二副萊托勒剛用折刀割開折疊艇的纜繩，一股倖存者稱作「巨浪」的水牆沿甲板猛力衝來，把他捲進零下的海水。他沒有慌張，日後回憶：「I just walked into the water.」浮出水面時他攀上翻覆的B折疊艇，看見船尾已高懸半空，螺旋槳直指天際。\n十七歲乘客賽耶幾秒前才從欄杆跳水，在水中回望五十碼外的黑色巨影，寫道：「It seemed as though hours had passed; yet it was probably not more than four minutes.」煙囪相繼墜海，滾燙鍋爐砸穿甲板，轟鳴有如萬噸煤炭滑下鐵道。美國上校葛雷西記下，船身「直立如柱」，僅存一百五十呎船尾映著滿天繁星。\n約兩時二十分，燈光早已熄滅，黑暗裡只剩巨輪滑入水中的悶響。從斷裂到消失，不過四分多鐘——足以讓一艘被譽為「永不沉沒」的巨艦從海面上永遠抹去，水面只餘落水者的號哭。一個半小時後喀爾巴阡號趕抵，救起七百一十人，一千五百餘人喪生。英美兩國調查隨後認定：救生艇嚴重不足、無視冰情警告，皆屬人禍。",
+   "vernacular": [
+    {
+     "orig": "I just walked into the water.",
+     "modern": "（船身猛沉時）我只是徑直走入水中——萊托勒描述自己從海官起居艙頂平靜躍入冰海。"
+    },
+    {
+     "orig": "It seemed as though hours had passed; yet it was probably not more than four minutes.",
+     "modern": "感覺像過了幾個小時，其實大概不到四分鐘——賽耶在水中目睹船尾懸立到沉沒的時間。"
+    },
+    {
+     "orig": "直立如柱",
+     "modern": "像一根柱子一樣垂直聳立，形容船尾斷裂後高懸海面的姿態。"
+    }
+   ],
+   "lesson": "真正的危險往往藏在「絕對不可能出事」的自信裡；制度與準備，才是災難面前唯一的救生艇。"
   }
  ]
 }
