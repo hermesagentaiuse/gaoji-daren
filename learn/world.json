@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 130,
- "analyzed": 88,
+ "analyzed": 89,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 49
+   "count": 50
   }
  ],
  "eraOrder": [
@@ -2490,6 +2490,37 @@
     }
    ],
    "lesson": "一國之君肯放下身段、親執斧鑿向先進者學習，是一個國家擺脫落後最實在的第一步。"
+  },
+  {
+   "id": "w0089",
+   "continent": "歐洲",
+   "era": "現代",
+   "country": "俄羅斯",
+   "title": "巴拉克拉瓦：輕騎兵的衝鋒",
+   "year_label": "1854-10-25",
+   "authenticity": "正史",
+   "sources": [
+    "金雷克《克里米亞入侵史》（The Invasion of the Crimea，1863–1887）",
+    "威廉·霍華德·羅素《泰晤士報》前線報導（1854年11月13–14日）",
+    "丁尼生〈輕騎兵的衝鋒〉（1854年12月9日刊於 The Examiner，附作者註）"
+   ],
+   "auth_note": "衝鋒本身有同時代史料與實物（羅素報導、金雷克戰史、丁尼生詩註引《泰晤士報》六〇七騎之數）支持，判定正史。責任歸屬學界長期爭議：命令含糊，盧根與卡迪根互相推諉並把責任推給已陣亡、無法自辯的諾蘭；羅素當時「七百人出戰僅一百三十人歸隊」之說屬誇張，實戰統計約六百六十餘人出戰、陣亡約一百一十人。諾蘭揮劍指向谷端的戲劇性情節出自後世追述，細節存疑。",
+   "story": "1854年10月25日清晨，克里米亞戰爭的巴拉克拉瓦戰役中，俄軍奪走數門英軍火炮，正準備拖回陣地。\n總司令拉格蘭勳爵從高處望見，立即派參謀諾蘭騎馬下達書面命令：「The cavalry is to advance rapid to the front, follow the enemy, and try to prevent him from carrying away the guns.」\n諾蘭把命令送到盧根將軍面前。盧根一頭霧水：「跟隨敵人？哪一個敵人？」諾蘭指向山谷末端集結的俄軍炮兵——他不知道拉格蘭在高處望見的，其實是附近堡壘中正在被拖走的英軍大炮。\n盧根轉令卡迪根伯爵：「率你的旅衝進山谷。」卡迪根震驚地問：「要正面攻擊炮壘，而兩側都是敵人的炮台嗎？」但他仍率領六百七十名輕騎兵，衝入這條兩公里長的死亡漏斗。\n俄軍火炮從三面傾洩砲彈與散彈。諾蘭第一個墜馬，胸口被彈片貫穿。旅隊衝到谷端砍殺炮手，卻無後援，只能冒著烈火原路突圍。六百餘人裡一百一十餘人陣亡、百三十餘人負傷，三百六十二匹戰馬倒斃。\n前線記者羅素在《泰晤士報》寫道：「We could scarcely believe the evidence of our senses!」詩人丁尼生讀到報導，揮筆寫下「Some one had blundered」，讓全世界永遠記住了這條山谷。",
+   "vernacular": [
+    {
+     "orig": "The cavalry is to advance rapid to the front, follow the enemy, and try to prevent him from carrying away the guns.",
+     "modern": "騎兵須迅速向前推進，追擊敵人，設法阻止他把大炮拖走。——拉格蘭原意指拖走英軍遺失火炮的俄軍。"
+    },
+    {
+     "orig": "We could scarcely believe the evidence of our senses!",
+     "modern": "我們幾乎不敢相信自己的眼睛！——羅素目擊少數騎兵衝向整裝待敵的俄軍陣地時的驚嘆。"
+    },
+    {
+     "orig": "Some one had blundered",
+     "modern": "有人犯了致命的錯誤。——丁尼生化用《泰晤士報》「a hideous blunder」一語，點出這是一場指揮失誤。"
+    }
+   ],
+   "lesson": "一句含糊的命令能把勇氣驅進死亡山谷；真正的榮耀是誠實追問是誰犯下錯誤，而非讓無法辯護的死者背鍋。"
   }
  ]
 }
