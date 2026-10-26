@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 130,
- "analyzed": 101,
+ "analyzed": 102,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "中東",
    "icon": "🕌",
-   "count": 9
+   "count": 10
   }
  ],
  "eraOrder": [
@@ -2866,6 +2866,32 @@
     }
    ],
    "lesson": "百年積累的國庫擋不住一夜衰敗：腐化怠戰的王朝守不住財寶，只會引來掠奪者的貪婪。"
+  },
+  {
+   "id": "w0102",
+   "continent": "中東",
+   "era": "現代",
+   "country": "波斯/伊朗",
+   "title": "1953年伊朗政變：摩薩台倒下",
+   "year_label": "1953-08-19",
+   "authenticity": "正史",
+   "sources": [
+    "美國國務院《Foreign Relations of the United States, 1952–1954, Iran, 1951–1954》（FRUS，含TPAJAX行動文件與CIA駐德黑蘭站報告）",
+    "美國國家安全檔案館（National Security Archive）EBB No. 435《CIA Confirms Role in 1953 Iran Coup》，2013年解密CIA內部史",
+    "美國國家檔案館（NARA/ISCAP）解密文件 C01414079：1953年6月1日尼科西亞發出的 TP AJAX 行動計劃摘要",
+    "Stephen Kinzer《All the Shah's Men: An American Coup and the Roots of Middle East Terror》（2003）",
+    "Mark J. Gasiorowski & Malcolm Byrne 編《Mohammad Mosaddeq and the 1953 Coup in Iran》（Syracuse University Press, 2004）",
+    "Donald Wilber 1954年CIA內部史《Overthrow of Premier Mossadeq of Iran》（1990年代公開）"
+   ],
+   "auth_note": "政變本身及CIA/MI6角色為正史：2013年8月19日CIA主動解密內部史文件正式承認策動；FRUS收錄1953年8月17日CIA站報告原句「Nassiri walked into superior force and was arrested」；國王出奔巴格達轉羅馬、8月19日（波斯曆28摩爾達德）政變成功、扎赫迪接任、摩薩台判死刑後改判三年並軟禁至1967年去世，均有解密檔與學術專著交叉支持。「我就知道人民愛我」一語見於多部傳記（Wilford 2013 引），屬國王事後回憶，轉述而非同時記錄；群眾口號「Zendebad, Shah!」見於CIA 1953年8月19日德黑蘭廣播攔截件（C01267813，2017年放行）。「沒腦沙班」率眾細節出自目擊與後世史家 reconstruct，屬可靠但帶傳說色彩的情節，出於後世史家復原重建。克米特·羅斯福回憶錄《Countercoup》自誇主導全局，被CIA內部文件評為「本質上是虛構作品」，故本故事不採其自述版本。",
+   "story": "1953年8月15日深夜，皇家衛隊司令納西里上校抵達德黑蘭總理住所外，帶著國王簽署的免職詔書。他沒想到摩薩台早已收到線報——潛入軍中的圖德黨人走漏了風聲。衛兵當場解除納西里的武裝，第一場政變未及天亮便告失敗。德黑蘭廣播宣布陰謀破滅，國王連夜從裡海海岸的別墅飛往巴格達，再轉羅馬；華盛頓急令撤人，但CIA行動主管克米特·羅斯福拒絕收手，反而把詔書印成傳單灑遍全城。\n8月19日，波斯曆28摩爾達德日。受雷希迪安兄弟收買的巴扎人群，在硬漢「沒腦沙班」率領下湧入市區，親國王的部隊陸續倒戈，電台失守。CIA當日攔截的廣播裡，群眾反覆高呼「Zendebad, Shah!」。傍晚，坦克包圍臥病在床的摩薩台宅邸；他下令部下切勿開火，一床白色床單從門楣懸下，示意投降。亂軍衝入洗劫，年逾七旬的老首相翻越後牆逃走，翌晨自首。\n8月22日，CIA局長杜勒斯陪國王自羅馬飛返德黑蘭，扎赫迪將軍接掌內閣。摩薩台在軍事法庭被判死刑，國王改判三年監禁，此後軟禁故鄉村中，直到1967年離世。多年後國王回憶在羅馬飯店聽到捷報時說：「我就知道人民愛我。」這句得意的話，埋下了二十六年後革命的血色種子。",
+   "vernacular": [
+    {
+     "orig": "Zendebad, Shah!",
+     "modern": "波斯語口號：「國王萬歲！」——1953年8月19日受僱人群在德黑蘭街頭高呼，被CIA廣播攔截件記錄。"
+    }
+   ],
+   "lesson": "外力可以推倒一個民選政府，卻買不下一個民族的尊嚴；今日的反美革命，種子早在1953年那個夏天埋下。"
   }
  ]
 }
