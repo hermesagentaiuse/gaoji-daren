@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 130,
- "analyzed": 85,
+ "analyzed": 86,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 46
+   "count": 47
   }
  ],
  "eraOrder": [
@@ -2404,6 +2404,38 @@
     }
    ],
    "lesson": "真正的危險往往藏在「絕對不可能出事」的自信裡；制度與準備，才是災難面前唯一的救生艇。"
+  },
+  {
+   "id": "w0086",
+   "continent": "歐洲",
+   "era": "現代",
+   "country": "英國",
+   "title": "邱吉爾與最黑暗的一小時",
+   "year_label": "1940",
+   "authenticity": "正史",
+   "sources": [
+    "Hansard 下議院辯論速記錄（1940年5月7日「戰爭指導」辯論、5月13日「熱血辛勞眼淚汗水」演說、6月4日「我們在海灘戰鬥」演說）",
+    "邱吉爾《二戰回憶錄》（The Second World War）",
+    "戰時內閣會議記錄（Cabinet Office 檔案 CAB 65，1940年5月26–28日）",
+    "Robin Prior《1940年：決定性的一年》（1940: Year of Destiny, Yale University Press, 2020）第三章「內閣危機」"
+   ],
+   "auth_note": "張伯倫請辭、邱吉爾繼任、5月13日與6月4日演說均有 Hansard 速記錄原文可稽；5月26–28日內閣危機有 CAB 65 內閣記錄與 Recall 檔案支持，哈利法克斯是否明確以辭職相脅，回憶錄與內閣記錄敘述略有出入，學界（如 Robin Prior）對其強度有討論，但主線（和談之爭與決戰決議）屬正史。「最黑暗的一小時」一語出自邱吉爾1940年6月18日「這是他們最光榮的時刻」演說中「the most dark and dangerous hour」的說法，後世以此概括5月底危機。",
+   "story": "1940年5月10日，德軍繞過馬奇諾防線湧入比利時與荷蘭，四十萬英法聯軍面臨包圍。同一天午後，六十五歲的邱吉爾走進白金漢宮接受組閣任命。三天前，挪威戰役辯論席捲下議院，張伯倫雖然在表決中勝出，多數票卻只剩八十一席，保守黨後座議員大量棄權。當夜凌晨三點，邱吉爾寫道：「I felt as if I were walking with destiny.」\n5月13日，他首次以首相身份在下議院發言：「I have nothing to offer but blood, toil, tears and sweat.」他說政策是傾全國之力對德開戰，目標只有一個字——勝利。工黨席位爆發響亮歡呼，保守黨議席卻反應冷淡。\n但最黑暗的一小時在5月26日至28日。聯軍被壓向敦克爾克，退路將斷；外相哈利法克斯主張透過中立的義大利墨索裣尼居間，試探與德國談判的「體面條件」。三天之內戰時內閣開了九次會，哈利法克斯甚至暗示將辭職相脅。5月28日，邱吉爾把爭端帶入約二十五人的內閣全體會議，長篇演說後擲下一句話：繼續戰鬥的國家終將再起，乖乖投降的國家已經完了。連張伯倫都起身支持決戰，內閣一致決定戰鬥到底。\n6月4日，敦克爾克大撤退剛落幕，邱吉爾回到下議院宣告：「We shall fight on the beaches... we shall never surrender.」最黑暗的時刻過去了，大英帝國沒有投降。",
+   "vernacular": [
+    {
+     "orig": "I felt as if I were walking with destiny.",
+     "modern": "我覺得自己彷彿正與命運同行——深信過去的一生都是為這一刻所做的準備。"
+    },
+    {
+     "orig": "I have nothing to offer but blood, toil, tears and sweat.",
+     "modern": "我無可奉獻，唯有熱血、辛勞、眼淚與汗水。"
+    },
+    {
+     "orig": "We shall fight on the beaches... we shall never surrender.",
+     "modern": "我們在海灘上戰鬥……我們決不投降。"
+    }
+   ],
+   "lesson": "危難之際最需要的不是權宜的妥協，而是敢于承擔代價的決斷；領導者的意志本身就是國家存亡的變數。"
   }
  ]
 }
