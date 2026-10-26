@@ -1,13 +1,13 @@
 {
  "source": "風傳媒「下班經濟學」(AMT Show) 精讀",
  "playlistUrl": "https://www.youtube.com/playlist?list=PLKFtWHNRC24QO4lx-I3Ajsscg5eiibJ8-",
- "total": 118,
- "analyzed": 118,
+ "total": 119,
+ "analyzed": 119,
  "topics": [
   {
    "name": "股票投資",
    "icon": "📈",
-   "count": 56
+   "count": 57
   },
   {
    "name": "健康醫療",
@@ -36,6 +36,40 @@
   }
  ],
  "videos": [
+  {
+   "vid": "ei_rJvFS-Jw",
+   "title": "【商戰】Gemini才是最強AI！2大祕密武器讓GPT哭了！關鍵轉折一次看懂 ft.財經專家 阮慕驊｜下班經濟學677｜張瓊方",
+   "show_no": 677,
+   "guest": "阮慕驊（財經專家，節目中稱慕驊哥）",
+   "topic": "股票投資",
+   "intro": "Google的Gemini 3.0在市場毫無預期下推出後大爆紅，傳引爆ChatGPT退訂潮，逼得OpenAI執行長Sam Altman宣佈進入紅色警戒。本集邀請財經專家阮慕驊，從Google自研TPU張量晶片與即將推出的Ironwood談起，拆解AI大戰兩大祕密武器：成本與算力，並分析CPU、GPU、TPU、LPU的分工邏輯、輝達併購Groq的佈局，以及台積電與Google概念股供應鏈的投資機會。",
+   "key_points": [
+    "Gemini去年3.0版在市場毫無預期下推出後大爆紅，ChatGPT執行長Sam Altman緊張到宣佈進入紅色警戒，要求全員優化ChatGPT 5.0版。",
+    "ChatGPT仍是生成式AI大語言模型第一名，市佔約七成，Gemini第二，其餘由Perplexity與Claude等瓜分，今年進入戰國時代。",
+    "2022年10月ChatGPT橫空出世、兩個月下載一億人次，Google芒刺在背，由Google大腦Hassabis推出Gemini，看準企業級超長文本。",
+    "首席科學家Jeff Dean在2013年就發現用戶語音搜尋將迫使資料中心算力擴增一倍，遂自研TPU張量晶片，已推至第七代並即將推出Ironwood。",
+    "Google自研TPU讓它不怕晶片荒，Ironwood把每百萬Token運算成本降到一半以下，Gemini 3.0因此能大降價搶用戶。",
+    "輝達察覺王者地位動搖，花約三百億美元併購多家公司，其中二百億美元砸在LPU公司Groq，創辦人是最早幫Google做TPU的人。",
+    "阮慕驊以廚房比喻晶片分工：CPU是掌握全場的總廚，GPU是AI工作站副總廚，TPU為Google量身制定，LPU煮菜最快但SRAM容量小。",
+    "LLM前三強為OpenAI、Google與Anthropic：Google市值四兆美元去年漲六成多，OpenAI未上市估值約八千億，Anthropic約三千億。",
+    "台積電是所有晶片最終代工、最大贏家，外資目標價上看兩千元以上；Google供應鏈材料有金像電台光電、組裝有英業達欣興，測試看好精測穎崴旺矽。",
+    "Hassabis遲未發佈Sparrow被OpenAI搶先，AI Bard又因連續答錯讓Google股價一天跌9%、市值損失三兆台幣。"
+   ],
+   "analysis": "本集把AI大戰的勝負手歸納為燒錢、硬體與人才綜合戰，解析主軸落在成本與算力兩個祕密武器。Google的優勢來自2013年Jeff Dean預見算力瓶頸而啟動的TPU自主路線，一年一代推至第七代，Ironwood把每百萬Token成本砍半，讓Gemini能降價搶用戶，這是退訂潮背後的經濟學。輝達以三百億美元買Groq補LPU短板，顯示護城河正被ASIC陣營侵蝕。對台股的推論鏈清楚：不管誰贏，高階製程最終都落在台積電，故外資目標價上看兩千；2奈米讓測試更精密，精測、穎崴、旺矽營收有成長空間。技術領先不等於執行到位，組織整併才是逆襲關鍵。",
+   "actionable": [
+    "追蹤AI大戰走向時盯兩個關鍵訊號：Gemini與ChatGPT的市佔變化，以及Ironwood問世後每百萬Token成本是否如預期減半。",
+    "佈局AI晶片概念股時把台積電當核心持股，因為不管CPU、GPU、TPU、LPU誰勝出，高階製程最終代工都是台積電。",
+    "關注Google供應鏈台股的三類族群：材料端金像電與台光電、組裝端英業達與欣興、測試端精測穎崴旺矽，先進製程升級讓測試族群工序與營收同步放大。",
+    "留意未上市巨頭的資本化時程：OpenAI估值約八千億美元、Anthropic約三千億美元且傳今年IPO，上市案將牽動AI板塊估值重排。",
+    "把輝達併購Groq視為ASIC威脅的警訊，評估輝達相關持股時要審視GPU對LPU與各大廠自研晶片的護城河變化。"
+   ],
+   "quotes": [
+    "AI基本上很燒錢，誰能把成本下降，誰就能在這一場大戰中贏得對方。",
+    "所以台積電是最後的、最大的贏家。",
+    "AI大戰不但是燒錢大戰，也是硬體大戰，也是人才大戰。"
+   ],
+   "date": "2026-01-22"
+  },
   {
    "vid": "JukbJ09x7bk",
    "title": "【健康】最強天然食物從頭補到腳！名醫曝：養頭髮、增肌肉、幫助睡眠！ft.劉博仁 ｜下班經濟學678｜謝哲青、蔡尚樺",
