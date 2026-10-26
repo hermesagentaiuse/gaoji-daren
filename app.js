@@ -476,7 +476,7 @@
   function bookCard(v) {
     let h = '<a class="card card-stock" href="#/books/' + encodeURIComponent(v.topic) + "/" + encodeURIComponent(v.vid) + '">';
     h += '<span class="card-title">《' + esc(v.book) + '》' + esc(v.title) + '</span>';
-    h += '<span class="card-meta">' + esc(v.author_era || "") + "　" + (v.key_points || []).length + " 個重點</span>";
+    h += '<span class="card-meta">' + (v.date ? esc(v.date) + "　" : "") + esc(v.author_era || "") + "　" + (v.key_points || []).length + " 個重點</span>";
     h += "</a>";
     return h;
   }
@@ -501,15 +501,56 @@
     });
   }
 
+  // ---- 主題清單排序工具：📅 最早優先 / 📅 最新優先 / 🧑‍🏫 來賓（有來賓的區塊）----
+  function parseTopicSort(topicName) {
+    const m = topicName.match(/^(.+)\?s=(date|date_desc|guest)$/);
+    return m ? { topic: m[1], mode: m[2] } : { topic: topicName, mode: "date" };
+  }
+  function sortTopicVideos(videos, mode) {
+    const arr = videos.slice();
+    const byDate = function (a, b) {
+      const da = a.date || "9999-99-99", db = b.date || "9999-99-99";
+      if (da !== db) return da < db ? -1 : 1;
+      return 0;
+    };
+    if (mode === "guest") {
+      arr.sort(function (a, b) {
+        const ga = a.guest || "~~~", gb = b.guest || "~~~";
+        if (ga !== gb) return ga < gb ? -1 : 1;
+        return byDate(a, b);
+      });
+    } else if (mode === "date_desc") {
+      arr.sort(function (a, b) { return -byDate(a, b); });
+    } else {
+      arr.sort(byDate);
+    }
+    return arr;
+  }
+  function sortBar(routeBase, topic, mode, hasGuest) {
+    const link = function (m, label) {
+      const on = (mode || "date") === m;
+      return '<a href="' + routeBase + encodeURIComponent(topic + "?s=" + m) + '" style="margin-right:14px;' +
+        (on ? "font-weight:700;" : "opacity:.55;") + '">' + label + "</a>";
+    };
+    let h = '<div style="margin:-4px 0 14px">';
+    h += link("date", "📅 最早優先");
+    h += link("date_desc", "📅 最新優先");
+    if (hasGuest) h += link("guest", "🧑‍🏫 依來賓");
+    h += "</div>";
+    return h;
+  }
+
   function renderBookTopic(topicName) {
     const BL = CFG.bookLearning;
     bookData(function (data) {
-      const videos = (data.videos || []).filter(function (v) { return v.topic === topicName; });
+      const ps = parseTopicSort(topicName);
+      const videos = sortTopicVideos((data.videos || []).filter(function (v) { return v.topic === ps.topic; }), ps.mode);
       if (!videos.length) return renderNotFound();
       let html = '<div class="page"><div class="page-head">';
       html += '<a class="back-link" href="#/books">← 返回「' + esc(BL.title) + '」</a>';
-      html += "<h2>📌 " + esc(topicName) + "</h2>";
+      html += "<h2>📌 " + esc(ps.topic) + "</h2>";
       html += '<p class="page-sub">共 ' + videos.length + " 篇，點標題看重點整理。</p></div>";
+      html += sortBar("#/books/", ps.topic, ps.mode, false);
       html += '<div class="card-grid">' + videos.map(bookCard).join("") + "</div></div>";
       content.innerHTML = html;
     });
@@ -524,7 +565,7 @@
       let html = '<div class="page"><div class="page-head">';
       html += '<a class="back-link" href="#/books/' + encodeURIComponent(topicName) + '">← 返回「' + esc(topicName) + '」</a>';
       html += "<h2>《" + esc(v.book) + "》" + esc(v.title) + "</h2>";
-      html += '<p class="page-sub">' + esc(v.author_era || "") + "　枕書夜話　<a href=\"https://youtu.be/" + esc(v.vid) + '" target="_blank" rel="noopener">看原片 ↗</a></p></div>';
+      html += '<p class="page-sub">' + (v.date ? "📅 " + esc(v.date) + "　" : "") + esc(v.author_era || "") + "　枕書夜話　<a href=\"https://youtu.be/" + esc(v.vid) + '" target="_blank" rel="noopener">看原片 ↗</a></p></div>';
       if (v.intro) html += '<section class="learn-block"><h3>📖 篇引言</h3><p>' + esc(v.intro) + "</p></section>";
       html += '<section class="learn-block"><h3>🎯 重點整理</h3><ol class="step-list">';
       (v.key_points || []).forEach(function (p) { html += "<li>" + esc(p) + "</li>"; });
@@ -691,7 +732,7 @@
   function boyinCard(v) {
     let h = '<a class="card card-stock" href="#/boyin/' + encodeURIComponent(v.topic) + "/" + encodeURIComponent(v.vid) + '">';
     h += '<span class="card-title">' + esc(v.title) + '</span>';
-    h += '<span class="card-meta">' + esc(v.guest || "") + "　" + (v.key_points || []).length + " 個重點</span>";
+    h += '<span class="card-meta">' + (v.date ? esc(v.date) + "　" : "") + esc(v.guest || "") + "　" + (v.key_points || []).length + " 個重點</span>";
     h += "</a>";
     return h;
   }
@@ -719,12 +760,14 @@
   function renderBoyinTopic(topicName) {
     const BO = CFG.boyinLearning;
     boyinData(function (data) {
-      const videos = (data.videos || []).filter(function (v) { return v.topic === topicName; });
+      const ps = parseTopicSort(topicName);
+      const videos = sortTopicVideos((data.videos || []).filter(function (v) { return v.topic === ps.topic; }), ps.mode);
       if (!videos.length) return renderNotFound();
       let html = '<div class="page"><div class="page-head">';
       html += '<a class="back-link" href="#/boyin">← 返回「' + esc(BO.title) + '」</a>';
-      html += "<h2>📌 " + esc(topicName) + "</h2>";
+      html += "<h2>📌 " + esc(ps.topic) + "</h2>";
       html += '<p class="page-sub">共 ' + videos.length + " 集，點標題看重點整理。</p></div>";
+      html += sortBar("#/boyin/", ps.topic, ps.mode, true);
       html += '<div class="card-grid">' + videos.map(boyinCard).join("") + "</div></div>";
       content.innerHTML = html;
     });
@@ -732,14 +775,15 @@
 
   function renderBoyinVideo(topicName, vid) {
     boyinData(function (data) {
-      const list = (data.videos || []).filter(function (v) { return v.topic === topicName; });
+      const ps = parseTopicSort(topicName);
+      const list = sortTopicVideos((data.videos || []).filter(function (v) { return v.topic === ps.topic; }), ps.mode);
       const i = list.findIndex(function (v) { return v.vid === vid; });
       if (i === -1) return renderNotFound();
       const v = list[i];
       let html = '<div class="page"><div class="page-head">';
-      html += '<a class="back-link" href="#/boyin/' + encodeURIComponent(topicName) + '">← 返回「' + esc(topicName) + '」</a>';
+      html += '<a class="back-link" href="#/boyin/' + encodeURIComponent(topicName) + '">← 返回「' + esc(ps.topic) + '」</a>';
       html += "<h2>" + esc(v.title) + "</h2>";
-      html += '<p class="page-sub">' + (v.guest ? "來賓：" + esc(v.guest) + "　" : "") + '博音 Podcast　<a href="https://youtu.be/' + esc(v.vid) + '" target="_blank" rel="noopener">聽原集 ↗</a></p></div>';
+      html += '<p class="page-sub">' + (v.date ? "📅 " + esc(v.date) + "　" : "") + (v.guest ? "來賓：" + esc(v.guest) + "　" : "") + '博音 Podcast　<a href="https://youtu.be/' + esc(v.vid) + '" target="_blank" rel="noopener">聽原集 ↗</a></p></div>';
       if (v.intro) html += '<section class="learn-block"><h3>📖 集引言</h3><p>' + esc(v.intro) + "</p></section>";
       html += '<section class="learn-block"><h3>🎯 重點整理</h3><ol class="step-list">';
       (v.key_points || []).forEach(function (p) { html += "<li>" + esc(p) + "</li>"; });
@@ -780,7 +824,7 @@
   function amtCard(v) {
     let h = '<a class="card card-stock" href="#/amt/' + encodeURIComponent(v.topic) + "/" + encodeURIComponent(v.vid) + '">';
     h += '<span class="card-title">' + esc(v.title) + '</span>';
-    h += '<span class="card-meta">' + esc(v.guest || "") + "　" + (v.key_points || []).length + " 個重點</span>";
+    h += '<span class="card-meta">' + (v.date ? esc(v.date) + "　" : "") + esc(v.guest || "") + "　" + (v.key_points || []).length + " 個重點</span>";
     h += "</a>";
     return h;
   }
@@ -808,12 +852,14 @@
   function renderAmtTopic(topicName) {
     const AM = CFG.amtLearning;
     amtData(function (data) {
-      const videos = (data.videos || []).filter(function (v) { return v.topic === topicName; });
+      const ps = parseTopicSort(topicName);
+      const videos = sortTopicVideos((data.videos || []).filter(function (v) { return v.topic === ps.topic; }), ps.mode);
       if (!videos.length) return renderNotFound();
       let html = '<div class="page"><div class="page-head">';
       html += '<a class="back-link" href="#/amt">← 返回「' + esc(AM.title) + '」</a>';
-      html += "<h2>📌 " + esc(topicName) + "</h2>";
+      html += "<h2>📌 " + esc(ps.topic) + "</h2>";
       html += '<p class="page-sub">共 ' + videos.length + " 集，點標題看重點整理。</p></div>";
+      html += sortBar("#/amt/", ps.topic, ps.mode, true);
       html += '<div class="card-grid">' + videos.map(amtCard).join("") + "</div></div>";
       content.innerHTML = html;
     });
@@ -821,14 +867,15 @@
 
   function renderAmtVideo(topicName, vid) {
     amtData(function (data) {
-      const list = (data.videos || []).filter(function (v) { return v.topic === topicName; });
+      const ps = parseTopicSort(topicName);
+      const list = sortTopicVideos((data.videos || []).filter(function (v) { return v.topic === ps.topic; }), ps.mode);
       const i = list.findIndex(function (v) { return v.vid === vid; });
       if (i === -1) return renderNotFound();
       const v = list[i];
       let html = '<div class="page"><div class="page-head">';
-      html += '<a class="back-link" href="#/amt/' + encodeURIComponent(topicName) + '">← 返回「' + esc(topicName) + '」</a>';
+      html += '<a class="back-link" href="#/amt/' + encodeURIComponent(topicName) + '">← 返回「' + esc(ps.topic) + '」</a>';
       html += "<h2>" + esc(v.title) + "</h2>";
-      html += '<p class="page-sub">' + (v.guest ? "來賓：" + esc(v.guest) + "　" : "") + '下班經濟學 AMT Show　<a href="https://youtu.be/' + esc(v.vid) + '" target="_blank" rel="noopener">看原集 ↗</a></p></div>';
+      html += '<p class="page-sub">' + (v.date ? "📅 " + esc(v.date) + "　" : "") + (v.guest ? "來賓：" + esc(v.guest) + "　" : "") + '下班經濟學 AMT Show　<a href="https://youtu.be/' + esc(v.vid) + '" target="_blank" rel="noopener">看原集 ↗</a></p></div>';
       if (v.intro) html += '<section class="learn-block"><h3>📖 集引言</h3><p>' + esc(v.intro) + "</p></section>";
       html += '<section class="learn-block"><h3>🎯 重點整理</h3><ol class="step-list">';
       (v.key_points || []).forEach(function (p) { html += "<li>" + esc(p) + "</li>"; });
