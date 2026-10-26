@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 130,
- "analyzed": 82,
+ "analyzed": 83,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 43
+   "count": 44
   }
  ],
  "eraOrder": [
@@ -2314,6 +2314,39 @@
     }
    ],
    "lesson": "一場大火燒掉腐朽的中世紀木城，一紙法案換來磚石新城：災難若被認真對待，也能成為重生的起點。"
+  },
+  {
+   "id": "w0083",
+   "continent": "歐洲",
+   "era": "近世",
+   "country": "英國",
+   "title": "牛頓的蘋果",
+   "year_label": "1666年（1726年口述追述）",
+   "authenticity": "爭議",
+   "sources": [
+    "威廉·斯圖克利《牛頓傳》（Memoirs of Sir Isaac Newton's Life，1752年手稿，英國皇家學會 MS/142）",
+    "約翰·孔杜伊特追述牛頓生平筆記（1726年，蘋果墜地最早文字記錄）",
+    "伏爾泰《牛頓哲學要素》（Éléments de la philosophie de Newton，1738年，轉述牛頓外甥女凱瑟琳·巴頓）",
+    "愛德蒙·圖納《格蘭瑟姆鎮史話》（Collections for the History of the Town and Soke of Grantham，1806年，頁160載蘋果樹仍存）",
+    "D. McKie〈牛頓的蘋果〉（Notes and Records of the Royal Society, vol.9, 1951年）"
+   ],
+   "auth_note": "蘋果啟發牛頓思考萬有引力，出自牛頓本人1726年4月15日對斯圖克利的親口追述（下午茶於肯辛頓蘋果樹下），另有孔杜伊特1726年筆記、巴頓轉述給伏爾泰等獨立來源，Rouse Ball 與 McKie 均認為權威可靠；但牛頓生前未見同時代（1666年）書面記錄，且 Brewster 1855年傳記曾質疑此事無據，學界對「單一刻頓悟」說存疑，故判「爭議」。「蘋果砸中頭頂」一說則純屬後世誇飾，無任何史料支持，故事中已明確標示為傳說。",
+   "story": "1726年4月15日，倫敦肯辛頓。七十九歲的牛頓請老友、古物學家斯圖克利來做客。午後天暖，兩人喝過茶，走進花園坐在蘋果樹下，「只有他和我。」斯圖克利把這一刻記了下來。\n閒談間，牛頓緩緩說起六十年前的事。1665年倫敦大疫，劍橋停課，他回林肯郡伍爾斯索普的田莊避疫。1666年夏的一個下午，他坐在果園裡出神，一顆蘋果脫枝墜地。後世傳說蘋果砸中了他的腦袋——同時代史料一字無載，只當笑話聽便好。他其實只是望著蘋果落地，心裡浮起一個問題：「Why should that apple always descend perpendicularly to the ground? Why should it not go sideways or upwards, but constantly to the earth's centre?」\n他自問自答：是地球牽引著它，所以蘋果垂直落向地心。這份引力該與物質的多寡成正比——蘋果拉拽地球，地球也拉拽蘋果。那麼再想遠些：月亮為何不墜？也許同一股力正牽住月亮繞地而行，正如它牽住蘋果。蘋果與月亮，竟歸於同一條定律。\n這個念頭在二十年後長成《自然哲學之數學原理》。斯圖克利那份下午茶記錄，是蘋果故事最早的文字實錄；牛頓的外甥女巴頓也對伏爾泰講過同一版本；1806年圖納寫下伍爾斯索普的蘋果樹仍存、帶遊人參觀。一棵樹，牽起了地上與天上的整個宇宙。",
+   "vernacular": [
+    {
+     "orig": "Why should that apple always descend perpendicularly to the ground?",
+     "modern": "為什麼那顆蘋果總是垂直落向地面？（牛頓追述1666年時的自問）"
+    },
+    {
+     "orig": "Why should it not go sideways or upwards, but constantly to the earth's centre?",
+     "modern": "它為何不往側面或上方去，卻總是不斷落向地心？"
+    },
+    {
+     "orig": "《自然哲學之數學原理》",
+     "modern": "即牛頓1687年出版的《Principia》，提出萬有引力定律與運動三定律的科學經典。"
+    }
+   ],
+   "lesson": "偉大的發現未必來自靈光一閃的偶然，而來自對一顆蘋果落地這般尋常之事，追問到底的執念。"
   }
  ]
 }
