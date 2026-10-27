@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 130,
- "analyzed": 125,
+ "analyzed": 126,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 17
+   "count": 18
   },
   {
    "name": "非洲",
@@ -3517,6 +3517,30 @@
     }
    ],
    "lesson": "歷史的啟示：所謂「發現」往往只是把已有人知曉的事寫進強者的地圖，功勞簿由講故事的人執筆。"
+  },
+  {
+   "id": "w0126",
+   "continent": "美洲",
+   "era": "上古",
+   "country": "秘魯/印加",
+   "title": "納斯卡線：沙漠裡的天文圖",
+   "year_label": "約前500—500(文物)",
+   "authenticity": "正史",
+   "sources": [
+    "UNESCO世界遺產名錄〈Lines and Geoglyphs of Nasca and Palpa〉(1994年列名)",
+    "Maria Reiche《Contributions of Ancient Peru to the History of Geometry and Astronomy》(1993)",
+    "MDPI《Applied Sciences》〈Astronomical Investigation to Verify the Calendar Theory of the Nasca Lines〉",
+    "山形大學·IBM日本新聞稿〈143 New Geoglyphs Discovered on the Nasca Pampa and Surrounding Area〉(2019-11-15)"
+   ],
+   "auth_note": "地畫實物與年代（前500—西元500年）、柯索與賴歇的研究、霍金斯1967年電腦反證、山形大學2019年AI新發現，均有權威來源支持，故定正史。惟「天文曆法」功能僅為賴歇假說且已被挑戰，學界另有求水儀式說，故事內已如實呈現兩說，不將天文說當定論。",
+   "story": "1941年12月，祕魯南部納斯卡沙漠上空，美國學者柯索駕駛小飛機盤旋。他親眼看到一條長線正對著冬至的落日沉入地平線，興奮地對身旁的翻譯喊道：「This is the largest astronomy book in the world！」這位翻譯，就是日後把一生獻給沙漠的德國數學家賴歇。\n賴歇1903年生於德累斯頓，早年隻身到祕魯當保母與家教。跟著柯索走進荒漠後，她從1946年起住進沙漠邊的小木屋，一待就是四十多年。她用卷尺與三腳架逐條測量、繪出全圖，辨認出蜂鳥、蜘蛛、猴子等十八種動物圖形，主張線條與太陽星辰對齊，是一座覆蓋數百平方公里的巨型天文曆法，人們尊她為「線條女士」。\n然而1967年，波士頓大學天文學家霍金斯用電腦重建納斯卡的古代星空，發現多數線條對不上任何星位，天文說動搖了。今日不少學者更傾向認為，這些線條與祈求水源的儀式有關。\n這些在西元前500年至西元500年間、由納斯卡人刮去鐵鏽石礫、露出淺色底土畫成的巨畫，1994年被列為世界遺產；2019年日本山形大學與IBM用無人機與人工智慧，又找出143幅新地畫。沙漠仍在說話，人類仍在傾聽。",
+   "vernacular": [
+    {
+     "orig": "This is the largest astronomy book in the world！",
+     "modern": "「這是全世界最大的一部天文學書！」柯索望見長線對準冬至落日時的驚呼。"
+    }
+   ],
+   "lesson": "面對跨越千年的謎題，最偉大的不是答案，而是像賴歇那樣用一生守護現場、誠實追問的耐心。"
   }
  ]
 }
