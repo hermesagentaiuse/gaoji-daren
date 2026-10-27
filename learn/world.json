@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 130,
- "analyzed": 111,
+ "analyzed": 112,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 3
+   "count": 4
   },
   {
    "name": "非洲",
@@ -3140,6 +3140,29 @@
     }
    ],
    "lesson": "地緣困境會把天大的機會送到對手門前：一方的絕境恰逢另一方的果斷，一張地圖便由幾頁紙條一夜改寫。"
+  },
+  {
+   "id": "w0112",
+   "continent": "美洲",
+   "era": "現代",
+   "country": "美國",
+   "title": "蓋茲堡演說：兩分鐘的八十七句",
+   "year_label": "1863-11-19",
+   "authenticity": "正史",
+   "sources": "美國國家檔案館與國會圖書館藏林肯親筆五份手稿（Nicolay、Hay、Everett、Bancroft、Bliss 本）、1863年11月20日愛德華·艾佛瑞致林肯信、1863年11月《紐約時報》等當日報刊報導",
+   "auth_note": "演說全文有林肯親筆五份手稿存世，Bliss 本為林肯唯一親筆簽名題日期之版本，現藏白宮；當日報刊與目擊記錄俱在，屬正史。「火車上倉卒寫稿」之民間傳說已被手稿筆跡證偽——五份手稿字跡平整，顯係在堅實書寫面上事先寫成。「世界將不會留意我們說了什麼」一句，1865年舒曼參議員悼詞中稱林肯說錯了，此為著名後續評價，非同時代矛盾。當日報界視艾佛瑞兩小時演講為真正的「蓋茲堡演說」，林肯僅被視為客套致詞，此反差有手稿與報刊雙重支持。",
+   "story": "1863年11月19日，賓州蓋茲堡，冬風刺骨。四個多月前兩軍在此血戰三天，傷亡近五萬人；新建的國家公墓將安葬數千名陣亡將士。\n主講人是前國務卿愛德華·艾佛瑞。他引經據典講了兩個小時，台下聽眾早已腿酸神馳。隨後主持人請總統「說兩句適當的話」。林肯起身，戴上眼鏡，取出稿紙。\n他沒談戰術，也沒痛罵南軍，只用平淡的聲音開口：Four score and seven years ago our fathers brought forth, upon this continent, a new nation, conceived in Liberty.他說八十七年前的共和實驗，正被內戰考驗能否長存；活人無力聖化這塊土地——是奮鬥過的勇者早已聖化了它。\n最後他許下諾言：that this nation, under God, shall have a new birth of freedom — and that government of the people, by the people, for the people, shall not perish from the earth.\n全程不到兩分鐘、二百七十二字。當天台下幾乎無人喝彩，報評冷淡。隔天艾佛瑞寫信給林肯：我講了兩個小時，不如您在兩分鐘裡貼近主題。一個多世紀後，這些字句刻上林肯紀念堂牆壁，林肯自謙「世界不會留意」，應驗為反話。",
+   "vernacular": [
+    {
+     "orig": "Four score and seven years ago our fathers brought forth, upon this continent, a new nation, conceived in Liberty.",
+     "modern": "八十七年前，我們的先祖在這片大陸上創建了一個新國家，它孕育於自由之中。（four score and seven=87，隱指1776年建國）"
+    },
+    {
+     "orig": "that this nation, under God, shall have a new birth of freedom — and that government of the people, by the people, for the people, shall not perish from the earth.",
+     "modern": "這個國家在上帝之下重獲自由的新生——民有、民治、民享的政府，必不從地球上消亡。"
+    }
+   ],
+   "lesson": "真正的分量不在篇幅長短：兩分鐘的二百七十二個字，勝過兩個小時的一萬三千字，關鍵在說中了時代最需要的話。"
   }
  ]
 }
