@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 130,
- "analyzed": 112,
+ "analyzed": 113,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 4
+   "count": 5
   },
   {
    "name": "非洲",
@@ -3163,6 +3163,54 @@
     }
    ],
    "lesson": "真正的分量不在篇幅長短：兩分鐘的二百七十二個字，勝過兩個小時的一萬三千字，關鍵在說中了時代最需要的話。"
+  },
+  {
+   "id": "w0113",
+   "continent": "美洲",
+   "era": "現代",
+   "country": "美國",
+   "title": "登月：休士頓，静海基地",
+   "year_label": "1969-07-20",
+   "authenticity": "正史",
+   "sources": [
+    "NASA《Apollo 11 Mission Report》（1969）",
+    "NASA《Apollo 11 Technical Air-to-Ground Voice Transcription》（1969）",
+    "NASA History Series, Eric M. Jones,《The First Lunar Landing》校正逐字稿",
+    "美國國家檔案館 ARC 45017 影音轉錄稿《The Eagle Has Landed – 1969》"
+   ],
+   "auth_note": "全程任務記錄、地面通訊逐字稿與月岩實物俱在，蘇聯亦以追蹤站監聽證實，學界無異議。細節考辨：阿姆斯壯堅稱原話為「one small step for a man」，錄音中 a 不易辨認，他在美國哲學會館藏逐字稿上親筆加註補上；「60 seconds」指剩餘燃料倒數而非距著陸六十秒；「magnificent desolation」為奧爾德林下艙後感言，非著陸瞬間通話。全球收視約六億人為通行估計值。",
+   "story": "1969年7月20日午後，登月艙鷹號脫離指揮艙哥倫比亞號。柯林斯獨自留在軌道上繞行月背，目送兩位同伴朝靜海墜落。\n下降不到十分鐘，駕駛艙亮起黃色警示燈，阿姆斯壯回報：「It's a 1202.」過量資料令導航電腦過載。休士頓的導航官幾秒內判定：不中止，繼續下降。更糟的是，自動導引正把鷹號帶進一個佈滿巨石的撞擊坑。阿姆斯壯切開自動模式，親手側飛搜尋平地。此時 CAPCOM 杜克的倒數傳來：「60 seconds.」——剩餘燃料只夠再撐數十秒。\n「Contact light.」奧爾德林喊出觸地燈亮起，引擎熄火，控制中心屏住呼吸。幾秒死寂後，電台響起：\n「Houston, Tranquility Base here. The Eagle has landed.」\n杜克回覆：「Roger, Tranquility... We're breathing again.」\n數小時後，阿姆斯壯爬下梯架，靴底陷入月塵約一吋，說出永垂史冊的話：\n「That's one small step for man, one giant leap for mankind.」\n奧爾德隨後著月，望著灰色荒原，形容眼前景象是「magnificent desolation」。當天全球約六億人盯著同一塊螢幕；人類第一次親手觸碰了這顆四十多億年的鄰居。",
+   "vernacular": [
+    {
+     "orig": "It's a 1202.",
+     "modern": "是1202號程式警報（電腦過載，資料流超載）。"
+    },
+    {
+     "orig": "60 seconds.",
+     "modern": "剩餘燃料只夠燒六十秒（休士頓的剩餘燃料倒數）。"
+    },
+    {
+     "orig": "Contact light.",
+     "modern": "觸地燈亮了（探針碰觸月面，代表已著陸）。"
+    },
+    {
+     "orig": "Houston, Tranquility Base here. The Eagle has landed.",
+     "modern": "休士頓，這裡是靜海基地。老鷹號已經著陸。"
+    },
+    {
+     "orig": "Roger, Tranquility... We're breathing again.",
+     "modern": "收到，靜海。我們又能呼吸了（控制中心緊張到快昏過去）。"
+    },
+    {
+     "orig": "That's one small step for man, one giant leap for mankind.",
+     "modern": "這是個人的一小步，卻是全人類的一大步。"
+    },
+    {
+     "orig": "magnificent desolation",
+     "modern": "壯麗的荒涼（奧爾德林形容月面死寂卻宏偉的景象）。"
+    }
+   ],
+   "lesson": "人類最偉大的躍進，靠的不是無畏，而是無數人在漫長準備後，於倒數六十秒裡依然冷靜的專業。"
   }
  ]
 }
