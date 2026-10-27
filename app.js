@@ -913,12 +913,24 @@
       });
   }
 
+  function curatedDate(p) {
+    // 已治理 = 有白話精讀層 + 完整 study_kit（有全文驗證記錄）
+    if (p.easy_read && p.easy_read.length && p.study_kit && p.study_kit.source_verified) {
+      return p.study_kit.source_verified.read_at || "已治理";
+    }
+    return null;
+  }
+
   function paperCard(p) {
     const checkins = loadCheckins();
     const done = checkins["research:" + p.pid] ? " ✅" : "";
+    const cd = curatedDate(p);
+    const badge = cd ? '<span class="card-meta" style="color:#7fbf7f">📖 解讀完成 · ' + esc(String(cd)) + "</span>"
+                     : '<span class="card-meta" style="color:#999">⏳ 待整理</span>';
     let h = '<a class="card card-stock" href="#/research/' + encodeURIComponent(p.topic) + "/" + encodeURIComponent(p.pid) + '">';
-    h += '<span class="card-title">' + (p.level === "前沿" ? "🔥 " : "") + esc(p.title) + done + '</span>';
+    h += '<span class="card-title">' + (p.level === "前沿" ? "🔥 " : "") + esc(p.title) + done + "</span>";
     h += '<span class="card-meta">' + esc(p.year || "") + "　" + esc(p.venue || "") + "　" + esc(p.level || "") + "</span>";
+    h += badge;
     h += "</a>";
     return h;
   }
@@ -936,6 +948,18 @@
       html += '<div class="progress-card"><div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>';
       html += '<p class="progress-text">已讀 <b>' + doneN + "</b> / " + total + " 篇（" + pct + "%）</p></div>";
       html += "</div>";
+      // 今日可讀：我已治理完成（白話精讀就緒）的論文，最新優先 —— 懶得找就點最上面那張
+      const curated = (data.papers || []).filter(curatedDate).sort(function (a, b) {
+        return String(curatedDate(b)).localeCompare(String(curatedDate(a)));
+      });
+      if (curated.length) {
+        html += '<section class="learn-block"><h3>📱 我整理好的 · 點開就能讀（最新優先）</h3>';
+        html += '<div class="card-grid">' + curated.map(paperCard).join("") + "</div></section>";
+      }
+      const pending = total - curated.length;
+      if (pending > 0) {
+        html += '<p class="hint">⏳ 其餘 ' + pending + " 篇還沒整理，每天早上 8 點我會整理一篇好再推給你，不用自己找。</p>";
+      }
       // 學習地圖（分階段路線）
       if ((data.roadmap || []).length) {
         html += '<section class="learn-block"><h3>🗺️ 學習地圖（分階段路線）</h3>';
@@ -947,7 +971,11 @@
           if (sp.length) {
             html += '<ol class="step-list">';
             sp.forEach(function (p) {
-              html += '<li><a class="learn-link" href="#/research/' + encodeURIComponent(p.topic) + "/" + encodeURIComponent(p.pid) + '">' + esc(p.title) + "</a></li>";
+              const cd = curatedDate(p);
+              const tag = cd ? ' <span style="color:#7fbf7f;font-size:.85em">📖 ' + esc(String(cd)) + "</span>"
+                              : ' <span style="color:#888;font-size:.85em">⏳ 待整理</span>';
+              const chk = checkins["research:" + p.pid] ? " ✅" : "";
+              html += '<li><a class="learn-link" href="#/research/' + encodeURIComponent(p.topic) + "/" + encodeURIComponent(p.pid) + '">' + esc(p.title) + "</a>" + chk + tag + "</li>";
             });
             html += "</ol>";
           }
