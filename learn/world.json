@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 130,
- "analyzed": 123,
+ "analyzed": 124,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 15
+   "count": 16
   },
   {
    "name": "非洲",
@@ -3467,6 +3467,31 @@
     }
    ],
    "lesson": "信任與誓言在貪婪面前形同虛數：傾國之財贖不回一條性命，對背信者示弱只會加速滅亡。"
+  },
+  {
+   "id": "w0124",
+   "continent": "美洲",
+   "era": "中古",
+   "country": "秘魯/印加",
+   "title": "印加王路：四萬公里的安地斯網路",
+   "year_label": "15—16世紀",
+   "authenticity": "正史",
+   "sources": [
+    "UNESCO 世界遺產名錄第1459號〈Qhapaq Ñan, Andean Road System〉（2014年列冊，六國聯合申報）",
+    "Pedro Cieza de León《秘魯誌》（Crónica del Perú, 1553）第一部對印加王路的實地記述",
+    "Inca Garcilaso de la Vega《印加王室述評》（Los Comentarios Reales de los Incas, 1609）第七卷第七章恰斯基制度",
+    "Juan de Betanzos《印加總述》（Suma y narración de los Incas, 1551）關於飛腳速度的記錄",
+    "Smithsonian 國家美洲印地安博物館「The Great Inka Road: Engineering an Empire」道路遺跡調查"
+   ],
+   "auth_note": "王路實體遺構經六國考古調查確認，UNESCO 2014 年據實物列為世界遺產，殖民時期文書（萊昂、加西拉索、貝坦索斯、波洛·德·翁德加多）對分站、飛腳、倉站有近同時代記述，故判正史。惟總長度歷來說法不一：UNESCO 官方表述為「超過三萬公里」，早期學者提出二萬三至六萬公里不等，四萬公里為流行估算（Wikipedia、Springer《The Imperial Inka road system》論文取至少四萬公里說），故標題從俗，文中以「三萬至四萬公里」呈現區間。分站間距亦有¼里、½里、1½里諸說（加西拉索與波洛互相矛盾），文中以「每隔數里」含混處理。「海螺號、白羽」細節出自查莫·德·阿雅拉圖文與加西拉索，屬16—17世紀追記，與考古證據相符。",
+   "story": "十五世紀，庫斯科郊外的分站。天剛破曉，高原的寒霧還沒散，四名年輕的恰斯基已經蹲在石亭下，盯著腳下條石鋪成的路面。\n這就是「卡帕克·尼安」——印加的大路。它從庫斯科中心廣場放射出四條幹道，越過海拔六千多公尺的雪線，穿越沙漠、峽谷與雨林，北抵基多，南達今智利境內，後人估算全長三萬至四萬公里。\n遠處傳來海螺號的嗚嗚聲。一個頭插白羽的飛腳邊跑邊喊：「基多軍報！」接棒的恰斯基迎上去，對方把口信連誦三遍，直到他一字不差地背出，才把繩結「奇普」遞過來。分站每隔數里就有一座，常駐四名飛腳，晝夜接力，一晝夜可送訊三百公里。\n西班牙人貝坦索斯記錄過：普通人走到庫斯科要三、四個月，靠飛腳遞訊，五、六天就到。\n這條路上沒有輪車，沒有鐵器，也沒有馱獸。印加工人在懸崖上鑿出階梯，在深谷上架起草繩吊橋，每隔一天路程設一座倉站「坦博」，儲糧備衣，供軍隊與商旅歇腳。\n親自走過此路的征服者謝薩·德·萊昂不禁讚歎：「En la memoria de los hombres no conozco relato alguno de un camino tan grandioso.」\n道路就是帝國的動脈，也是它的神經：政令、稅冊、飢荒與叛亂，都沿著石路奔向王都。",
+   "vernacular": [
+    {
+     "orig": "En la memoria de los hombres no conozco relato alguno de un camino tan grandioso.",
+     "modern": "在人們的記憶裡，我不知道有任何一條道路如此雄偉壯觀。（征服者萊昂親走印加王路後的讚嘆）"
+    }
+   ],
+   "lesson": "帝國的強弱不在疆域多大，而在訊息能不能跑得比叛亂更快——道路即權力。"
   }
  ]
 }
