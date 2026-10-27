@@ -4,7 +4,8 @@
   "maddpg",
   "coma",
   "vdn",
-  "qmix"
+  "qmix",
+  "commnet"
  ],
- "last_run": "2026-10-26"
+ "last_run": "2026-10-27"
 }
