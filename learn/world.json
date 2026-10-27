@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 130,
- "analyzed": 117,
+ "analyzed": 118,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 9
+   "count": 10
   },
   {
    "name": "非洲",
@@ -3311,6 +3311,43 @@
     }
    ],
    "lesson": "一紙神諭能帶著無地之民走進湖中絕境，把蘆葦筏扎成帝都；信念與韌性，是小民族翻身的最初資本。"
+  },
+  {
+   "id": "w0118",
+   "continent": "美洲",
+   "era": "中古",
+   "country": "墨西哥",
+   "title": "科爾特斯與蒙特祖馬：兩個世界的碰撞",
+   "year_label": "1519—1521",
+   "authenticity": "爭議",
+   "sources": [
+    "科爾特斯《書信集》（Cartas de relación）",
+    "貝納爾·迪亞斯·德爾·卡斯蒂略《新西班牙征服真史》（Historia verdadera de la conquista de la Nueva España）",
+    "薩阿貢《佛羅倫薩法典》（Florentine Codex）",
+    "馬修·雷斯托《當蒙特祖馬遇見科爾特斯》（When Montezuma Met Cortés）",
+    "卡米拉·湯森德《第五個太陽》（The Fifth Sun: A New History of the Aztecs）"
+   ],
+   "auth_note": "會面時間（1519年11月8日）、互贈禮物、阿爾瓦拉多屠殺慶典、悲痛之夜（1520年6月30日）、1521年8月13日都城陷落與夸烏特莫克被俘，均有科爾特斯書信與迪亞斯真史等近同時代史料支持。但「阿茲特克人視科爾特斯為歸來的羽蛇神」一說出自建成於征服後約五十年的《佛羅倫薩法典》及方濟各會傳教士記述，科爾特斯本人從不自稱被當神看待，雷斯托、湯森德等學者已考證此為後世建構的神話，故整體定為爭議。蒙特祖馬之死亦有「被本族擲石砸死」與「遭西班牙人絞殺」兩說並存，已寫入正文。",
+   "story": "1519年11月8日，阿茲特克皇帝蒙特祖馬二世在長堤上會見西班牙首領科爾特斯，雙方互贈禮物。科爾特斯書信寫道，皇帝由兩位貴族攙扶、赤足而行；士兵迪亞斯回憶，遠望湖上都城特諾奇蒂特蘭時眾人驚得說不出話，「we did not know what to say, or whether what appeared before us was real」。\n後世《佛羅倫薩法典》記載蒙特祖馬致辭極盡謙卑：「you have come down to your mat, your throne, which I have briefly kept for you」。但學者雷斯托與湯森德考證，「視西班牙人為歸來的羽蛇神」是傳教士與征服者後世的建構，迪亞斯筆下的皇帝反而笑著說「my body is of flesh and bone like yours」，並直言金山銀山皆是傳言。\n然而衝突迅速爆發。1520年留守將領阿爾瓦拉多趁宗教慶典屠殺阿茲特克貴族，全城起義；蒙特祖馬二世不久身亡，一說被本族擲石砸死，一說遭西班牙人絞殺。六月末的風雨之夜，科爾特斯率殘部突圍，許多士兵因貪抱黃金溺斃湖中，史稱「La Noche Triste」。\n1521年8月13日，歷經七十五天圍城與天花蹂躪，末代皇帝夸烏特莫克被俘，千年都城淪為廢墟。今日墨西哥城的石碑寫著：這既非勝利，亦非失敗，而是混血民族墨西哥痛苦的誕生。",
+   "vernacular": [
+    {
+     "orig": "we did not know what to say, or whether what appeared before us was real",
+     "modern": "我們不知該說甚麼，甚至不敢確定眼前的景象是否真實。（迪亞斯初見特諾奇蒂特蘭城的驚嘆）"
+    },
+    {
+     "orig": "you have come down to your mat, your throne, which I have briefly kept for you",
+     "modern": "您降臨到您的席子、您的寶座——我只是暫時替您保管罷了。（後世法典所載蒙特祖馬的謙卑致辭）"
+    },
+    {
+     "orig": "my body is of flesh and bone like yours",
+     "modern": "我的身子和你們一樣，也是血肉之軀。（迪亞斯記載蒙特祖馬否認自己是神）"
+    },
+    {
+     "orig": "La Noche Triste",
+     "modern": "悲痛之夜——1520年6月30日西班牙人雨夜血逃特諾奇蒂特蘭的慘敗。"
+    }
+   ],
+   "lesson": "兩個世界的碰撞不靠神話決定勝負，資訊、同盟與疫病才是關鍵，傲慢與貪婪讓雙方都付出沉重代價。"
   }
  ]
 }
