@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 170,
- "analyzed": 151,
+ "analyzed": 152,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 27
+   "count": 28
   },
   {
    "name": "非洲",
@@ -4163,6 +4163,51 @@
     }
    ],
    "lesson": "一场必敗的海戰雖輸了砲火，卻贏了人心：英雄的死訊點燃國家意志，往往比一艘軍艦更決定戰爭的走向。"
+  },
+  {
+   "id": "w0152",
+   "continent": "美洲",
+   "era": "現代",
+   "country": "智利",
+   "title": "1973皮諾契特政變：阿連德的最後廣播",
+   "year_label": "1973-09-11",
+   "authenticity": "正史",
+   "sources": [
+    "智利國立圖書館 Memoria Chilena 檔案 MC0043425「Discurso del presidente Salvador Allende en la radio Magallanes, 11 de septiembre de 1973」（含 6 分 17 秒錄音）",
+    "薩爾瓦多·阿連德基金會官網收錄《Discurso de Salvador Allende la mañana del 11 de septiembre de 1973 a través de radio Magallanes》全文",
+    "美國參議院丘奇委員會報告《Covert Action in Chile 1963-1973》（1975）",
+    "美國國務院檔案《Foreign Relations of the United States, 1969–1976, Volume E–16, Documents on Chile, 1969–1973》",
+    "《衛報》2011-07-20 報導「Chilean president Salvador Allende committed suicide, autopsy confirms」"
+   ],
+   "auth_note": "演講於當日 9:10 自拉莫內達宮經 Radio Magallanes 播出，錄音與全文由智利國立圖書館及阿連德基金會保存，屬同時代一手史料，故判正史。死亡方式曾有爭論：軍政府官方宣布其用卡斯楚所贈 AK-47 自盡，部分支持者質疑遭暗殺；2011 年智利司法部門開棺驗屍確認自殺，《衛報》等均有報導，本篇採法醫結論。丘奇委員會報告顯示美國 1970 年起大規模干預智利（資助反對派媒體與政黨），但未發現美方直接參與 1973 年 9 月 11 日政變本身的證據，故文中僅寫軍人叛變，未寫「美國策劃政變」。",
+   "story": "一九七三年九月十一日清晨，坦克環繞總統府拉莫內達宮，軍機轟毀了兩家忠於政府的電台發射塔。上午九時十分，阿連德坐在麥克風前，透過 Radio Magallanes 播出最後的演講。\n他語氣平靜：「Mis palabras no tienen amargura, sino decepción。」效忠他的軍人陸續叛變，戰機轟炸了總統府。幕僚勸他脫身，他搖頭拒絕——他答應過尊重憲法，也不拋下人民。他宣告：「¡Yo no voy a renunciar! Colocado en un tránsito histórico, pagaré con mi vida la lealtad del pueblo.」\n炮火逼近，他把最後的話留給勞動者：「Tienen la fuerza, podrán avasallarnos……La historia es nuestra y la hacen los pueblos。」訊號隨即中斷，軍人接管了媒體。官方隨後宣布，他以卡斯楚贈他的步槍飲彈自盡；二〇一一年開棺驗屍確認自殺。\n政變之後，皮諾切特開啟了十七年的軍事獨裁。多年後民主重回智利，人們仍記得他的預言：「se abrirán las grandes alamedas por donde pase el hombre libre para construir una sociedad mejor」",
+   "vernacular": [
+    {
+     "orig": "Mis palabras no tienen amargura, sino decepción",
+     "modern": "我的話裡沒有怨恨，只有幻滅——這番話就是對背叛者的道德審判。"
+    },
+    {
+     "orig": "¡Yo no voy a renunciar!",
+     "modern": "我不會辭職！"
+    },
+    {
+     "orig": "Colocado en un tránsito histórico, pagaré con mi vida la lealtad del pueblo",
+     "modern": "身處歷史的關口，我將用自己的生命，償還對人民的忠誠。"
+    },
+    {
+     "orig": "Tienen la fuerza, podrán avasallarnos",
+     "modern": "他們握有武力，或許能壓碎我們，"
+    },
+    {
+     "orig": "La historia es nuestra y la hacen los pueblos",
+     "modern": "但歷史屬於我們，是由人民自己書寫的。"
+    },
+    {
+     "orig": "se abrirán las grandes alamedas por donde pase el hombre libre para construir una sociedad mejor",
+     "modern": "寬闊的大道終將再次開啟，自由的人將走過它，去建設一個更好的社會。"
+    }
+   ],
+   "lesson": "槍炮能淹沒一個聲音，卻淹不滅人民對正義的記憶；以生命兌現承諾的人，歷史終將站在他那一邊。"
   }
  ]
 }
