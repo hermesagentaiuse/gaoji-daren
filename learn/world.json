@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 150,
- "analyzed": 148,
+ "analyzed": 149,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 24
+   "count": 25
   },
   {
    "name": "非洲",
@@ -4087,6 +4087,35 @@
     }
    ],
    "lesson": "出身不能決定軌道：一個紡織女工憑勇氣與訓練飛越星辰，人類的天花板永遠由敢於打破它的人重寫。"
+  },
+  {
+   "id": "w0149",
+   "continent": "美洲",
+   "era": "現代",
+   "country": "美國",
+   "title": "芝加哥1號堆：球場下的人造太陽",
+   "year_label": "1942-12-02",
+   "authenticity": "正史",
+   "sources": [
+    "芝加哥大學新聞部〈The first nuclear reactor, explained〉",
+    "美國國家檔案館〈Manhattan Project Notebook (1942)〉",
+    "美國能源部〈10 Intriguing Facts About the World's First Nuclear Chain Reaction〉",
+    "美國國會圖書館〈Today in History: December 2〉",
+    "橡樹嶺國家實驗室部落格〈Enrico Fermi and the Chicago Pile〉"
+   ],
+   "auth_note": "日期、地點、49人在場、威爾抽棒、基安蒂酒慶功均有美國國家檔案館、芝加哥大學、能源部等多個官方獨立來源交叉證實。達界時間各說略有出入：能源部記為3:36抽棒啟動，芝加哥大學記為3:53記錄到自持反應，本文採3:53之說。「義大利航海家」電話暗語見於國會圖書館檔案。",
+   "story": "1942年12月2日下午，芝加哥大學廢棄的斯塔格球場西看台下，一間改為壁球場的小房間裡擠滿了四十九位科學家。房間中央立著一座近二十英尺高的「核反應堆」——三百八十五噸石墨塊夾著四十六噸鈾，一層層精準堆疊成五十七層，旁邊預留著插入鎘控制棒的孔洞。\n現場安靜得只聽見中子計數器的咔噠聲。費米站在堆旁沉著指揮，科學家威爾一格一格地抽出最後一根控制棒。三時五十三分，計數器讀數穩定爬升——人類史上第一次受控的自持核鏈式反應達成了。二十八分鐘後費米下令停堆，沒有爆炸，沒有強光，樓上根本無人察覺腳下剛被點亮了一顆人造太陽。\n康普頓拿起電話，用暗語通報哈佛的科南特：「The Italian Navigator has just landed in the New World.」（義大利航海家剛抵達新大陸）科南特回問：「How do you like the natives?」當晚，眾人把一瓶基安蒂紅酒倒進紙杯慶祝，並在空瓶的稻草瓶套上簽名——那是這場壯舉唯一的手寫記錄。人類的原子時代，就在這球場下的寂靜中開始了。",
+   "vernacular": [
+    {
+     "orig": "The Italian Navigator has just landed in the New World.",
+     "modern": "康普頓給科南特的暗語電話：義大利航海家（影射費米）剛抵達新大陸，即鏈式反應成功。"
+    },
+    {
+     "orig": "How do you like the natives?",
+     "modern": "科南特的暗語回覆：那裡的土著怎么樣？實際是問實驗結果是否如預期。"
+    }
+   ],
+   "lesson": "劃時代的突破往往發生在最不起眼的安靜角落；人類點燃原子之火的那一刻，沒有警報也沒有煙火，只有計數器的咔噠聲。"
   }
  ]
 }
