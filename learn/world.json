@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 170,
- "analyzed": 160,
+ "analyzed": 161,
  "continents": [
   {
    "name": "亞洲",
@@ -31,7 +31,7 @@
   {
    "name": "大洋洲",
    "icon": "🏝️",
-   "count": 7
+   "count": 8
   }
  ],
  "eraOrder": [
@@ -4392,6 +4392,36 @@
     }
    ],
    "lesson": "制度可以約束船上的秩序，卻約束不了人心深處的貪婪；真正的險礁，往往藏在人裡而非海裡。"
+  },
+  {
+   "id": "w0161",
+   "continent": "大洋洲",
+   "era": "現代",
+   "country": "澳洲",
+   "title": "莫森獨自歸來：南極冰原三百英里",
+   "year_label": "1912-12-14—1913-02-08",
+   "authenticity": "正史",
+   "sources": [
+    "Douglas Mawson《The Home of the Blizzard》(1915)",
+    "澳洲南極局 Home of the Blizzard 線上章節（Mawson's fatal journey／Last gasp／A difficult parting）",
+    "Wikipedia〈Far Eastern Party〉",
+    "The Medical Journal of Australia (2005)〈Mawson and Mertz: a re-evaluation of their ill-fated mapping journey〉",
+    "Australian Antarctic Program〈Remembering an heroic explorer〉(2012)",
+    "National Museum of Australia〈Mawson in the Antarctic〉"
+   ],
+   "auth_note": "事件主軸（1912-12-14尼尼斯墜縫、1913-01-08邁爾茲之死、02-08獨行返回基地、極光號數小時前離港）見莫森同時代日記與其1915年著作，定為正史。queue 原 year_label 終點 1913-02-01 實為抵達阿拉丁洞避難所之日，返回主基地為 1913-02-08，已修正。邁爾茲死因學界有爭：1969年 Cleland 與 Southcott 主張犬肝維他命A中毒，2005年 MJA 論文反駁為飢餓所致，故故事中兩說並陳。尼尼斯享年各源有23與25歲之異，故未寫年齡。",
+   "story": "1912年12月14日，南極喬治五世陸的冰河上傳來一聲悶響：尼尼斯連人帶雪橇墜入雪橋下的深縫。冰台上僅見一死一傷的兩隻犬——六隻最好的雪橇犬、幾乎全部糧食與帳篷，就此消失。領隊莫森與隊友邁爾茲只剩三隻飢犬與寥寥乾糧。\n距基地尚有三百英里。兩人殺犬充飢，拉著雪橇在風雪裡向西挪動。1913年1月8日凌晨兩時，邁爾茲在睡袋中斷氣，皮膚大片脫落、頭髮成束掉落。莫森日記只寫下暴風與缺食幾字；後世或推犬肝維他命A中毒，或主張飢餓所殺。\n如今只剩他一人。他把雪橇用小刀鋸去一半，腰間繫上繩索才敢拉橇攀坡——人若墜入冰縫，繩子會替他去死。一次墜落，腰繩猛然繃緊，把他吊在幽藍冰壁間，他一手一脚爬回地面。他在回憶錄裡寫道：「There appeared to be little hope of reaching the Hut, still 100 miles away.」\n1913年2月1日，他爬進半途的阿拉丁洞，洞裡竟留著三顆橙子與一顆鳳梨——極光號已到過。暴風雪把他封在洞裡一週。2月8日他踉蹌下山，看見海平線上船影已遠，岸上五名留守的同伴狂奔而來。基地旋即向極光號發報：「Mawson arrived. Mertz and Ninnis dead. Return at once and pick up all hands.」船想回頭，狂風卻把它頂在外海，終於離去。莫森在基地度過第二個冬天。",
+   "vernacular": [
+    {
+     "orig": "There appeared to be little hope of reaching the Hut, still 100 miles away.",
+     "modern": "看來抵達小屋已毫無希望，那裡距他還有一百英里之遙。（莫森回憶錄原句）"
+    },
+    {
+     "orig": "Mawson arrived. Mertz and Ninnis dead. Return at once and pick up all hands.",
+     "modern": "莫森已抵達，邁爾茲與尼尼斯身亡，請立即回航接回全員。（發給極光號的無線電）"
+    }
+   ],
+   "lesson": "絕境中最可靠的補給，是一顆不肯放棄的心：莫森以獨自歸來證明，活下去本身就是對命運最有力的回擊。"
   }
  ]
 }
