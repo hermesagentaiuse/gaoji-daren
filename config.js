@@ -156,6 +156,8 @@ window.SITE_CONFIG = {
     { id: "boyin", icon: "🎙️", title: "博音精讀", type: "route", route: "#/boyin" },
     { id: "amt", icon: "📉", title: "下班經濟學·財經精讀", type: "route", route: "#/amt" },
     { id: "research", icon: "🎓", title: "研究生專區", type: "route", route: "#/research" },
+    { id: "highschool", icon: "🎒", title: "高中學區", type: "route", route: "#/highschool" },
+    { id: "college", icon: "🏛️", title: "大學學區", type: "route", route: "#/college" },
     { id: "game-three-kingdoms", icon: "🎮", title: "三國蝴蝶·文字遊戲", type: "route", route: "#/game/three-kingdoms" },
     { id: "analyst-dashboard", icon: "📊", title: "分析師儀表板", type: "route", route: "#/finance/analyst-dashboard" },
     { id: "serenity-watch", icon: "🐦", title: "Serenity 追蹤", type: "route", route: "#/finance/serenity-watch" },
@@ -211,6 +213,22 @@ window.SITE_CONFIG = {
     icon: "🎓",
     title: "研究生專區",
     source: "MIAT 實驗室 · 碩班論文研究主線：通訊感知 MARL × 多無人機協同 × 抗風 sim-to-real × 邊緣AI/具身智慧",
+  },
+
+  // ---- 高中學區（sidebar 單一入口；內容存放在 learn/highschool.json）----
+  highschoolLearning: {
+    id: "highschool",
+    icon: "🎒",
+    title: "高中學區",
+    desc: "國、英、數、物、化、生六科學科重點：核心概念、公式整理、常見陷阱、自我檢測。",
+  },
+
+  // ---- 大學學區（sidebar 單一入口；內容存放在 learn/college.json）----
+  collegeLearning: {
+    id: "college",
+    icon: "🏛️",
+    title: "大學學區",
+    desc: "物理系重要學科：古典力學、電磁學、熱統計、量子力學、光學、數學物理方法，加上演示物理。",
   },
 
   // ---- 財務分析站（sidebar 下半部）----

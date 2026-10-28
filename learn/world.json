@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 190,
- "analyzed": 170,
+ "analyzed": 171,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 31
+   "count": 32
   },
   {
    "name": "非洲",
@@ -4613,6 +4613,42 @@
     }
    ],
    "lesson": "當強權以「合法」之名吞併弱者的家園，被逼到牆角的人往往會爆發出最壯烈的反抗。"
+  },
+  {
+   "id": "w0171",
+   "continent": "美洲",
+   "era": "現代",
+   "country": "智利",
+   "title": "聶魯達的諾貝爾：一個大陸的夢與詩",
+   "year_label": "1971",
+   "authenticity": "正史",
+   "sources": [
+    "NobelPrize.org〈Pablo Neruda – Facts〉1971年文學獎頒獎辭",
+    "NobelPrize.org〈Pablo Neruda – Banquet speech〉1971年12月10日斯德哥爾摩市政廳晚宴致辭",
+    "The New York Times 1971年10月22日〈Neruda, Chilean Poet-Politician, Wins Nobel Prize in Literature〉",
+    "Encyclopedia.com〈Neruda, Pablo 1904-1973〉（收錄 Toward the Splendid City: Nobel Lecture 書目）"
+   ],
+   "auth_note": "主幹事件（1971年10月21日獲獎宣布、時任駐法大使、12月10日晚宴致辭及引句、1973年9月23日逝世）均見於諾獎官網原始文獻與 NYT 同期報導。引語為晚宴致辭官方譯文原文。《二十首情詩和一首絕望的歌》出版年份學界通行1924年而諾獎官網頁作1921年，故文中迴避標明年份。",
+   "story": "1971年10月21日，瑞典學院在斯德哥爾摩宣布該年諾貝爾文學獎得主——智利詩人巴勃羅·聶魯達，頒獎辭寫著：「for a poetry that with the action of an elemental force brings alive a continent's destiny and dreams.」彼時聶魯達正出任智利駐法國大使，消息迅速席捲巴黎。\n聶魯達1904年出生於礦城帕拉爾，父親是鐵路工人，反對他寫詩，他卻一路寫下去。貧困的領事生涯與西班牙內戰使他走向左翼，寫出大陸史詩《漫歌》，自認是大地被遺忘者的聲音。1970年阿連德當選總統，任命他為駐法大使。\n12月10日晚，斯德哥爾摩市政廳舉行得獎晚宴。病中的聶魯達舉杯致辭：「Here we are assembled in Stockholm, which this evening is the centre of the world.」他說自己從實驗室的黑暗中走出來，迎接一道榮耀之光；他為屬於多數人而非少數人而驕傲，那些被遺忘的人「比我的詩句更真實」。最後他宣告：「with blood and darkness poetry is written.」\n領獎回國後他病情持續惡化。1973年9月23日，就在阿連德於軍事政變中殉難十二天之後，聶魯達因心臟病發在聖地亞哥辭世。詩人與總統，在同一場風暴後各自走完了人生。",
+   "lesson": "當詩人把才華交付給大陸上被遺忘的大多數，文學便獲得了喚醒一個時代的重量。",
+   "vernacular": [
+    {
+     "orig": "for a poetry that with the action of an elemental force brings alive a continent's destiny and dreams.",
+     "modern": "表彰他那以元素般的力量喚醒一個大陸命運與夢想的詩歌。（瑞典學院頒獎辭原文）"
+    },
+    {
+     "orig": "Here we are assembled in Stockholm, which this evening is the centre of the world.",
+     "modern": "我們今日齊聚斯德哥爾摩，而今晚，這裡就是世界的中心。"
+    },
+    {
+     "orig": "with blood and darkness poetry is written.",
+     "modern": "詩歌要用血與黑暗來書寫。（聶魯達晚宴致辭結語）"
+    },
+    {
+     "orig": "比我的詩句更真實",
+     "modern": "指大地上的被遺忘者，在他眼中比自己寫出的詩句更為真實。"
+    }
+   ]
   }
  ]
 }

@@ -163,6 +163,12 @@
       if (!on && r === "#/research") {
         on = hash === r || hash.startsWith(r + "/");
       }
+      if (!on && r === "#/highschool") {
+        on = hash === r || hash.startsWith(r + "/");
+      }
+      if (!on && r === "#/college") {
+        on = hash === r || hash.startsWith(r + "/");
+      }
       if (!on && r.startsWith("#/game/")) {
         on = hash === r || hash.startsWith(r + "/");
       }
@@ -197,6 +203,8 @@
           else if (s.route === "#/boyin") meta = "Podcast 訪談精讀";
           else if (s.route === "#/amt") meta = "風傳媒財經節目精讀";
           else if (s.route === "#/research") meta = "論文學習地圖 · 每天一篇";
+          else if (s.route === "#/highschool") meta = "國英數物化生 · 學科重點整理";
+          else if (s.route === "#/college") meta = "物理系核心學科 · 演示物理";
           else if (s.route && s.route.startsWith("#/game/")) meta = "文字遊戲 ↗";
           else if (s.route && s.route.startsWith("#/finance/")) meta = "財務分析站 ↗";
         }
@@ -1159,6 +1167,152 @@
     });
   }
 
+  // ---- 高中學區 / 大學學區：#/highschool（科目總覽）→ /<科目>（主題清單）→ /<科目>/<id>（主題詳情）----
+  const schoolCache = {};
+
+  function schoolData(kind, cb) {
+    if (schoolCache[kind]) return cb(schoolCache[kind]);
+    const label = kind === "highschool" ? "高中學區" : "大學學區";
+    content.innerHTML = '<div class="page"><p class="hint">📚 載入' + label + '中…</p></div>';
+    fetch("learn/" + kind + ".json?ts=" + Date.now())
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { schoolCache[kind] = d; cb(d); })
+      .catch(function () {
+        content.innerHTML = '<div class="page"><p class="hint">' + label + '資料載入失敗，請重新整理重試。</p></div>';
+      });
+  }
+
+  function schoolTopicCard(kind, t) {
+    const checkins = loadCheckins();
+    const done = checkins[kind + ":" + t.id] ? " ✅" : "";
+    let h = '<a class="card card-stock" href="#/' + kind + '/' + encodeURIComponent(t.subject) + "/" + encodeURIComponent(t.id) + '">';
+    h += '<span class="card-title">' + esc(t.title) + done + "</span>";
+    if (t.tag) h += '<span class="card-meta">' + esc(t.tag) + "</span>";
+    h += "</a>";
+    return h;
+  }
+
+  function renderSchool(kind, subjectName, topicId) {
+    const CFGKEY = kind === "highschool" ? "highschoolLearning" : "collegeLearning";
+    const SC = CFG[CFGKEY] || { icon: "📚", title: kind === "highschool" ? "高中學區" : "大學學區", desc: "" };
+    schoolData(kind, function (data) {
+      const subjects = data.subjects || [];
+      const topics = data.topics || [];
+
+      // ---- 層 1：科目總覽 ----
+      if (subjectName === undefined) {
+        const checkins = loadCheckins();
+        const total = topics.length;
+        const doneN = topics.filter(function (t) { return !!checkins[kind + ":" + t.id]; }).length;
+        const pct = total ? Math.round(doneN * 100 / total) : 0;
+        let html = '<div class="page"><div class="hero">';
+        html += "<h2>" + esc(SC.icon) + " " + esc(SC.title) + "</h2>";
+        html += '<p class="hero-sub">' + esc(SC.desc || "") + "</p>";
+        html += '<div class="progress-card"><div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>';
+        html += '<p class="progress-text">已讀 <b>' + doneN + "</b> / " + total + " 篇（" + pct + "%）</p></div>";
+        html += "</div>";
+        html += '<div class="card-grid">';
+        subjects.forEach(function (s) {
+          const cnt = topics.filter(function (t) { return t.subject === s.name; }).length;
+          html += '<a class="card" href="#/' + kind + '/' + encodeURIComponent(s.name) + '">';
+          html += '<span class="card-icon">' + esc(s.icon || "📖") + "</span>";
+          html += '<span class="card-title">' + esc(s.name) + "</span>";
+          html += '<span class="card-meta">' + cnt + " 篇</span>";
+          html += "</a>";
+        });
+        html += "</div></div>";
+        content.innerHTML = html;
+        return;
+      }
+
+      // ---- 層 2：科目 → 主題清單 ----
+      if (topicId === undefined) {
+        const subj = subjects.find(function (s) { return s.name === subjectName; });
+        const list = topics.filter(function (t) { return t.subject === subjectName; });
+        let html = '<div class="page"><div class="page-head">';
+        html += '<a class="back-link" href="#/' + kind + '">← 返回「' + esc(SC.title) + '」</a>';
+        html += "<h2>" + esc((subj && subj.icon) || "📖") + " " + esc(subjectName) + "</h2>";
+        if (subj && subj.desc) html += '<p class="page-sub">' + esc(subj.desc) + "</p>";
+        html += "</div>";
+        if (!list.length) {
+          html += '<p class="hint">這個學科還沒有內容，之後會逐篇補上。</p>';
+        } else {
+          html += '<div class="card-grid">' + list.map(function (t) { return schoolTopicCard(kind, t); }).join("") + "</div>";
+        }
+        html += "</div>";
+        content.innerHTML = html;
+        return;
+      }
+
+      // ---- 層 3：主題詳情 ----
+      const list = topics.filter(function (t) { return t.subject === subjectName; });
+      const i = list.findIndex(function (t) { return t.id === topicId; });
+      if (i === -1) return renderNotFound();
+      const t = list[i];
+      const key = kind + ":" + t.id;
+      const checkins = loadCheckins();
+      const checked = !!checkins[key];
+      let html = '<div class="page"><div class="page-head">';
+      html += '<a class="back-link" href="#/' + kind + '/' + encodeURIComponent(subjectName) + '">← 返回「' + esc(subjectName) + '」</a>';
+      html += "<h2>" + esc(t.title) + "</h2>";
+      if (t.tag) html += '<p class="page-sub">' + esc(subjectName) + "　" + esc(t.tag) + "</p>";
+      html += "</div>";
+      html += '<div class="learn-checkrow"><label><input type="checkbox" data-key="' + esc(key) + '"' + (checked ? " checked" : "") + " />";
+      html += "<span>我已經讀完這篇了</span></label></div>";
+      if (t.intro) html += '<section class="learn-block"><h3>📖 導讀</h3><p>' + esc(t.intro) + "</p></section>";
+      if ((t.concepts || []).length) {
+        html += '<section class="learn-block"><h3>🧠 核心概念</h3><ol class="step-list">';
+        t.concepts.forEach(function (c) { html += "<li>" + esc(c) + "</li>"; });
+        html += "</ol></section>";
+      }
+      if ((t.formulas || []).length) {
+        html += '<section class="learn-block"><h3>🧮 公式與整理</h3><ol class="step-list">';
+        t.formulas.forEach(function (f) { html += "<li>" + esc(f) + "</li>"; });
+        html += "</ol></section>";
+      }
+      if ((t.pitfalls || []).length) {
+        html += '<section class="learn-block"><h3>⚠️ 常見陷阱</h3><ul class="step-list">';
+        t.pitfalls.forEach(function (p) { html += "<li>" + esc(p) + "</li>"; });
+        html += "</ul></section>";
+      }
+      if ((t.self_check || []).length) {
+        html += '<section class="learn-block"><h3>🧪 自我檢測（講得出來才算讀懂）</h3><ol class="step-list">';
+        t.self_check.forEach(function (q) { html += "<li>" + esc(q) + "</li>"; });
+        html += "</ol></section>";
+      }
+      if ((t.demos || []).length) {
+        html += '<section class="learn-block"><h3>🔬 演示實驗</h3><ol class="step-list">';
+        t.demos.forEach(function (dm) { html += "<li>" + esc(dm) + "</li>"; });
+        html += "</ol></section>";
+      }
+      const nkey = "schoolnote:" + kind + ":" + t.id;
+      html += '<section class="learn-block"><h3>🖊️ 我的備註</h3>';
+      html += '<textarea id="schoolnote-box" rows="6" style="width:100%;box-sizing:border-box;font:inherit;padding:8px;border-radius:8px;border:1px solid #8884;background:transparent" placeholder="寫下你自己的三行心得…"></textarea>';
+      html += '<p><button id="schoolnote-save" class="learn-link" style="cursor:pointer;border:1px solid #7c9cbf;border-radius:8px;padding:6px 14px;background:transparent">儲存備註</button> <span id="schoolnote-saved" style="opacity:.7"></span></p></section>';
+      html += '<nav class="learn-nav">';
+      if (i > 0) html += '<a href="#/' + kind + '/' + encodeURIComponent(subjectName) + "/" + encodeURIComponent(list[i - 1].id) + '">← 上一項</a>';
+      if (i < list.length - 1) html += '<a href="#/' + kind + '/' + encodeURIComponent(subjectName) + "/" + encodeURIComponent(list[i + 1].id) + '">下一項 →</a>';
+      html += "</nav></div>";
+      content.innerHTML = html;
+
+      const cb = content.querySelector('.learn-checkrow input[type="checkbox"]');
+      if (cb) cb.addEventListener("change", function () {
+        const d = loadCheckins();
+        if (cb.checked) d[cb.dataset.key] = true; else delete d[cb.dataset.key];
+        saveCheckins(d);
+      });
+      setTimeout(function () {
+        const ta = document.getElementById("schoolnote-box");
+        const btn = document.getElementById("schoolnote-save");
+        const tag = document.getElementById("schoolnote-saved");
+        if (ta) { try { ta.value = localStorage.getItem(nkey) || ""; } catch (e) {} }
+        if (btn) btn.addEventListener("click", function () {
+          try { localStorage.setItem(nkey, ta.value); if (tag) { tag.textContent = "已儲存 " + new Date().toLocaleTimeString(); } } catch (e) {}
+        });
+      }, 0);
+    });
+  }
+
   function renderFinance(fid) { return renderEmbed(CFG.financeLinks, fid, "財務分析站"); }
   function renderGame(gid) { return renderEmbed(CFG.gameLinks, gid, "遊戲"); }
   function renderEmbed(list, id, kindLabel) {
@@ -1259,6 +1413,20 @@
       const slash = rest.indexOf("/");
       if (slash === -1) return renderResearchTrack(rest);
       return renderResearchPaper(rest.slice(0, slash), rest.slice(slash + 1));
+    }
+    if (hash === "#/highschool" || hash.startsWith("#/highschool/")) {
+      const rest = decodeURIComponent(hash.slice("#/highschool".length)).replace(/^\//, "");
+      if (!rest) return renderSchool("highschool");
+      const p = rest.split("/");
+      if (p.length === 1) return renderSchool("highschool", p[0]);
+      return renderSchool("highschool", p[0], p[1]);
+    }
+    if (hash === "#/college" || hash.startsWith("#/college/")) {
+      const rest = decodeURIComponent(hash.slice("#/college".length)).replace(/^\//, "");
+      if (!rest) return renderSchool("college");
+      const p = rest.split("/");
+      if (p.length === 1) return renderSchool("college", p[0]);
+      return renderSchool("college", p[0], p[1]);
     }
     if (hash.startsWith("#/finance/")) return renderFinance(decodeURIComponent(hash.slice("#/finance/".length)));
     renderNotFound();
