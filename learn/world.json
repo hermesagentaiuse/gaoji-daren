@@ -1,12 +1,12 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 150,
- "analyzed": 144,
+ "analyzed": 145,
  "continents": [
   {
    "name": "亞洲",
    "icon": "🌏",
-   "count": 40
+   "count": 41
   },
   {
    "name": "歐洲",
@@ -3977,6 +3977,30 @@
     }
    ],
    "lesson": "制度與偏見能鎖住一個人的出身，卻鎖不住天才；關鍵是有沒有掌權者願為才能打破等級。"
+  },
+  {
+   "id": "w0145",
+   "continent": "亞洲",
+   "era": "現代",
+   "country": "韓國",
+   "title": "洛東防線：釜山環形防線的六週死守",
+   "year_label": "1950-08—09",
+   "authenticity": "正史",
+   "sources": [
+    "維基百科〈Battle of the Pusan Perimeter〉",
+    "Roy E. Appleman《South to the Naktong, North to the Yalu》(U.S. Army Center of Military History, 1992)",
+    "U.S. Army 官方網站紀念文章〈South Korea/U.S. remember Korean War sacrifices during Nakdong River Battle ceremonies〉(2021)",
+    "Roy E. Appleman《South to the Naktong, North to the Yalu》Chapter XXII: Perimeter Battle (history.army.mil)"
+   ],
+   "auth_note": "沃克「stand or die」命令（1950-07-29）與其8月28日告韓軍文告，皆見於美軍陸軍軍史中心（CMH）官方戰史與美軍官方網站原文引用；戰役起訖（8月4日—9月18日）、兵力對比（聯軍14.18萬對人民軍9.8萬）、防線長度（約230公里）均據 CMH 官方戰史及維基百科條目交叉核對，屬同時代官方檔案可證之正史。",
+   "story": "1950年7月底，朝鮮人民軍勢如破竹，美韓聯軍自漢城一路南撤，被壓到朝鮮半島東南角。8月初，聯合國軍沿洛東江與北部山脈築起一道長約230公里的防線，護住釜山港——這就是「釜山環形防線」。\n8月4日起，9.8萬人民軍對馬山、洛東江突出部、大邱、慶州四個入口發動全面攻勢。防守的是14萬聯合國軍。第8集團軍司令沃克中將早在7月29日就對25師參謀下達著名的「堅守或死」命令：「There will be no more retreating… There will be no Dunkirk, there will be no Bataan.」他告訴官兵：身後已無防線可退。\n戰況最危急的9月上旬，沃克一面把軍部從大邱後搬到釜山，一面預備退守更小的「大衛森防線」；9月6日他決定不再後撤。8月底他曾對韓國將士喊話：過度延伸的敵人已是強弩之末，聯合國軍一天比一天強大，每個人要站在原地戰鬥。海軍陸戰隊第1臨時旅與騎兵第1師像救火隊一樣，被他緊急調往各告急地段。\n六週裡人民軍屢屢突入防線又被逐個打回。9月15日仁川登陸切斷敵後，16日防線內聯軍全面反攻出擊，18日戰鬥結束，人民軍全線崩潰北逃。這片僅佔半島百分之一、二的面積，撐住了整個韓國。",
+   "vernacular": [
+    {
+     "orig": "There will be no more retreating… There will be no Dunkirk, there will be no Bataan.",
+     "modern": "不准再撤退、再後移防線。不會有敦克爾克大撤退，也不會巴丹半島那樣棄地投降——絕境死守。"
+    }
+   ],
+   "lesson": "封死退路、把預備隊當救火隊用在最危急處，绝境中的堅守往往能等到轉機降臨的那一刻。"
   }
  ]
 }
