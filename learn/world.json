@@ -1,12 +1,12 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 226,
- "analyzed": 207,
+ "analyzed": 208,
  "continents": [
   {
    "name": "亞洲",
    "icon": "🌏",
-   "count": 50
+   "count": 51
   },
   {
    "name": "歐洲",
@@ -5647,6 +5647,30 @@
     }
    ],
    "lesson": "绝境中的勝算不在船數多寡，而在將領敢於把地利、軍心與必死之志擰成一股繩。"
+  },
+  {
+   "id": "w0208",
+   "continent": "亞洲",
+   "era": "現代",
+   "country": "韓國",
+   "title": "仁川登陸：麥克阿瑟的豪賭",
+   "year_label": "1950-09-15",
+   "authenticity": "正史",
+   "sources": [
+    "美國海軍歷史與遺產司令部〈Inchon Landing (Operation Chromite): September 1950〉",
+    "Britannica〈Inchon landing〉",
+    "美國海軍陸戰隊大學出版社〈Inchon: A Guide to the Markers and History〉（Marine Corps History, Summer 2025）",
+    "Col. Robert D. Heinl,〈The Inchon Landing: A Case Study in Amphibious Planning〉, Naval War College Review"
+   ],
+   "auth_note": "登陸日期、艦隊規模、潮差、月尾島作戰、海牆雲梯登陸等均有美國海軍歷史與遺產司令部、Britannica 及海軍陸戰隊大學等權威來源交叉支持，判定正史。「五千分之一豪賭」一語經 Heinl 論文轉述流傳，屬廣為引用的回憶性說法；各來源對潮差記載略有出入（30 至 32 英尺），本文採 Britannica 的三十英尺之說。守軍約兩千人出自海軍陸戰隊大學出版物。",
+   "story": "1950年8月23日，東京大白宮會議室。參謀長聯席會議的代表極力勸阻：「仁川潮差高達三十英尺，航道狹窄，退潮後盡是泥灘，登陸艇只有六小時窗口，此舉必敗。」麥克阿瑟平靜地回答：「Inchon is a 5000-to-1 gamble, but I am used to such gambles.（仁川是五千分之一勝率的豪賭，但我向來習慣豪賭。）」這種規模的兩棲作戰通常要準備五六個月，他只給自己一個月，登陸日釘死在潮汐最合適的九月十五日。\n9月15日拂曉，二百六十一艘軍艦駛入飛魚水道。艦砲先轟月尾島，陸戰第一師趁早潮搶登，一舉奪島；退潮後艦隊被迫撤退，島上部隊孤立無援，硬撐了半個下午。\n黃昏再漲潮，主攻開始。陸戰隊架起雲梯，在火力下翻越十四英尺高的海牆，血戰登岸；守軍僅約兩千人，措手不及。入夜後，灘頭陣地終於站穩腳跟。\n這被稱為戰爭史上最大膽的兩棲登陸。十天後陸戰隊收復漢城，圍攻釜山的朝鮮人民軍後路被斷，沿半島全線潰退，三個月戰局一夜翻盤。",
+   "vernacular": [
+    {
+     "orig": "Inchon is a 5000-to-1 gamble, but I am used to such gambles.",
+     "modern": "仁川是一場勝率五千分之一的豪賭，但我本來就習慣這種賭博。（麥克阿瑟1950年8月23日對反對登陸的將領所說）"
+    }
+   ],
+   "lesson": "眾人皆曰不可的險地，往往是敵人防備最鬆之處；真正的膽識不是魯莽，而是算清風險後敢於承擔。"
   }
  ]
 }
