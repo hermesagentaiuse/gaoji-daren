@@ -81,6 +81,49 @@
    "demos": []
   },
   {
+   "subject": "英文",
+   "grade": "高一",
+   "no": 1,
+   "title": "第1章 時態與語態基礎",
+   "tag": "學測核心",
+   "intro": "時態與語態是英文句子的「時間軸」與「視角」兩大系統：時態告訴讀者動作發生在何時、是否完成或持續，語態決定句子把「做的人」還是「被影響的東西」放在主詞位置。這一章是整本英文課本的語法地基——後的從句、非動詞、作文句型全部建構在「動詞形態正確」之上。目標不是背誦十六種時態名稱，而是建立「時間＋觀點（單純／進行／完成）」的座標思考，看到時間線索詞就能反射出正確的動詞形式。",
+   "concepts": [
+    "時態＝時間（過去／現在／將來）×觀點（單純／進行／完成）。同一件事「我寫信」可以用 I write / I am writing / I have written / I had written 表達四種不同的觀看角度，動詞形態是座標系的座標值。",
+    "進行式強調「當下正在展開、未完成」，所以狀態動詞（know、believe、own、want）不能進行——你不能「正在知道」。看到 know 加 -ing 就是錯，這是學測改錯題的高頻考點。",
+    "完成式的本質是「過去的動作在基準時間留下痕跡」：現在完成式以「現在」為基準（I have lost my key 隱含我現在進不去），過去完成式以「過去某點」為基準（When I arrived, the bus had left）。",
+    "現在完成式與過去式的分界在「時間是否封閉」：already、yet、since、for 把動作連到現在，用完成式；yesterday、in 2020、ago 把時間封閉在過去，用過去式。混用 have gone yesterday 是典型錯誤。",
+    "被動語態的動詞公式是 be + 過去分詞，be 負責承載時態變化（is done / was done / has been done / will be done），過去分詞永遠不動。學會「只變 be」，被動式十六種時態一次全部解開。",
+    "主動轉被動的關鍵步驟：受詞升格為主詞→動詞改 be+PP→原主詞降為 by 短語（可省略）。意義上，被動式把鏡頭對準「受害者」，當做的人不重要或未知時（My bike was stolen）特別好用。",
+    "未來式在時間/條件從句（when、if、before、after 引導）中要用現在式代替：I will call you when I arrive，不能寫 when I will arrive。規則背不下來就記因果：從句只是「設定時間場景」，真正的未來由主句承擔。"
+   ],
+   "formulas": [
+    "現在簡單式：V(s/es)。適用：習慣、事實、時刻表。單位線索：always、every day、usually。",
+    "現在完成式：have/has + 過去分詞。適用：過去動作對現在有影響、從過去持續到現在的狀態。線索：since＋時間點、for＋時間段、already、yet。",
+    "過去完成式：had + 過去分詞。適用條件：兩個過去動作，較早者用 had done。常與 when/before 從句搭配。",
+    "進行式通用公式：be + V-ing，be 依時態變形（am/is/are、was/were、has been、will be）。",
+    "被動式通用公式：be + 過去分詞，be 依時態與新主詞單複數變形。例：現在完成被動 has/have been done。",
+    "will vs be going to：will 用於臨時決定與預測，be going to 用於已有計畫或已有眼前景象支持的預測（Look at those clouds! It's going to rain）。"
+   ],
+   "pitfalls": [
+    "狀態動詞進行化：*I am knowing him、*She is wanting a car。辨認方法：動詞描述的是狀態而非動作（感知、擁有、情緒、認知）就不能加 -ing。",
+    "現在完成式＋明確過去時間：*I have seen that movie last week。只要句中有 yesterday、ago、last、in＋過去年份，一律改過去式 I saw。",
+    "被動式忘記過去分詞或誤用現在分詞：The window was break → was broken；The house is builted → was built。不規則動詞三態表必須背到反射。",
+    "主詞與 be 不一致：The books on the table was lost。介系詞短語 on the table 是幹擾項，真正主詞是復數 books，應為 were lost。",
+    "when/if 從句裡放 will：*I will tell him when I will see him。從句改現在式 when I see him。",
+    "進行式與完成進行式混用時遺忘 for/since：I have been waiting since 30 minutes 錯誤——since 接時間點、for 接時間段。"
+   ],
+   "self_check": [
+    "不用「時態」這個詞，怎麼跟朋友解釋 I have lived here for two years 和 I lived here for two years 的差別？（提示：現在還住不住？）",
+    "為什麼英文說 I am thinking about it 可以、I am thinking that he is right 怪怪的？thinking 兩種用法差在哪？",
+    "把 The chef cooks the meal（現在簡單）與 The chef has cooked the meal（現在完成）翻成中文，語感差異在哪？哪個暗示「飯現在可以喫」？",
+    "My phone was stolen 為什麼不必說出小偷？什麼場合你反而會刻意保留 by 短語？",
+    "寫一句話同時用到過去完成式與 when 從句，說明兩個動作誰先誰後、各由哪個時態標示。"
+   ],
+   "id": "eng-高一-001",
+   "chapter_no": 1,
+   "demos": []
+  },
+  {
    "title": "第2章 二次函數與判別式",
    "tag": "學測核心",
    "intro": "二次函數是高中數學的樞紐：配方法、判別式、根與係數關係這三件工具，之後在圓錐曲線、最值問題、優化問題裡反覆出現。把『圖形』與『係數』之間的對應關係背到反射動作，一半的函數題就能秒解。",
@@ -515,5 +558,5 @@
   }
  ],
  "planned": 62,
- "written": 13
+ "written": 14
 }
