@@ -993,6 +993,50 @@
    "demos": []
   },
   {
+   "subject": "英文",
+   "grade": "高二",
+   "no": 2,
+   "title": "第2章 非動詞",
+   "tag": "學測核心",
+   "intro": "上一章的減化子句留下一個懸案：把 which was 拿掉之後，留下的 written、standing 這類 v-ing／v-ed 形狀的字，到底是動詞還是別的東西？這一章的正題就是「非動詞」（限定動詞以外的動詞形態）：同一個動詞-root 可以穿上 to V（不定詞）、V-ing（動名詞／現在分詞）、V-ed（過去分詞）三種外衣，各自變成名詞、形容詞或副詞，而不再是句子的限定動詞。核心精神只有一句話：一個句子只能有一個「限時動詞」，其他所有動詞概念都必須降格成非動詞才能進場。學測字彙題、克漏字、改錯題裡 to 與 V-ing 的選擇、分詞構句、懸垂修飾語，全部出自這一章。讀完你應該能做到：看到任何動詞形態，立刻判斷它是誰、在句子裡做什麼成分、憑什麼穿這件外衣。",
+   "concepts": [
+    "為什麼需要非動詞？因為英文句子的「限時動詞」承載時態、人稱、單複數（-s、-ed、will），而一個獨立句子只容得下這樣一個動詞當謂語骨幹。想在同一句裡塞第二個動作——「我想去」「他避免遲到」——第二個動詞就必須脫掉時態外衣，降格成非動詞：I want to go（去降格成 to go）、He avoids being late。這個「降格」機制是整個英文長句構造的地基。",
+    "不定詞 to V 的直覺是「尚未實現、指向未來」：want、hope、decide、plan、promise、agree 這些動詞的對象都還沒發生，所以接 to V。I want to visit Kyoto 裡的 to visit 是「想去但還沒去」。相對地，memory、enjoy、finish、avoid、mind、practise、suggest 涉獵的是「已經存在或正在進行的經驗」，所以接 V-ing。記 to V／V-ing 不是死背清單，而是問「這個動詞的對象是未來選項，還是既成經驗」。",
+    "V-ing 有雙重人格：動名詞（當名詞用，做主詞受詞：Swimming is good exercise）與現在分詞（當形容詞或副詞用：the sleeping baby、He sat there reading）。判斷方法看角色不看形狀——能在句首當主詞、能被 the 修飾討論的就是動名詞；緊貼名詞描述「正在……的」就是分詞。同一個 swimming is fun 的 swimming 和 the swimming pool 的 swimming，前者是動名詞、後者是分詞修飾（游泳池是『被用來游泳的』池子）。",
+    "過去分詞 V-ed 的核心意義是「被動＋完成」。the broken window 的 broken 是「被打破且已破」（被動＋完成），the fallen leaves 是「已落下」（主動但完成）。這解釋了為什麼現在分詞與過去分詞修飾同一個名詞時語意相反：an interesting book（書讓人覺得有趣，書是原因的來源）vs. an interested reader（讀者被書激發興趣，讀者是被作用者）。-ing 說「我散發這個性質」，-ed 說「我被賦予這個感覺」。",
+    "分詞構句是本張的最高戰區，它的本質是「減化副詞子句的最終形態」：當副詞子句的主詞與主句相同，主詞消失、動詞改成非動詞，連接詞甚至可以一起消失。Because he had nothing to do, he watched TV 一路減化成 Having nothing to do, he watched TV。讀長句時看到句首的 V-ing／V-ed／to V 逗號結構，直覺反應應是「還原一個主詞進去」——那個主詞一定就是主句的主詞，這是解閱讀長難句與改錯題的萬能開關。",
+    "懸垂修飾語（dangling modifier）就是還原主詞失敗的產物：Walking down the street, the trees looked beautiful 還原後變成「the trees walked down the street」，荒謬即錯誤。判別方法永遠是「把分詞的動作套到主句主詞上，講不通就錯」。學測改錯與作文批改都最愛抓這個，因為它不需要文法術語就能看出語意斷裂。",
+    "to 在英文裡有兩張臉：不定詞記號（to V）與介系詞（to + 名詞/V-ing）。look forward to、be used to、object to 裡的 to 是介系詞，後面必須是名詞形態，所以 I look forward to seeing you、She is used to getting up early。辨認訣竅：把 to 後面換成 a party 試看看——look forward to a party 通順，證明 to 是介系詞，後面要 V-ing；want a party 不通，證明 want 後的 to 是不定詞記號。"
+   ],
+   "formulas": [
+    "不定詞：to + 原形動詞。功能：名詞（To err is human／I decided to leave）、形容詞（I need a place to stay）、副詞（He studied hard to pass the exam，表目的）。適用條件：表未來、目的、結果、修飾被序數或最高級修飾的名詞。",
+    "動名詞：V-ing 當名詞。功能：主詞（Smoking harms health）、受詞（I enjoy reading）、介系詞受詞（good at drawing）、補語（My hobby is collecting stamps）。適用條件：凡介系詞後面一律 V-ing（唯一例外是介系詞 to 本身之後也要 V-ing），以及固定動詞羣 enjoy/avoid/mind/finish/suggest/practise/deny。",
+    "現在分詞：V-ing 當形容詞／副詞。進行式結構 be + V-ing 中的 V-ing 就是現在分詞當補語。表「主動＋進行」：the crying baby（正在哭的）、a boring lecture（令人發悶的）。適用條件：被修飾名詞是動作的執行者。",
+    "過去分詞：V-ed（含不規則變化）當形容詞／副詞。被動式 be + V-ed 中的 V-ed 是過去分詞。表「被動＋完成」：the invited guests（受邀的）、a developed country。完成式 have + V-ed 同樣借用過去分詞。適用條件：被修飾名詞是動作的承受者，或動作已完成。",
+    "完成式非動詞：having + V-ed（分詞）、to have + V-ed（不定詞）。適用條件：非動詞的動作明確發生在主句動作「之前」——Having finished his homework, he went out；He seems to have lost his weight（減重發生在「看起來」之前）。",
+    "被動式非動詞：being + V-ed（正在被）、to be + V-ed（將要被）。適用條件：Need/Want/Require + to be V-ed（The car needs to be repaired），或 remember/avoid 後接 being V-ed（He avoided being seen）。",
+    "感官與使役動詞接原形：see/hear/watch/make/let/have + 受詞 + 原形動詞（I saw him cross the street 整個動作；I saw him crossing 進行中）。適用條件：主動語態用原形；轉成被動時原形必須恢復 to——He was made to work（主動 make him work 的被動修復）。"
+   ],
+   "pitfalls": [
+    "stop／remember／forget／try／regret 後面 to V 與 V-ing 意思完全不同：stop to smoke 是「停下手邊的事去抽菸」（to 表目的），stop smoking 是「戒掉抽菸」（停止抽菸這件事）。記錯方向整句語意翻轉。辨認方法：to V 永遠帶「接下來要做」的未來指向，V-ing 永遠指「那個既成的活動本身」。",
+    "懸垂修飾語：Driven by a strong engine, the car accelerated quickly 正確，但 Seen from the hill, the city looked small 要看主句主詞是不是「被看」的對象——city 被看，正確；若寫成 Seen from the hill, we saw the city，就變成「我們被看」。檢查口訣：句首分詞與主句主詞之間要能畫出一條「主動或被動」的關係線，畫不出來就是錯。",
+    "介系詞 to 誤接原形：I look forward to meet you 是高頻錯誤。先用「換成名詞測試」判斷 to 的屬性：look forward to + a party 通順→介系詞→接 meeting you。同族陷阱：be committed to、get used to、object to、in addition to。",
+    "分詞與限定動詞混淆：改錯題常考 Having finished dinner, he watches TV 之類的時態錯亂——分詞構句不承載主要時態，主句才管時態。另外辨認：句中有無 be 動詞決定 V-ed 是「被動式的限定動詞」還是「形容詞用法」，He was invited 是被動句，He remained seated 是「保持坐著的狀態」（seated 為形容詞）。",
+    "need/want 主動表被動：The hair needs cutting（=needs to be cut，頭髮「被剪」）。中國學生常寫 The hair needs to cut。規則只有 need/want/require + V-ing（主動形狀、被動語意）這一族，且主詞必須是「需要被處理的物品」，人當主詞時要換回 to be V-ed 或 to V：He needs to cut his hair。",
+    "逗號＋V-ing 的「結果用法」誤當懸垂：The typhoon hit the island, destroying many houses 正確——destroying 的主體是「整件事」而非 island，這是分詞構句表結果的特殊許可，不是錯誤。和懸垂的區別：能講得通「前面整句話造成了後面」就不是懸垂。"
+   ],
+   "self_check": [
+    "同學問：「為什麼 I want to go 的 go 前面要加 to，I enjoy going 的 going 不用 to？」你怎麼用「那個動作發生了沒有」這個觀念，不靠背清單地向他解釋 want 和 enjoy 的差異？",
+    "把「因為他沒有錢，所以他沒去旅行」用一個句子寫出來，並展示從完整副詞子句一路減化成 Having no money, he didn't travel 的每一步：誰消失了？為什麼可以消失？",
+    "interesting 和 interested、boring 和 bored 什麼時候該用哪一個？用「誰散發、誰承受」的語言跟同學講清楚，並解釋為什麼考試愛用 -ing/-ed 形容詞考分詞觀念。",
+    "看到改錯題：Surfing on the internet, a friend called me. 你如何三秒內指出問題？給出兩種以上修法，並說明每種修法各自把句子還原成了什麼結構。",
+    "I look forward to hear from you 錯在哪裡？解釋「換成 a party 測試」背後的邏輯：為什麼把 to 後面換成名詞就能判定 to 是介系詞還是動詞記號？"
+   ],
+   "id": "eng-高二-002",
+   "chapter_no": 2,
+   "demos": []
+  },
+  {
    "subject": "數學",
    "grade": "高二",
    "no": 1,
@@ -1232,5 +1276,5 @@
   }
  ],
  "planned": 62,
- "written": 29
+ "written": 30
 }
