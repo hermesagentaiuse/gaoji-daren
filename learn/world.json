@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 226,
- "analyzed": 218,
+ "analyzed": 219,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 78
+   "count": 79
   },
   {
    "name": "美洲",
@@ -5930,6 +5930,35 @@
     }
    ],
    "lesson": "權威斷言「人絕不能飛」還不到三年，一爐麥草火與十分鐘的飄行，便改寫了人類與天空的歷史。"
+  },
+  {
+   "id": "w0219",
+   "continent": "歐洲",
+   "era": "現代",
+   "country": "德國",
+   "title": "白玫瑰：廿一歲的斷頭台",
+   "year_label": "1943-02-18—02-22",
+   "authenticity": "正史",
+   "sources": [
+    "白玫瑰基金會（Weiße Rose Stiftung）〈Flugblätter der Weiße Rose〉傳單檔案",
+    "德國聯邦檔案館 Bundesarchiv R 3018/NJ 1704（白玫瑰傳單原件）",
+    "德國歷史博物館〈Leaflets against Dictatorship – The 'White Rose' and 18 February 1943〉",
+    "美國大屠殺紀念館 Holocaust Encyclopedia〈The White Rose Opposition Movement〉",
+    "國家二戰博物館〈Sophie Scholl and the White Rose〉"
+   ],
+   "auth_note": "判定為正史：傳單原件存於聯邦檔案館，審判記錄、蓋世太保檔案與校工雅各布．施密德證詞俱在。蘇菲擲單中庭、漢斯臨刑高喊「自由萬歲」、蘇菲訊問中表示不後悔等情節，分見白玫瑰基金會、美國大屠殺紀念館與國家二戰博物館記載。漢斯喊話的德文原句各來源轉寫一致。",
+   "story": "1943年2月18日上午，廿一歲的蘇菲．蕭爾抱著一疊傳單，與哥哥漢斯走進慕尼黑大學主樓。\n史達林格勒的敗訊剛傳回德國，教授庫爾特．胡貝爾寫下第六篇〈同學們！〉，呼籲青年起來反抗納粹暴政。下課鐘聲一響，蘇菲把傳單擲上二樓欄杆，讓紙頁如雨般散落中庭。\n校工雅各布．施密德眼見這一幕，轉身就去報了蓋世太保。兄妹當場被捕，警方還在漢斯口袋裡搜出好友克里斯多夫．普洛布手寫的第七篇草稿，普洛布連夜入獄。\n四天的訊問裡，三個人把責任全攬在自己身上，試圖保住其他夥伴。2月22日，「人民法院」庭長弗萊斯勒主持了只有半場的審判，以叛國罪判處漢斯、蘇菲與普洛布死刑。當天下午五點，施塔德海姆監獄的斷頭台落下。漢斯高喊：「Es lebe die Freiheit!（自由萬歲！）」蘇菲則早已留下宣告：「I do not regret my conduct and will bear the consequences.」\n一個月內，胡貝爾、施莫雷爾、格拉夫相繼被處決。第六篇傳單卻被秘密帶出德國，由盟軍重印數百萬份，撒回德國上空。紙頁贏得了戰爭，雖然寫它的人沒能活著看見。",
+   "vernacular": [
+    {
+     "orig": "Es lebe die Freiheit!",
+     "modern": "自由萬歲！——漢斯．蕭爾走上斷頭台前喊出的最後一句話。"
+    },
+    {
+     "orig": "I do not regret my conduct and will bear the consequences.",
+     "modern": "我對自己的行為毫不後悔，並願意承担一切後果——蘇菲在訊問與法庭上的聲明。"
+    }
+   ],
+   "lesson": "在最黑暗的年代，幾個年輕人用幾張紙喚醒良知；斷頭台砍得下頭顱，砍不掉它們飛過的天空。"
   }
  ]
 }
