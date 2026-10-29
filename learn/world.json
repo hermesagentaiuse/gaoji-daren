@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 206,
- "analyzed": 200,
+ "analyzed": 201,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 42
+   "count": 43
   },
   {
    "name": "非洲",
@@ -5469,6 +5469,36 @@
     }
    ],
    "lesson": "沒有土地交付的政治承諾只是換了主人；薩帕塔用十五條文證明，正義遲到時，農民不會自己放下武器。"
+  },
+  {
+   "id": "w0201",
+   "continent": "美洲",
+   "era": "現代",
+   "country": "墨西哥",
+   "title": "特拉特洛爾科：奧運前十天",
+   "year_label": "1968-10-02",
+   "authenticity": "爭議",
+   "sources": [
+    "Wikipedia〈Tlatelolco massacre〉",
+    "Elena Poniatowska《La noche de Tlatelolco（Massacre in Mexico）》",
+    "National Security Archive《The Dead of Tlatelolco（Los muertos de Tlatelolco）》",
+    "NPR〈Mexico's 1968 Massacre: What Really Happened?〉",
+    "The New York Times 1968-10-04〈Deaths Put at 49 in Mexican Clash〉",
+    "墨西哥官方公報 DOF 2024-10-02《ACUERDO…crimen de lesa humanidad》"
+   ],
+   "auth_note": "死亡人數三方說法矛盾：官方宣稱26人死亡、全國罷課委員會稱150名平民與40名軍人、2006年特別檢察署報告約350人、學界常引約300人，至今無定論。政府最初指學生先開火，2000年後解密文件顯示系政府部署之狙擊手先向軍人射擊以誘發還擊。迪亞茲·奧爾达斯1969年9月1日第五度國政報告公開全盤認責；2024年10月2日墨西哥政府正式承認此事件為反人類罪。",
+   "story": "1968年10月2日傍晚，墨西哥城三文化廣場聚了近萬名學生與居民。距奧運開幕只剩十天，全國罷課委員會的集会仍在繼續，人群中此起彼落地高喊：「¡No queremos olimpiadas, queremos revolución!」總統迪亞茲·奧爾达斯已決意肅清這場持續數月的學運。\n約五時五十五分，外交部大樓上空竄起紅色焰火；六時十五分，直升機再投下紅綠焰火，五千名士兵連同裝甲車封鎖廣場四周。槍聲乍起，子彈卻不是來自學生——後來解密的美墨文件顯示，是政府潛伏在屋頂的狙擊手先朝軍人開火，誘發這場屠殺。戴著白手套辨識身份的奧林匹亞營衝入廣場，封鎖出入口，士兵向人群與奇瓦瓦公寓掃射近兩小時，意大利記者法拉奇與許多旁觀者、婦孺中彈倒地。\n槍響過後，官方宣稱僅二十六人死難；全國罷課委員會說死了一百五十名平民；歷年檔案與學界估算約三百人，數字至今仍是謎。翌年九月，總統在第五度國政報告中親口說道：「asumo íntegramente la responsabilidad」，罕見地為政府決定全盤認責。十天之後，奧運聖火照常在同一座城市點燃，而廣場上的吶喊，被掩埋在煙火與禮炮聲之下，一等就是半個世紀。",
+   "vernacular": [
+    {
+     "orig": "¡No queremos olimpiadas, queremos revolución!",
+     "modern": "「我們不要奧運會，我們要革命！」——這是六八學運在廣場上的口號，抗議政府耗費國庫興建的奧運而無視民主訴求。"
+    },
+    {
+     "orig": "asumo íntegramente la responsabilidad",
+     "modern": "「我承擔全部的責任」——迪亞茲·奧爾达斯1969年國政報告原話，罕見由總統親口為屠殺決定認責。"
+    }
+   ],
+   "lesson": "政權能用武力壓下廣場上的聲音，卻壓不住歷史的紀錄：真相遲到半個世紀，仍逼得國家低頭認罪。"
   }
  ]
 }
