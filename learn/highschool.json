@@ -165,6 +165,48 @@
    "demos": []
   },
   {
+   "subject": "英文",
+   "grade": "高一",
+   "no": 2,
+   "title": "第2章 八大詞類與基本句型",
+   "tag": "學測核心",
+   "intro": "這一章要讓讀者明白一件事：英文句子不是單字的任意排列，而是「詞類各司其職、句型提供骨架」的系統。八大詞類是演員（名詞演主角、動詞演動作、形容詞修飾主角……），五大基本句型是舞臺（誰站在主詞位、誰站在受詞位，都有固定劇本）。上一章的時態語態管的是動詞這個「引擎」，本章則把視野拉高到整句結構。學測的克漏字、Selecloze 與改錯題，本質都在考「這個位子該站哪一種詞」；讀完本章，你應該能看任何英文句子就標出主詞、動詞、受詞與補語，並判斷空格缺的是哪一類詞。",
+   "concepts": [
+    "八大詞類＝名詞、代名詞、動詞、形容詞、副詞、介系詞、連接詞、感嘆詞。判斷詞類不能只看單字本身，要看它在句中的「職位」：run 在 I run 裡是動詞（我跑），在 a long run 裡是名詞（長跑）。同一個字可以兼任多種詞類，職位決定身份。",
+    "英文句子的最小合法單位是「主詞＋動詞」。一個句子無論多長，一定有一個限定動詞（finite verb）承接主詞；這是與中文最大的差異——中文「他很聰明」不需要動詞，英文必須說 He is smart，be 動詞不能省，這是學測改錯題的第一大來源。",
+    "五大基本句型其實是「動詞分類」的結果：不及物動詞只需主詞（S+V，Birds fly）；及物動詞要求受詞（S+V+O，I read books）；某些動詞（call、make、elect）單有受詞意思不完整，需要補語說明受詞「是什麼、變得如何」（They called him genius，him 和 genius 指同一人）。",
+    "區分受詞與補語的訣竅是「等號測試」：S+V+O+C 裡的 O 與 C 之間可以畫等號（He is the captain → He＝the captain 成立）；S+V+O+O 的兩個受詞之間畫不出等號（I gave him a book → him ≠ a book）。him 是接受者（間接受詞），a book 是被給之物（直接受詞）。",
+    "S+V+C 的補語說明的是「主詞」本身，所以動詞一定是連接動詞（be、seem、become、feel、look、taste）。分辨方法：補語前面可換成「＝」嗎？She looks happy → She＝happy（她看起來快樂）成立，故 happy 是補語而非副詞；比較之下 She looks at me happily，happily 修飾「看」這個動作，才是副詞。",
+    "形容詞修飾名詞、副詞修飾動詞／形容詞／其他副詞，這條分工鏈是克漏字的命門：The food tastes good（good，因為補語說明食物）vs. He plays the piano well（well，因為修飾彈奏動作）。注意 good/well 之辨：good 是形容詞、well 是副詞，但表示「身體健康」時 well 反過來當形容詞（I am well）。",
+    "修飾語的位置影響句子骨架判讀：英文的「定語」大多前置（a tall boy），但片語修飾後置（the book on the desk）。讀長句時先把介系詞片語、關係子句括號化拿掉，剩下的主幹就是五大句型之一——這是拆解長難句的標準動作，也是題幹讀不懂時的急救術。"
+   ],
+   "formulas": [
+    "S+V（主＋不及物動詞）：Birds fly. / The baby cried. 條件：動詞本身意思完整，不需要接受者；fly、cry、sleep、happen 等不及物動詞被加受詞即錯（不能說 The accident happened me）。",
+    "S+V+O（主＋及物動詞＋受詞）：I love music. 條件：及物動詞 buy、need、enjoy、finish 等若後面沒有受詞，句子不完整；這是選擇題考「動詞及物性」的依據。",
+    "S+V+O+C（主＋動＋受＋受詞補語）：We named the cat Momo. / The news made her happy. 條件：動詞為命名、使役、感知類（call、name、make、elect、find、keep）；驗證法＝受詞與補語間可畫等號（the cat＝Momo）。",
+    "S+V+O+O（主＋動＋間接受詞＋直接受詞）：My father bought me a bike. 條件：給予類動詞（give、buy、send、show、tell、lend）；改寫規則＝直接受詞提前時改寫成 for/to 片語（bought a bike for me），buy 用 for、give 用 to。",
+    "S+V+C（主＋連接動詞＋補語）：The soup tastes salty. 條件：連接動詞後面接形容詞當補語，不可用副詞；五感動詞（look/sound/smell/taste/feel）加「like＋名詞」時才當介系詞用（It sounds like jazz）。",
+    "名詞片語＝（限定詞）＋（形容詞）＋名詞，例如 the three old bridges。順序規則：數量詞在描寫形容詞之前（three old），限定詞永遠在最前；空格題若考形容詞排序，記「數—觀—形—年—產—材」的口訣。"
+   ],
+   "pitfalls": [
+    "漏掉 be 動詞或動詞濫用：中文「我很好」翻成 I very good（錯，沒有動詞）或 I am very well 可以、但 I am very happy 才自然。反過來「我愛跑步」寫成 I am like running 也是災難——一個句子只能有一個限定動詞，like 前面不能再掛 am。辨認法：先數限定動詞，多一個或少一個都是錯。",
+    "受詞位置用了主詞形：Let we go（錯，應爲 Let us go）、Him and me went home（錯，主詞位要用 He and I）。口訣：把另一個人的代名詞拿掉單獨讀——「Me went home」明顯怪，即知該用 I。學測代名詞改錯常混這題型。",
+    "連接動詞後面接副詞：The flower smells beautifully（錯）。香味是「花的屬性」而不是「聞的動作方式」，補語位要用形容詞 smells good。辨認法：把動詞換成 is 看看意思是否接近——The flower is good 接近原意，故用形容詞。",
+    "兩個受詞搞錯對位：I gave to him a book（錯，give 直接帶間接受詞時不加 to）、I gave a book me（錯，直接受詞提前必須補 to：gave a book to me）。規則背法：「人」緊跟動詞時不加介系詞，「物」緊跟動詞時「人」前要加 to/for。",
+    "詞性誤判導致克漏字填空錯誤：看到空格前面是冠詞就猜名詞、前面是名詞就猜形容詞，結果碰到 this kind of data 之類的結構就填錯。正確做法：先判斷整句屬於五大句型的哪一種，確認空格站在主詞、受詞還是補語位，再決定詞類——位置先於猜測。"
+   ],
+   "self_check": [
+    "不加術語，跟同學解釋：為什麼「他很聰明」要翻成 He is smart 而不能翻成 He smart？（提示：中文可以沒有動詞，英文的位子誰來佔？）",
+    "不加術語，解釋為什麼 We elected him monitor 裡的 monitor 不是第二個受詞，而 I gave him a book 裡的 a book 是受詞？（提示：畫等號試試看。）",
+    "不看課本，把 This movie made me feel excited. 標出主詞、動詞、受詞、補語各是哪幾個字，並說明 feel 在這個句子裡是什麼詞類。",
+    "不加術語，說明為什麼 The new bus driver seems very ___ 的空格要填 careful 而不是 carefully，而 He drives the bus very ___ 卻要反過來填 carefully。（提示：兩句的空位分別在描述「誰」？seems 後面換成 is 意思還是一樣嗎？）",
+    "把 The little girl in the red dress gave a stranger on the corner her umbrella 剝掉所有修飾語，寫出它屬於五大句型的哪一種，並指出兩個受詞分別是什麼。"
+   ],
+   "id": "eng-高一-002",
+   "chapter_no": 2,
+   "demos": []
+  },
+  {
    "subject": "數學",
    "grade": "高一",
    "no": 1,
@@ -682,5 +724,5 @@
   }
  ],
  "planned": 62,
- "written": 17
+ "written": 18
 }
