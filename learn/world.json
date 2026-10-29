@@ -1,12 +1,12 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 206,
- "analyzed": 193,
+ "analyzed": 194,
  "continents": [
   {
    "name": "亞洲",
    "icon": "🌏",
-   "count": 46
+   "count": 47
   },
   {
    "name": "歐洲",
@@ -5271,6 +5271,35 @@
     }
    ],
    "lesson": "喪夫失子之痛未能折斷她，她把個人的傷口寫成整個美洲的聲音——苦难被承擔，便能成為榮耀。"
+  },
+  {
+   "id": "w0194",
+   "continent": "亞洲",
+   "era": "現代",
+   "country": "印度",
+   "title": "阿姆利則：牆內的一千六百五十發子彈",
+   "year_label": "1919-04-13",
+   "authenticity": "正史",
+   "sources": [
+    "Britannica〈Jallianwala Bagh Massacre〉",
+    "Britannica〈Reginald Dyer〉",
+    "Wikipedia〈Jallianwala Bagh massacre〉（引戴爾1919年4月14日報告）",
+    "Hunter Commission Report 1920（引 Sewa Samati 統計：379死、約1200傷）",
+    "Selected Letters of Rabindranath Tagore（Cambridge UP 1997，收1919-05-31致欽斯福德總督退爵信）"
+   ],
+   "auth_note": "事件本身有大量同時代史料（戴爾自述報告、獵人委員會聽證記錄、泰戈爾公開信），定為正史。死亡人數有爭議：官方採认的 Sewa Samati 統計為379死約1200傷，印度國大黨估計死者逾千、傷逾1500，殖民政府未做確切統計，故故事兩說並陳。網路盛傳「戴爾獲英國支持者募款2.6萬鎊並贈寶劍」，本輪僅見於未經權威核對的二手轉述，故只寫「有擁護者為他募款」不落具體數字。",
+   "story": "1919年4月13日，浴佛節慶日。旁遮普邦阿姆利則全城已禁止集會——當局前几日剛逮捕並驅逐民族領袖薩蒂亞帕爾與基奇盧，可絕大多數人沒聽說新的禁令。朱利安瓦拉巴格花園四面高牆，只留一道狹窄入口，這天午後卻湧進上萬男女老幼：有人從鄉下來過節，有人平靜抗議逮捕。\n代理準將戴爾率五十名來福槍兵進園，調頭封死入口，在土台上列好射擊陣位。沒有警告、沒有驅散令，他直接下令開火。槍口特意掃向人群擠向窄門的方向，牆內無處可逃，有人跳井、有人攀牆。射擊持續約十分鐘，直到子彈快打光才停。槍聲一歇，士兵立刻整隊撤走，把死傷者全部留在牆內。\n戴爾隔天在報告裡寫：「I have heard that between 200 and 300 of the crowd were killed. My party fired 1,650 rounds.」次年公布的獵人委員會報告記錄：可確認姓名者死者379人、傷約1200人；國大黨則估計死者逾千。殖民政府從頭到尾拿不出一份確切數字。\n戴爾只被解除職務，回到英國仍有擁護者為他募款。加爾各答的諾貝爾文學獎得主泰戈爾寫信給總督欽斯福德，退回1915年受封的爵位：「The time has come when badges of honour make our shame glaring.」那面彈痕累累的牆，後來成了印度獨立之路上洗不掉的一頁賬。",
+   "vernacular": [
+    {
+     "orig": "I have heard that between 200 and 300 of the crowd were killed. My party fired 1,650 rounds.",
+     "modern": "我聽說群眾死了兩百到三百人。我的隊伍打光了一千六百五十發子彈。——戴爾事後自述，語氣毫無悔意。"
+    },
+    {
+     "orig": "The time has come when badges of honour make our shame glaring.",
+     "modern": "時候到了——榮譽勳章只會讓我們的恥辱更加刺眼。——泰戈爾以此為由退回英王封爵。"
+    }
+   ],
+   "lesson": "權力可以向無辜者開火並逃過一時審判，但每一發子彈都在擊碎它自己的統治正當性，牆上的彈痕終將成為歷史的賬本。"
   }
  ]
 }
