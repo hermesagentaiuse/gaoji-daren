@@ -1,12 +1,12 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 206,
- "analyzed": 194,
+ "analyzed": 195,
  "continents": [
   {
    "name": "亞洲",
    "icon": "🌏",
-   "count": 47
+   "count": 48
   },
   {
    "name": "歐洲",
@@ -5300,6 +5300,31 @@
     }
    ],
    "lesson": "權力可以向無辜者開火並逃過一時審判，但每一發子彈都在擊碎它自己的統治正當性，牆上的彈痕終將成為歷史的賬本。"
+  },
+  {
+   "id": "w0195",
+   "continent": "亞洲",
+   "era": "現代",
+   "country": "印度",
+   "title": "泰戈爾： lost in the tube 的詩稿",
+   "year_label": "1913-11-13",
+   "authenticity": "正史",
+   "sources": [
+    "The Hindu〈Rabindranath Tagore in the London Tube〉",
+    "The Guardian〈Winning isn't everything〉(2005)",
+    "Gitabitan〈1912 in Rabindranath Tagore's Life〉（引《Rabijibani》第六卷）",
+    "NobelPrize.org Rabindranath Tagore 1913",
+    "Project Gutenberg《Gitanjali》葉慈序"
+   ],
+   "auth_note": "遺失與尋回情節由 The Hindu、The Guardian、Gitabitan（引泰戈爾之子羅辛德蘭納斯回憶及《Rabijibani》第六卷）、Scottish Centre of Tagore Studies 等多方獨立來源互證，屬信史。細節各說略有出入：The Guardian 說遺失於 Charing Cross 至 Russell Square 間、於寄物處領回；The Hindu 與 Gitabitan 說由 Baker Street 失物招領處尋回；Gitabitan 並記為兒子下車時忘記取箱。本稿採共同主線，細節從眾說。",
+   "story": "1912年6月，五十一歲的泰戈爾登上開往倫敦的「格拉斯哥城號」郵輪。為求醫舊疾而西行的他，在甲板上攤開筆記本，把舊日寫的孟加拉語詩一首首譯成英文，不知不覺填滿兩本練習簿——那是世上獨一無二的《吉檀迦利》英文詩稿。\n船抵倫敦，他與兒子一同搭地鐵前往畫家羅登斯坦的住處。下車匆忙間，裝著詩稿的手提箱竟被遺忘在車廂裡。翌日整蠝要出發時才驚覺不見，詩人焦急萬分：孤本一失，數月心血將付諸流水。兒子趕往地鐵失物招領處查詢，幸而箱子分毫不差地送了回來，像一場虛驚。\n死裡逃生的詩稿隨即交到羅登斯坦手中。這位畫家當晚誦讀，大驚為前所未見的神秘主義詩篇，立刻把譯稿分送知名文士。詩人葉慈讀後為之動容，自述：「I have often had to close it lest some stranger would see how much it moved me.」他親自校訂、作序，奔走安排出版。\n1913年11月13日，瑞典學院宣布泰戈爾榮獲諾貝爾文學獎，成為歷史上第一位獲獎的亞洲人。一隻遺落在地鐵裡的箱子，差點吞掉整部諾貝爾文學史。",
+   "vernacular": [
+    {
+     "orig": "I have often had to close it lest some stranger would see how much it moved me.",
+     "modern": "我常不得不合上詩集，就怕陌生人看見它多麼令我感動。（葉慈自述初讀《吉檀迦利》譯稿時的震撼）"
+    }
+   ],
+   "lesson": "偉大的作品可能只差一次遺失便湮滅無聞；正是失而復得的機緣與伯樂的賞識，讓天才得以抵達世界。"
   }
  ]
 }
