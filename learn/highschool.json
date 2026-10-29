@@ -950,6 +950,49 @@
    "demos": []
   },
   {
+   "subject": "英文",
+   "grade": "高二",
+   "no": 1,
+   "title": "第1章 三種子句",
+   "tag": "學測核心",
+   "intro": "高一我們學會了「一個句子只有一個動詞」的原則，高二這一章要解決的問題是：當一個句子需要裝進另一個句子時，怎麼辦？答案就是子句（clause）——一個有自己主詞與動詞、但被降格成「名詞、形容詞、副詞」三種角色之一的小句子。名詞子句當主詞或受詞、形容詞子句修飾名詞、副詞子句交代時間條件原因。學測文法與cloze題的骨幹幾乎都建立在「先判斷這個子句在句子裡扮演什麼詞性角色」之上。讀完本章，你應該能做到：看到任何一個 from / that / when 開頭的結構，立刻說出它是哪種子句、在句中做什麼成分、該用什麼連接詞。",
+   "concepts": [
+    "子句的本質是「被降格的句子」：它內部有完整的主詞加動詞，但整體被當成一個詞來用。判斷子句類型的關鍵不是看連接詞長什麼樣，而是問「它取代了哪種詞性」——取代名詞就是名詞子句，取代形容詞去修飾名詞就是形容詞子句，取代副詞交代時間條件就是副詞子句。",
+    "名詞子句由 that、whether/if、what、who、when 等引導，直接在主句中擔任主詞、受詞或補語。它和that引導的形容詞子句最容易混淆：區分訣竅是看 that 前面有沒有「被修飾的名詞」。I know that he is right 中 that 前面是動詞 know，that 子句是受詞，所以是名詞子句；The book that he bought 中 that 前面是 book，that 子句修飾 book，所以是形容詞子句。",
+    "形容詞子句（關係子句）的靈魂是關係代詞「身兼二職」：that/which/who 一方面當連接詞把兩個句子縫起來，另一方面在子句內部擔任主詞或受詞。這也是為什麼 The book that I bought it 是錯的——that 已經代替了 it，受詞不能再重複出現。關係代詞在子句內當受詞時可以省略（The book I bought），當主詞時不可省略（The book that sold well），省略與否的判斷完全取決於它在子句內部是不是主詞。",
+    "who 與 whom 的選擇不是背規則，而是看位置：關係代詞在子句裡當主詞用 who，當受詞或介系詞受詞用 whom。Do you know the man who spoke just now（spoke 缺主詞，用 who）；Do you know the man whom/who you met yesterday（met 缺受詞，正式寫 whom，口語可放行 who）。試捲上出現介系詞提前時（the man with whom I work）必須用 whom，這是學測愛考的細節。",
+    "副詞子句由 when、because、although、if、until、so that 等從屬連接詞引導，功能是修飾整個主句，交代時間、條件、讓步、原因、目的。它和名詞子句的區分點在於「能不能被換成 it」：I don't know when he will come 的 when 子句是 know 的受詞（可換成 it），是名詞子句；I don't know him when he is angry 的 when 子句只是交代時間背景（不能換成 it），是副詞子句。",
+    "「減化子句」是三種子句的進階形態，也是學測後段題的戰場：形容詞子句的that/which加上be動詞可以直接拿掉（the book written by him 來自 the book which was written by him），因為分詞本身已攜帶「修飾名詞」的形容詞功能；副詞子句的主詞與主句相同時也可省略主詞與be（When asked, he kept silent）。判斷還原與否的方法永遠是回頭補主詞、補be動詞，檢查句子是否還通順。",
+    "三種角色可以背一個錨點口訣：名詞子句答「是什麼」、形容詞子句答「哪一個」、副詞子句答「何時為何條件」。寫長句時先決定主幹（主詞＋動詞＋補語），再決定要把哪些資訊降格塞進哪種子句，這是從中翻英與作文都通用的結構化方法。"
+   ],
+   "formulas": [
+    "名詞子句構句：連接詞（that/whether/what）＋ 完整句子（主詞＋動詞），整體當名詞用。適用條件：連接詞後面的語序必須是敘述句順序，不可保留疑問句倒裝——I wonder what he wants 正確，I wonder what does he want 錯誤（間接問句須還原語序）。",
+    "形容詞子句構句：先行詞＋關係代詞（who/which/that）＋子句。適用條件：關係代詞在子句內必須真正擔任主詞或受詞；若動詞是不及物動詞加介系詞（listen to、look after），介系詞要留在子句尾部或提前，且提前時不可用 that。",
+    "非限定用法構句：先行詞（專有名詞或唯一事物）＋逗號＋ which/who ＋子句。適用條件：補充說明用 which 且不可換 that、不可省略；The Yangtze River, which is the longest river in China, flows to the sea。限定用法則不加逗號、可用 that。",
+    "副詞子句構句：從屬連接詞＋完整句子，前後位置自由；放句首時習慣加逗號。適用條件：雖然 although 與 but、because 與 so 在英文中不能同時出現在同一個邏輯單位（中文「因為…所以…」的雙連接詞習慣是中國學生第一大錯誤源）。",
+    "減化形容詞子句：主動（be）省略式＝先行詞＋過去分詞／現在分詞＋其餘。適用條件：子詞動詞為被動用 V-ed（the bridge built in 1990），為主動進行用 V-ing（the man standing there）。",
+    "減化副詞子句：連接詞＋分詞（省略與主句相同的主詞及be動詞）。適用條件：兩個子句主詞必須一致，否則構成「懸垂 modifier」錯誤——Walking down the street, the trees surprised me 錯誤，因為 trees 不會 walking。"
+   ],
+   "pitfalls": [
+    "that 與 which 混用：限定關係子句裡前面有最高級、序數、only、all、任何無疑問詞時偏好 that 且正式寫作避免 which 接逗號；非限定（逗號後）只用 which 不用 that。辨認方法：先看有沒有逗號，有逗號就換掉 that。",
+    "受詞重複：The movie that I watched it last night 是多餘的 it。辨認方法：把 that/which 還原回子句內部當受詞，若句中還剩一個受詞，那個受詞就是要刪掉的。",
+    "間接問句忘了還原語序：Can you tell me where is the station 是直接把疑問句抄進來的錯誤，正確是 where the station is。凡是子句內的動詞跑在主詞前面，又沒有整體倒裝的理由，就是這裡出了錯。",
+    "雙連接詞：Because he was sick, so he stayed home。英文一個邏輯關係只配一個連接詞，because 和 so 二選一。中國學生受母語影響幾乎人人必犯，改錯題看到「從屬連接詞＋逗號＋so/but」就要警覺。",
+    "名詞子句與副詞子句的 when/where 誤判：cloze 題若空格後的子句是動詞的受詞（問「什麼時間/地點」），選 when；若只是背景交代（「在那個時間點」），選 when 當副詞連接詞但語意不同。解題靠代換測試：受詞位置能否換成 it，能就是名詞子句。",
+    "主詞子句動詞單複數：What he said is true 的動詞用 is 不用 are，因為整個 what 子句是「一件事」。看到 What/That 開頭的子句當主詞，動詞預設單數，除非語意明確指複數（What I need are books 因 books 而複數）。"
+   ],
+   "self_check": [
+    "不用「先行詞」「關係代詞」這些術語，怎麼跟同學解釋 The man who talked to us yesterday is my uncle 裡面的 who 到底在忙什麼？",
+    "給你兩個句子：I believe. / He is honest. 你怎麼把第二句裝進第一句？裝完之後那個 that 在整個大句子裡扮演什麼成分？",
+    "為什麼 The book that I bought it 的 it 一定要刪掉，但 The book I bought 整個 that 又能消失？用「that 在子句裡站哪個位置」把兩個現象一次講清楚。",
+    "I don't know when he left 和 Call me when you arrive 兩個都有 when，你怎麼向別人證明第一個 when 子句是「名詞」、第二個是「副詞」？（提示：換成 it 試試看）",
+    "看到改錯題 Walking into the room, the desk looked clean. 你如何在三秒內指出荒謬之處，並給出起碼兩種修法？"
+   ],
+   "id": "eng-高二-001",
+   "chapter_no": 1,
+   "demos": []
+  },
+  {
    "title": "第3章 概率與統計",
    "tag": "學測核心",
    "intro": "概率統計是學測佔比最高的實作區塊，也是最容易『看得懂題目卻算錯』的地方。核心只有兩個問題：樣本空間怎麼數（排列組合）、事件之間怎麼相處（互斥、獨立、條件）。圖畫出來（樹狀圖、韋恩圖）正確率立刻上升。",
@@ -1023,5 +1066,5 @@
   }
  ],
  "planned": 62,
- "written": 24
+ "written": 25
 }
