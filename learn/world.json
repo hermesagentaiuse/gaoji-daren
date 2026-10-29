@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 190,
- "analyzed": 187,
+ "analyzed": 188,
  "continents": [
   {
    "name": "亞洲",
@@ -26,7 +26,7 @@
   {
    "name": "中東",
    "icon": "🕌",
-   "count": 19
+   "count": 20
   },
   {
    "name": "大洋洲",
@@ -5096,6 +5096,34 @@
     }
    ],
    "lesson": "盛世從非天降：把商路、工匠與信仰都編進國家算盤的統治者，能在沙地上建出半個世界。"
+  },
+  {
+   "id": "w0188",
+   "continent": "中東",
+   "era": "上古",
+   "country": "波斯/伊朗",
+   "title": "波斯御道：風雪不阻的王使",
+   "year_label": "約前500—前400",
+   "authenticity": "正史",
+   "sources": [
+    "希羅多德《歷史》卷五53（薩迪斯至蘇薩御道、一百一十一處驛站）",
+    "希羅多德《歷史》卷八98（安加里亞接力快騎、風雪不阻之語）",
+    "《波斯波利斯要塞泥板文書》（pirradaziš 快遞信使領糧記錄）",
+    "Livius.org〈Royal Road〉、大英百科〈Persian Royal Road〉"
+   ],
+   "auth_note": "希羅多德為近時代（前五世紀）希臘史家，其記載與波斯波利斯泥板 pirradaziš 記錄相互印證，故定正史。一百一十一驛出自《歷史》5.53；「七里達」之說為後世推算，本文不取，只言數日。希羅多德原句為古希臘文，今通行英文譯句引之並附白話。",
+   "story": "公元前四五〇年秋，波斯艦隊在雅典外海的薩拉密斯大敗。軍報必須火速送回首都蘇薩，而從薩迪斯到蘇薩的御道全長約兩千七百公里，徒步要走整整九十天。\n但大王等不了九十天。御道沿途每隔約一日騎程便設一驛，共有一百一十一處，常年備著良馬與騎手。一名信差渾身塵土衝進驛站，馬伕立刻取過他手中封了火的文書筒，飛身上馬揚鞭而去——無論白晝黑夜，接力從不停歇。波斯人稱這套接力系統為 pirradaziš，意為「快遞信使」；波斯波利斯的泥板上，便登記著他們的名字與官馬的草料。\n希臘史家希羅多德為之咋舌，寫道：「Neither snow nor rain nor heat nor darkness of night prevents them from accomplishing the task proposed to them with the very utmost speed.」他又說：「Nothing mortal accomplishes a journey with more speed than these messengers.」\n敗軍的消息越過雪山與沙海，數日之內便送抵蘇薩。邊疆的任何動靜，都瞞不過大王的眼目。御道不只是一條鋪石的路，它是一個帝國統治天下的神經。",
+   "vernacular": [
+    {
+     "orig": "Neither snow nor rain nor heat nor darkness of night prevents them from accomplishing the task proposed to them with the very utmost speed.",
+     "modern": "無論暴雪、暴雨、酷暑還是漆黑的夜晚，都無法阻擋這些信使以最快的速度完成使命。（希羅多德《歷史》8.98 英文譯句）"
+    },
+    {
+     "orig": "Nothing mortal accomplishes a journey with more speed than these messengers.",
+     "modern": "世間凡間之物，沒有比這些信使赶路更快的了。（希羅多德對波斯快騎的讚嘆）"
+    }
+   ],
+   "lesson": "統治的邊界不在鐵騎能到之處，而在政令能以多快的速度抵達之處；道路與訊息，自古便是權力的神經。"
   }
  ]
 }
