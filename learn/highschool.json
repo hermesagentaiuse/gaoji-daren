@@ -253,6 +253,49 @@
    "demos": []
   },
   {
+   "subject": "英文",
+   "grade": "高一",
+   "no": 3,
+   "title": "第3章 段落邏輯與連結詞寫作",
+   "tag": "素養",
+   "intro": "這一章要讓讀者明白一件事：連結詞不是裝飾句子的連接膏，而是「邏輯關係的簽名」——你選 however 還是 therefore，等於宣告前後兩句是「對立」還是「因果」，簽錯了，整段的意思就翻轉。上一章掌握了句子層級的句型骨架，本章把視野拉高到「段落」：一個好段落像一個論證，有主題句撐起立場、有支持句提供證據、有連結詞標出每一步推理的走向。學測的克漏字後段、寫作（guided writing）與素養題的篇章結構判斷，考的都是同一件事：你能不能看穿句子之間的邏輯，並用正確的連結工具把它寫出來。讀完本章，你應該能替任何段落畫出邏輯地圖，也能寫出接得順、轉得穩的段落。",
+   "concepts": [
+    "段落＝一個段落只講一件事（one paragraph, one idea）。主題句（topic sentence）通常放在段首，用一句話宣告本段立場；接下來的支持句全部為它服務——舉例、對比、解釋因果都行，但任何與主題句無關的句子，寫得再好也該刪。判讀文章時先找主題句，等於拿到了地圖的比例尺。",
+    "連結詞的四大邏輯家族：並列與遞進（and、moreover、in addition、furthermore）、對比與讓步（but、however、although、nevertheless、on the contrary）、因果（because、since、therefore、as a result、consequently）、順序與舉例（first、then、finally、for example）。做克漏字時，先在空格前後找「同義重複」還是「語氣反轉」，再從對應家族挑詞，比憑語感猜準確得多。",
+    "讓步與對比的邏輯結構不同：although 是「先承認敵方論點，再守住自己論點」（Although it rained, the game continued——重點在 game continued）；but 是「兩個事實正面交鋒」（It rained, but the game continued）。寫作時若想強調自己的立場，用 although 把弱勢資訊壓在從句裡，讓主句承擔你想讓讀者記住的那一句。",
+    "however 與 although 的最大差異在詞性層級：however 是副詞，不能連接兩個句子，只能放在新句開頭並用句號或分號隔開（It rained. However, the game continued.）；although 是從屬連接詞，直接把兩句焊成一句。把 however 用逗號硬接兩句，就是著名的 comma splice 錯誤，也是寫作扣分與改錯題的高頻點。",
+    "因果鏈要檢查「方向」與「強度」：because 前後是因與果，因此because he studied hard, he passed 與 he passed because he studied hard 邏輯相同、重點移位（英文把想強調的放主句）。另外 therefore 宣稱強因果，前句必須真的能推出後句；只是相關就用 this may lead to，把相關說成因果，是素養題判斷「論證是否合理」的常見陷阱。",
+    "代詞與重複詞是無形的連結線：this、these、such a result、the problem 這類「回指詞」把前句內容打包成一個名詞再往下推，文章才不會每句都從零開始。但 this 後面一定要接名詞（this finding、this policy），單獨的 this is... 若指代不明，讀者就斷線——這是寫作被評為「語意不清」的頭號原因。",
+    "段落內部的經典骨架是「主張—證據—解釋」（Claim–Evidence–Reasoning）：主題句給主張，例子或數據當證據，最後一定要有解釋句把證據和主張焊起來。學生最常犯的錯是隻有主張加例子、缺少 own words 的解釋，讀完像剪貼簿；素養寫作滿分的段落，解釋句往往就是拉開分數的那一句。"
+   ],
+   "formulas": [
+    "並列句：A, and B／A, but B／A, so B。條件：逗號＋but/and/so 這類並列連接詞（FANBOYS：for, and, nor, but, or, yet, so）兩邊必須各站一個完整句子，或站結構對稱的平行成分（parallel structure：studied hard and slept little，不可 studied hard and sleeping little）。",
+    "讓步句：Although + 從句, 主句。條件：從屬連接詞（although、because、when、if）把一個句子降格為從句，後面必須再有一個主句才能成段；Although 與 but 不可同時出現（中文「雖然……但是……」直譯過來的經典錯誤）。",
+    "副詞型連結：句子. However, 句子。／句子; however, 句子。適用：however、therefore、moreover、in addition、for example 這類連接副詞——它們前後只能是句號或分號，不能只用逗號；寫作自查時數一數每句有幾個限定動詞即可揪出 comma splice。",
+    "因果改寫對：because + 原因 → 結果 ＝ 結果 + because + 原因；The match was cancelled because the rain was heavy ＝ Because the rain was heavy, the match was cancelled。條件：改寫後事實不變，但讀者注意力的落點移到主句；因此選擇「因果誰在前」其實是在決定「強調誰」。",
+    "主題句公式：主題句 ≒ 主題（topic）＋立場（controlling idea）。例：Smartphones do more harm than good to high school students' sleep.（主題＝smartphones，立場＝害多於利，且限縮在 sleep）。條件：能引發同意或反對的句子才是主題句；純事實（Everyone has a smartphone）只是背景，撐不起段落。",
+    "回指連結公式：前句整段內容 → this/these + 抽象名詞（finding, policy, result, trend）+ 動詞。例：Many students failed the test. This result surprised the teacher. 條件：回指詞後面必須補一個能概括前句的抽象名詞，且該名詞在前文有明確對應。"
+   ],
+   "pitfalls": [
+    "comma splice（逗號拼接）：It was raining, however we still went out.（錯）——however 是副詞接不了兩句。三個修法要全部學會：① 句號切開 It was raining. However, we still went out. ② 分號 It was raining; however, ... ③ 改連接詞 It was raining, but we still went out. 寫作與改錯題都高頻。",
+    "Although...but... 雙重連接：Although he is rich, but he is not happy.（錯，英文明白排斥「一山二虎」——從屬連接詞與 but 只能留一個）。同類錯誤還有 because...so...、because...and so...。中文習慣成對使用連接詞，英文一組邏輯關係只簽一個名。",
+    "on the contrary 與 however 濫用：However 只是「語氣轉折」（It is hot; however, I like it），on the contrary 是「前句說反了，事實是相反的那個」（It is not hot. On the contrary, it is freezing.）。前後兩句只是不同而非相反時硬放 on the contrary，是學測克漏字最愛的誘錯選項。",
+    "Therefore 前無推論基礎：He likes basketball; therefore, he is tall.（ likes 推不出 tall，因果不成立）。用 therefore／as a result 之前先做「因為前句，所以後句必然嗎？」測試；只是時間先後就改用 then、after that，只是舉例就改用 for instance。",
+    "平行結構斷裂：The teacher asked us to finish the essay and reviewing the vocab.（錯，to finish 與 reviewing 不對稱，應為 to finish ... and (to) review ...）。檢查法：把 and 前後各自讀成獨立片語，結構一模一樣才放行；列舉三項以上時（A, B and C）三項都要同一形式。",
+    "懸空回指：Students spend hours on their phones. This is dangerous.（this 指花時間？指手機？不明確）。修法：this + 概括名詞（This habit is dangerous.）。判別法：把 this 蓋住，若你無法唯一確定它在指什麼，讀者也無法。"
+   ],
+   "self_check": [
+    "不加術語，跟同學解釋：為什麼 It was late, however we kept talking 是錯的，而 It was late, but we kept talking 是對的？（提示：however 和 but 在「能不能把兩句焊在一起」上有什麼不同？）",
+    "給你一個主題句 Reading fiction makes you understand people better. 請口頭產生：一個支持例子、一個反方論點、以及一句用 however 守回立場的回應。三樣缺一不可。",
+    "不加課本術語，說明 Although the experiment failed, it taught us a lot. 為什麼重點落在 taught us a lot 而不是 failed？如果改成 The experiment failed, but it taught us a lot., 強調的重心變了嗎？",
+    "把下面四句重排成邏輯順利的段落並說明理由：A. As a result, many shops closed. B. The town banned cars from the main street in 2019. C. At first, foot traffic increased. D. However, customers from the suburbs stopped coming.（提示：先找事實起點，再找轉折，最後找結果。）",
+    "不查書，寫出 three families of linkers 各兩個例子，並各造一個句子；然後互相檢查：因果句裡的 because 前後能不能對調而事實不變？讓步句的 although 前後能不能對調？為什麼？"
+   ],
+   "id": "eng-高一-003",
+   "chapter_no": 3,
+   "demos": []
+  },
+  {
    "subject": "數學",
    "grade": "高一",
    "no": 1,
@@ -854,5 +897,5 @@
   }
  ],
  "planned": 62,
- "written": 21
+ "written": 22
 }
