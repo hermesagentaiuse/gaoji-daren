@@ -203,8 +203,8 @@
           else if (s.route === "#/boyin") meta = "Podcast 訪談精讀";
           else if (s.route === "#/amt") meta = "風傳媒財經節目精讀";
           else if (s.route === "#/research") meta = "論文學習地圖 · 每天一篇";
-          else if (s.route === "#/highschool") meta = "國英數物化生 · 學科重點整理";
-          else if (s.route === "#/college") meta = "物理系核心學科 · 演示物理";
+          else if (s.route === "#/highschool") meta = "國英數物化生 · 課本式逐章撰寫中";
+          else if (s.route === "#/college") meta = "物理系核心學科 · 逐章撰寫中";
           else if (s.route && s.route.startsWith("#/game/")) meta = "文字遊戲 ↗";
           else if (s.route && s.route.startsWith("#/finance/")) meta = "財務分析站 ↗";
         }
@@ -1235,7 +1235,19 @@
         if (subj && subj.desc) html += '<p class="page-sub">' + esc(subj.desc) + "</p>";
         html += "</div>";
         if (!list.length) {
-          html += '<p class="hint">這個學科還沒有內容，之後會逐篇補上。</p>';
+          html += '<p class="hint">這個學科還沒有內容，之後會逐章補上。</p>';
+        } else if (list.some(function (t) { return t.grade; })) {
+          // 課本式：依年級分組，年級內按章序
+          var GORD = { "高一": 0, "高二": 1, "高三": 2 };
+          var grades = [];
+          list.forEach(function (t) { if (grades.indexOf(t.grade) === -1) grades.push(t.grade); });
+          grades.sort(function (a, b) { return (GORD[a] === undefined ? 9 : GORD[a]) - (GORD[b] === undefined ? 9 : GORD[b]); });
+          grades.forEach(function (g) {
+            var gl = list.filter(function (t) { return t.grade === g; })
+                         .sort(function (a, b) { return (a.chapter_no || 0) - (b.chapter_no || 0); });
+            html += '<h3 style="margin:18px 0 8px">' + esc(g) + "　<span style=\"opacity:.6;font-size:.85em\">" + gl.length + " 章</span></h3>";
+            html += '<div class="card-grid">' + gl.map(function (t) { return schoolTopicCard(kind, t); }).join("") + "</div>";
+          });
         } else {
           html += '<div class="card-grid">' + list.map(function (t) { return schoolTopicCard(kind, t); }).join("") + "</div>";
         }
@@ -1290,8 +1302,8 @@
       html += '<textarea id="schoolnote-box" rows="6" style="width:100%;box-sizing:border-box;font:inherit;padding:8px;border-radius:8px;border:1px solid #8884;background:transparent" placeholder="寫下你自己的三行心得…"></textarea>';
       html += '<p><button id="schoolnote-save" class="learn-link" style="cursor:pointer;border:1px solid #7c9cbf;border-radius:8px;padding:6px 14px;background:transparent">儲存備註</button> <span id="schoolnote-saved" style="opacity:.7"></span></p></section>';
       html += '<nav class="learn-nav">';
-      if (i > 0) html += '<a href="#/' + kind + '/' + encodeURIComponent(subjectName) + "/" + encodeURIComponent(list[i - 1].id) + '">← 上一項</a>';
-      if (i < list.length - 1) html += '<a href="#/' + kind + '/' + encodeURIComponent(subjectName) + "/" + encodeURIComponent(list[i + 1].id) + '">下一項 →</a>';
+      if (i > 0) html += '<a href="#/' + kind + '/' + encodeURIComponent(subjectName) + "/" + encodeURIComponent(list[i - 1].id) + '">← 上一章</a>';
+      if (i < list.length - 1) html += '<a href="#/' + kind + '/' + encodeURIComponent(subjectName) + "/" + encodeURIComponent(list[i + 1].id) + '">下一章 →</a>';
       html += "</nav></div>";
       content.innerHTML = html;
 
