@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 190,
- "analyzed": 181,
+ "analyzed": 182,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 67
+   "count": 68
   },
   {
    "name": "美洲",
@@ -4938,6 +4938,35 @@
     }
    ],
    "lesson": "恐怖統治的法庭終會吞冇它的創造者：用非常手段消滅對手的人，也會被同樣的手段反噬。"
+  },
+  {
+   "id": "w0182",
+   "continent": "歐洲",
+   "era": "現代",
+   "country": "法國",
+   "title": "雨果與悲慘世界：流亡島上的巨石",
+   "year_label": "1862",
+   "authenticity": "正史",
+   "sources": [
+    "《悲慘世界》1862年初版與序言（署名 Hauteville House 1862，Project Gutenberg 全文核對）",
+    "法國國家圖書館 BnF Essentiels〈Les Misérables dans le texte〉〈La genèse〉（1862序言原文、1845/1848/1860手稿記事）",
+    "BnF 總目錄「Les misérables」書目記錄（Lacroix 出版社十卷，1862年4月8日至6月30日出版）",
+    "Paris 雨果故居館 Maisons de Victor Hugo〈A Writer's House〉〈Visiting Hauteville House Today〉（豪特維爾書屋與屋頂玻璃瞭望室）",
+    "維多利亞州立圖書館館藏《悲慘世界》手稿專談（Guillaume Fau：1845年11月17日動筆、1861年6月30日完稿、主角三度改名記錄）"
+   ],
+   "auth_note": "動筆、中斷、複筆、完稿四組日期皆見於手稿本人題記與BnF館藏記錄，序言全文有1862年初版為證，故判正史。初版問世日期各源略有出入：維基百科記1862年3月31日先發於比利時，BnF目錄記巴黎Lacroix版4月8日至6月30日，實為比法兩地前後問世，兩說並存不影響正文。另有軼聞稱1853年降靈會上「文明之靈」口授書名 Les Misérables，出自後世刊出的會場記錄，屬軼聞，未採入正文。",
+   "story": "暴風夜，流亡第九年的雨果在豪特維爾書屋坐下，於擱置十二年的手稿上寫下：「Ici le pair de France s'est interrompu, et le proscrit a continué.」——貴族院議員於此擱筆，流放者續寫未完。\n稿子歷盡坎坷：1845年11月17日動筆於巴黎，時名《苦人》，主角還叫尚・特雷讓。一八四八年二月革命打斷敘述——他正寫1832年的街壘，眼前卻築起1848年的街壘。政變後他被逐出國門，輾轉布魯塞爾、澤西島，1855年落腳蓋恩西。次年買下豪特維爾書屋——島上法律規定有房產者不可被逐，白屋成了堡壘；屋頂玻璃瞭望室裡他站立寫作，一桌望海，一桌望島。\n動筆前他重讀手稿數月，立誓使十二年前所寫與今日渾然一體。主角從特雷讓、弗爾讓，到1861年3月定名尚・萬讓。夏天他遠行比利時，6月30日在滑鐵盧戰場蒙聖讓畫下句點，補寫十九章滑鐵盧之役——他視為十九世紀誕生地。\n1862年，拉庫瓦出版社分十卷問世。序言僅一句話，署名豪特維爾書屋：「Tant qu'il y aura sur la terre ignorance et misère, des livres de la nature de celui-ci pourront ne pas être inutiles.」只要人間尚無知與苦難，這樣的書就不會無用。流亡者玻璃屋裡養大的巨石，就此滾落歐洲。",
+   "vernacular": [
+    {
+     "orig": "Ici le pair de France s'est interrompu, et le proscrit a continué.",
+     "modern": "法蘭西貴族院議員在這裡停筆，流放者接續寫下去——雨果在手稿上自註身份之變。"
+    },
+    {
+     "orig": "Tant qu'il y aura sur la terre ignorance et misère, des livres de la nature de celui-ci pourront ne pas être inutiles.",
+     "modern": "只要人間還有無知與苦難，這類書籍就不會毫無用處——1862年序言的結尾誓言。"
+    }
+   ],
+   "lesson": "被祖國放逐的作家，把流亡島嶼熬成燈塔：只要無知與苦難還在，筆就不曾投降。"
   }
  ]
 }
