@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 206,
- "analyzed": 199,
+ "analyzed": 200,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 41
+   "count": 42
   },
   {
    "name": "非洲",
@@ -5441,6 +5441,34 @@
     }
    ],
    "lesson": "歷史常把功勞記在閃亮的儀式上，卻忘了真正鋪路的，是雪山深處流盡血汗的數萬名無名工人。"
+  },
+  {
+   "id": "w0200",
+   "continent": "美洲",
+   "era": "現代",
+   "country": "墨西哥",
+   "title": "阿亞拉計劃：土地與正義的十五條",
+   "year_label": "1911-11-28",
+   "authenticity": "正史",
+   "sources": [
+    "美國國會圖書館藏《Plan de Ayala / Plan of Ayala》1911年原件影本",
+    "Biblioteca Digital Mexicana（BDMX）《Plan de Ayala》手稿檔案（Centro de Estudios de Historia de México藏）",
+    "墨西哥國家革命歷史研究院（INEHRM）《Emiliano Zapata Antología》收錄「Plan de Ayala, 25 de noviembre de 1911 (quince puntos)」",
+    "《Plan of Ayala, 1911, by Emiliano Zapata》全文英譯（NC State / The Anarchist Library 存本）"
+   ],
+   "auth_note": "原件手稿（34.3×22.2 cm）存世，國會圖書館與BDMX均有影本，1911年11月25日签署、28日於阿亞拉公佈，薩帕塔與蒙塔諾合著，屬同時代一手史料，判正史。queue 提示的 CNDH、Museo Legislativo、最高法院影印本未能於本次查證中核對原文，故不列入 sources，改列實際見到的館藏與出版品。學界細節分歧：一說首次宣讀於普埃布拉州 Ayoxuxtla 村而非阿亞拉鎮；「Tierra y Libertad」口號實為薩帕塔死後才簡化定型（語源可溯至 Flores Magón），原文領呼為「Reforma, Libertad, Justicia y Ley!」，story 已按原文處理。蒙塔諾桌上對話為依其合著者身分與教師背景的情景重構，非史料原話。",
+   "story": "1911年11月，墨西哥莫雷洛斯州的高地上，甘蔗田仍屬於莊園主，村裡農民在自己的祖地上成了佃戶。三週前馬德羅剛就任總統，他要求游擊隊放下武器換取和平，對土地一事卻隻字不提。小學教師奧提利歐·蒙塔諾走進山区，把草圖攤在桌上：「埃米利亞諾，紙上的法律喂不飽飢餓的人。」薩帕塔逐條看完十五條文，在25日簽下名字：凡被莊園主與權貴侵佔的土地，立即歸還村社原有戶；佔有者限三個月內交出，農民要不惜一切代價武裝保住所收回的土地；若馬德羅不肯辭職，即視為叛徒，革命首領之位改由薩帕塔本人擔當。\n三天後的11月28日，阿亞拉小鎮的廣場上陽光刺眼，薩帕塔高舉手稿領呼：「Reforma, Libertad, Justicia y Ley!」台下數千游擊隊員齊聲回應：「¡Tierra y Libertad!」（土地與自由！）從這天起，南方解放軍為土地與正義而戰，拒絕一切招降。馬德羅兩年後死于政變，薩帕塔1919年遭誘殺，但這份十五條文書被歷史學家沃麥克稱為薩帕塔主義的「聖經」，半個多世紀後，恰帕斯州的薩帕塔主義者仍舉著同一面旗幟。",
+   "vernacular": [
+    {
+     "orig": "Reforma, Libertad, Justicia y Ley!",
+     "modern": "「改革、自由、正義與法律！」——阿亞拉計劃原件上的領呼口號。"
+    },
+    {
+     "orig": "¡Tierra y Libertad!",
+     "modern": "「土地與自由！」——薩帕塔軍口號，後成墨西哥土地革命的象徵。"
+    }
+   ],
+   "lesson": "沒有土地交付的政治承諾只是換了主人；薩帕塔用十五條文證明，正義遲到時，農民不會自己放下武器。"
   }
  ]
 }
