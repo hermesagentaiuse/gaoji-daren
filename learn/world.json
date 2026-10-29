@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 206,
- "analyzed": 196,
+ "analyzed": 197,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 38
+   "count": 39
   },
   {
    "name": "非洲",
@@ -5355,6 +5355,36 @@
     }
    ],
    "lesson": "絞索能終結一個二十三歲的生命，卻終結不了信念：為公義赴死的火星，終將燒亮整個時代。"
+  },
+  {
+   "id": "w0197",
+   "continent": "美洲",
+   "era": "現代",
+   "country": "美國",
+   "title": "三角工廠大火：六分鐘的墜落",
+   "year_label": "1911-03-25",
+   "authenticity": "正史",
+   "sources": [
+    "維基百科〈Triangle Shirtwaist Factory fire〉",
+    "康乃爾大學 ILR 學院數位檔案庫〈The Triangle Factory Fire〉",
+    "美國人口普查局〈History and the Census: The 1911 Triangle Shirtwaist Fire〉",
+    "紐約時報 1911-12-28 報導〈TRIANGLE OWNERS ACQUITTED BY JURY〉",
+    "哥倫比亞大學圖書館展覽〈Frances Perkins: The Woman Behind the New Deal〉",
+    "美國國家檔案館〈A Factory Fire and Frances Perkins〉"
+   ],
+   "auth_note": "日期、地點、死亡人數146（123女23男）、四時四十分起火於八樓碎布箱、鎖門、雲梯不及、救生網被墜落者砸穿、陪審商議一小時四十五分鐘後無罪（紐約時報同時代報導）、民事賠償每名死者七十五美元、保險理賠64,925美元，均有同時代報導或權威檔案支持。起火原因消防局長僅推定為未熄火柴或菸蒂，非確證。火災延續時間各源有異（國家檔案館載18分鐘、普查局載30分鐘內），標題「六分鐘」係象徵墜落瞬間之修辭，非史實時長。早期死亡報導141至148不等，後統一為146。",
+   "story": "1911年3月25日，星期六，紐約格林威治村，四時四十分。華盛頓廣場旁的阿施大樓裡，五百名女工正準備下班。\n八樓一張裁切桌下的碎布箱燒了起來——箱裡堆著兩個月沒清的布碎，一根未熄的火柴或菸蒂就足以點著它。\n煙順著樓梯井竄上九樓、十樓。女工們衝向華盛頓廣場側的樓梯門，門鎖著。老闆習慣在營業時間鎖門，好逐一搜查女工的手提包，防範布料失竊。消防車的雲梯夠不到九樓；救生網剛架起，第一個人已經墜下，把網砸穿。隊員朝窗台上的人喊：別跳！可是火越逼越近，他們等不了了。\n不到半小時，146人喪命，其中123名是女性與女孩，多是十四到二十三歲的義大利與猶太移民。\n站在廣場對街的弗蘭西斯·帕金斯目睹了一切，她說：「It was a most horrid spectacle…There was no place to go.」\n年底，老闆布蘭克與哈里斯被控過失致死。陪審團只商議了一小時四十五分鐘便宣判無罪——檢方無法證明他們「知道」門是鎖著的。事後保險公司賠給老闆六萬餘美元，民事庭卻只判給每名死者家屬七十五美元。\n女工領袖施耐德曼在集會上怒吼：「The life of men and women is so cheap and property is so sacred.」\n這把火點燃了改革。帕金斯受命主導紐約州工廠調查委員會，幾年內三十多條勞工安全法相繼通過。146條命，換來美國工廠安全的起點。",
+   "vernacular": [
+    {
+     "orig": "It was a most horrid spectacle…There was no place to go.",
+     "modern": "那是最駭人的一幕……他們無處可去。（帕金斯回憶人們身上著火仍被迫躍下的場景）"
+    },
+    {
+     "orig": "The life of men and women is so cheap and property is so sacred.",
+     "modern": "人的生命如此低廉，財產卻如此神聖。（施耐德曼控訴社會漠視女工死活）"
+    }
+   ],
+   "lesson": "制度的冷漠能把人鎖在裡；真正的進步不是同情死者，而是讓規則付諸實行。"
   }
  ]
 }
