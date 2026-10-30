@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 246,
- "analyzed": 230,
+ "analyzed": 231,
  "continents": [
   {
    "name": "亞洲",
@@ -26,7 +26,7 @@
   {
    "name": "中東",
    "icon": "🕌",
-   "count": 23
+   "count": 24
   },
   {
    "name": "大洋洲",
@@ -6251,6 +6251,39 @@
     }
    ],
    "lesson": "壓垮一個帝國的往往不是敵人的弓箭，而是自己人在關鍵時刻的背叛——杜卡斯一步撤軍，輸掉了安那托利亞百年。"
+  },
+  {
+   "id": "w0231",
+   "continent": "中東",
+   "era": "現代",
+   "country": "鄂圖曼/土耳其",
+   "title": "戈克琴：凱末爾養女的戰鬥飛行員之路",
+   "year_label": "1936—1937",
+   "authenticity": "正史",
+   "sources": [
+    "Sabiha Gökçen《Atatürk'le Bir Ömür（與凱末爾共度的一生）》回憶錄（轉引自 Manney-Kalogera〈Fierce Fighters, Caring Mothers〉，University of Arizona History Journal）",
+    "Atatürk Ansiklopedisi〈Sabiha Gökçen (Esiner) (1913-2001)〉條目",
+    "TIME 檔案〈TURKEY: 659 Disturbances〉（1937）",
+    "Guinness World Records〈First female combat pilot〉",
+    "維基百科〈Sabiha Gökçen〉條目"
+   ],
+   "auth_note": "收養（1925布爾薩）、姓氏（1934）、科克特貝爾受訓、1936埃斯基謝希爾航空學校、1937德爾西姆行動與8月30日飛行徽章，皆有回憶錄、凱末爾百科、TIME 當時報導與金尼斯世界紀錄互證，故列正史。兩處差異：一、TIME 1937報導她炸斃叛軍領袖塞伊德·里扎，但主流史料（含維基百科與學術論文）記載塞伊德·里扎是被捕後處決，故本故事的炸彈戰果採總參謀部報告的「嚴重損害」說法，不採炸斃說；二、她的生父母身分，土耳其官方稱其父母為波士尼亞裔，2000年代後另有亞美尼亞出身之說，學界未有定論，本故事不涉及出身的爭論部分。",
+   "story": "1925年秋天，凱末爾視察布爾薩，人群中擠出一個十二歲的孤女薩比哈。她大膽請求：「我想進寄宿學校讀書。」凱末爾訝異於這女孩的勇氣，當場決定收養她，帶回安卡拉。\n1934年《姓氏法》頒布，凱末爾在晚餐席上提筆為她寫下「Gökçen」——屬於天空的。一年後土耳其之鳥飛行學校開幕，她迷上了滑翔機，被派往克里米亞科克特貝爾進修，與七名男學員同學，以優異成績取得滑翔教練頭銜。凱末爾欣慰地說：「Beni çok mutlu ettin… Belki de dünyada ilk askerî kadın pilot olacaksın.」1936年，她進入埃斯基謝希爾航空學校，受訓十一個月，再進第一航空團駕駛戰鬥機與轟炸機。\n1937年春，德爾西姆爆發叛亂。她聽見男同學議論清晨出動命令，執意隨隊。團長勸阻：「This is an important operation, Gökçen… and you are a girl.」凱末爾拍板：「She is no longer a young girl, but a young fighter.」她駕機參戰，總參謀部報告記載其五十公斤炸彈給叛軍造成嚴重損害。8月30日，她在高層見證下領取軍用飛行徽章與功勳獎章，成為世界第一位女性戰鬥飛行員。\n她的飛行生涯累計約八千小時、三十二次軍事行動。2001年3月22日，她於安卡拉逝世，這天正是她八十八歲生日。",
+   "vernacular": [
+    {
+     "orig": "Beni çok mutlu ettin… Belki de dünyada ilk askerî kadın pilot olacaksın.",
+     "modern": "妳讓我非常幸福……說不定妳會成為世界上第一位女性軍用飛行員。（凱末爾對結業歸來的戈克琴說，出處見凱末爾百科引其回憶錄）"
+    },
+    {
+     "orig": "This is an important operation, Gökçen… and you are a girl.",
+     "modern": "這是一場重要行動，戈克琴……而妳是個女孩。（德爾西姆行動前團長勸阻她參戰之語）"
+    },
+    {
+     "orig": "She is no longer a young girl, but a young fighter.",
+     "modern": "她不再是小女孩，而是一名年輕的戰士。（凱末爾准許她參加德爾西姆任務時的裁示）"
+    }
+   ],
+   "lesson": "天空不是誰的世襲領地：勇氣與機遇能讓孤女成為雲端第一位戰士，但榮光背後也有被掩蓋的創傷。"
   }
  ]
 }
