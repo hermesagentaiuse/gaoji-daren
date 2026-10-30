@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 246,
- "analyzed": 237,
+ "analyzed": 238,
  "continents": [
   {
    "name": "亞洲",
@@ -21,7 +21,7 @@
   {
    "name": "非洲",
    "icon": "🐪",
-   "count": 13
+   "count": 14
   },
   {
    "name": "中東",
@@ -6455,6 +6455,31 @@
     }
    ],
    "lesson": "真正的勇不是不害怕，而是算清代價後敢走沒人敢走的路；但貪小利而忘大局，一樣會賠上戰果。"
+  },
+  {
+   "id": "w0238",
+   "continent": "非洲",
+   "era": "現代",
+   "country": "埃及",
+   "title": "阿布辛貝大搬家：把神廟鋸成一千塊",
+   "year_label": "1964—1968",
+   "authenticity": "正史",
+   "sources": [
+    "UNESCO世界遺產中心〈Working Together: Abu Simbel〉與〈International Campaign to Save the Monuments of Nubia〉時間軸檔案",
+    "VBB《The Salvage of the Abu Simbel Temples, Concluding Report》(Stockholm, 1976)",
+    "Desroches-Noblecourt & Gerster《The World Saves Abu Simbel》(Koska, 1968)",
+    "Encyclopaedia Britannica〈Abu Simbel〉",
+    "B. Weyburne, 'Determining the Dates of the Illumination of the Great Temple at Abu Simbel', ENiM 14 (2021)（轉載愛德華茲1874年日出觀測記錄）"
+   ],
+   "auth_note": "搬遷年代、切割塊數、新廟位置與落成日均有UNESCO官方檔案與VBB終期報告交叉支持，屬正史。切割塊數來源不一：BBC與VBB記大廟807塊、小廟235塊（共1,042塊），Temples Foundation記1,035塊，故採「一千餘塊」之概數表述。愛德華茲1874年觀測引句係經Weyburne 2021年ENiM論文轉引取得，原文為英文。太陽照亮聖殿的日期（2月22日、10月22日）與是否因搬遷偏移一天，學界與旅遊書說法矛盾（ENiM期刊與National Geographic結論相反），故故事中不採信「偏移一天」之說。",
+   "story": "1959年，埃及與蘇丹先後向聯合國教科文組織發出緊急請求：阿斯旺高壩一旦蓄水，納瑟湖將淹沒努比亞千年古蹟，其中包括拉美西斯二世鑿山而建的阿布辛貝雙神廟。\n1960年3月8日，總幹事維羅內塞向全球呼籲：這些古蹟不只屬於埃及，更屬於全人類。1963年11月，埃及拍板最瘋狂的方案：把整座山鋸開搬走。\n1964年春，德國赫蒂公司領銜、瑞典VBB顧問監造的跨國團隊進場，鋼線鋸緩緩切進砂岩。大廟切成807塊、小廟235塊，每塊重7至30噸，鑿上編號吊離地面存放。測量員以經緯儀重新定軸，神廟抬高65公尺、內移約200公尺，再以人工山丘罩回原貌。\n神廟的靈魂也隨之遷徙：每年兩次，晨曦穿透60公尺長廊，照亮阿蒙-拉、拉-哈拉胡提與拉美西斯二世三尊坐像，唯冥神卜塔仍留陰影。英國作家愛德華茲1874年曾記錄這奇景：「one long level beam strikes through the doorway, pierces the inner darkness like an arrow, and falls like fire from Heaven upon the altar.」\n1968年9月22日，新廟址落成。五十餘國湊出4000萬美元，從古巴、尼泊爾到梵蒂岡都有捐款，巴基斯坦還發行郵票募資。神廟鋸成一千塊再拼回原樣，人類第一次學會：為了文明，值得搬走一座山。",
+   "vernacular": [
+    {
+     "orig": "one long level beam strikes through the doorway, pierces the inner darkness like an arrow, and falls like fire from Heaven upon the altar.",
+     "modern": "一道平直的光束射進廟門，如箭般刺破深層的黑暗，如火自天而降，落在祭壇之上。（愛德華茲描寫晨曦照亮聖殿之景）"
+    }
+   ],
+   "lesson": "當全人類願意為共同遺產掏錢出力，連一座山、一座三千年神廟都能搬動。"
   }
  ]
 }
