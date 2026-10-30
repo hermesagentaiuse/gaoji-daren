@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 246,
- "analyzed": 241,
+ "analyzed": 242,
  "continents": [
   {
    "name": "亞洲",
@@ -31,7 +31,7 @@
   {
    "name": "大洋洲",
    "icon": "🏝️",
-   "count": 12
+   "count": 13
   }
  ],
  "eraOrder": [
@@ -6547,6 +6547,35 @@
     }
    ],
    "lesson": "最精良的裝備與最盛大的出發，救不了傲慢與指揮斷裂；真正讓金活下來的，正是探險隊一直輕視的原住民。"
+  },
+  {
+   "id": "w0242",
+   "continent": "大洋洲",
+   "era": "現代",
+   "country": "澳洲",
+   "title": "聖誕夜厄運：崔西氣旋毀了達爾文",
+   "year_label": "1974-12-24—25",
+   "authenticity": "正史",
+   "sources": [
+    "澳洲氣象局《Severe Tropical Cyclone Tracy》官方報告（bom.gov.au）",
+    "G. R. Walker《Report on Cyclone “Tracy” — Effect on Buildings》1975（詹姆士庫克大學）",
+    "澳洲國家檔案館 Fact Sheet 176〈Cyclone Tracy, Darwin〉",
+    "澳洲國家博物館 Defining Moments〈Cyclone Tracy〉",
+    "BBC On This Day〈1974: Cyclone Tracy leaves Darwin devastated〉"
+   ],
+   "auth_note": "死亡人數各源有出入：氣象局官方報告記陸上49人另16人海上失蹤；國家檔案館確認66人（陸53、海13）；澳洲減災資源中心記71人，本文取「至少六十六人」。queue 提示的1975年調查委員會報告未能核對原文，故不列入 sources，僅採其建築損害數據之源頭 Walker 1975 報告。風速217km/h為風速儀毀損前實測值。",
+   "story": "1974年12月24日黃昏，澳洲北端城市達爾文家家戶戶忙著準備聖誕晚餐，沒人留意氣旋崔西正在近海急轉彎撲來。氣象局早在當天下午發出颱風威脅警報，但強烈的氣旋已多年未襲擊這座城市，許多人決定留家過節。\n深夜過後，氣旋眼壁直接掠過市區。午夜到清晨七時，風雨如狂，氣象局風速計在被扯碎前記錄下每小時二百一十七公里的陣風。屋頂鐵皮一塊塊被掀起，四處飛舞的金屬板成了致命飛彈——戰後工程調查統計，超過九成房屋失去屋頂覆蓋，北郊幾近全毀。至少六十六人喪生，多為房屋倒塌壓斃或遭鐵板擊斃，另有失蹤者沉入大海。\n全城癱瘓：電力、自來水、通訊、排污全部中斷。救災負責人斯特雷頓宣布全城必須撤離：“There's no choice but to evacuate Darwin. There's nothing left here to stay for.”數日之內，空軍與民航客機空運走約三萬名居民，達爾文從四萬七千人剩下不到一萬；航母墨爾本號率海軍艦隊北上運送補給與醫療隊，創下海軍史上最大規模的和平時期救災行動。總理惠特拉姆中斷歐洲行程立即返國，承諾以“a determined and unremitting effort”重建達爾文。政府隨後成立達爾文重建委員會，城市以更高的抗風建築規範在三年多之內重生。這個聖誕夜的悲劇，永遠改變了澳洲人面對氣旋的方式。",
+   "vernacular": [
+    {
+     "orig": "There's no choice but to evacuate Darwin. There's nothing left here to stay for.",
+     "modern": "除了撤離達爾文別無選擇，這座城市已經沒有任何值得留下的東西。（災後撤離背景）"
+    },
+    {
+     "orig": "a determined and unremitting effort",
+     "modern": "堅定而不懈的努力——總理惠特拉姆承諾傾全力重建達爾文。"
+    }
+   ],
+   "lesson": "天災常襲擊人心最鬆懈的節日時刻；嚴格的建築規範與對警報的敬畏，才是城市真正的防波堤。"
   }
  ]
 }
