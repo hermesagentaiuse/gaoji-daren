@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 286,
- "analyzed": 266,
+ "analyzed": 267,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 55
+   "count": 56
   },
   {
    "name": "非洲",
@@ -7007,6 +7007,34 @@
     }
    ],
    "lesson": "敗戰之國最珍貴的資產是少年兵的忠勇——但用傳說替他們補寫劇情時，別忘了真實的十六歲已足夠偉大。"
+  },
+  {
+   "id": "w0267",
+   "continent": "美洲",
+   "era": "現代",
+   "country": "智利",
+   "title": "達爾文的地震：貝格號與抬升的海岸",
+   "year_label": "1835-02-20",
+   "authenticity": "正史",
+   "sources": [
+    "Charles Darwin《Voyage of the Beagle》第14章（Chiloe and Concepcion: Great Earthquake）",
+    "Charles Darwin 1840 年倫敦地質學會論文《On the connexion of certain volcanic phenomena in South America》（Transactions of the Geological Society 2nd ser. vol.5）",
+    "達爾文1835年寫給妹妹卡羅琳的信件（UCSB「Understanding Earthquakes」計畫存檔）",
+    "Darwin Online 地質日記 CUL-DAR36.429-435（1835年2-6月智利篇）"
+   ],
+   "auth_note": "事件、日期、抬升量、貝殼床與達爾文目擊紀錄均有同時代一手史料（達爾文日記、書信、原著與地質學會論文）支持，判定正史。達爾文推論「抬升力與火成力同源」屬當時科學假說，非後世定論，故文中以其本人論文原意呈現。同夜阿空加瓜與科塞吉納火山噴發的「六小時巧合」出自達爾文本人記載，他亦承認可能是偶然，已如實寫入。",
+   "story": "1835年2月20日上午十一時半，達爾文正在南方的瓦爾迪維亞作客。大地突然劇烈搖晃整整兩分鐘，木造房舍劇烈擺動，卻沒有一間倒塌。數週後貝格號駛入康塞普西翁灣，莊園管事策馬奔來報信：康塞普西翁與港邊城塔爾卡瓦諾沒有一棟房子還立著，七十個村莊化為廢墟，巨浪幾乎把港口殘骸整個沖走。\n達爾文親踏廢墟，街道只剩成堆磚瓦與木梁，海邊散落整座屋頂與書架。他寫信給妹妹卡羅琳：「已無一棟房屋可以居住，這是我一生所見過最可怕的景象。」（It is the most awful spectacle I ever beheld.）\n更震撼的還在後頭。基裏奇納島海灘上，原本沉在深海的巨岩被拋上高處，岩面還黏著海洋生物；菲茨羅伊船長在聖瑪麗亞島發現仍緊附岩壁的貽貝床，竟高出高潮線十英尺——當地人過去總在退潮時潛海撿拾牠們。海底一夜抬升兩三英尺。\n同夜，四百八十哩外的阿空加瓜山活動，兩千七百哩外的科塞吉納火山也在六小時內怒吼。達爾文在倫敦地質學會論文中寫下：「緩慢抬升大陸的力量，與噴出岩漿的力量是同一個」（the forces which...uplift continents, and those which...pour forth volcanic matter...are identical）。正是這無數次微小抬升，把安第斯山一寸寸推上天際。\n一場地震毀了一座城，卻讓年輕的達爾文，看穿了山脈生長的秘密。",
+   "vernacular": [
+    {
+     "orig": "It is the most awful spectacle I ever beheld.",
+     "modern": "這是我這輩子見過最可怕的景象——達爾文親述康塞普西翁全城覆滅的震撼。"
+    },
+    {
+     "orig": "the forces which...uplift continents, and those which...pour forth volcanic matter...are identical",
+     "modern": "一次次緩慢抬升大陸的力量，與各階段噴出岩漿的力量，其實是同一種力量。"
+    }
+   ],
+   "lesson": "毀滅性的災變現場，往往藏著大自然最深邃的規律；肯蹲下來撿貝殼的人，才能讀懂山脈如何生長。"
   }
  ]
 }
