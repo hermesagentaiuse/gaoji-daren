@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 226,
- "analyzed": 221,
+ "analyzed": 222,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 81
+   "count": 82
   },
   {
    "name": "美洲",
@@ -6014,6 +6014,31 @@
     }
    ],
    "lesson": "權力若把和平請願視為叛亂，馬刀砍不下訴求，只會把冤血刻成民主路上永遠的墓碑。"
+  },
+  {
+   "id": "w0222",
+   "continent": "歐洲",
+   "era": "近世",
+   "country": "英國",
+   "title": "無敵艦隊：1588年的狂風",
+   "year_label": "1588-07—09",
+   "authenticity": "正史",
+   "sources": [
+    "維基百科〈Spanish Armada〉、〈Battle of Gravelines (1588)〉",
+    "Petruccio Ubaldini, Expeditionis Hispaniorum in Angliam vera Descriptio (1590, Augustine Ryther 英譯本)",
+    "Colin Martin, Armada: The Spanish Enterprise and England's Deliverance in 1588 (JSTOR)",
+    "Royal Museums Greenwich 藏〈Launch of fireships against the Spanish Armada, 7 August 1588〉（約1590年佛蘭德斯繪本）",
+    "The Armada Campaigns of 1588（Historical Association 戰役專論）"
+   ],
+   "auth_note": "戰役主幹（里斯本啟航、海峽追擊、加萊火船、格拉夫林之戰、繞道蘇格蘭愛爾蘭遭風暴損半）有 Medina Sidonia 親筆戰報、Ubaldini 1590 目擊記載及近世戰史研究交叉支持，判為正史。「新教徒之風」屬16世紀末新教宣傳詮釋（經 Ubaldini 記載流傳），現代氣象史（H.H. Lamb, The weather of 1588 and the Spanish Armada, 1988）歸因於小冰期氣候，兩說並存於此註。德雷克普利茅斯高坡擲球之說與「德雷克之鼓」皆後世傳說，無同時代史料，故未採入正文。",
+   "story": "1588年5月，西班牙「無敵艦隊」一百三十艘帆影自里斯本啟航，統帥是菲利普二世欽點的第七代 Medina Sidonia 公。任務明確：駛入海峽與帕爾馬大軍會合，橫渡入侵、推翻伊利莎白一世。\n艦隊在海峽口迎上霍華德與德雷克的英國艦隊。英船小巧快捷，從砲程之外以長程砲一路側擊；西班牙大帆船夠不著敵人，火藥逐日見底。追擊戰拖了兩週，新月陣形卻始終穩如鐵壁。\n8月7日，艦隊錨泊加萊外海，等帕爾馬發兵。可是帕爾馬大軍至少要六天才能集結，運兵船一艘未備，敦克爾克港外還有荷蘭小船隊封鎖。當夜子時，英國人放下八艘載滿瀝青、硫磺與火藥的火船。Medina Sidonia 戰報寫道：At midnight two fires were seen among the English fleet, all of them burning with great fury. 烈焰裹著炸響的砲聲衝入船陣，多數西班牙船驚慌割纜逃散，無敵的新月陣形頓時碎裂，幾乎所有船錨都留在了海底。\n翌日格拉夫林外海，英軍砲火擊沈與擱淺敵艦共五艘。眼看船隊要被西南風擠上淺灘，風向忽然轉向南，艦隊逃入北海。回程繞行蘇格蘭與愛爾蘭，夏末風暴猛烈，糧水罄盡，船板散架。出航百三十帆，生還者僅約半數。\n英國人相信是上帝吹起「新教徒之風」吹散敵軍；氣象史研究印證，1588年確是小冰期的風暴之年——神意與天氣，在那個夏天疊合成同一場災難。",
+   "vernacular": [
+    {
+     "orig": "At midnight two fires were seen among the English fleet, all of them burning with great fury.",
+     "modern": "半夜裡，見英國艦隊中燃起兩處火光，隨後增至八艘火船，全部烈焰騰熾、兇猛地燒向我艦。（此為艦隊統帥 Medina Sidonia 公加萊火船之夜的戰報）"
+    }
+   ],
+   "lesson": "最周密的計畫，也經不起「等會合」與「沒備妥」之間的落差；擊碎無敵神話的，不是敵艦的砲火，而是失序的協同與逆轉的風向。"
   }
  ]
 }
