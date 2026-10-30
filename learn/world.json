@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 226,
- "analyzed": 222,
+ "analyzed": 223,
  "continents": [
   {
    "name": "亞洲",
@@ -26,7 +26,7 @@
   {
    "name": "中東",
    "icon": "🕌",
-   "count": 20
+   "count": 21
   },
   {
    "name": "大洋洲",
@@ -6039,6 +6039,27 @@
     }
    ],
    "lesson": "最周密的計畫，也經不起「等會合」與「沒備妥」之間的落差；擊碎無敵神話的，不是敵艦的砲火，而是失序的協同與逆轉的風向。"
+  },
+  {
+   "id": "w0223",
+   "continent": "中東",
+   "era": "近世",
+   "country": "鄂圖曼/土耳其",
+   "title": "蘇萊曼之死：帳篷裡瞞了四十八天的喪",
+   "year_label": "1566-09-06—09-07",
+   "authenticity": "正史",
+   "sources": [
+    "Wikipedia〈Suleiman the Magnificent〉",
+    "Wikipedia〈Siege of Szigetvár〉",
+    "Wikipedia〈Sokollu Mehmed Pasha〉",
+    "Daily Sabah〈The last days of Suleiman the Magnificent〉",
+    "〈Sigetvarname: A Visual Source of Sultan Süleyman's Last Campaign〉，收錄於 Brill《The Battle for Central Europe: The Siege of Szigetvár and the Death of Süleyman the Magnificent and Nicholas Zrínyi (1566)》",
+    "《Nüzhet-i Esrâr》（費裡敦·艾哈邁德·貝格繪本史，1568–1569）"
+   ],
+   "auth_note": "圍城日期（1566年8月—9月8日）、蘇丹死於大帳、大維齊爾秘喪四十八天、茲里尼最後突擊戰歿、內臟葬於圖爾貝克，均有同時代或近時代史料（Sigetvarname、Nüzhet-i Esrâr）支持，判定正史。小節分歧：蘇丹逝日一說9月6日（維基百科）、一說9月7日夜間（Daily Sabah），故 year_label 保留 09-06—09-07 區間。「處死所有知情者」一說僅見於後世轉述，本文未採入正文。「蘇丹抱恙靜養」之辭與發喪演說為鄂圖曼編年傳統記載，屬近時代敘事。",
+   "story": "1566年盛夏，七十二歲的蘇萊曼第十四度親征，大軍圍困匈牙利要塞茜茜窩夫特。守將是克羅埃西亞總督尼古拉茲里尼，僅以數千人死守。圍城月餘，砲聲不歇，蘇萊曼病體支離，無法出帳，只能坐在大帳裡聽取戰報。\n9月6日深夜，帳外殺聲隱隱，蘇萊曼崩逝於病榻之上，離城堡陷落只剩兩天。大維齊爾索柯里穆罕默德帕夏立刻封鎖大帳，僅親信數人知情。他命人取出內臟，以麝香與龍涎香處理遺體後暫置於王座之下， 舉行祭禮，對外宣稱蘇丹抱恙靜養，仍在帳中指揮。\n此後四十八天，大軍如常運轉：糧餉照發，拔營照序。9月8日，茲里尼率殘兵最後突擊，戰歿於陣，城堡終於陷落。為防禁衛軍兵變，大維齊爾先遣密使赴君士坦丁堡通報塞利姆皇子，再令大軍緩慢後撤。出發後第四處营地，索柯里才借誦讀古蘭經之名向全軍發喪：「讓我們與這位多年統治伊斯蘭的蘇丹訣別。」將士聞訊，舉軍慟哭。\n蘇丹遺體運回君士坦丁堡，葬於蘇萊曼尼耶清真寺；心臟與內臟則留在城外圖爾貝克，後世建祠，成為朝聖之地。一個橫跨三洲的帝國，靠一帳麝香之氣，瞞住了天下，換來一場平穩的權力交接。",
+   "vernacular": [],
+   "lesson": "危機時刻的沉穩與保密，有時比君主本人的雄才更關係帝國存亡；但瞞得了一時的喪，瞞不住長期的衰落。"
   }
  ]
 }
