@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 286,
- "analyzed": 272,
+ "analyzed": 273,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 99
+   "count": 100
   },
   {
    "name": "美洲",
@@ -7163,6 +7163,38 @@
     }
    ],
    "lesson": "戰爭的勝負不在一役之得，而在誰能承受損失；贏得讓自己也流盡血的勝利，實為最優雅的敗北。"
+  },
+  {
+   "id": "w0273",
+   "continent": "歐洲",
+   "era": "近世",
+   "country": "義大利",
+   "title": "瓦爾德澤米勒地圖：「亞美利加」得名之日",
+   "year_label": "1507",
+   "authenticity": "正史",
+   "sources": [
+    "Universalis Cosmographia（瓦爾德澤米勒1507年世界地圖，原圖藏美國國會圖書館）",
+    "Cosmographiae Introductio（1507年聖迪耶出版，林曼執筆，說明命名理由）",
+    "Mundus Novus（亞美利哥·韋斯普奇航海書簡）",
+    "Carta Marina（瓦爾德澤米勒1516年世界地圖，已撤除America之名）"
+   ],
+   "auth_note": "1507年命名、1516年撤名均有原件與同時刊行之 Cosmographiae Introductio 為證，定為正史。惟兩點存疑：其一，收錄之《四航海記》部分學者疑為他人偽託之作；其二，命名的實際提出者一般歸於林曼而非瓦爾德澤米勒本人。題旨所示UNESCO記憶名錄一說本輪未直接驗證，故未採入內文。",
+   "story": "1507年春天，洛林公國山城聖迪耶的書房裡，神父瓦爾德澤米勒攤開一批新到手的手稿——義大利探險家亞美利哥·韋斯普奇的航海書簡《Mundus Novus》。書中宣告：哥倫布抵達的海岸不是亞洲的邊陲，而是一片被大洋環繞、歐洲人從未知曉的新大陸。\n同事林曼在配套小冊《宇宙學引論》大膽寫道：「et quarta orbis pars, quam quia Americus invenit Amerigen, quasi Americi terram, sive Americam nuncupare licet」——既然歐洲與亞洲都得名於女子，為何不能以發現者亞美利哥之名，稱這第四大洲為「亞美利加」？這年四月，十二片木刻版拼印的巨幅世界地圖問世，全題「Universalis cosmographia secundum Ptholomaei traditionem et Americi Vespucii aliorumque lustrationes」，「AMERICA」三個字母首次落在南美海岸之上，美洲也第一次被畫成與亞洲分離的陸塊。\n一千張地圖散佈歐洲，改名之念卻遲來：1516年瓦爾德澤米勒繪《航海圖》時，因與論替哥倫布鳴不平，悄悄把「亞美利加」改回「未知之地」。可是名字早已收不回去。唯一存世的原圖在2003年以千萬美元入藏美國國會圖書館，人称「美國的出生證明」。",
+   "vernacular": [
+    {
+     "orig": "et quarta orbis pars, quam quia Americus invenit Amerigen, quasi Americi terram, sive Americam nuncupare licet",
+     "modern": "世界的第四部分，因為是亞美利哥發現了它，不妨稱之為「亞美利格」，猶言「亞美利哥之地」，或稱「亞美利加」。"
+    },
+    {
+     "orig": "Universalis cosmographia secundum Ptholomaei traditionem et Americi Vespucii aliorumque lustrationes",
+     "modern": "依托勒密的傳統、並參考亞美利哥·韋斯普奇與眾人遊記所繪的完整宇宙誌——這幅地圖的全名。"
+    },
+    {
+     "orig": "Mundus Novus",
+     "modern": "「新大陸」，韋斯普奇1503年書簡的拉丁標題，斷言新發現的土地並非亞洲。"
+    }
+   ],
+   "lesson": "一個名字的誕生往往出於書房裡的偶然一念，一旦印上萬國傳閱，連原作者也收不回去。"
   }
  ]
 }
