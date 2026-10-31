@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 286,
- "analyzed": 284,
+ "analyzed": 285,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 58
+   "count": 59
   },
   {
    "name": "非洲",
@@ -7491,6 +7491,39 @@
     }
    ],
    "lesson": "思想可以囚禁八年，卻燒不盡；火刑柱殺死了一個異端者，卻為後世豎起了自由思想的青銅豐碑。"
+  },
+  {
+   "id": "w0285",
+   "continent": "美洲",
+   "era": "近世",
+   "country": "美國",
+   "title": "塞勒姆審巫：無辜者證言「我如腹中胎兒清白」",
+   "year_label": "1692—1693",
+   "authenticity": "正史",
+   "sources": [
+    "Salem Witch Trials Documentary Archive（維吉尼亞大學）SWP No. 094：Rebecca Nurse Executed July 19, 1692",
+    "Thomas Fisk〈Declaration〉, July 4, 1692（陪審團長說明改判理由）",
+    "Robert Calef《More Wonders of the Invisible World》(London, 1700)",
+    "George Lincoln Burr 編《Narratives of the Witchcraft Cases》",
+    "Wikipedia〈Rebecca Nurse〉條目（引述被捕時原話）"
+   ],
+   "auth_note": "核心情節均有同時代史料：納斯受審、無罪後改判、7月19日絞刑見維吉尼亞大學塞勒姆檔案 SWP No. 094 與菲斯克1692年7月4日聲明；「I am innocent as the child unborn」為其被捕時流傳語，見 Wikipedia 條目引述。queue 原標題誤用簡體字形，已改正為「胎兒」。科里「More weight」一說見於後世敘述傳統（Calef 1700 等），細節略有增飾。",
+   "story": "1692年3月，麻薩諸塞州塞勒姆村，七十一歲、常年臥病的蕾貝卡·納斯被少女們指控為女巫。逮捕的消息傳來，她平靜地說：「I am innocent as the child unborn——我如腹中未生的胎兒一樣清白。上帝若在我身上發覺什麼未悔改的罪，才會在晚年降下這樣的災禍。」\n\n六月開庭。三十九位鄰居聯名請願，作證她虔誠善良；陪審團長湯瑪斯·菲斯克讀出「無罪」判決。就在此刻，「附身少女」們集體尖叫扭動，首席法官斯托頓當場要求陪審團重議，稱她曾在庭上低語。團長回頭要她解釋為何稱同案犯人霍布斯是「我們一夥的」；半聾的納斯沒有聽見，也沒有回答。沉默被當成心虛，判決改為「有罪」。\n\n7月19日，她被押上絞刑架。牧師當眾勸她認罪與魔鬼簽約，她只回答：「I have got nobody to look to but God——除了上帝，我再無可仰望之人。」\n\n那年共有十九人被絞死；農場主吉爾斯·科里拒絕答辯，被巨石壓死，只留下一句「More weight——再重一點」。不到二十年，殖民地為死者平反，那些在庭上哭喊作偽證的人，終於被歷史記下了真名。",
+   "vernacular": [
+    {
+     "orig": "I am innocent as the child unborn",
+     "modern": "我像腹中尚未出生的胎兒一樣清白（納斯被捕時自證無辜之語）。"
+    },
+    {
+     "orig": "I have got nobody to look to but God",
+     "modern": "除了上帝，我再也沒有可以仰望依靠的對象（臨刑前拒絕认罪時所說）。"
+    },
+    {
+     "orig": "More weight",
+     "modern": "「再重一點」——科里被巨石壓殺時拒絕答辯、僅留下的頑強遺言。"
+    }
+   ],
+   "lesson": "當恐懼接管法庭，沉默會被讀成罪證；程序與證據的正義，是無辜者最後的防線。"
   }
  ]
 }
