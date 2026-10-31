@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 306,
- "analyzed": 286,
+ "analyzed": 287,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 107
+   "count": 108
   },
   {
    "name": "美洲",
@@ -7548,6 +7548,40 @@
     }
    ],
    "lesson": "許多看似突然的災禍，其實是被權力刻意掩蓋的警告；遮住危險的目光，比危險本身更致命。"
+  },
+  {
+   "id": "w0287",
+   "continent": "歐洲",
+   "era": "近代",
+   "country": "德國",
+   "title": "鏡廳裡的帝國：凡爾賽的屈辱加冕",
+   "year_label": "1871-01-18",
+   "authenticity": "正史",
+   "sources": [
+    "維基百科〈Proclamation of the German Empire〉／〈德意志帝國宣告成立〉",
+    "rbb Preußen-Chronik〈Proklamation des deutschen Reiches in Versailles〉",
+    "德文維基百科〈Kaiserdeputation〉",
+    "Planet Wissen〈Reichsgründung: Ernennung des ersten deutschen Kaisers〉",
+    "The Guardian 檔案版〈Wilhelm of Prussia proclaimed the first German emperor, 1871〉",
+    "安東·馮·維爾納繪畫《德意志帝國宣告成立》（1877）"
+   ],
+   "auth_note": "事件有同時代紀錄（詔書全文、 Anton von Werner 1877年奉普王之命繪製的實錄畫、與會者 Busch 與 Abeken 的桌談紀錄）支持，判定正史。 queue 提示之俾斯麥《思想與回憶》、Toeche-Mittler 專書本次搜尋未見原文，未列入來源。三處細節源說不一：(1)巴登大公高呼「皇帝威廉萬歲」，一說係臨場機變（德文維基〈Kaiserdeputation〉），一說係俾斯麥預先指示（Planet Wissen），本文採後者並點出兩面；(2)與會人數有數百軍官與約一千四百人之別，屬範圍定義不同；(3)1月17日威廉「一生最不幸之日」之歎見 rbb Preußen-Chronik，屬近時傳述之語，已標為對白場景。頭銜之爭（Deutscher Kaiser 對 Kaiser von Deutschland）各源一致。",
+   "story": "1871年1月17日深夜，被德軍佔作總部的凡爾賽宮裡，普魯士國王威廉一世老淚縱橫。他對著兒子腓特烈說：“Morgen ist der unglücklichste Tag meines Lebens!”明天將是他一生最快樂的日子，他卻覺得自己在親手為普魯士王權送殯——整整170年前，勃蘭登堡選帝侯正是在1月18日加冕為普魯士國王腓特烈一世；明天，他要在那個日子跪向一個更空的頭銜。\n次日正午，約一千四百名王公、將領與高官擠滿鏡廳。天花板上，畫中的太陽王路易十四正慶祝征服德意志城邦；廳下，勝利的德意志人要在臨時祭壇前做感恩禮拜，唱畢“Nun danket alle Gott”。俾斯麥朗聲宣讀詔書：皇帝尊號沉寂已逾六十年，國王今以對共同祖國之責任接受之。此刻，巴黎仍在德軍圍困之中，宮外大炮兀自對著法國首都。\n最大的地雷留到最後一刻——頭銜。威廉堅持要「德意志國皇帝」，彷彿那片土地是他的產業；憲法卻規定「德意志皇帝」，那是諸侯借予的冠冕。雙方爭到典禮當天上午。俾斯麥暗中指示在場地位最高的巴登大公腓特烈：詔書一念完，立刻帶頭高呼。\n果然，最後一個字剛出口，大公振臂高呼：“Kaiser Wilhelm, lebe hoch!”全廳歡呼三聲，宮外對準巴黎的火炮齊聲轟鳴。威廉面無表情地接下了皇冠——一場幾乎掀桌的名分之爭，就此被一聲口號高呼略過。",
+   "vernacular": [
+    {
+     "orig": "Morgen ist der unglücklichste Tag meines Lebens!",
+     "modern": "「明天是我一生中最不幸的一天！」威廉一世認為接受帝號等同為普魯士王權送殯。"
+    },
+    {
+     "orig": "Nun danket alle Gott",
+     "modern": "「現在眾人同謝上帝」——路德派感恩讚美詩，典禮禮成時全廳齊唱。"
+    },
+    {
+     "orig": "Kaiser Wilhelm, lebe hoch!",
+     "modern": "「皇帝威廉萬歲！」巴登大公帶頭高呼此口號，繞過頭銜之爭，坐實威廉的皇帝身分。"
+    }
+   ],
+   "lesson": "宏大歷史時刻往往是各方算計在最後一刻妥協的產物；名分之争從不是小事，卻常被一聲口號掩蓋過去。"
   }
  ]
 }
