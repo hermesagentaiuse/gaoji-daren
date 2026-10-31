@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 286,
- "analyzed": 270,
+ "analyzed": 271,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 97
+   "count": 98
   },
   {
    "name": "美洲",
@@ -7105,6 +7105,28 @@
     }
    ],
    "lesson": "底層最有力的抗爭不是暴動，而是讓整個社會看見：抽走我們，你們的機器就停擺。"
+  },
+  {
+   "id": "w0271",
+   "continent": "歐洲",
+   "era": "上古",
+   "country": "羅馬",
+   "title": "考狄孔隘口：軛下的羅馬軍團",
+   "year_label": "前321",
+   "authenticity": "爭議",
+   "sources": [
+    "李維《羅馬史》卷九（Ab Urbe Condita, Book 9，Roberts 英譯本／Loeb Classical Library 191）",
+    "維基百科：Battle of the Caudine Forks"
+   ],
+   "auth_note": "主要敘事出自李維卷九，成書於事件三百餘年後，屬追溯性史料。執政官維圖里烏斯之名有 T. Veturius 與 Tiberius 兩說；老父赫倫尼烏斯「先放後殺」的雙重建議、偽牧羊人誘敵等情節只見於李維一系敘事，細節真實性學界存疑，故標爭議。帕皮里烏斯·Cursor 之後雪恥一節亦見李維卷九。",
+   "story": "公元前321年，第二次薩莫尼安戰爭正酣。羅馬兩軍執政官維圖里烏斯與波斯圖米烏斯率軍進擊，薩莫尼安統帥蓋烏斯·龐提烏斯早設下毒計：他派士兵偽裝成牧羊人，趕著羊群在羅馬人面前裝出慌張，謊稱大軍正在別處圍城。羅馬軍不疑有他，棄了大道，改抄近路穿過考狄孔隘口。\n那是一條致命的口袋：兩個狹深的谷口，兩側林木茂密、山崗夾峙。羅馬軍走入谷中，才發現敵軍根本不在山頭——守著兩頭隘口的，正是薩莫尼安人。四萬軍團被困谷底，無糧無眠，整夜只聽見絕望的低語。\n勝利的龐提烏斯竟也不知如何是好，修書請問隱居的老父赫倫尼烏斯。老人先答：全數釋放，毋傷一人；被否決後再答：盡誅之，勿留一人——「Quae ubi spreta sententia est iterumque eodem remeante nuntio consulebatur, censuit ad unum omnes interficiendos。」兩次回答如神託謎語，龐提烏斯終於醒悟，選了第三條路：不殺、不放，而是羞辱。軍團繳械，半裸之身列隊走過長矛架起的「軛」，每人挨受勝者的嘲罵。\n執政官波斯圖米烏斯回羅馬後，請元老院宣告盟誓無效，自願裸身戴鏈返回薩莫尼安贖罪，元老院卻不肯交出他。恥辱沉了多年，直到將軍帕皮里烏斯· Cursor率軍反擊，在考狄孔把軛從羅馬人頸上取下，架到薩莫尼多人頸上。",
+   "vernacular": [
+    {
+     "orig": "Quae ubi spreta sententia est iterumque eodem remeante nuntio consulebatur, censuit ad unum omnes interficiendos.",
+     "modern": "老人這個建議被否決後，使者又回來請教第二次，他主張把羅馬人一個不留、全部殺掉。（出自李維卷九，語帶詓諷其決斷如神託般矛盾）"
+    }
+   ],
+   "lesson": "羞辱既能擊垮一支軍隊，也能鍛出一個民族復仇的意志；真正的敗亡不是低頭，而是習慣低頭。"
   }
  ]
 }
