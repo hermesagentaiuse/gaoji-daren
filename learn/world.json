@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 306,
- "analyzed": 290,
+ "analyzed": 291,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 111
+   "count": 112
   },
   {
    "name": "美洲",
@@ -7656,6 +7656,35 @@
     }
    ],
    "lesson": "弱者的逆轉往往始於長遠的布局與天時地利，而非一時的熱血；把失敗算進計畫，奇蹟才有誕生的空間。"
+  },
+  {
+   "id": "w0291",
+   "continent": "歐洲",
+   "era": "現代",
+   "country": "德國",
+   "title": "糖果炸彈手：圍城柏林上空的手帕降落傘",
+   "year_label": "1948-06—1949-05",
+   "authenticity": "正史",
+   "sources": [
+    "Gail Halvorsen 自傳 The Berlin Candy Bomber（經美歐司令部 EUCOM 與 Air & Space Forces Magazine 2013年3月專文引述）",
+    "Andrei Cherny, The Candy Bombers: The Berlin Airlift and the Fight for Postwar Germany（書名經 Air & Space Forces Magazine 專文引述）",
+    "The New York Times 訃聞「Gail Halvorsen, ‘Candy Bomber’ in Berlin Airlift, Dies at 101」(2022-02-17)",
+    "Wikipedia 條目 Gail Halvorsen（含 Operation Little Vittles 起止日 1948-09-22 至 1949-05-13）",
+    "Stars & Stripes「The airlift's Candy Bomber returns to Berlin」(1984-05-18)"
+   ],
+   "auth_note": "首次投糖日 1948-07-18（EUCOM、Stars & Stripes）；孩子「失去自由就再也回不來」一語與「兩片口香糖」細節出自霍爾沃森自傳追述，NYT 訃聞與多家官方媒體一致引用。queue 原 year_label 末段 1949-09 有誤：柏林空運於 1949-05 封鎖解除後收尾（Little Vittles 正式期 1948-09-22 至 1949-05-13），已修正為 1948-06—1949-05。23噸糖果、廿五萬個降落傘數字見於 USAF 國家航空太空博物館新聞稿與 Wikipedia。",
+   "story": "1948年夏天，蘇聯封鎖西柏林全部的陸路與水路，城裡兩百多萬人的衣食，全指望美英發動的柏林空運。美軍中尉蓋爾·霍爾沃森駕駛C-54運輸機，天天從萊茵美因基地飛往滕伯爾霍夫機場。任務空檔，他拿出攝影機拍攝飛機起降，結識了圍欄外約三十個八到十四歲的孩子。孩子們只問飛機載了什麼貨，卻沒有一個人伸手要東西。他走開幾步才猛然驚覺：美國軍人從前總被孩子追著要糖果，這些孩子明明吃不飽，竟說：「總有一天我們吃得飽，但若失去自由，就再也回不來。」飛行員心頭一震，摸出口袋裡最後兩片口香糖，掰成四份穿過鐵絲網；沒分到的孩子，只把糖紙撕碎傳著聞香。他許諾明天從飛機上丟糖，摇動機翼為號。當晚，三人組湊齊一週的糖果配額，用手帕縫了三個小降落傘。1948年7月18日，糖果從數十公尺高空飄下，圍欄邊三條手帕瘋狂揮舞。三週後柏林報刊刊登照片，全美寄來糖果與手帕，空運指揮官通納下令正式擴大為「小型補給行動」。柏林孩子暱稱他「Onkel Wackelflügel」，又把灑糖飛機叫作「Rosinenbomber」。1948年9月至1949年5月，糖果炸彈手們以超過二十五萬個手帕降落傘，投下廿三噸糖果。圍城裡的敵人，就此變成終生的朋友。",
+   "vernacular": [
+    {
+     "orig": "「Onkel Wackelflügel」",
+     "modern": "德語「摇翅膀叔叔」，柏林孩子暱稱摇動機翼發信號的霍爾沃森。"
+    },
+    {
+     "orig": "「Rosinenbomber」",
+     "modern": "德語「葡萄乾炸彈手」，柏林人對灑糖果飛機的愛稱。"
+    }
+   ],
+   "lesson": "冷戰最黑暗的圍城中，兩片口香糖的小小決定證明：贏得人心靠的不是炸彈，而是尊嚴與希望。"
   }
  ]
 }
