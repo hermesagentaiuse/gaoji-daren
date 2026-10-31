@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 306,
- "analyzed": 304,
+ "analyzed": 305,
  "continents": [
   {
    "name": "亞洲",
@@ -31,7 +31,7 @@
   {
    "name": "大洋洲",
    "icon": "🏝️",
-   "count": 16
+   "count": 17
   }
  ],
  "eraOrder": [
@@ -8018,6 +8018,33 @@
     }
    ],
    "lesson": "偏見比野狗更兇猛：當整個社會預設母親有罪，真相要等三十二年才能領回死亡證明。"
+  },
+  {
+   "id": "w0305",
+   "continent": "大洋洲",
+   "era": "近代",
+   "country": "澳洲",
+   "title": "卡塔爾帕號：捕鯨船跨太平洋劫獄",
+   "year_label": "1876-04-17—19",
+   "authenticity": "正史",
+   "sources": "Wikipedia「Catalpa rescue」條目；澳洲國家博物館「Not Just Ned」展覽文物紀錄（NMA Catalpa object biography）；Fremantle Prison 官方歷史頁「The Fenians」；Philip Fennell & Marie King 編《John Devoy's Catalpa Expedition》（含船上航海日誌）；David Hackett Fischer《The Voyage of the Catalpa》；PBS Secrets of the Dead「The Fremantle Six」",
+   "auth_note": "事件有同時代船明日誌、NMA 館藏文物（船長儀器和代理旗）及多家官方機構檔案支持，判定正史。細節存一處矛盾：第七名囚犯 James Kiely 未被帶走，船長 Anthony 稱因其審判時供出同伴姓名而故意拋下，Kiely 本人則稱未能擺脫看守——此事不影響本篇六人主線，未寫入故事。Breslin 致總督的電文辭藻華麗，屬後世傳誦的文學化引文，未直接引用。",
+   "story": "1868 年，六十二名愛爾蘭芬尼亞囚犯被英國以叛逆罪流放到西澳 Fremantle 囚營。\n1874 年，囚犯 James Wilson 偷送出信：「a voice from the tomb」，漂洋過海到了紐約記者 John Devoy 手上。Devoy 集僑民之資買下捕鯨船 Catalpa，派美國人 Anthony 任船長、Breslin 潛入 Fremantle 接應。\n1876 年 4 月 17 日復活節星期一，六人趁獄外做工之機劫馬車狂奔二十公里，直奔 Rockingham 棧橋，目擊者報官。Anthony 駕捕鯨小艇接人，當夜狂風折斷桅杆，小艇在浪裡漂蕩一整夜。\n黎明時殖民局蒸汽船 Georgette 追來，大副 Smith 以船在領海之外拒絕登船搜查，官船被迫回港加煤。19 日清晨 Georgette 架十二磅炮歸來，鳴炮喝令交出囚犯。Anthony 指向星條旗喝道：「That's the American flag; I am on the high seas; my flag protects me; if you fire on this ship, you fire on the American flag.」官船悻悻退走。八月，Catalpa 駛入紐約港，六人英雄般登岸，一曲「A noble whale ship and commander」自此傳唱四方。",
+   "vernacular": [
+    {
+     "orig": "「a voice from the tomb」",
+     "modern": "「出自墳墓的一聲呼喊」——Wilson 自比活埋於獄中的死者，此語出自 NMA 館藏其信件紀錄。"
+    },
+    {
+     "orig": "That's the American flag; I am on the high seas; my flag protects me; if you fire on this ship, you fire on the American flag.",
+     "modern": "「那是美國國旗；我航行在公海上；我的旗幟保護我；你們若朝這艘船開火，就是向美國開火。」"
+    },
+    {
+     "orig": "A noble whale ship and commander",
+     "modern": "「一艘高貴的捕鯨船和船長」——劫獄後西澳民間傳唱民謠的首句，嘲諷獄卒看守不力。"
+    }
+   ],
+   "lesson": "自由的意志能橫越重洋：一艘民間捕鯨船憑星條旗與人的勇氣，便逼退了帝國的炮口。"
   }
  ]
 }
