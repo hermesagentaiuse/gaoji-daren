@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 286,
- "analyzed": 274,
+ "analyzed": 275,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 101
+   "count": 102
   },
   {
    "name": "美洲",
@@ -7223,6 +7223,36 @@
     }
    ],
    "lesson": "偉大的歌不是為政治而寫：作曲家把喪親之痛譜上樂譜，受苦的民族才把它聽成了國歌。"
+  },
+  {
+   "id": "w0275",
+   "continent": "歐洲",
+   "era": "中古",
+   "country": "義大利",
+   "title": "盲總督丹多洛：九十歲奪下君士坦丁堡",
+   "year_label": "1204-04-12",
+   "authenticity": "正史",
+   "sources": [
+    "Britannica「Enrico Dandolo」條目",
+    "Wikipedia「Enrico Dandolo」「Fourth Crusade」條目",
+    "威爾杜安《君士坦丁堡之征服》（Geoffroi de Villehardouin, De la Conquête de Constantinople）",
+    "《諾夫哥羅德編年史》（Chronicle of Novgorod）",
+    "Thomas F. Madden《Enrico Dandolo: The Doge of Venice》研究",
+    "National Geographic「This deadly crusade was the downfall of Constantinople」"
+   ],
+   "auth_note": "攻城日期1204年4月12日、丹多洛率威尼斯艦隊參戰、死後葬於聖索菲亞，均有同時代史料（威爾杜安、尼西塔斯·霍尼亞特斯）與Britannica、Wikipedia交叉支持，判定正史。爭議細節：一、失明原因——《諾夫哥羅德編年史》稱拜占庭皇帝曼努埃爾以玻璃灼瞎其目；與他同行的威爾杜安則記為頭部舊傷；Madden據其1174至1176年間簽名字跡變化考證為皮層性失明，故事採同時代親歷者說法。二、「九十歲」係後世推算——同時代編年史僅稱其「極老」，出生年1107年出自三個世紀後Marino Sanuto the Younger的記載，繼位時85歲之說即由此而來，學界亦有七十多歲之說。",
+   "story": "1202年，法國十字軍使者抵達威尼斯，洽租艦隊東征埃及。與他們簽下契約的，是年逾八旬、雙目近盲的老總督恩里科·丹多洛。與他同行的編年史家威爾杜安記下：「his eyes appeared normal, he could not see a hand in front of his face.」他的眼睛看來與常人無異，卻連眼前的一隻手都看不見。後來十字軍湊不足人馬，付不清船資，丹多洛順勢把這樁事業的方向，緩緩轉向了君士坦丁堡。\n1204年4月12日，北風大起。威尼斯人把兩艘最大的戰船「天堂號」與「朝聖者號」綁在一起，桅頂架起登城跳板，船身覆滿浸過醋的獸皮以防火攻。戰船在海牆邊列成一整排浮動的攻城塔，約七十名十字軍率先躍上城堞。城破了，這座基督教世界最大之城遭三日洗劫，千年東羅馬帝國就此傾覆。\n戰後，丹多洛為自己與歷任總督取了一個稱號：「lord of the fourth part and a half of the whole empire of Romania」——羅馬帝國四分之一又一半之主。1205年春，老總督在君士坦丁堡辭世，葬於聖索菲亞教堂的前廳。那位推倒東羅馬的盲眼老人，終老在他親手攻下的教堂裡。",
+   "vernacular": [
+    {
+     "orig": "his eyes appeared normal, he could not see a hand in front of his face",
+     "modern": "威爾杜安親眼所見：丹多洛雙目外觀如常人，卻連眼前伸出的手都看不見，近乎全盲。"
+    },
+    {
+     "orig": "lord of the fourth part and a half of the whole empire of Romania",
+     "modern": "即「羅馬帝國四分之一又半之主」，正對應分贓協議中威尼斯分得的東羅馬版圖份額。"
+    }
+   ],
+   "lesson": "丹多洛把債務與船隊變成槓桿，讓九十歲的盲眼老人推倒千年帝國；但劫掠同信仰之城的惡名，也隨勝利永載史冊。"
   }
  ]
 }
