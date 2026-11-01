@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 346,
- "analyzed": 336,
+ "analyzed": 337,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 67
+   "count": 68
   },
   {
    "name": "非洲",
@@ -8808,6 +8808,39 @@
     }
    ],
    "lesson": "機會面前无人甘於落後，但若繁榮建立在掠奪他人家園之上，正義的爭訟必將延續百年。"
+  },
+  {
+   "id": "w0337",
+   "continent": "美洲",
+   "era": "現代",
+   "country": "美國",
+   "title": "撫卹金大軍：坦克開進華盛頓驅趕老兵",
+   "year_label": "1932-07-28",
+   "authenticity": "正史",
+   "sources": [
+    "美國國家公園署 NPS〈The 1932 Bonus Army〉",
+    "Wikipedia〈Bonus Army〉",
+    "Smithsonian Magazine〈Marching on History〉",
+    "Army Times〈Eisenhower, Patton and MacArthur and the stain of the 'Bonus Army'〉(2025-07-28)",
+    "PBS American Experience〈The Bonus March (May–July, 1932)〉"
+   ],
+   "auth_note": "事件有同時代新聞報導、國會投票紀錄與退伍軍人局調查報告支持，定為正史。細部出入：坦克數量各說不一，Wikipedia 主文與 NPS 記五輛、infobox 列六輛 M1917，本文從主流記載取五輛。麥克阿瑟稱老兵僅佔一成，與退伍軍人局事後調查的94%明顯矛盾，已並陳於正文。艾森豪辱罵麥克阿瑟的粗口出自其日後回憶，本文僅取其較溫和的公開版本。queue 原標題末二字為簡體寫法，已改寫為正字「驅趕」。",
+   "story": "1929年大蕭條把數百萬美國人壓進貧困深淵。1924年國會曾承諾給一戰退伍軍人一筆服役撫卹金，卻把兌現日期推到1945年，老兵憤稱它為「Tombstone Bonus」——領到時多半已躺在墓碑下。1932年5月，波特蘭下崗中士沃特斯帶頭跳上貨運火車進軍華盛頓。數萬老兵攜家帶口湧向首都，在阿納科斯蒂亞河灘搭起棚屋，自稱「退伍遠征軍」。\n沃特斯按軍紀扎營，宣布「不乞討、不喝酒、不搞激進主義」，發誓：「We'll stay here until the bonus bill is passed, till 1945, if necessary.」6月15日眾議院通過帕特曼法案，17日參議院卻以62比18否決。28日警察向拒撤的老兵開槍打死兩人，胡佛遂下令陸軍清場。\n參謀長麥克阿瑟親率步兵第十二團與騎兵第三團，巴頓少校指揮五輛雷諾坦克掩護。參謀艾森豪極力勸阻：「It was no place for the Chief of Staff.」麥克阿瑟不為所動。下午四點半騎兵出鞘、步兵上刺刀、坦克轟鳴開進賓夕法尼亞大道。曾並肩參戰的老兵以為軍隊來檢閱自己，起立歡呼，直到騎兵衝鋒、催淚彈炸開，棚屋被火把點燃，數千家屬連夜逃離首都。\n麥克阿瑟聲稱遊行者僅一成是退伍軍人，退伍軍人局調查卻顯示高達94%。這年11月胡佛大選慘敗；四年後國會才通過全額兌付。坦克駛過華盛頓街頭，成為美國良心上難癒的傷疤。",
+   "vernacular": [
+    {
+     "orig": "老兵憤稱它為「Tombstone Bonus」",
+     "modern": "老兵譏稱這筆撫卹金為「墓碑獎金」——要等到1945年才兌現，許多人到時只怕已作古。"
+    },
+    {
+     "orig": "We'll stay here until the bonus bill is passed, till 1945, if necessary.",
+     "modern": "「我們住在這裡，直到撫卹金法案通過為止，必要的話一直住到1945年。」這是沃特斯的表態。"
+    },
+    {
+     "orig": "It was no place for the Chief of Staff.",
+     "modern": "「那不是參謀長該去的地方。」艾森豪私下勸阻麥克阿瑟親自帶兵對付美國老兵。"
+    }
+   ],
+   "lesson": "國家可以拖欠老兵的錢，卻拖欠不起良心；坦克能驅散請願者，驅不散歷史的審判。"
   }
  ]
 }
