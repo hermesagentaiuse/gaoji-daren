@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 346,
- "analyzed": 337,
+ "analyzed": 338,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 68
+   "count": 69
   },
   {
    "name": "非洲",
@@ -8841,6 +8841,39 @@
     }
    ],
    "lesson": "國家可以拖欠老兵的錢，卻拖欠不起良心；坦克能驅散請願者，驅不散歷史的審判。"
+  },
+  {
+   "id": "w0338",
+   "continent": "美洲",
+   "era": "現代",
+   "country": "美國",
+   "title": "1927密西西比大洪水：八十里寬的濁流與胡佛的崛起",
+   "year_label": "1927-04",
+   "authenticity": "正史",
+   "sources": [
+    "Wikipedia〈Great Mississippi Flood of 1927〉",
+    "Smithsonian NMAAHC〈The Great Mississippi River Flood of 1927〉",
+    "Encyclopædia Britannica〈Mississippi River flood of 1927〉",
+    "American National Red Cross《The Mississippi Valley Flood Disaster of 1927: Official Report of the Relief Operations》(1929)",
+    "Pete Daniel《Deep'n As It Come: The 1927 Mississippi River Flood》(1977)",
+    "John M. Barry《Rising Tide: The Great Mississippi Flood of 1927 and How It Changed America》(1997)",
+    "Louisiana TPWD/LTHP 1927flood.lthp.org〈Caernarvon Crevasse〉",
+    "NPR〈Lessons from the Flood of 1927〉(2005)",
+    "Congressional Research Service RL33126《Disaster Response and Appointment of a Recovery Czar: The Executive Branch's Response to the Flood of 1927》"
+   ],
+   "auth_note": "主線事件（芒茲蘭丁4月21日潰堤、4月22日柯立芝設胡佛洪水委員會、卡那文4月29日三十噸炸藥人工決堤、黑人占難民營69%、二十萬黑人進營）均見於同時代官方報告與多家權威機構。死亡人數各說不一：官方約500人，部分估計達上千，本文採維基百科與NWS之約500人。「州長急電」引文見CRS報告援引原文，胡佛語錄見NPR引其回憶錄。「八十里寬」為NMAAHC對維克斯堡河段的描述。傳唱一時的貝西·史密斯〈Back Water Blues〉經音樂學考證實寫1926年納許維爾洪水，非本次洪水，故未採入正文。",
+   "story": "1927年4月，密西西比河流域連月暴雨，河身腫到極限。21日凌晨，格里利維附近的芒茲蘭丁大堤突然裂開，濁流撕開數百米寬的缺口，又不斷擴大；維克斯堡河面竟寬達八十里，三角洲盡成汪洋。\n密西西比州長墨菲急電柯立芝總統：「Unprecedented floods have created a national emergency——十五萬人的家園，二十四小時內將泡在一到二十呎的水裡。」以沉默著稱的柯立芝把整個救災大權交給商務部長胡佛。胡佛在廣播裡募得一千五百萬美元，調度紅十字會、陸軍與民間力量，對九十一個城鎮喊話：「你們沒有幾個月的時間，你們只有幾個小時。」事後他得意地說：「All I had to do was call in Main Street itself——我只要把整個主街號召進來就够了。」\n可是洪水也沖出這個國家最陰暗的角落。下游的新奧爾良銀行家們搶先以三十噸炸藥炸開卡那文大堤保城，代價卻由聖伯納與普拉肯明斯兩教區的法裔西裔居民吞下。三角洲上黑人占人口七成五、農務勞動力九成五：二十多萬黑人難民被種植園主和鐵路公司圈進一百多個救濟營，故意不讓他們離開；一萬三千多人滯留在格里利維大堤堤頂，幾天沒有食物和乾淨的水。此後數月，數十萬黑人懷著怒火登上北上列車，湧向芝加哥與底特律，改寫了美國的人口版圖。\n這場洪水奪走近五百條人命，淹沒二點七萬平方英里的土地，也把一個商務部長推上了白宮。",
+   "vernacular": [
+    {
+     "orig": "Unprecedented floods have created a national emergency",
+     "modern": "前所未見的大洪水已造成國家級危難——州長墨菲1927年4月急電白話原文，告急十五萬居民即將受淹。"
+    },
+    {
+     "orig": "All I had to do was call in Main Street itself",
+     "modern": "我只要把小鎮主街上的普通人號召進來就够了——胡佛自誇救災不必動用全部軍隊，動員民間即可。"
+    }
+   ],
+   "lesson": "天災會放大社會原有的裂縫：洪水淹了三角洲，也把種族不義沖上北上列車，改寫了美國的人口與政治版圖。"
   }
  ]
 }
