@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 326,
- "analyzed": 324,
+ "analyzed": 325,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 120
+   "count": 121
   },
   {
    "name": "美洲",
@@ -8534,6 +8534,33 @@
     }
    ],
    "lesson": "顛覆世界的新事物，誕生第一夜往往冷清得可笑；真正的革命從不需要報紙頭版的批准。"
+  },
+  {
+   "id": "w0325",
+   "continent": "歐洲",
+   "era": "近代",
+   "country": "英國",
+   "title": "詹納：牧牛女手上的膿疱救下人類",
+   "year_label": "1796-05-14",
+   "authenticity": "正史",
+   "sources": [
+    "詹納《牛痘的成因與效果探究》(An Inquiry into the Causes and Effects of the Variolae Vaccinae, 1798)",
+    "Donald A. Henderson, Smallpox Vaccine: The First 100 Years, Public Health Reports 112 (1997)",
+    "William Riedel, Edward Jenner and the history of smallpox and vaccination, PMC1200696"
+   ],
+   "auth_note": "日期、主角、挑戰性接種均見詹納本人1798年《探究》原文，並經NIH文獻、History of Vaccines等多個獨立來源交叉證實。「擠奶女工給詹納靈感」的簡化傳說略有後世渲染：同鄉弗斯特醫生1768年已觀察到牛痘抗天花，農民杰斯提1774年已先為家人接種；詹納之功在科學驗證與系統發表。倫敦流行的「種牛痘會長牛角」謠言出自1802年政治諷刺漫畫，未採信入正文。",
+   "story": "十八世紀的歐洲，天花每年奪走無數性命，倖存者多半一臉麻痕。但在英國格羅斯特郡的鄉間，卻流傳一句話：擠牛奶的女工長出過牛痘膿疱，就永遠不會得天花。鄉鎮醫師詹納把這句鄉野傳聞記在心裡，花了二十多年進牛奶場逐一調查。\n1796年5月，牧牛女莎拉．內爾姆斯手上長出膿疱前來就診，詹納診斷她染的是牛痘而非天花——她家的乳牛「花姐」日前剛染上牛痘。詹納知道，驗證的時刻來了。5月14日，他用小刀在僕人之子、八歲的菲普斯手臂上劃出幾道淺痕，塗上取自內爾姆斯膿疱的漿液。\n詹納在書中寫道：「On the seventh day he complained of uneasiness in the axilla, and on the ninth he became a little chilly, lost his appetite, and had a slight head-ache.」第七天男孩腋下不適，第九天發燒食慾全失，第十天卻已完全康復。\n六週後的7月1日，詹納賭上醫師的聲譽，取天花病人膿疱的膿漿為菲普斯接種——男孩沒有出痘，牛痘真的擋住了天花。1797年他向皇家學會投稿，卻被以「學說過於革命」退回；1798年9月他自費出版《牛痘的成因與效果探究》，並從拉丁文 vacca（母牛）為這門新技術命名「疫苗」。一百八十二年後，世界衛生組織宣布天花絕跡——人類戰勝的第一種烈性傳染病。",
+   "vernacular": [
+    {
+     "orig": "On the seventh day he complained of uneasiness in the axilla, and on the ninth he became a little chilly, lost his appetite, and had a slight head-ache.",
+     "modern": "詹納《探究》原文：第七天男孩抱怨腋下不適，第九天開始畏寒、食慾全失、略感頭痛，是接種牛痘後的輕微反應。"
+    },
+    {
+     "orig": "拉丁文 vacca（母牛）",
+     "modern": "vacca 為拉丁文「母牛」，詹納由此造出 vaccine（疫苗）一詞，記念牛痘的來源。"
+    }
+   ],
+   "lesson": "被世人當作迷信的鄉野傳聞，經過嚴謹驗證，可能成為拯救億萬人的科學起點。"
   }
  ]
 }
