@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 346,
- "analyzed": 334,
+ "analyzed": 335,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 65
+   "count": 66
   },
   {
    "name": "非洲",
@@ -8754,6 +8754,37 @@
     }
    ],
    "lesson": "城牆擋得住砲火，擋不住時勢：靠敵室內亂僥倖續命一次，若不圖自強，終有城破之日。"
+  },
+  {
+   "id": "w0335",
+   "continent": "美洲",
+   "era": "現代",
+   "country": "美國",
+   "title": "1900加拉維斯頓颶風：海嘯之牆吞沒海島城",
+   "year_label": "1900-09-08",
+   "authenticity": "正史",
+   "sources": [
+    "Monthly Weather Review, September 1900：Isaac M. Cline〈The Galveston Storm〉第一手報告（NWS Heritage Virtual Lab 全文收錄）",
+    "U.S. National Park Service：Galveston Hurricane of 1900",
+    "Galveston Historical Foundation：The 1900 Storm"
+   ],
+   "auth_note": "事件核心（日期、地點、克萊因其人、水牆暴漲、屋塌妻亡、漂流三小時、損失規模）皆出自克萊因同時代親筆報告，屬正史。死亡人數各來源有出入：克萊因報告稱「至少六千」、官方常引用八千、學界估計六千至一萬二千，已在文中採保守的「至少六千」。克萊因未經准許擅自升掛颶風旗一節出自 NWS Heritage 紀念專文。",
+   "story": "1900年9月8日清晨，德州加拉維斯頓的氣象員艾薩克・克萊因被同事喚醒：海水已湧進城南低地。他親赴海邊測量湧浪後，向華盛頓發出急電：「Unusually heavy swells from the southeast… Such high water with opposing winds never observed previously.」\n午後，全城半數街道沒入水下，電報線全部中斷。克萊因把四五十位鄰里安置進自家。傍晚七點半，水牆在數秒間暴漲約四呎，他事後回憶：「The water rose at a steady rate from 3 p.m. until about 7:30 p.m., when there was a sudden rise of about four feet in as many seconds.」浮起的房舍被海浪推成撞錘，撞向仍聳立的建築。\n八點半，克萊因的屋舍被撞垮，屋內五十餘人僅十八人生還，懷孕的妻子可拉葬身波濤。他抱著幼子攀住殘骸漂流三小時，深夜才被碎木托到二十八街擱淺。海面歸靜時，約三千戶民宅已從地面消失。\n次日陽光下，這座德州第四大城至少六千人斃命、損失三千萬美元，成為美國史上最致命的天然災難。克萊因在報告中寫道，若早建有海堤破浪，必能多救性命。這座城市拒絕棄島，隨後築起十公里海堤，並用海底抽沙把整座島墊高，讓後人不再仰視海嘯之牆。",
+   "vernacular": [
+    {
+     "orig": "Unusually heavy swells from the southeast",
+     "modern": "東南方湧來異乎尋常的巨大湧浪（克萊因九月八日晨發往華盛頓的急電開頭，描述異常海象）。"
+    },
+    {
+     "orig": "Such high water with opposing winds never observed previously",
+     "modern": "如此高潮卻伴著反向狂風，是從前從未見過的情況。"
+    },
+    {
+     "orig": "there was a sudden rise of about four feet in as many seconds",
+     "modern": "水位在短短數秒內驟然上漲約四呎——這道無聲升起的水牆，就是奪命的海嘯前鋒。"
+    }
+   ],
+   "lesson": "大海不與人討價還價：正視自然的警訊、以遠見重建，城市才抵得過下一道無聲的水牆。"
   }
  ]
 }
