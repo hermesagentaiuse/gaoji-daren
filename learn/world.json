@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 366,
- "analyzed": 365,
+ "analyzed": 366,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 78
+   "count": 79
   },
   {
    "name": "非洲",
@@ -9600,6 +9600,33 @@
     }
    ],
    "lesson": "刀劍打得敗總督，打不贏懂人心的帝國：一紙大赦、一道廢法，便讓歷時四年的叛軍在戰場上不戰自潰。"
+  },
+  {
+   "id": "w0366",
+   "continent": "美洲",
+   "era": "近代",
+   "country": "秘魯/印加",
+   "title": "安地斯之巫：布雷納山中的卡塞雷斯游擊戰",
+   "year_label": "1881—1883",
+   "authenticity": "正史",
+   "sources": [
+    "英維基百科條目 Battle of Huamachuco、Breña campaign（華馬丘科之役與布雷納戰役條目）",
+    "《La primera memoria de Cáceres y otros documentos relativos a la Campaña de la Breña (1881-1884)》（1985年布雷納軍團文獻彙編，Internet Archive 可查）",
+    "學術論文《Cotidianidad en guerra: el combatiente peruano en la serranía durante la campaña de la Breña a través de sus registros testimoniales (1881-1883)》（引用卡塞雷斯1881年致省長信原文）"
+   ],
+   "auth_note": "queue 提示的拉雷亞《秘魯史》與秘魯國家文化遺產檔案未能核對原文，依鐵律不列入，實際引用見 sources。任命為中央各省政治與軍事最高首長之日期各說不一（1881年4月25日或26日），story 以「沒幾日」模糊處理；安孔條約簽署日期有10月10日與20日兩說，story 只記「同年10月」。另有記載秘軍對智利戰俘斬首示眾之報復情節，見於部分記載但史學界評價分歧，未採入正文。核心事實（負傷藏匿、出逃豪哈、游擊建軍、三勝、華馬丘科之敗與彈盡、安孔條約割塔拉帕卡）均有同時代文獻或近現代權威研究支持。",
+   "story": "1881年1月，米拉弗洛雷斯之役秘軍大敗，卡塞雷斯上校右大腿骨被擊穿，由耶穌會會長藏進聖佩德羅修道院禪房，才躲過智利軍的搜索。同年4月15日，他傷尚未癒，在妻子與友人協助下離開利馬，潛入中央高地之豪哈；旋即受任為中央各省政治與軍事最高首長。\n沒有兵、沒有錢、沒有槍，眼前只有冰冷的普納高原。卡塞雷斯通曉克丘亞語，雙語勸導村民出糧從軍，把潰軍殘部與農民義勇軍練成一支「布雷納軍」。他在致省長的信中寫道：「oponer al invasor la mayor resistencia posible... el Perú bastante temible para el que pretenda humillarlo.」（對入侵者，要作盡可能最大的抵抗——秘魯依然可畏，足以令欲辱之者膽寒。）\n1882年7月，一役三勝：普卡拉、馬爾卡瓦列、康塞普西翁，三支智利「遠征隊」在山裡被消耗殆盡。他行蹤飄忽，总在敵人不預期之處現身：士兵尊他為「泰塔・卡塞雷斯」（父親卡塞雷斯），智利軍則稱他「Brujo de los Andes」。\n但巫師的法術終有用盡的一天。1883年7月10日華馬丘科之役，秘軍彈盡，戈羅斯蒂加上校率智利軍奪下薩宗山崗，年輕的普拉多上校陣亡。卡塞雷斯退往阿亞庫喬另組一軍，拒絕投降；但同年10月，伊格萊西亞斯政府簽下安孔條約，永遠割讓塔拉帕卡省。安地斯的巫，終究敗在平地的一紙和約上。",
+   "vernacular": [
+    {
+     "orig": "oponer al invasor la mayor resistencia posible... el Perú bastante temible para el que pretenda humillarlo.",
+     "modern": "對入侵者要作盡可能最大的抵抗——縱經災難，秘魯仍足以令欲辱之者畏懼。（1881年卡塞雷斯致省長信）"
+    },
+    {
+     "orig": "Brujo de los Andes",
+     "modern": "「安地斯之巫」，智利軍因卡塞雷斯游擊行蹤飄忽、無處不在而給他取的綽號。"
+    }
+   ],
+   "lesson": "偏山與民心能把戰爭拖到強權極限，但真正終結一場戰爭的，往往是帳篷裡的談判而非山巔上的巫師。"
   }
  ]
 }
