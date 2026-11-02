@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 346,
- "analyzed": 345,
+ "analyzed": 346,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 76
+   "count": 77
   },
   {
    "name": "非洲",
@@ -9054,6 +9054,25 @@
     }
    ],
    "lesson": "兵凶戰危之際，超越雙方利益的第三方調停與領導人的最後節制，往往比艦隊更能守住邊界。"
+  },
+  {
+   "id": "w0346",
+   "continent": "美洲",
+   "era": "現代",
+   "country": "智利",
+   "title": "1985阿爾加羅博大地震：聖地牙哥的搖撼之秋",
+   "year_label": "1985-03-03",
+   "authenticity": "正史",
+   "sources": "USGS Preliminary Determination of Epicenters（經「1985 Algarrobo earthquake」條目引述）；Utsu《Recueil de données sismologiques》2002；智利大學國家地震中心 CSN「Efemérides sísmicas: Terremoto de Algarrobo 1985」",
+   "auth_note": "日期、規模、前震序列、傷亡與 NCH 433 規範修訂均由 USGS、Utsu 2002、CSN 大學地震中心多方交叉確認，屬正史。死亡人數各來源略有出入（USGS/Utsu 177人、EM-DAT 180人、NGDC 200人），已依多數來源採「至少177人」並註明逾2,500人受傷。皮諾契特演說引句出自其國政演說原文，經多方引述確認。",
+   "story": "1985年3月3日，一個溫暖的週日傍晚，智利中部海岸還籠在夏天的餘溫裡。過去十幾天，Valparaíso 一帶的地底下一直在輕輕顫動——數百次小震輪番上陣，磨著人們的神經。地震學家察覺了異樣：智利與墨西哥的研究人員急忙籌措經費，運來可攜式地震儀架起臨時觀測站。\n19時47分，海底猛然錯動。納斯卡板塊瞬間楔入南美板塊之下，8.0級巨震整整搖撼了六十九秒。聖地牙哥與 Valparaíso 屋內家具四處飛躍，土牆倒塌，橋樑斷裂，泛美公路被山崩撕裂成數段。\n大地並未就此罷休。次日強餘震再襲；4月9日，雷普雷斯湖區7.2級餘震又帶走兩條人命。最終統計至少177人喪生、逾2,500人受傷，近百萬人流離失所。皮諾契特總統在國政演說中宣告：「Esta tragedia provocó en la zona central del país la pérdida de numerosas vidas humanas, más de dos mil quinientos heridos.」\n美國與紐西蘭的地震學者帶著儀器火速趕抵，瓦礫中的教訓被寫進修訂後的 NCH 433 建築耐震設計規範。從此，智利的樓房越蓋越高，也越蓋越不倒。",
+   "vernacular": [
+    {
+     "orig": "Esta tragedia provocó en la zona central del país la pérdida de numerosas vidas humanas, más de dos mil quinientos heridos.",
+     "modern": "這場悲劇在我國中部地區奪走眾多生命，傷者超過兩千五百人。（皮諾契特時任智利總統，此為其災後國政演說原話）"
+    }
+   ],
+   "lesson": "災難最大的價值是被認真記錄：瓦礫中的數據換來規範修訂，讓後來的地震不再重演同樣的悲劇。"
   }
  ]
 }
