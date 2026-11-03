@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 406,
- "analyzed": 403,
+ "analyzed": 404,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 83
+   "count": 84
   },
   {
    "name": "非洲",
@@ -10635,6 +10635,25 @@
     }
    ],
    "lesson": "稅單與圈地能把人逼進叢林，卻滅不掉一個民族的尊嚴；六十八年後，逼反瑪雅人的不平最終要靠改革贖回。"
+  },
+  {
+   "id": "w0404",
+   "continent": "美洲",
+   "country": "智利",
+   "era": "上古",
+   "title": "欽喬羅木乃伊：比埃及更古老的永眠術",
+   "year_label": "約前5000",
+   "authenticity": "正史",
+   "sources": [
+    "UNESCO 世界遺產名錄第1634號〈Settlement and Artificial Mummification of the Chinchorro Culture in the Arica and Parinacota Region〉（2021 登錄）",
+    "Max Uhle《Los aborígenes de Arica》（1917）",
+    "Vivien Standen & Bernardo Arriaza，Estudios de Antropología Biológica XII（2005）〈Las técnicas de momificación artificial entre los cazadores, pescadores y recolectores del desierto de Atacama〉",
+    "National Geographic（Mark Johanson）〈Can UNESCO status save the Chinchorro mummies?〉"
+   ],
+   "auth_note": "判定正史：人工木乃伊經放射性碳定年直接測自遺體本身（最早幼童約前5050年），黑紅兩式技術細節出自 Standen 與 Arriaza 對骨骼的直接觀察與影像學研究，UNESCO 登錄描述亦採同一實物證據。烏勒於阿利卡發掘、1917 年刊《Los aborígenes de Arica》為學界通說（發掘年份或作1914–1917）。文中烏勒與助理的對話為文學性想像重建，非史料記載；黑式與紅式的確切起止年份各家（BP 定年）略有出入，故以「最早的」「數百年後」概稱。",
+   "story": "一九一七年，德國考古學家烏勒在智利北部阿利卡的海岸高地上發掘史前貝塚。層層貝殼之下，他挖出一具具皮膚仍緊貼骨骸的遺體，五官依稀可辨。\n助理湊近問：「他們為什麼要這麼做？」烏勒回答：「也許，他們不肯承認死者已經離開。」這批發現寫進了他一九一七年發表的《阿利卡的原始居民》，世人才發現：這裡的木乃伊比埃及的更古老。\n這些死者屬於欽喬羅人——一支在阿塔卡馬沙漠海岸生活了數千年的海洋採集狩獵族群。他們以骨製魚鉤捕魚，用投矛器獵取海獅，卻把最高的技藝留給了死亡。\n最早的黑色風格，技術師將遺體拆下四肢、剔去血肉，以樹枝與植物繩把骨架重新紮緊，腔體填入植物纖維與駱駝科動物皮毛，覆泥塑形，再套回死者原本的皮膚，塗上錳礦染成的漆黑，臉上扣一頂泥製面具與假髮，宛如一尊雕像。\n數百年後，風格轉為紅色：在腹背劃開切口取出內臟，填進纖維與灰燼，以筋線縫合，通體塗上紅赭，頭上仍安著人髮假髮。\n碳定年顯示，最古老的一具人工木乃伊是卡馬隆內斯河谷的一位幼童，約公元前5050年，比埃及最早的木乃伊早了近兩千年。而且他們不挑人——男女老幼、甚至胎兒，都能獲得這份禮遇。\n二〇二一年，這片海岸的三處遺址列入聯合國教科文組織世界遺產名錄。學者同時警告：氣候變遷帶回的濕氣，正一點點侵蝕這些沉睡七千年的身影。",
+   "vernacular": [],
+   "lesson": "真正的永恆不屬於帝王：人類最早的木乃伊，出自一群沒有文字的沙漠漁民，源於不肯告別的愛。"
   }
  ]
 }
