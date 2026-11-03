@@ -1,12 +1,12 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 386,
- "analyzed": 377,
+ "analyzed": 378,
  "continents": [
   {
    "name": "亞洲",
    "icon": "🌏",
-   "count": 83
+   "count": 84
   },
   {
    "name": "歐洲",
@@ -9943,6 +9943,33 @@
     }
    ],
    "lesson": "權力一旦旁落，皇帝名號連故鄉兩呎墓地都保不住；空虛的寶座，最終只是別人法庭裡的被告席。"
+  },
+  {
+   "id": "w0378",
+   "continent": "亞洲",
+   "era": "現代",
+   "country": "印度",
+   "title": "計程車牌一一二九：拉馬努金與哈代",
+   "year_label": "1919",
+   "authenticity": "爭議",
+   "sources": [
+    "G. H. Hardy,《Ramanujan: Twelve Lectures on Subjects Suggested by His Life and Work》(1940)",
+    "C. P. Snow,《A Mathematician's Apology》序言（1940）",
+    "維基百科「Taxicab number」條目（含 Frénicle de Bessy 1657 年記載）"
+   ],
+   "auth_note": "故事唯一來源是哈代1940年回憶錄中事後的追述，對話為記憶轉寫，確切年份僅能定為約1919年（拉馬努金於普特尼養病期間）。C. P. Snow 在《一個數學家的自白》序言所記版本與哈代原文有明顯增飾（如「No, Hardy! No, Hardy!」的吶喊），兩者對白不一致，故列為爭議。1729 可表為 1³+12³ 與 9³+10³ 之最小數此一數學事實可驗證，且早在1657年由弗瑞尼剋（Frénicle de Bessy）發表，並非拉馬努金首見。",
+   "story": "一九一九年，倫敦普特尼醫院。三十一歲的拉馬努金臥病在床，肺結核正一點一滴吞噬這位來自印度的數學天才。摯友哈代搭計程車前來探視。\n哈代走進病房，一開口便說：「I had ridden in taxi-cab No. 1729, and remarked that the number seemed to be rather a dull one.」他嫌這個車牌數字枯燥無味，只盼它不是個壞兆頭。\n病床上的拉馬努金立刻搖頭：「No, it is a very interesting number; it is the smallest number expressible as the sum of two cubes in two different ways.」哈代怔住了。他細心一算，1729 確實等於一的立方加十二的立方，也等於九的立方加十的立方——一條路是一加一七二八，一條路是七二九加一千，兩條路都通到同一個數字。\n這個性質早在一六五七年就由法國數學家弗瑞尼剋寫下，但要像拉馬努金這樣在病榻上不假思索即刻報出，靠的不是查表，而是他與數字終生為友的直覺。劍橋同儕李托伍德曾說：每一個正整數，都是拉馬努金的私人好友。\n這段對話後來由哈代寫進回憶錄，一七二九從此有了「哈代—拉馬努金數」之名，數學家也把這類數字統稱為「計程車數」。兩年後拉馬努金病逝家鄉，年僅三十二歲。車牌終會報銷，數字永存。",
+   "vernacular": [
+    {
+     "orig": "I had ridden in taxi-cab No. 1729, and remarked that the number seemed to be rather a dull one.",
+     "modern": "我剛才搭的計程車車牌是1729，我還說這個數字看起來相當枯燥無味。（哈代探病時的自嘲開場白）"
+    },
+    {
+     "orig": "No, it is a very interesting number; it is the smallest number expressible as the sum of two cubes in two different ways.",
+     "modern": "不，它是非常有趣的數字：它是能用兩種不同方式寫成兩個立方數之和的最小正整數。"
+    }
+   ],
+   "lesson": "真正的學養是把知識化成直覺：別人只看見枯燥的車牌，心中有數的人卻能立刻聽見數字開口說話。"
   }
  ]
 }
