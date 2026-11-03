@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 406,
- "analyzed": 387,
+ "analyzed": 388,
  "continents": [
   {
    "name": "亞洲",
@@ -31,7 +31,7 @@
   {
    "name": "大洋洲",
    "icon": "🏝️",
-   "count": 20
+   "count": 21
   }
  ],
  "eraOrder": [
@@ -10218,6 +10218,30 @@
     }
    ],
    "lesson": "法律不因膚色而異：七條絞索雖然遲到，卻第一次證明邊境的弱者也享有人身之權。"
+  },
+  {
+   "id": "w0388",
+   "continent": "大洋洲",
+   "country": "澳洲",
+   "era": "現代",
+   "title": "歌德堡號：珊瑚礁上的最後一班郵輪",
+   "year_label": "1875",
+   "authenticity": "正史",
+   "sources": [
+    "昆士蘭博物館部落格：SS Gothenburg – A haunting watery grave（Dr Maddy McAllister 撰寫）",
+    "澳洲昆士蘭州政府 DETSI 新聞稿：150 years since one of Australia's worst maritime disasters（2025-02-25）",
+    "澳洲國家圖書館 Trove 同時代報導：THE WRECK OF THE S.S. GOTHENBURG，South Australian Register，1875-03-13",
+    "昆士蘭州政府潛航指南：Dive into History – Queensland's Shipwrecks: Gothenburg (1875)"
+   ],
+   "auth_note": "事件核心（日期、船長皮爾斯、擱置Detached Reef、倒車破 hull、婦女兒童全數罹難、22名生還者、霍本島待援、93公斤黃金打撈、菲茨傑拉德龜殼銘牌）均由同時代報紙（Trove 1875年3月沉船調查報導）與昆士蘭博物館、州政府檔案交叉證實，故定為正史。各來源細節略有出入：觸礁日期有2月23日與24日兩說（本story採多數來源的24日晚間七時）；罹難人數有約100人、102人、112人諸說（取約一百人，不寫死確數）；乘客數有98人與百人以上諸說（story以「近百名」籠統處理）。queue 提示之 ABC Backyard 檔案未直接核對原文，未列入 sources。",
+   "story": "1875年2月，「歌德堡號」郵輪駛離達爾文港，南下墨爾本。船上載著近百名乘客與三十六名船員，多是返鄉的淘金客與達爾文仕紳，船長皮爾斯的艙房裡還鎖著九十三公斤黃金。\n連日暴風雨遮斷海天。24日晚間七時，船身猛然一震——它偏離航線十六英里，擱上大堡礁外海的Detached暗礁南緣。起初無人驚慌，人人相信漲潮後船會重新浮起；誰知開倒退脫困，反把船底撕開，海水倒灌進來。\n四艘救生艇放下，頭兩艘在混亂中意外漂走，第三艘載滿婦女兒童，被恐慌湧上的人潮掀翻。生還者後來回憶：\"The sea was covered with human heads bobbing up and down like corks.\"船長與全部官員、二十五名婦女兒童悉數罹難，死者中還有南澳前省長雷諾茲、法國副領事與法官。\n僅存的二十二人在傾覆的桅杆上攀附了四十八小時，再划著唯一的小艇橫渡約五十公里，逃到霍本島，靠生吃海鳥蛋與海龜果腹，直到蒸汽船「利奇哈特號」循跡把他們撈起。\n兩週後潛水員下探沉船撈金，在客艙階梯腳下發現兩具相擁的女屍，因氣喉太短無能取回，身分永成謎團。獲救的菲茨傑拉德因救人獲總督頒贈金錶，五十年後他仍親刻一塊龜殼銘牌，把二十二個生還者的名字一一留在上面。",
+   "vernacular": [
+    {
+     "orig": "The sea was covered with human heads bobbing up and down like corks.",
+     "modern": "海面佈滿人頭，像軟木塞一樣一起一伏。（生還者目擊海面漂浮著溺水者的親述，載於昆士蘭博物館沉船檔案）"
+    }
+   ],
+   "lesson": "災難當頭的秩序與冷靜決定生死：倒車求生反撕破船底、人潮湧艇掀翻生路，慌亂本身常比災禍更早殺人。"
   }
  ]
 }
