@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 386,
- "analyzed": 384,
+ "analyzed": 385,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 79
+   "count": 80
   },
   {
    "name": "非洲",
@@ -10138,6 +10138,29 @@
     }
    ],
    "lesson": "老船長的隱憂與乘客的惡夢都應驗了，卻無人聽取：對潛在危機的集體漠視，往往比暴風雨更早擊沉一艘船。"
+  },
+  {
+   "id": "w0385",
+   "continent": "美洲",
+   "era": "上古",
+   "country": "秘魯/印加",
+   "title": "查文德萬塔：安地斯的地底神諭",
+   "year_label": "約前1200—前500年",
+   "authenticity": "正史",
+   "sources": [
+    "Kembel, S. R. 等，〈Radiocarbon Dates from the Monumental Architecture at Chavín de Huántar, Peru〉，《Journal of Archaeological Method and Theory》，2013",
+    "Tello, Julio C.，〈Discovery of the Chavín Culture in Peru〉，《American Antiquity》第9卷第1期，1943",
+    "Kembel, Silvia Rodriguez，斯坦福大學博士論文《Architectural Sequence and Chronology at Chavín de Huántar, Peru》，2001"
+   ],
+   "auth_note": "蘭宋石柱、舊神廟地底迷宮、十字形石室均為實物遺存；Kembel 等 2013 年以 32 個 AMS 碳十四測年定建築期約前1200—前500 calBC，與 queue 年份一致。特羅 1919 年重新發現遺跡、1943 年發表論文，文中引句出自其實際文獻。須註明：進入迷宮前飲用聖佩德羅仙人掌致幻劑之說，屬學者依據圖像與比較民族學提出的假說，非直接出土證據；蘭宋為「能開口說話的神諭」出自學者對石室屋頂孔洞的推測，屬一家之言；特羅「查文為安地斯文明之母」的論斷已被後繼研究（Moseley、Burger、Kembel）修正——查文與同期多個儀式中心共存，非單一源頭。",
+   "story": "約西元前一千二百年，安地斯北段，莫斯納河與瓦切克薩河在海拔三千一百八十公尺的高谷交匯。查文德萬塔立在海岸與亞馬遜雨林之間少數可行的山口上，往來的人都繞不過它。碳十四測年顯示，人們在這約四百年間建起十五期神廟，石牆、水渠與地底回廊不斷伸展。\n朝聖者在圓形廣場外齋戒，飲下聖佩德羅仙人掌汁，由祭司領進舊神廟地底迷宮。通道全無天光，風穿過通氣豎井嗚嗚作響，像四面都有誰在呼吸。走了許久，火把猛然一亮——四公尺半高的花崗岩蘭宋石柱頂天立地：獠牙齜開，頭髮化作扭動的蛇群，一手朝天、一手柱地，縫合天界、人間與冥府。信徒信石中住著神，把食物與陶罐供奉石前。\n「跟緊我，別在暗處轉彎。」祭司低聲提醒——無人知道真正的話語，查文人沒有文字，只留下這座用黑暗與石頭寫成的神諭。\n一九一九年，秘魯學者特羅重新發現遺跡，他在論文裡寫道：In 1919, while exploring the basin of the Mariash or Pukcha River, I found in Chavín de Huantar evidence of a culture that, up to then, had not been given due recognition.特羅稱查文為安地斯文明之母，後世碳十四研究則顯示神廟約前五百年已荒廢。而蘭宋始終沒有離開過它那間十字形石室——比它的信徒、它的宗教，都活得更久。",
+   "vernacular": [
+    {
+     "orig": "In 1919, while exploring the basin of the Mariash or Pukcha River, I found in Chavín de Huantar evidence of a culture that, up to then, had not been given due recognition.",
+     "modern": "一九一九年，當我考察馬拉什河（又稱普克查河）流域時，在查文德萬塔發現了一種文化的證據；在此之前，它從未獲得應有的重視。（特羅自述發現經過）"
+    }
+   ],
+   "lesson": "權力可以靠黑暗與敬畏構築，但真正讓石像活過三千年的，是人們願意把恐懼交託給它的信念。"
   }
  ]
 }
