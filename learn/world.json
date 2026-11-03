@@ -1,12 +1,12 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 386,
- "analyzed": 376,
+ "analyzed": 377,
  "continents": [
   {
    "name": "亞洲",
    "icon": "🌏",
-   "count": 82
+   "count": 83
   },
   {
    "name": "歐洲",
@@ -9915,6 +9915,34 @@
     }
    ],
    "lesson": "黃金與肉身終將被掠奪遺失，唯有人類用心創造的美，能穿越三千年盜賊與風沙而長存。"
+  },
+  {
+   "id": "w0377",
+   "continent": "亞洲",
+   "era": "近代",
+   "country": "印度",
+   "title": "德里的末代皇帝：巴哈杜爾沙阿紅堡受審",
+   "year_label": "1858",
+   "authenticity": "正史",
+   "sources": [
+    "William Dalrymple《The Last Mughal: The Fall of a Dynasty, Delhi 1857》(2006)",
+    "Pramod K. Nayar 編《The Trial of Bahadur Shah Zafar》",
+    "British Parliamentary Papers《Proceedings of the April 1858 Trial of Bahadur Shah Zafar 'King of Delhi'》(1859)",
+    "德里檔案館 Residency Records, Trial of Bahadur Shah Series (File no. 30A/37, 1858)"
+   ],
+   "auth_note": "審判自1858年1月27日開庭、3月9日宣判，四項罪名成立，見1859年英國國會文書與德里檔案館審判案卷，屬同時代官方檔案，故判正史。惟控方證人多為親英者，御醫哈基姆阿赫桑錨拉係為求赦免而出庭作證，其證詞動機存疑；「國王本想保全歐洲婦孺」之說僅出自英國書記賈特摩爾一人傳聞供詞，學界對皇帝實際犯案程度 程度仍有爭議。結尾英文語出自 Dalrymple 書中所述英國專員之言，墓誌短歌為其流放期著名烏爾都語自輓聯，廣泛傳誦。",
+   "story": "1858年1月27日，德里的紅堡迪瓦尼－卡薩大殿，八十二歲的巴哈杜爾沙阿由人攙扶到庭。他是莫臥爾帝國的末代皇帝，此刻只是東印度公司供養的朽邁老人。審判委員當庭宣讀四項指控：煽動土兵兵變、助長對英政府之戰爭、自立為印度之君主、教唆謀殺基督信徒。\n老皇帝耳中絮語，幾不知身處何地，直到第二十天才略作辯護：叛兵把他的御璽蓋在空白信紙上，隨意填寫號令，他實無力阻擋。他倚重的御醫哈基姆阿赫桑瀊拉，為求赦免反而出庭作證，指稱他默許了紅堡水池畔屠殺歐洲婦孺的血案。英國書記賈特摩爾卻供稱：全城都傳國王本想保全歐洲婦孺，只是壓不住囂張的兵勇。\n3月9日下午三時，判決宣讀：四項罪名全部成立。因霍奇森少校當年在他投降時許過不殺之諾，死刑改為終身流放。10月7日凌晨，坐上牛車離開德里城門的，竟是曾名義上統治萬里江山的最後一位莫臥爾。\n1862年11月7日，他在仰光獄中咽氣，英國專員下令草草殯葬：「No vestige will remain to distinguish where the last of the Great Moghuls rests.」其實他早已寫好自己的墓誌：「badnaseeb-e-Zafar barae-kafan dar watan, do gaz zameen na mili jerai-e-wafa mein.」三百年帖木兒王朝，就此斷絕。",
+   "vernacular": [
+    {
+     "orig": "No vestige will remain to distinguish where the last of the Great Moghuls rests.",
+     "modern": "「莫讓任何遺跡能辨出最後一位偉大莫臥爾皇帝長眠何處。」這是英國專員囑咐將他祕密草葬、不留墓碑之語。"
+    },
+    {
+     "orig": "badnaseeb-e-Zafar barae-kafan dar watan, do gaz zameen na mili jerai-e-wafa mein.",
+     "modern": "「Zafar（勝者）何其薄命，為求裹身壽衣，故鄉竟找不到兩呎忠義之土。」這是他流放仰光時自輓的著名詩聯。"
+    }
+   ],
+   "lesson": "權力一旦旁落，皇帝名號連故鄉兩呎墓地都保不住；空虛的寶座，最終只是別人法庭裡的被告席。"
   }
  ]
 }
