@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 406,
- "analyzed": 401,
+ "analyzed": 402,
  "continents": [
   {
    "name": "亞洲",
@@ -16,7 +16,7 @@
   {
    "name": "美洲",
    "icon": "🌎",
-   "count": 81
+   "count": 82
   },
   {
    "name": "非洲",
@@ -10586,6 +10586,31 @@
     }
    ],
    "lesson": "敵人刻在勝利碑上的名號，反成其存在過的最古鐵證——歷史常由對手的誇功紀錄意外保存。"
+  },
+  {
+   "id": "w0402",
+   "continent": "美洲",
+   "country": "美國",
+   "era": "現代",
+   "title": "芝加哥大火：德科文街的兩小時火海",
+   "year_label": "1871-10-08",
+   "authenticity": "爭議",
+   "sources": [
+    "Richard F. Bales《The Great Chicago Fire and the Myth of Mrs. O'Leary's Cow》（McFarland, 2005）",
+    "芝加哥消防局1871年11月25日調查聽證蘇利文證詞（轉引於 Bales 及 greatchicagofire.org《The O'Leary Legend》）",
+    "1871年10月9日《芝加哥晚間日報》關於母牛踢燈的報導（轉引於 History.com）",
+    "1871年12月11日警察與消防委員會官方報告（轉引於 greatchicagofire.org）",
+    "Carl Smith《Chicago's Great Fire: The Destruction and Resurrection of an Iconic American City》（轉引於 History.com 專訪）"
+   ],
+   "auth_note": "大火發生時間、地點（德科文街137號歐萊裡谷倉）、蘇利文首先報警、木造城市與乾旱背景、傷亡數字均見多份同時代史料與官方報告，屬信史。但起火原因爭議極大：母牛踢燈說已被記者艾亨一九一一年自承為虛構，官方調查亦未定罪凱瑟琳，一九九七年市議會正式平反；史家巴爾斯根據蘇利文1871年11月25日證詞反指蘇利文偷牛奶時引燃乾草，芝加哥公共圖書館曾批評其說不獲共識，另仍有賭博說、隕石說等。本篇三說並陳，故標「爭議」。",
+   "story": "1871年10月8日深夜，芝加哥已整整十四週滴雨未下。這座城市幾乎全由木頭壘成——木屋、木人行道、木馬路，像一個浸透松油的巨大火藥庫。\n深夜時分，德科文街137號歐萊裡家的谷倉竄出火苗。街坊們稱他「獨腳丹尼爾」的車伕蘇利文，正好坐在街對面，看見火焰從倉板縫裡噴出，拔起木義足跌跌撞撞狂奔，一路嘶喊「著火了！著火了！」他衝進谷倉想牽出母牛，被火逼得險些喪命。更糟的是，消防隊前一晚才剛撲完一場大火，人疲馬乏；警鐘信號又莫名失靈，火借西南風，把火星一路颳進繁華的市中心。\n第二天，《芝加哥晚間日報》未經查證便報導：火起於「一头母牛踢翻的燈」。歐萊裡太太母牛的神話就此誕生成形。凱瑟琳·歐萊裡發誓起火時她早已就寢，她說：「I always milked my cows by daylight and never had a lamp of any kind or a candle about the barn.」官方調查也找不到她定罪的證據。一九一一年，記者麥可·艾亨終於承認，母牛踢燈的情節根本是他親筆編造的。\n那場火燒了約兩天，奪走約三百條人命，夷平一萬七千餘棟建築，十餘萬人一夕流離。直到一九九七年，芝加哥市議會才正式為凱瑟琳與那頭無辜的牛平反。至於真兇，史家巴爾斯根據蘇利文的證詞反指他才是失火者——起火之謎，至今沒有答案。",
+   "vernacular": [
+    {
+     "orig": "I always milked my cows by daylight and never had a lamp of any kind or a candle about the barn.",
+     "modern": "我都是趁著天亮擠牛奶的，谷倉裡從來沒有帶進過任何燈或蠟燭。（凱瑟琳為自清白所作的辯稱）"
+    }
+   ],
+   "lesson": "大災難之後，人們總急著找一個簡單的代罪者；真相往往藏在制度失靈與僥倖的集體疏忽裡。"
   }
  ]
 }
