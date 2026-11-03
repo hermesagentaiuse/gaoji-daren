@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 386,
- "analyzed": 382,
+ "analyzed": 383,
  "continents": [
   {
    "name": "亞洲",
@@ -11,7 +11,7 @@
   {
    "name": "歐洲",
    "icon": "🏛️",
-   "count": 140
+   "count": 141
   },
   {
    "name": "美洲",
@@ -10077,6 +10077,30 @@
     }
    ],
    "lesson": "槍炮與冰雪凍得住廣場，凍不住思想；這批倒下的年輕軍官，為俄國播下立憲與廢奴的種子。"
+  },
+  {
+   "id": "w0383",
+   "continent": "歐洲",
+   "era": "現代",
+   "country": "俄羅斯",
+   "title": "萊卡：第一隻繞地球的生命",
+   "year_label": "1957",
+   "authenticity": "正史",
+   "sources": [
+    "維基百科「Laika」條",
+    "Smithsonian Magazine〈The Sad, Sad Story of Laika, the Space Dog, and Her One-Way Trip Into Orbit〉",
+    "Space.com〈Laika the space dog: First living creature in orbit〉",
+    "Dimitri Malashenkov 2002年休士頓世界太空大會論文（經維基百科引述）"
+   ],
+   "auth_note": "發射日期、心跳數據、第四圈過熱死亡均有遙測記錄與2002年Malashenkov大會論文支持，屬正史。蘇聯官方早年謊稱她活了一週死於缺氧（或安樂死說），1999年俄媒又有「第四日熱死」的報導，2002年始定論為第四圈過熱。女醫師起飛前違規餵食、加先科公開道歉均出自後世回憶與訪談（Smithsonian 1993年加先科說法），未見同時代文件，敘事從簡。queue 提示的 NASA 歷史頁本輪未直接核對原文，故不列入 sources。",
+   "story": "1957年，蘇聯把第一顆人造衛星送上天後，赫魯雪夫要求一個月內再創奇蹟，趕在布爾什維克革命四十週年前後。工程師連藍圖都來不及畫，趕製出史普尼克二號，艙裡坐著一隻莫斯科街頭撿來的流浪母犬——萊卡。\n11月3日清晨，火箭自拜科努爾轟然點火。感測器記錄下萊卡的心跳從每分鐘103次飆到240次。她活著進入軌道，每103分鐘繞地球一圈。但火箭的A級助推器未能如計畫分離，温控系統跟著失靈，隔熱層被撕落，艙內溫度一路衝上40度。\n這趟旅程從一開始就沒有回程設計，科學家原打算在她窒息前以毒餌安樂死。可那餐毒食還沒送出，遙測訊號便已沉寂——升空後五到七小時，萊卡在第四圈軌道上因酷熱斃命。蘇聯對外長年宣稱她安適地活了一週，安詳死於氧氣耗盡；真相直到2002年10月才揭曉，科學家馬拉申科夫在休士頓世界太空大會坦承：\"It turned out that it was practically impossible to create a reliable temperature control system in such limited time constraints.\"\n史普尼克二號帶著萊卡的遺體又繞行了五千多天，1958年4月14日再入大氣層焚毀。多年以後，訓練犬隻的加先科仍公開表示歉意，說人類虧欠這隻小狗太多。",
+   "lesson": "人類的偉大步伐，有時踩在無法發聲者的犧牲之上；榮耀的身後，還有一隻灼熱艙中無助的小狗。",
+   "vernacular": [
+    {
+     "orig": "It turned out that it was practically impossible to create a reliable temperature control system in such limited time constraints.",
+     "modern": "結果證明，在如此緊迫的時間限制下，幾乎不可能打造出一套可靠的溫度控制系統。"
+    }
+   ]
   }
  ]
 }
