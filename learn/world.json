@@ -1,12 +1,12 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 386,
- "analyzed": 378,
+ "analyzed": 379,
  "continents": [
   {
    "name": "亞洲",
    "icon": "🌏",
-   "count": 84
+   "count": 85
   },
   {
    "name": "歐洲",
@@ -9970,6 +9970,35 @@
     }
    ],
    "lesson": "真正的學養是把知識化成直覺：別人只看見枯燥的車牌，心中有數的人卻能立刻聽見數字開口說話。"
+  },
+  {
+   "id": "w0379",
+   "continent": "亞洲",
+   "era": "近代",
+   "country": "印度",
+   "title": "少年王與光之山：杜利普·辛格之劫",
+   "year_label": "1849",
+   "authenticity": "正史",
+   "sources": [
+    "1849年《最後拉合爾條約》原文（見維基百科「Koh-i-Noor」「Treaty of Lahore」條引文）",
+    "Royal Collection Trust《Maharaja Duleep Singh》（含維多利亞女王日記 RA VIC/MAIN/QVJ 1854年7月1日）",
+    "Historic Royal Palaces《Duleep Singh》（倫敦塔官方頁）",
+    "William Dalrymple & Anita Anand, Koh-i-Noor: The history of the world's most infamous diamond (2017)",
+    "The Tribune India, Duleep Singh's exile of no return（洛金1849年9月5日書信）"
+   ],
+   "auth_note": "條約原文經維基百科「Koh-i-Noor」條引《最後拉合爾條約》及多家機構核對無誤。簽約年齡諸源略有出入：皇家宮殿協會與電報報章稱十歲，洛金一八四九年九月書信稱王公剛滿十一歲，本文從主流說法取十歲。「一位英國總督回憶」語出自哈丁總督之子追記的回憶錄，屬近時追述，語氣或有修飾。條約雖由王公名義簽訂，實由總司令泰傑·辛格代簽，且王公當時未成年，故印度等國至今仍主張歸還。",
+   "story": "1849年3月29日，拉合爾堡的達巴爾大殿鴉雀無聲。十歲的錫克王公杜利普·辛格坐在父親蘭季德·辛格曾坐過的寶座上，面前攤著一份條約：旁遮普全境歸併英國東印度公司，王公須為自己和後嗣放棄一切主權。他的父親曾是「旁遮普之獅」，一手建立起橫掃北印度的錫克帝國；而此時他的母親金德·考爾已被英人流放，殿下再無至親。\n簽字由總司令泰傑·辛格代為完成。條約明文寫道：「The gem called the Koh-i-Noor…shall be surrendered by the Maharajah of Lahore to the Queen of England.」光之山本是杜利普權力的象徵——就在前一個生日，這顆巨鑽還綁在少年王公的手臂上，一位英國總督回憶他「渾身鑽石與祖母綠，渾然不知自己已失去多少國土」。\n1850年7月，光之山鎖進鐵箱運抵白金漢宮獻給維多利亞女王，後在萬國博覽會展出並遭重新切割。\n1854年，少年王公在英國軍醫洛金監護下抵達倫敦。維多利亞在日記裡寫：「He was beautifully dressed & covered with diamonds.」她賜他每年四萬鎊年金，讓他住進鄉間莊園，却始終不讓他回鄉。杜利普一生屢次請求歸國復國，次次被拒。1893年10月，他在巴黎孤獨辭世。光之山至今仍嵌在英國王冠之上，無人再提起那個手臂上曾綁著它、卻再也回不了家的少年。",
+   "vernacular": [
+    {
+     "orig": "The gem called the Koh-i-Noor…shall be surrendered by the Maharajah of Lahore to the Queen of England.",
+     "modern": "那顆被稱為「光之山」的寶石，須由拉合爾王公交予英格蘭女王——一八四九年《拉合爾條約》原文。"
+    },
+    {
+     "orig": "He was beautifully dressed & covered with diamonds.",
+     "modern": "他衣著極盡華美，渾身綴滿鑽石——一八五四年七月一日維多利亞女王日記。"
+    }
+   ],
+   "lesson": "強權能以一紙條約奪走王冠上的寶石，卻奪不走後人對少年王公命運的追問：正義或遲到，但從不被遺忘。"
   }
  ]
 }
