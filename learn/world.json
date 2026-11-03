@@ -1,7 +1,7 @@
 {
  "source": "世界歷史·故事館（正史/野史逐篇標註）",
  "total": 406,
- "analyzed": 398,
+ "analyzed": 399,
  "continents": [
   {
    "name": "亞洲",
@@ -26,7 +26,7 @@
   {
    "name": "中東",
    "icon": "🕌",
-   "count": 41
+   "count": 42
   },
   {
    "name": "大洋洲",
@@ -10511,6 +10511,30 @@
     }
    ],
    "lesson": "塞利姆三世熱血改革而亡，馬哈茂德二世隱忍十八年一舉功成：扳倒盤根錯節的舊勢力，靠的不是義憤，而是事先佈好每一步的耐心。"
+  },
+  {
+   "id": "w0399",
+   "continent": "中東",
+   "era": "現代",
+   "country": "波斯/伊朗",
+   "title": "煙草抗議：一票教令癱瘓皇家專賣",
+   "year_label": "1891–1892",
+   "authenticity": "正史",
+   "sources": [
+    "Mirza Hasan Shirazi 煙草教令（1891年12月，教令全文英譯存於各方記載）",
+    "Nikki R. Kedlie,《Roots of Revolution: An Interpretive History of Modern Iran》(Yale University Press, 1981)",
+    "Vanessa Martin,《The Qajar Pact: Bargaining, Protest and the State in Nineteenth-Century Persia》(I.B. Tauris, 2005)",
+    "Swarthmore College Nonviolent Action Database：Iranian resistance to Tobacco Concession, 1891-1892"
+   ],
+   "auth_note": "事件主幹（1890年托爾伯特專賣讓渡、1891年巴扎罷市、阿里·阿克巴被逐、1891年12月設拉子教令、1892年初撤銷並舉債賠償）見於多家獨立史料，屬正史。教令原文為波斯文，流傳版本以英譯轉錄，措辭略有出入；「皇后/妃嬪戒煙」一節出自 Swarthmore 資料庫記載，屬宮廷側寫，可信但有增飾之嫌。",
+   "story": "1890年，波斯卡扎爾王朝的納瑟丁沙阿為了填補空虛的國庫，把全國菸草的種植、製造與銷售，一口氣讓渡給英國人托爾伯特，為期五十年。農民必須把收成低價賣給英國公司，再花錢買回自己種的菸草來抽。1891年春天，消息從伊斯坦堡的波斯文報紙傳回國內，德黑蘭、設拉子、大不里士的巴扎商人不約而同關店罷市，抗議的怒火迅速燒遍全國。設拉子著名的教士阿里·阿克巴公開佈道反對專賣，被沙阿下令驅逐出境，全城商店為他關門送行，示威群眾衝進王宮廣場高喊口號。\n真正的重擊來自遥远的薩馬拉。當時最具權威的大阿亞圖拉米爾扎·設拉子於1891年12月發佈教令：「In the name of God... Today the use of tobacco, in whatever fashion, is reckoned war against the Imam of the Age.」一票教令，全國從商人、農民到宮廷眷屬，人人戒煙拒買。連沙阿的妻妾都放下了水煙管，皇家的菸草專賣公司在短短數週內徹底癱瘓。德黑蘭一場大規模示威遭警槍鎮壓，數人倒下，抗議卻愈滾愈大。政府見勢不可為，企圖只收回內部銷售權，遭斷然拒絕。1892年初，沙阿被迫撤回全部專賣權，還得舉借外債賠償英國公司。一個宗教命令，不發一槍一彈，癱瘓了一個帝國與一家跨國公司。",
+   "vernacular": [
+    {
+     "orig": "In the name of God... Today the use of tobacco, in whatever fashion, is reckoned war against the Imam of the Age.",
+     "modern": "奉至仁至慈真主之名：今日凡以任何方式吸食菸草，皆視同對抗時代伊瑪目的戰爭——此即1891年12月設拉子教令原文英譯。"
+    }
+   ],
+   "lesson": "專賣讓渡觸犯全民生計與尊嚴時，一句非暴力命令，足以癱瘓王權與帝國資本。"
   }
  ]
 }
