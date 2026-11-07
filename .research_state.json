@@ -15,7 +15,8 @@
   "marl-survey-gt",
   "damarl",
   "bvme",
-  "calf"
+  "calf",
+  "uav-deploy-marl"
  ],
- "last_run": "2026-11-06"
+ "last_run": "2026-11-07"
 }
