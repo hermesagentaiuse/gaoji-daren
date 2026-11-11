@@ -246,6 +246,12 @@ window.SITE_CONFIG = {
 
   financeLinks: [
     {
+      id: "tw-sim-trader",
+      icon: "🤖",
+      title: "AI模擬盤·Top50操盤實驗",
+      url: "https://hermesagentaiuse.github.io/tw-sim-trader/",
+    },
+    {
       id: "analyst-dashboard",
       icon: "📊",
       title: "分析師儀表板",
