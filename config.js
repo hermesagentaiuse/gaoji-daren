@@ -161,6 +161,7 @@ window.SITE_CONFIG = {
     { id: "game-three-kingdoms", icon: "🎮", title: "三國蝴蝶·文字遊戲", type: "route", route: "#/game/three-kingdoms" },
     { id: "analyst-dashboard", icon: "📊", title: "分析師儀表板", type: "route", route: "#/finance/analyst-dashboard" },
     { id: "serenity-watch", icon: "🐦", title: "Serenity 追蹤", type: "route", route: "#/finance/serenity-watch" },
+    { id: "tw-sim-trader", icon: "🤖", title: "AI模擬盤·Top50操盤實驗", type: "route", route: "#/finance/tw-sim-trader" },
   ],
 
   // ---- 股市教學（sidebar 單一入口；內容存放在 learn/stocks.json）----
