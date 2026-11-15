@@ -22,7 +22,8 @@
   "lwc-what-to-comm",
   "whom-to-comm",
   "connectivity-marl",
-  "filtered-rl-drone"
+  "filtered-rl-drone",
+  "kctss-search"
  ],
- "last_run": "2026-11-13"
+ "last_run": "2026-11-15"
 }
