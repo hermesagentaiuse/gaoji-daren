@@ -23,7 +23,8 @@
   "whom-to-comm",
   "connectivity-marl",
   "filtered-rl-drone",
-  "kctss-search"
+  "kctss-search",
+  "safe-hetero-comm"
  ],
- "last_run": "2026-11-15"
+ "last_run": "2026-11-17"
 }
