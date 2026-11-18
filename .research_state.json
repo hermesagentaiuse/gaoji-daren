@@ -24,7 +24,8 @@
   "connectivity-marl",
   "filtered-rl-drone",
   "kctss-search",
-  "safe-hetero-comm"
+  "safe-hetero-comm",
+  "domain-randomization"
  ],
- "last_run": "2026-11-17"
+ "last_run": "2026-11-18"
 }
