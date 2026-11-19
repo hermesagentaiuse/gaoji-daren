@@ -25,7 +25,8 @@
   "filtered-rl-drone",
   "kctss-search",
   "safe-hetero-comm",
-  "domain-randomization"
+  "domain-randomization",
+  "sim-to-real-survey"
  ],
- "last_run": "2026-11-18"
+ "last_run": "2026-11-19"
 }
