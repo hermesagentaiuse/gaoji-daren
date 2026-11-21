@@ -5445,7 +5445,187 @@
     "harl-maritime-2026"
    ],
    "why_for_reader": "第二階段的落地平台：程序化 USD 地形、multi-UAV 場景與 Dryden 風場注入都將寫在 Isaac Lab 的 event/terrain 模組上，建議優先讀其環境 API 與 terrain generator 章節。",
-   "verified": true
+   "verified": true,
+   "easy_read": {
+    "goal": "想像你要訓練一隊四軸飛行機在強風裡編隊飛行：真機很貴，炸一機损失幾萬塊，還可能傷人；而且暴風天不會準時來等你做實驗。所以你得先在電腦裡造一個『飛行測試場』，讓幾千架虛擬機同時練飛。問題是舊式測試場（CPU 模擬器）就像一間只有十幾個隔間的補習班：物理引擎坐在 CPU 那棟樓、神經網路訓練坐在 GPU 那棟樓，學生每次舉手發問都要坐電梯來回兩棟樓，光搭電梯就把時間耗光。NVIDIA 這篇 Isaac Lab 是 Isaac Gym 的官方後繼者，它把整個測試場搬進 GPU 這一棟樓：物理模擬、感測器讀值、獎勵計算、政策訓練全部住在同一張顯示卡上，資料不用來回搬。更厲害的是它不只會『算物理』，還附了一整柜教具：馬達模型、延遲模型、雷達感測器、程序化地形、域隨機化開關——這些都是以前每個實驗室各自重複刻的輪子，現在標準化內建。對你而言這篇不是演算法論文，而是你的『實驗室建築圖紙』：你的多機通訊延遲、抗風控制、MAPPO 基線，全都要蓋在它的地基上。",
+    "method": "核心機制三個，先用比喻講：(1)『同一棟樓』＝端到端 GPU 管線。物理引擎 PhysX 直接跑在 GPU 上，模擬狀態以批次張量（batched tensors，就是整批打包好的數字表格）的原形提供給 PyTorch，中間零拷貝。以前每跑一步要跨 CPU/GPU 搬四次資料，現在搬零次。(2)『統一門牌系統』＝USD（Universal Scene Description）。以前機器人描述用 URDF/SDF 這些平面 XML 檔，像用純文字清單描述一棟大樓，複雜一點（封閉運動鏈、協作改圖）就崩潰。USD 把場景變成有層級的『門牌系統』：每個物件是一個 prim（門牌），父子關係管座標與繼承，物理、材質、語意、相機各有專屬『登記表格』（schema），多人可以分層（layering）同時改同一張圖互不覆蓋。你的四軸機群場景就是靠 USD 程序化生成與複製的。(3)『大量複製的考卷』＝View API。以前像 Isaac Gym 要自己算偏移量去抓每架機的狀態；Isaac Lab 你只要給一個萬用符門牌模式，例如 /World/envs/*/Robot，框架就把幾千個環境裡的機器人自動收進同一個視圖（view），存取時第一維就是環境數，像一次收齊幾千份考卷。另外『感測器不同步』是很貼心的設計：它允許每個感測器用自己真實的更新頻率，不再假設『感測與控制永遠同步』這種現實中不存在的童話——這正是做通訊延遲研究的入場券。",
+    "setup": "整套架構從下往上蓋：底層三根支柱是 OpenUSD（場景）、PhysX 5（物理，支援剛體、軟體、流體、封閉鏈、SDF 碰撞）、RTX 渲染器（光跡追蹤＋DLSS 超畫質，還能把幾千個相機像馬賽克拼圖一樣塞進一張畫面叫『tiled rendering』）。中間是『教具柜』：馬達模型分隱式（物理引擎內建 PD 控制器，像附在引擎上的標準變速箱，低頻率低穩定）與顯式（自己算扭矩再塞給引擎，更像真硬體的高頻率行為），其中『Delayed PD actuator』可以把指令先存進緩衝區延遲若干個模擬步再執行——論文明說這是用來模擬真實分散式系統的通訊延遲；MultiRotor 介面把每個螺紋當獨立致動器，支援從直接轉速指令到幾何控制器的加速度/速度/位置指令等多層控制。感測器分三族：物理型（IMU、接觸力、座標變換器）、渲染型（針孔/魚眼相機）、Warp 光線投射型（RayCaster 可配置成高度掃描、固態與旋轉雷達，全部光線同一瞬間打完，沒有旋轉式感測器的時間扭曲）。上層是任務框架的兩條路線：manager-based（把 MDP 拆成觀察/動作/獎勵/終止/事件/課程等可插拔 manager，改獎勵像換積木）與 direct（單腳本裸機直達，性能極限用）。RL 端掛 Gymnasium API，內建 SKRL、RSL-RL、RL-Games、Stable-Baselines3、Ray 五套庫；多代理環境走 PettingZoo Parallel API——你的 MAPPO 機群環境就寫在這裡。",
+    "experiment": "這篇是框架白皮書，『實驗』是吞吐與能力驗證，數字全部摘自 §4 與 §6：(1) 狀態基操作任務：8 張 GPU、16384 個平行環境下，DextrAH 機械手抓取任務訓練超過 900,000 FPS，Franka 開櫃子任務超過 1,600,000 FPS，多卡擴展幾乎完全線性。(2) 工作流之爭：同一個 ANYmal rough-terrain 任務，direct 比 manager-based 平均只快 3.53%（單張 RTX Pro 6000），環境數一多差距就消失——所以日常開發用 manager-based 沒問題，跑極限基準才換 direct。(3) 相機取舍：追求寫實的 USD 相機超過 48 個並行就爆記憶體；Tiled-Camera 與 RayCasterCamera 能擴到幾千環境，低解析度 RayCaster 較快、高解析度且多卡時 Tiled 反超。(4) RayCaster 規模化：網格複雜度從 2 萬面到 20 萬面對吞吐影響極小，真正該調的是光線密度與環境數。(5) 實機成績單（最能說明框架靠不靠譜）：RAI 用自訂致動器模型（含馬達延遲與扭矩限制）加演化策略調參，Boston Dynamics Spot 零樣本從模擬轉移到真機跑出 5.2 m/s，約為原廠預設極限的近三倍；Factory 裝配任務零樣本 sim-to-real 成功率 83–99%；AutoMate 專家政策約 80 項任務、通用政策 20 項任務，模擬與實機都約 80% 成功率；DexPBT 8 位工人（各 1–2 GPU）約 16 小時收斂 6D 重定向任務。",
+    "relevance": "直接連到你論文的三個場景：(1) 通訊延遲：Delayed PD actuator 的『指令緩衝 N 步』機制就是官方內建的延遲模擬器，你不用自己在環境外面手動塞 sleep；再配上感測器各自獨立更新頻率的設計，你可以同時注入『通訊延遲』與『感測延遲』兩種雜訊，把變因分開做消融。(2) 抗風：論文本體沒有風場——這是你要補的課。正確姿勢是模仿 RAI 對 Spot 的做法：用自訂致動器/事件系統把 Dryden 風場當外力注入，每個 episode 用 event 重抽風場參數（這正是你已讀過的 domain-randomization 那篇的落地版）。同時留意 §5.3 的坑：摩擦、質量、轉子慣量這類物理『參數』目前仍須走 CPU API 修改，只有狀態能在 GPU 上直接讀写——寫 DR 抽樣時要避開每步改參數。(3) MAPPO 基線：多代理環境基於 PettingZoo Parallel API 且只提供 direct workflow，這代表你的機群環境會落在 direct 路線——跟 §4.1.3 的 3.53% 結論一起看：先確認你的環境是不是感知密集型，若是，manager-based 的彈性可能比那 3.53% 更值錢。",
+    "roadmap": "今天不用翻原文，只讀兩段就夠：第一段 §3.7（Task Framework，講 manager-based 與 direct 兩條路線＋Algorithm 2 的 step 流程），因為你寫第一個機群環境當下就要選邊；第二段 §3.2.2 的 Delayed PD actuator 條目（半頁）加 §3.3 感測器開頭的『異頻更新』一段，這是通訊延遲實驗的兩個開關。明天為什麼會更簡單：讀完這兩段後，你實際上已經拿到環境骨架的『地圖輪廓』，之後寫 reward/termination/event 都是在 manager 目錄裡換積木，不用碰模擬器內部。順路承先啟後：它接在你已讀的 isaac-gym 之後（同一個 NVIDIA 團隊把 zero-copy 哲學從裸 Tensor API 升級成 View API＋教具柜），往下則為你已讀的 neural-fly、swift-drone-racing 這類真機 RL 工作提供同一套訓練底座——那些論文能大規模訓練，靠的就是這篇講的基建。"
+   },
+   "study_kit": {
+    "source_verified": {
+     "method": "urllib 帶 UA 下載 https://arxiv.org/pdf/2511.04831 → pypdf 逐頁 extract_text 全文讀進 context",
+     "pages": 53,
+     "chars": 173999,
+     "read_at": "2026-11-21"
+    },
+    "pre_read_questions": [
+     "Isaac Lab 號稱『直接工作流只比 manager-based 快 3.53%』，那什麼時候值得為這 3.53% 犧牲模組化？",
+     "為什麼論文明確說摩擦、質量這類物理參數不能像狀態一樣在 GPU 上直接改？這對域隨機化的寫法造成什麼限制？",
+     "Delayed PD actuator 用『緩衝 N 個模擬步』來模擬通訊延遲，這個模型漏掉了真實無線電通訊的哪些特性（對比你的機群場景）？"
+    ],
+    "pass1_five_c": {
+     "category": "系統/框架類白皮書（NVIDIA 官方技術報告），非演算法創新論文。定位是 Isaac Gym 的官方後繼者＋Omniverse 生態的機器人學習層。",
+     "context": "承接 Isaac Gym（2021）的 GPU-native 端到端訓練典範與 Orbit（Mittal 2023）的設計；建立在 PhysX 5、OpenUSD、RTX 渲染器三根支柱上；與 Google DeepMind 合作推 USDPhysics/MjcPhysics 標準，與 Disney Research 共推 Newton 可微分引擎。你的 sim-to-real 軌道上，它是 isaac-gym 之後的必然下一篇。",
+     "correctness": "效能宣稱都有 benchmark 支撐（§4 三平台 L40/RTX Pro 6000/GeForce 5090、headless、設定開源在 repo）；實機結果引外部論文（Spot 5.2 m/s、Factory 83–99%、AutoMate ~80%）而非自吹。作者坦承 CPU 瓶頸與物理參數須走 CPU API 的限制，誠實度高。",
+     "contributions": "四點官方自述：模組化可擴展框架（Omniverse 上）、先進感測模擬（tiled RTX 渲染＋Warp 自訂感測器）、無縫遙操與數據採集（spacemouse/VR/Apple Vision Pro）、大量現成環境庫。對讀者的實際貢獻是：延遲致動器、異頻感測、MultiRotor、PettingZoo Parallel API 多代理支援湊齊了做『通訊延遲機群 RL』所需的全部積木。",
+     "clarity": "結構清晰（核心基建→設計與功能→效能→學習工作流→應用→未來式），演算法 1/2 把 OmniPhysics 工作流與環境 step 函數寫成偽代碼很實用；缺點是應用節（§6）像廣告目錄，引用密度極高，略讀即可。"
+    },
+    "pass2_sections": [
+     {
+      "sec": "1. Introduction",
+      "read": "必讀（4 頁，含 key contributions）",
+      "key": "定位：GPU-native 機器人模擬進入多模態學習時代。痛點：實體數據昂貴且偏差於常態情境，罕見安全關鍵事件（高速碰撞、硬體故障）無法重複。Isaac Gym 已證端到端單卡訓練可行（訓練時間從天降到小時）；Isaac Lab 補上的是散落各家實驗室的『最佳實踐重複刻輪子』問題：非線性致動器模型、異頻感測、低層控制器介面、程序化環境生成與 DR 全部內建。"
+     },
+     {
+      "sec": "2.1 USD for Robotics",
+      "read": "必讀",
+      "key": "取代 URDF/SDF/MJCF 平面 XML 的理由：組件級描述無法表達封閉運動鏈等子系統行為、不利協作與大場景。USD 場景圖三件套：prim 層級＋schema（USDPhysics/PhysxSchema/MjcPhysics/Semantics）＋分層非破壞式合成。機器人慣例：公尺、Z-up、兩個剛體 prim 不可互相嵌套。Isaac Lab 提供 URDF/MJCF/mesh 轉換器與 USD 高層包裝。"
+     },
+     {
+      "sec": "2.2 Physics Simulation",
+      "read": "必讀（你要寫環境，這是原理層）",
+      "key": "PhysX 5：FEM 軟體、PBD 流體、雙向耦合求解器、SDF 碰撞、力矩感測器模擬。Direct-GPU API 讓狀態與控制以 CUDA 張量直通；但『參數』（摩擦、質量、轉子 armature）仍須 PhysX CPU API——設計限制，DR 實作要記住。OmniPhysics 是 USD↔PhysX 整合層：解析 USD→建 PhysX 物件→replication API 把原型場景複製成幾千份並建 prim path↔PhysX 物件對應表→View API 以門牌模式（如 /World/envs/*/Robot）收整批物件為第一維＝環境數的張量視圖。"
+     },
+     {
+      "sec": "2.3 Rendering",
+      "read": "略讀（不做視覺政策可跳過細節）",
+      "key": "RTX 光跡＋DLSS（只影響 RGB，深度/分割恒原生解析度）。Tiled rendering：幾千相機以確定性馬賽克排版塞進單 framebuffer，免除 host-device 拷貝。USD-Camera 最寫實但 48 個以上 OOM；Tiled-Camera 擴到幾千環境，代價是後處理品質略降。另有 NuRec 3D Gaussian 渲染可把實景重建直接當訓練場景。"
+     },
+     {
+      "sec": "3.2 Actuators",
+      "read": "必讀（你的延遲實驗入口）",
+      "key": "兩類：隱式（PhysX 內建 PD，與物理同步迭代求解，低頻率下較穩較準）vs 顯式（自己算力矩塞給求解器，更接近硬體離散控制，高採樣率較真）。顯式家族：Ideal PD／DC Motor（四象限扭矩-轉速曲線限力）／Delayed PD（緩衝 N 個模擬步的指令延遲，論文點名用於模擬分散式系統通訊延遲，Spot 應用案例）／Remotized PD（關節位置相關限力，Spot 膝蓋）／Neural Net 致動器（LSTM/MLP 以硬體數據訓練，Hwangbo 2019、Rudin 2022）。全部支援 Coulomb 或含黏滯的摩擦模型、armature、速度/力矩上限。MultiRotor：每螺紋＝獨立致動器，RPM 直控到幾何控制器（Lee 2010 風格）多層指令。"
+     },
+     {
+      "sec": "3.3 Sensors",
+      "read": "必讀（通訊/感知實驗的積木柜）",
+      "key": "統一介面＋允許每個感測器獨立更新頻率，明確拒絕『感測與控制同步』的不實假設——這是做延遲研究最關鍵的一句話。物理型：Frame Transformer（批次座標變換）、IMU（本地座標系線/角姿態速度加速度，有限差分加速度＋可加噪聲與漂移）、Contact Sensor（淨法向接触力、過濾本體分離力對、接触事件歷史）。渲染型：針孔/魚眼，RGB/深度/語意/實例分割/法線/運動向量。Warp 型：RayCaster 光線同時刻打完（無旋轉感測器時間扭曲），可配成高度掃描/固態/旋轉雷達；RayCasterCamera 主打效率棄寫實。另有視覺觸覺感測器（軟接觸模型＋深度轉 RGB）。"
+     },
+     {
+      "sec": "3.4-3.6 Controllers/Teleop/Scene",
+      "read": "選讀",
+      "key": "IK（微分 IK 多種奇異點處理＋Pink QP 框架加 NullSpacePostureTask）、阻抗/操作空間力控、cuRobo GPU 平行運動規劃。遙操支援鍵盤/spacemouse/Apple Vision Pro（手部關節→末端位姿→IK）。場景生成：Trimesh 程序化地形、heightfield、Scene Synthesizer/Infinigen 匯入、多資產複製與幾何/視覺隨機化。"
+     },
+     {
+      "sec": "3.7 Task Framework",
+      "read": "必讀（寫環境前第一件事）",
+      "key": "manager-based：MDP 拆成 observations/actions/rewards/terminations/commands/curricula/events/recording 八類 manager，術語目錄化、獨立可測，開關項只是改設定不是重構；logging 鉤子到項級粒度。direct：裸機單環境類直達物理與張量，延續 Isaac Gym 端到端典範，基準測試與性能敏感場景首選。論文中間點：manager 的額外開銷主要是 CPU 調度與 kernel 啟動延遲，CUDA Graphs 是未來解方。演算法 2 給出完整 step 時序：處理動作→decimation 子步（致動器→事件→物理→擇期渲染）→計數/終止/獎勵→reset（課程/事件/緩衝）→指令與觀察更新。"
+     },
+     {
+      "sec": "3.7.3 Environments",
+      "read": "速讀",
+      "key": "四大類：classic（Ant/Humanoid/Cartpole 快速驗證）、locomotion（Rudin 2022 食譜扩展到 11 種機型，Anymal/Spot 已證 sim-to-real）、manipulation（SDF 接触、裝配、觸覺）、navigation（高層指令政策＋低層步行政策組合）。多代理：支援 MARL，競爭/合作/混合皆可，API 走 PettingZoo Parallel，僅 direct workflow——MAPPO 機群環境的落點。"
+     },
+     {
+      "sec": "4. Performance",
+      "read": "必讀（規劃算力用）",
+      "key": "三平台：L40 48GB（雙 EPYC 7763）、RTX Pro 6000 96GB（雙 EPYC 9554）、GeForce 5090 32GB（單 9800X3D，單核效能超過 L40 平台兩倍）。狀態基：8 GPU、16384 環境下 DextrAH >900k FPS、Franka 櫃子 >1.6M FPS，近線性擴展；9800X3D 單工作站几乎追平雙卡伺服器——CPU 單核是真實瓶頸。感知任務渲染主導吞吐；低解析度 RayCaster 快、高解析度多卡 Tiled 反超。工作流比較：direct 平均僅快 3.53%。RayCaster：網格 20k–200k 面影響微小，調光線密度比減面有效。"
+     },
+     {
+      "sec": "5. Learning Workflows",
+      "read": "必讀兩小節",
+      "key": "Gymnasium API 相容；內建 SKRL/RSL-RL/RL-Games/SB3/Ray。Teacher-student：特权狀態教師＋DAGGER 線上模仿蒸餾視覺學生；end-to-end 從像素直接 RL 可長出主動感知行為（PDC）。PBT（DexPBT）：8 工人各 1–2 GPU 約 16 小時收斂 6D 重定向，治高自由度＋稀疏獎勵的高變異。DR：物理（摩擦/armature/重力/質量）與渲染（材質/光照/背景）皆可運行時隨機化，網格幾何/碰撞型只能在播放前改；物理參數走 CPU API；ADR 自動課程內建。IL：RoboMimic＋HDF5，Mimic 從單條人類示範變換拼接出近乎無限的合成示範，SkillGen 加 GPU 運動規劃補位移段。"
+     },
+     {
+      "sec": "6. Applications",
+      "read": "選讀（查案例時回來看）",
+      "key": "最能佐證『框架靠譜』的四個數字：Spot 端到端開源訓練管線＋演化調參零樣本 5.2 m/s（近原廠三倍，關鍵是用自訂致動器建模馬達延遲與扭矩限制）；Factory 零樣本 sim-to-real 83–99%；AutoMate 100 個裝配資產、專家約 80 任務/通用 20 任務皆約 80% 成功率；MARLDona 多代理足球用 MARL 訓練分散式團隊政策（你的機群協作可直接借鏡）。COMPASS 跨載具遷移＋GR00T N1.5 蒸餾資料工廠。"
+     },
+     {
+      "sec": "7. Future Work",
+      "read": "速讀",
+      "key": "Newton：NVIDIA＋Google DeepMind＋Disney Research 共創，基於 Warp、可微分、Model/State/Solver 分離、平坦張量資料、無隱藏狀態、Selection API 批次零拷貝視圖；MuJoCo Warp 後端在多接触場景大幅勝過 MJX；Kamino 封閉鏈求解器。實驗分支已在 Isaac Lab repo，目標數月內與 PhysX 後端功能齊平。另有 Isaac Lab-Arena 標準化政策評測（即將開源）與 NIST 裝配基準擴展。"
+     }
+    ],
+    "glossary": [
+     {
+      "term": "USD / OpenUSD（Universal Scene Description）",
+      "why": "場景的統一文件格式與門牌系統。對你的意義：一個 USD stage 描述整個機群場景（N 架機、地形、風場物件），layering 讓你把『風場參數層』『地形層』『機群層』疊在基礎場景上互不覆蓋，隊友改地形不影響你的風場設定。"
+     },
+     {
+      "term": "PhysX / OmniPhysics",
+      "why": "GPU 物理引擎與它的 USD 整合層。對你的意義：機體動力學、槳葉推力、與地形碰撞都歸它算；你的抗風實驗就是透過 OmniPhysics 的狀態張量讀寫機體姿態。"
+     },
+     {
+      "term": "View API（SimulationView / ArticulationView）",
+      "why": "用門牌萬用符把幾千個環境的同類物件收成一維＝環境數的批次張量。對你的意義：一次讀取 4096 架機的位置/速度算通訊拓撲，不用寫 for 循環逐機抓。"
+     },
+     {
+      "term": "Tiled rendering",
+      "why": "把幾千個相機畫面像馬賽克拼圖排進一張 framebuffer 的平行渲染法。對你的意義：若機群政策要看相機影像，這是唯一能撐住幾千環境的渲染路線（USD-Camera 48 個就爆記憶體的教訓）。"
+     },
+     {
+      "term": "RayCaster（Warp-based）",
+      "why": "用 Warp 在 GPU 上平行打光線的距離感測器，可配成高度掃描/雷達。對你的意義：機載高度計、地形迴避用的 LiDAR 用它就夠，比真渲染快很多，而且所有光線同一瞬間完成、沒有真旋轉雷達的掃描時間扭曲。"
+     },
+     {
+      "term": "Delayed PD actuator",
+      "why": "把控制指令存進佇列、延遲 N 個模擬步才執行的顯式致動器，論文官方用途就是模擬分散式系統通訊延遲。對你的意義：這是內建的通訊延遲注入器——把它開放的 delay steps 設成你的實驗變因（如 0/5/10/20 步）。"
+     },
+     {
+      "term": "Manager-based workflow",
+      "why": "把 MDP 拆成觀察/動作/獎勵/終止/事件/課程等可插拔 manager 的環境寫法。對你的意義：風場強度靠 event manager 每 episode 重抽、通訊延遲靠 action 處理、抗風獎勵加一個 reward term——全部是加積木不是改核心。"
+     },
+     {
+      "term": "Direct workflow",
+      "why": "繞開 manager、直接操作物理張量的單腳本環境寫法，Isaac Gym 風格的延續。對你的意義：MARL 官方只給 direct（PettingZoo Parallel API），你的 MAPPO 機群環境一開始就會走這條路。"
+     },
+     {
+      "term": "PettingZoo Parallel API",
+      "why": "多代理環境的標準介面：一步同時收全部 agent 的動作、回全部觀測/獎勵。對你的意義：MAPPO 需要所有 agent 同步步進與批次樣本，這個介面天生匹配；也方便把環境餵給其他支援 PettingZoo 的 MARL 庫做基線對比。"
+     },
+     {
+      "term": "Domain Randomization / ADR",
+      "why": "訓練時在分佈內隨機化物理與渲染參數換取真機魯棒性；ADR 讓隨機化範圍隨表現自動變寬。對你的意義：Dryden 風場參數（強度/積分尺度/时變性）每 episode 重抽就是 DR 的應用；注意摩擦/質量等參數須走 CPU API，別放在每步 hot loop 裡改。"
+     },
+     {
+      "term": "Teacher-student distillation",
+      "why": "用特权狀態（模擬器真值）訓練教師政策，再用 DAGGER 線上模仿蒸餾出只看感測器的學生。對你的意義：抗風任務可先在無噪聲真值下學『理想政策』，再蒸餾給只載 IMU+GPS 的部署政策，降低直接端到端的難度。"
+     },
+     {
+      "term": "Newton（可微分物理引擎）",
+      "why": "NVIDIA/DeepMind/Disney 共創、基於 Warp 的下一代引擎，支援自動微分與自訂求解器。對你的意義：可微分物理讓『對控制/參數求梯度』成為可能，未來你若想做基於模型的機群協作優化或系統辨識，這是值得盯住的選項。"
+     }
+    ],
+    "feynman_test": [
+     "用三句話向指導教授解釋：為什麼 GPU 平行模擬對『同時訓練幾十架無人機的 MAPPO』特別合適，而 CPU 平行模擬卡在哪裡？（提示：跨裝置拷貝次數、細粒度平行需要大量物件餵飽流式處理器）",
+     "Delayed PD actuator 是怎麼模擬通訊延遲的？它與你論文場景的真實無線電延遲相比，少了哪兩個特性？（提示：佇列溢出/封包遺失、延遲的隨機性與相關性）",
+     "manager-based 只慢 3.53%，為什麼多代理環境官方還是只提供 direct workflow？從 MARL 訓練的資料流想一個理由。（提示：幾千 agent 的觀測/動作打包路徑，少一層抽象少一層拷貝與調度）"
+    ],
+    "integration": {
+     "reader_link": "這篇是你 sim-to-real 軌道的『落地平台』：通訊延遲→Delayed PD actuator＋感測器異頻更新；抗風→自訂 event/actuator 注入 Dryden 風場（仿 RAI 對 Spot 建模馬達延遲的做法），配合已讀 domain-randomization 的每 episode 重抽策略；MAPPO 基線→PettingZoo Parallel API 的 direct 多代理環境。讀完它你應該能回答：環境骨幹選 manager 還是 direct、風場掛在哪個 manager、延遲變因接在哪一層。",
+     "lineage": {
+      "builds_on": [
+       "isaac-gym（同團隊 GPU-native 典範：zero-copy 張量、天→小時的訓練時間；Isaac Lab 把裸 Tensor API 升級為 View API＋教具柜）",
+       "sim-to-real-survey（把調查文裡列的 DR、系統辨識、異頻感測等 sim-to-real 手法逐項產品化）",
+       "domain-randomization（Peng 2017 的動力學隨機化成為內建 event/curriculum 功能，並補上 ADR 自動課程）"
+      ],
+      "influenced": [
+       "harl-maritime-2026（直接在 Isaac Lab 上做的異質機群課程式對抗 RL）",
+       "後續機群 RL：論文中 COMPASS/MARLDona 展示了跨載具與多代理足球兩條可直接套用到你機群場景的工作流"
+      ]
+     }
+    },
+    "checklist": [
+     "能說出 Isaac Lab 相對於 Isaac Gym 的三個升級（View API、致動器/感測器教具柜、manager/direct 雙工作流）各自的動機",
+     "能解釋為什麼物理『參數』改動要走 CPU API，並寫出一個避開 hot-loop 改參數的 DR 實作模式",
+     "能画出 Algorithm 2 的 step 時序圖，並標出風場注入與延遲注入各掛在哪一步",
+     "能用 §4 的數字（900k/1.6M FPS、3.53%、48 相機 OOM）為自己的實驗做算力與工作流選型",
+     "能列出 Delayed PD actuator 延遲模型與真實無線電延遲的至少兩點差異，並說明對論文實驗設計的影響"
+    ],
+    "my_notes": ""
+   },
+   "reading_notes": [
+    "選型結論：日常開發用 manager-based（3.53% 代價幾乎可忽略，reward/event 換積木），跑極限基準或上多卡壓測再改寫 direct；MARL 環境反正只有 direct 可用。",
+    "通訊延遲有官方入口：Delayed PD actuator 的 delay steps 是現成變因，再配上感測器異頻更新可分離通訊延遲與感測延遲兩個變因——這是讀全文才找得到的細節，摘要裡完全看不到。",
+    "重要的『沒有』：本文全篇沒有任何風場/氣動模型，quadrotor 只有 MultiRotor 螺紋致動器抽象。Dryden 風場必須自己以 event/外力注入實作，RAI 給 Spot 建模馬達延遲＋扭矩限制的做法是最好的範本。",
+    "兩個效能地雷：(1) 物理參數（摩擦/質量/armature）改動走 CPU API，每步熱迴圈改參數會把 GPU 平行優勢打回原形；(2) 追求寫實相機時 USD-Camera 48 個即 OOM，幾千環境的視覺訓練必須切 Tiled/RayCaster。",
+    "實機可信度錨點：Spot 零樣本 5.2 m/s（近原廠三倍）、Factory 83–99%、AutoMate 約 80%——這些數字說明框架訓練出的政策真能上機，引用時可直接當方法論背書。",
+    "前瞻觀察：Newton 可微分引擎目標數月內與 PhysX 功能齊平；若後續想做梯度式系統辨識或可微分風場估計，值得追蹤 omni.newton 實驗分支。"
+   ]
   },
   {
    "pid": "wind-fidelity-ablation-2026",

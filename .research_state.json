@@ -27,7 +27,8 @@
   "safe-hetero-comm",
   "domain-randomization",
   "sim-to-real-survey",
-  "isaac-gym"
+  "isaac-gym",
+  "isaac-lab-2025"
  ],
  "last_run": "2026-11-20"
 }
